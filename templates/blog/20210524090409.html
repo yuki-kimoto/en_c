@@ -1,40 +1,40 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>feof関数 - ファイルの末尾かチェックする</h2>
+<h2> feof function-check if it is at the end of the file </ h2>
 
-feof関数を使うと、入力ファイルストリームがファイルの末尾に到達したかをチェックすることができます。<a href="/blog/20210418083246.html">stdio.h</a>ヘッダを読み込むと使えます。
+You can use the feof function to check if the input file stream has reached the end of the file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
 
 <pre>
 #include <stdio.h>
-int feof(FILE *fp);
-</pre>
+int feof (FILE * fp);
+</ pre>
 
-引数は、ファイルストリームです。戻り値は、末尾に到達していた場合は、0ではない値、末尾に到達していた場合は、0です。
+The argument is a file stream. The return value is a non-zero value if it has reached the end, and 0 if it has reached the end.
 
-<h2>feof関数のサンプル</h2>
+<h2> Feof function sample </ h2>
 
-feof関数を使ったサンプルは<a href="/blog/20210519082217.html">fgetc関数</a>のサンプルの中にあります。
+A sample using the feof function can be found in the <a href="/blog/20210519082217.html"> fgetc function </a> sample.

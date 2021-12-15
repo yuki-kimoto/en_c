@@ -1,95 +1,95 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>ヘッダファイルの読み込み</h2>
+<h2> Read header file </ h2>
 
-includeマクロを使ってヘッダファイルを読み込む方法を解説します。
+I will explain how to read the header file using the include macro.
 
 <pre>
-#include ヘッダファイル名
-</pre>
+#include header file name
+</ pre>
 
-ヘッダファイル名は、システムのヘッダ読み込みパスである場合は「<ヘッダファイル名>」と書きます。
+The header file name is written as "<header file name>" if it is the header read path of the system.
 
 <pre>
 #include <stdio.h>
-</pre>
+</ pre>
 
-自作のライブラリで、システムのヘッダファイルの読み込みパスではない場所から、ライブラリのヘッダを読み込む場合は、「"ヘッダファイル名"」と書きます。
+If you want to read the header of the library from a location other than the system header file reading path in your own library, write "" header file name "".
 
 <pre>
 #include "mylib.h"
-</pre>
+</ pre>
 
-<h3>ヘッダファイル以外を読み込むことはできますか?</h3>
+<h3> Is it possible to read other than the header file? </ h3>
 
-はい。ヘッダファイル以外を読み込むことはできます。でもおそらく、基本的には、それは望ましいことではないはずです。C言語を始めた段階で、もしヘッダファイル以外を読み込む必要があると考えたときは、少し立ち止まって考えてください。
+Yes. It is possible to read other than the header file. But perhaps, basically, that's not what you want. If you're just starting out in C and think you need to read something other than a header file, stop for a moment and think about it.
 
-ひとつの用途としては、大量の静的にデータを定義(Unicodeの文字の定義など)する場合に、ファイルを分けておきたいという理由で、利用されている例を見たことがあります。
+One use is to see an example where a large amount of static data is defined (such as Unicode character definition) because you want to keep the files separate.
 
-<h3>システムのヘッダファイルの読み込みパスはどこで定義されていますか?</h3>
+<h3> Where is the read path for the system header file defined? </ h3>
 
-システムのヘッダの読み込みパスの一つはたとえば<a href="https://en.ubuntu.perlzemi.com/">Ubuntu</a>では「/usr/include」です。他の<a href="https://en.linux.perlzemi.com/">UNIX/Linux</a>ディストリビューションの場合は、異なったりします。
+One of the system header read paths is "/ usr / include" in <a href="https://en.ubuntu.perlzemi.com/"> Ubuntu </a>, for example. It may be different for other <a href="https://en.linux.perlzemi.com/"> UNIX / Linux </a> distributions.
 
-システムのヘッダファイルの読み込みパスを調べるにはどうすればよいのでしょうか?
+How can I find out the read path of the system header file?
 
-実は、ヘッダーファイルの読み込みパスは、C言語のプリプロセッサに書き込まれています。
+In fact, the header file read path is written to the C preprocessor.
 
-まず、gccが使っているプリプロセッサのパスを調べます。
-
-<pre>
-gcc -print-prog-name=cc1
-</pre>
-
-以下のように出力されます。
+First, find out the path of the preprocessor used by gcc.
 
 <pre>
-/usr/lib/gcc/x86_64-linux-gnu/7/cc1
-</pre>
+gcc -print-prog-name = cc1
+</ pre>
 
-プリプロセッサのバージョンを表示すると、インクルードパスをが表示されます。
+The output is as follows.
 
 <pre>
-/usr/lib/gcc/x86_64-linux-gnu/7/cc1 -v
-</pre>
+/ usr / lib / gcc / x86_64-linux-gnu / 7 / cc1
+</ pre>
 
-デフォルトのヘッダーファイルの読み込みパスが表示されます。
+When viewing the preprocessor version, the include path is displayed.
+
+<pre>
+/ usr / lib / gcc / x86_64-linux-gnu / 7 / cc1 -v
+</ pre>
+
+The default header file read path is displayed.
 
 <pre>
 ignoring nonexistent directory "/usr/lib/gcc/x86_64-linux-gnu/7/../../../../x86_64-linux-gnu/include"
 #include "..." search starts here:
 #include <...> search starts here:
- /usr/lib/gcc/x86_64-linux-gnu/7/include
- /usr/local/include
- /usr/lib/gcc/x86_64-linux-gnu/7/include-fixed
- /usr/include
-</pre>
+ / usr / lib / gcc / x86_64-linux-gnu / 7 / include
+ / usr / local / include
+ / usr / lib / gcc / x86_64-linux-gnu / 7 / include-fixed
+ / usr / include
+</ pre>
 
-<h3>なぜ標準ライブラリはヘッダファイルの読み込みだけで関数が利用できるのですか?</h3>
+<h3> Why can the standard library use functions just by reading the header file? </ h3>
 
-通常は、ヘッダファイルを読み込み、ライブラリあるいはオブジェクトファイルをリンクしないと、関数は利用できませんね。
+Normally, you have to read the header file and link the library or object file before you can use the function.
 
-「stdio.h」など、C言語標準のライブラリの場合は、この作業が必要ないですね。
+For C language standard libraries such as "stdio.h", this work is not necessary.
 
-実は、gccのリンクで実行ファイルが生成されるときに、C言語の関数が実装されたglibc(libc)と呼ばれるライブラリがリンクされます。
+In fact, when an executable is generated by gcc linking, a library called glibc (libc) that implements C language functions is linked.
 
-<h3>マクロとは何ですか?</h3>
+<h3> What is a macro? </ H3>
 
-C言語のマクロとは、#ではじまる一つの構文です。マクロの記述は、ソースコードのコンパイルが始まる前に、C言語プロプロセッサによってソースコードに展開されます。
+A C language macro is a syntax that starts with #. The description of the macro is expanded into the source code by the C language processor before the source code begins to compile.

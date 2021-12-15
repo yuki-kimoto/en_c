@@ -1,66 +1,66 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>型キャスト</h2>
+<h2> Type cast </ h2>
 
-型キャストとは、ある型を他の型に変換する構文のことです。
+A type cast is a syntax that converts one type to another.
 
 <pre>
-(変換後の型名)値
-</pre>
+(Type name after conversion) Value
+</ pre>
 
-int8_t型の値をint32_t型の値に変換する場合は以下のようになります。
+To convert an int8_t type value to an int32_t type value:
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   int8_t num_i8 = 5;
-  int32_t num_i32 = (int32_t)num_i8;
+  int32_t num_i32 = (int32_t) num_i8;
   
-  printf("%d\n", num_i32);
+  printf ("% d \ n", num_i32);
 }
-</pre>
+</ pre>
 
-型変換の結果、精度が落ちてしまったり、型に互換性がないため、予期せぬ値になる場合もあるので、注意しましょう。
+Be aware that type conversions can result in inaccuracies and incompatible types that can lead to unexpected values.
 
-コンパイラによっては、型に互換性がないなど、間違いの可能性が高いものに警告を出すものもあります。
+Some compilers warn you of things that are likely to be wrong, such as incompatible types.
 
-たとえば<a href="https://en.linux.perlzemi.com/blog/20201216103956.html">gcc</a>で「<a href="/blog/20201130082751.html">int32_t型</a>」を<a href="/blog/20210215090234.html">汎用ポインタ型「void*」</a>に型キャストした場合は、コンパイルは通りますが、警告が発生します。
+For example, in <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a>, "<a href="/blog/20201130082751.html"> int32_t type </a> If you typecast ">" to <a href="/blog/20210215090234.html"> general-purpose pointer type "void *" </a>, the compilation will pass, but a warning will be issued.
 
 <pre>
 #include <stdint.h>
 
-int main(void) {
+int main (void) {
   int32_t num = 5;
-  void* ptr = (void*)num;
+  void * ptr = (void *) num;
 }
-</pre>
+</ pre>
 
-警告内容。
+Warning content.
 
 <pre>
-a.c:5: warning: cast to pointer from integer of different size
-</pre>
+a.c: 5: warning: cast to pointer from integer of different size
+</ pre>
 
-<h3>暗黙の型変換と型変換規則</h3>
+<h3> Implicit type conversion and type conversion rules </ h3>
 
-型変換の結果がどうなるかとういことは、暗黙の型変換と型変換規則で解説します。
+What happens to the result of type conversion is explained in Implicit type conversion and type conversion rules.

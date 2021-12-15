@@ -1,138 +1,138 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop="name">プリプロセッサ</span>
+        <span itemprop = "name"> preprocessor </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>マクロの記述 - #define</h2>
+<h2> Macro description-#define </ h2>
 
-マクロを定義して使用する方法について解説します。マクロとは、プリプロセッサの「#define」命令によって、ソースコードがコンパイルされる前に、ソースコード中に展開される文字列のことです。
+Explains how to define and use macros. A macro is a string that is expanded in the source code by the preprocessor's "#define" instruction before the source code is compiled.
 
 <pre>
-#define マクロ名 文字列
-</pre>
+#define macro name string
+</ pre>
 
-マクロ名は、C言語の識別子で使うことができる文字と同じ文字を使うことができます。文字列は、任意の文字列で、空白を含むこともできます。
+Macro names can use the same characters that can be used in C identifiers. The string is any string and can contain spaces.
 
-マクロには、いくつかの想定される利用用途があるので、紹介していきます。
+Macros have several possible uses, so I will introduce them.
 
-<h3>マクロ定数</h3>
+<h3> Macro constants </ h3>
 
-マクロの一つ目の用途は、定数定義です。ここでは、これを、マクロ定数と呼ぶことにします。
+The first use of macros is to define constants. Here, we will call this a macro constant.
 
-マクロ定数は、C言語の慣習的に、大文字で構成します。アンダースコアを含んでも構いません。
+Macro constants are constructed in uppercase, as is customary in the C language. It may include underscores.
 
 <pre>
 #define MYAPP_PI 3.14
 #define MYAPP_PARALLEL_PROCESS 10
-</pre>
+</ pre>
 
-マクロ定数を、使用するサンプルプログラムです。「MYAPP_PI」は「3.14」に、コンパイルされる前に展開されます。
+This is a sample program that uses macro constants. "MYAPP_PI" is expanded to "3.14" before it is compiled.
 
 <pre>
 #include <stdio.h>
 
 #define MYAPP_PI 3.14
 
-int main(void) {
+int main (void) {
   double num = 3 * MYAPP_PI;
   
-  printf("%f\n", num);
+  printf ("% f \ n", num);
 }
-</pre>
+</ pre>
 
-出力結果です。
+This is the output result.
 
 <pre>
 9.420000
-</pre>
+</ pre>
 
-<h3>整数定数の場合はenumを使う</h3>
+<h3> Use enum for integer constants </ h3>
 
-整数定数の場合は、マクロを使わず<a href="/blog/20210120133501.html">列挙型「enum」</a>を使うことをお勧めします。enumはコンパイラによって処理され副作用がありません。
+For integer constants, it is recommended to use <a href="/blog/20210120133501.html"> enum "enum" </a> instead of macros. The enum is processed by the compiler and has no side effects.
 
 <pre>
 enum {
   MYAPP_PARALLEL_PROCESS = 10
 }
-</pre>
+</ pre>
 
-<h3>マクロはできる限り使わない</h3>
+<h3> Do not use macros as much as possible </ h3>
 
-プログラムを作成する場合は、できる限りマクロを使わないという方針で、作ることをお勧めします。
+When creating a program, we recommend that you do not use macros as much as possible.
 
-マクロ展開は、意図しない副作用を引き起こしやすいからです。
+Macro expansion tends to cause unintended side effects.
 
-たとえば以下の副作用。
+For example, the following side effects.
 
 <pre>
 #define FOO 2 + 3
-</pre>
+</ pre>
 
-次の計算式の結果は?
+What is the result of the following formula?
 
 <pre>
 1 * FOO * 3
-</pre>
+</ pre>
 
-次のように展開されます。
+It will be expanded as follows.
 
 <pre>
 1 * 2 + 3 * 3
-</pre>
+</ pre>
 
-2 + 9 で 11 になります。FOOは、5であることを期待していたのではないでしょうか?
+2 + 9 gives 11. Didn't FOO expect it to be 5?
 
 <pre>
 #define FOO (2 + 3)
-</pre>
+</ pre>
 
-と書くと正しく動きます。
+If you write, it will work correctly.
 
-また、関数プロトタイプ宣言の引数名が、マクロで展開されてしまうなど、予想しにくい副作用が発生します。
+In addition, the argument names of function prototype declarations are expanded by macros, which causes unpredictable side effects.
 
-すべての副作用を書いていくことはしないのですが、マクロを使うと、間違いを引き起こしやすい副作用が、プログラムに入り込んでしまいがちということを、覚えておきましょう。
+I won't write down all the side effects, but keep in mind that macros tend to get error-prone side effects into your program.
 
-副作用は、プログラムが大きくなっていくにしたがって、発見箇所を追うのが、難しくなっていきます。そして、プログラムは、機能要望に応じて、大きくなっていきがちです。
+Side effects become more difficult to track down as the program grows. And programs tend to grow in size in response to feature requests.
 
-「今日のちょっとしんどいけど、大丈夫だろう」は、未来の「すげーしんどい、もうだめなんだけど」につながっていきます。
+"Today's a little painful, but it'll be okay" will lead to the future "It's terrible, it's no good anymore".
 
-<h3>マクロはいつ使うのか?</h3>
+<h3> When do you use macros? </ H3>
 
-できる限り、使わないほうがよいというなら、それでは、マクロはいつ使うのか?
+If you shouldn't use it as much as possible, then when do you use macros?
 
-ひとつは、浮動小数点の定数定義ですね。
+One is the definition of floating point constants.
 
-それ以外は?
+Other than that?
 
-たとえば、数値計算のあるライブラリが存在していることをチェックしたいとします。
+For example, suppose you want to check that a library with numerical calculations exists.
 
-そして、そのライブラリが存在していた場合は、パフォーマンスを速くできるなどの理由で、そのライブラリの機能を使うようにしたいとします。
+And if that library exists, you want to use the features of that library, for example because it can speed up performance.
 
-このような場合は「#ifdef」とマクロを組み合わせて、記述することが、必須です。
+In such a case, it is essential to describe by combining "#ifdef" and a macro.
 
-一方で、どの環境でも動くような、C言語の限定した仕様だけを使ってポータブルなアプリケーションを作成しているとします。
+On the other hand, suppose you're writing a portable application using only the limited C language specifications that work in any environment.
 
-このような場合は、浮動小数点の定数定義など、最小限のマクロ定義だけを使って、アプリケーションを構成できます。
+In such cases, you can configure your application with minimal macro definitions, such as floating-point constant definitions.
 
-このようなアプリケーションで、マクロが大量に使われていたとすると、何かが間違っている可能性が高いです。
+If macros are heavily used in such applications, it's likely that something is wrong.
 
-一方、やはり、マクロがかなりの数、存在しなければならないアプリケーションもあります。それは、環境差を吸収するために作られたようなアプリケーションだったりします。たとえば、ユーザーから同じソケットAPIを見せるために、Windowsと<a href="https://en.linux.perlzemi.com/">Linux/UNIX</a>のソケット通信の違いを吸収しなければならないなど。
+On the other hand, again, in some applications, there must be a significant number of macros. It may be an application that was created to absorb environmental differences. For example, in order for users to see the same socket API, we have to absorb the difference between Windows and <a href="https://en.linux.perlzemi.com/"> Linux / UNIX </a> socket communication. Not to be.
 
-またパフォーマンスを最速にしたいという条件があるので、コンパイラのインライン展開には期待せずに、手動で展開したいという場合も、マクロの利用が考えられます。
+Also, since there is a condition that you want to maximize the performance, you can also use macros if you want to expand manually without expecting inline expansion of the compiler.
 
-ですので、一概には言えないのですが、必要ではない場合はマクロは使わない、必要になったタイミングで、他に代替手段がないかをよく考えて使うということを、お勧めします。
+So, I can't say it unconditionally, but I recommend that you don't use macros when you don't need them, and think carefully about alternatives when you need them.

@@ -1,143 +1,143 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>fopen関数 - ファイルを開く</h2>
+<h2> fopen function-open file </ h2>
 
-fopen関数を使うと、ファイルを開くことができます。<a href="/blog/20210418083246.html">stdio.h</a>ヘッダを読み込むと使えます。
+You can use the fopen function to open a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
 
 <pre>
-FILE* fopen(const char *file_name, const char *mode);
-</pre>
+FILE * fopen (const char * file_name, const char * mode);
+</ pre>
 
-第一引数は、開きたいファイルのファイル名です。第二引数は、モードです。ファイルオープンに成功すると、ファイルストリームを表現する「FILE*型」の値が返されます。
+The first argument is the filename of the file you want to open. The second argument is the mode. If the file is opened successfully, a value of "FILE * type" representing the file stream is returned.
 
-<h4>モードの一覧</h4>
+<h4> List of modes </ h4>
 
-モードの一覧です。
+A list of modes.
 
 <table>
-  <tr><th>モード</th><th>動作</th></tr>
-  <tr><td>r</td><td>読み込み(ファイルがないときはエラー)</td></tr>
-  <tr><td>w</td><td>書き込み(ファイルがないときは新規作成)</td></tr>
-  <tr><td>a</td><td>追加書き込み(ファイルがないときは新規作成)</td></tr>
-  <tr><td>r+</td><td>読み込みと書き込み(ファイルがないときはエラー)</td></tr>
-  <tr><td>w+</td><td>読み込みと書き込み(ファイルがないときは新規作成)</td></tr>
-  <tr><td>a+</td><td>読み込みと追加書き込み(ファイルがないときは新規作成)</td></tr>
-</table>
+  <tr> <th> Mode </ th> <th> Behavior </ th> </ tr>
+  <tr> <td> r </ td> <td> Read (error if there is no file) </ td> </ tr>
+  <tr> <td> w </ td> <td> Write (create new if there is no file) </ td> </ tr>
+  <tr> <td> a </ td> <td> Additional write (create new if there is no file) </ td> </ tr>
+  <tr> <td> r + </ td> <td> Read and write (error if there is no file) </ td> </ tr>
+  <tr> <td> w + </ td> <td> Read and write (create new if there is no file) </ td> </ tr>
+  <tr> <td> a + </ td> <td> Read and add write (create new if there is no file) </ td> </ tr>
+</ table>
 
-書き込みは、ファイルの内容がクリアされ、新しい内容で書き込むことを意味します。追加書き込みは、ファイルの末尾に追加して、書き込むことを意味します。
+Writing means that the contents of the file are cleared and you are writing with new contents. Additional write means to add to the end of the file and write.
 
-上記のモードはバイナリモードを意味する「b」と組み合わせることができます。
+The above modes can be combined with "b" which means binary mode.
 
 <pre>
 br
 bw
-</pre>
+</ pre>
 
-デフォルトの動作は、テキストモードオープンされ、Windowsの場合にはファイルに含まれる改行文字である「CR」「LF」の並びが「\n」に置き換えられます。
+The default behavior is to open in text mode, and in the case of Windows, the line feed characters "CR" and "LF" contained in the file are replaced with "\ n".
 
-バイナリモードでは、このような置き換えはされません。
+In binary mode, this replacement is not possible.
 
-<h3>fopen関数のサンプル</h3>
+<h3> sample fopen function </ h3>
 
-fopen関数のサンプルです。
+This is a sample of the fopen function.
 
-<h4>ファイルを読み込む</h4>
+<h4> Read the file </ h4>
 
-fopen関数で読み込みモードでファイルを開き、fgetc関数で読み込み、標準出力に出力しています。
+The fopen function opens the file in read mode, the fgetc function reads it, and outputs it to standard output.
 
 <pre>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main (void) {
   
-  // ファイルを読み込みモードで開く
-  const char* in_file = "input.txt";
-  FILE* in_fp = fopen(in_file, "r");
+  // Open the file in read mode
+  const char * in_file = "input.txt";
+  FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf(stderr, "Can't open file %s\n", in_file);
-    exit(1);
+    fprintf (stderr, "Can't open file% s \ n", in_file);
+    exit (1);
   }
   
-  // 読み込んで、標準出力に出力
+  // Read and output to standard output
   int32_t ch;
-  while(ch = fgetc(in_fp)) {
+  while (ch = fgetc (in_fp)) {
     if (ch == EOF) {
       break;
     }
-    fputc(ch, stdout);
+    fputc (ch, stdout);
   }
   
-  // ファイルに書き込む
-  const char* message = "Hello";
-  fprintf(in_fp, "%s\n", message);
+  // write to file
+  const char * message = "Hello";
+  fprintf (in_fp, "% s \ n", message);
   
-  // fopen関数でファイルを閉じる
-  fclose(in_fp);
+  // Close the file with the fopen function
+  fclose (in_fp);
 }
-</pre>
+</ pre>
 
-入力ファイル「input.txt」です。
-
-<pre>
-Hello
-World!
-</pre>
-
-出力結果です。
+It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</pre>
+</ pre>
 
-<h4>ファイルに書き込む</h4>
+This is the output result.
 
-fopen関数で書き込みモードでファイルを開き、<a href="/blog/20210510093506.html">fprintf関数</a>で内容を書きこみ、<a href="/blog/20210509093506.html">fclose関数</a>で、ファイルを閉じています。
+<pre>
+Hello
+World!
+</ pre>
+
+<h4> Write to file </ h4>
+
+Open the file in write mode with the fopen function, write the contents with the <a href="/blog/20210510093506.html"> fprintf function </a>, and use the <a href="/blog/20210509093506.html"> fclose function. </a> closes the file.
 
 <pre>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main (void) {
   
-  // ファイルを書き込みモードで開く
-  const char* out_file = "output.txt";
-  FILE* out_fp = fopen(out_file, "w");
+  // Open the file in write mode
+  const char * out_file = "output.txt";
+  FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf(stderr, "Can't open file %s\n", out_file);
-    exit(1);
+    fprintf (stderr, "Can't open file% s \ n", out_file);
+    exit (1);
   }
   
-  // ファイルに書き込む
-  const char* message = "Hello";
-  fprintf(out_fp, "%s\n", message);
+  // write to file
+  const char * message = "Hello";
+  fprintf (out_fp, "% s \ n", message);
   
-  // fopen関数でファイルを閉じる
-  fopen(out_fp);
+  // Close the file with the fopen function
+  fopen (out_fp);
 }
-</pre>
+</ pre>

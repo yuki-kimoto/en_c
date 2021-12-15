@@ -1,80 +1,80 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>コマンドライン引数</h2>
+<h2> Command line arguments </ h2>
 
-C言語でコマンドライン引数を受け取る方法についての解説です。コマンドライン引数は、<a href="/blog/20210314140759.html">main関数</a>の引数として受け取ることができます。
+A description of how to receive command line arguments in C. Command line arguments can be taken as arguments to the <a href="/blog/20210314140759.html"> main function </a>.
 
 <pre>
-int main(int argc, char *argv[]) {
+int main (int argc, char * argv []) {
 
 }
-</pre>
+</ pre>
 
-第一引数は、コマンドライン引数の個数です。int型です。
+The first argument is the number of command line arguments. It is an int type.
 
-第二引数は「char*」の<a href="/blog/20210129143859.html">配列</a>型です。コマンドライン引数が文字列の配列で渡されます。
+The second argument is the <a href="/blog/20210129143859.html"> array </a> type of "char *". Command line arguments are passed as an array of strings.
 
-C言語では、実行したプログラム名も、コマンドライン引数の一部として入ってくることに注意しましょう。
+Note that in C, the name of the executed program is also included as part of the command line arguments.
 
-たとえば
+for example
 
 <pre>
 ./test apple orange banana
-</pre>
+</ pre>
 
-で実行されるとargvは以下のようになります。
+When executed with, argv becomes as follows.
 
 <pre>
 "./test", "apple", "orange", "banana"
-</pre>
+</ pre>
 
-argcとargvという名前は何でもよいですが、C言語仕様で記述されている名前で紹介しておきます。
+The names argc and argv can be anything, but I will introduce them with the names described in the C language specification.
 
-<h3>コマンドライン引数のサンプル</h3>
+<h3> Sample command line arguments </ h3>
 
-コマンドライン引数を受け取って、内容をそのまま出力しています。
+It receives command line arguments and outputs the contents as they are.
 
 <pre>
 // test.c
 #include <stdio.h>
 #include <stdint.h>
 
-int main(int argc, char *argv[]) {
-  for (int32_t i = 0; i < argc; i++) {
-    printf("%s\n", argv[i]);
+int main (int argc, char * argv []) {
+  for (int32_t i = 0; i <argc; i ++) {
+    printf ("% s \ n", argv [i]);
   }
 }
-</pre>
+</ pre>
 
-コンパイルして次のように実行してみましょう。
+Let's compile and run it like this:
 
 <pre>
 gcc -o test test.c && ./test apple orange banana
-</pre>
+</ pre>
 
-出力結果は以下のようになります。
+The output result is as follows.
 
 <pre>
 ./test
 apple
 orange
 banana
-</pre>
+</ pre>

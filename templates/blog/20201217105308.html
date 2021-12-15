@@ -1,44 +1,44 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>ローカル変数</h2>
+<h2> Local variables </ h2>
 
-C言語のローカル変数について解説します。ローカル変数は、関数の内部で宣言された変数のことです。
+I will explain about local variables in C language. Local variables are variables declared inside a function.
 
-<h3>ローカル変数の宣言</h3>
+<h3> Declaration of local variables </ h3>
 
-変数の宣言は以下の構文で行います。
+Variables are declared with the following syntax.
 
 <pre>
-型名 変数名;
-</pre>
+Type name Variable name;
+</ pre>
 
-関数の中で記述された変数宣言は、ローカル変数の宣言になります。
+Variable declarations written in functions are declarations of local variables.
 
 <pre>
 int main (void) {
-  型名 変数名;
+  Type name Variable name;
 }
-</pre>
+</ pre>
 
-int32_t型の変数宣言をするサンプルを書いてみます。
+Let's write a sample that declares a variable of type int32_t.
 
 <pre>
 #include <stdint.h>
@@ -46,11 +46,11 @@ int32_t型の変数宣言をするサンプルを書いてみます。
 int main (void) {
   int32_t num;
 }
-</pre>
+</ pre>
 
-<h3>ローカル変数の初期化</h3>
+<h3> Initialization of local variables </ h3>
 
-変数宣言は、変数の初期化と同時に行うことができます。
+Variable declarations can be made at the same time as variable initialization.
 
 <pre>
 #include <stdint.h>
@@ -58,15 +58,15 @@ int main (void) {
 int main (void) {
   int32_t num = 1;
 }
-</pre>
+</ pre>
 
-C言語では、変数の初期化を行わない場合に、自動的に0に初期化されず、値は不定になるということに注意してください。
+Note that in C, if you do not initialize the variable, it will not be automatically initialized to 0 and the value will be undefined.
 
-<a href="https://perlzemi.com/blog/20161107147852.html">Perlの変数</a>の場合は<a href="https://perlzemi.com/blog/20100220126425.html">未定義値undef</a>で初期化される点が異なります。
+<a href="https://perlzemi.com/blog/20161107147852.html"> For Perl variables </a>, <a href="https://perlzemi.com/blog/20100220126425.html"> The difference is that it is initialized with the undefined value undef </a>.
 
-<h3>ローカル変数のスコープ</h3>
+<h3> Scope of local variables </ h3>
 
-C言語のローカル変数の<a href="/blog/20210311085419.html">スコープ</a>について書いておきます。C言語ではスコープを「{}」を使って記述できます。スコープの中で変数宣言を行うことができます。変数はスコープの中でだけ参照することができます。関数の中でだけスコープを使用できます。
+I will write about the <a href="/blog/20210311085419.html"> scope </a> of local variables in C language. In C language, the scope can be described using "{}". You can make variable declarations within the scope. Variables can only be referenced within scope. You can only use scopes inside functions.
 
 <pre>
 #include <stdint.h>
@@ -80,12 +80,12 @@ int main (void) {
     int32_t num2;
   }
 }
-// この位置ではnum1, num2は見えない。
-</pre>
+// You cannot see num1 and num2 at this position.
+</ pre>
 
-<h3>C99からはどの位置でもローカル変数宣言が可能</h3>
+<h3> Local variable declaration is possible at any position from C99 </ h3>
 
-<a href="/blog/20201206125815.html">C99</a>からはどの位置でもローカル変数宣言が可能になりました。ローカル変数の宣言は、ブロックの先頭でなければならないという制約はなくなりました。
+From <a href="/blog/20201206125815.html"> C99 </a>, you can declare local variables at any position. The restriction that the declaration of a local variable must be at the beginning of the block is removed.
 
 <pre>
 #include <stdint.h>
@@ -96,126 +96,126 @@ int main (void) {
     
     1 + 1;
     
-    // どの位置でもローカル変数の宣言が可能
+    // Local variables can be declared at any position
     int32_t num2 = 4;
   }
 }
-</pre>
+</ pre>
 
-<h3>const修飾子</h3>
+<h3> const modifier </ h3>
 
-const修飾子をローカル変数につかうと、初期化以外でのローカル変数への代入を禁止することができます。これは、コンパイル時エラーを発生させます。
+You can use the const modifier on a local variable to prohibit assignment to a local variable other than initialization. This raises a compile-time error.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 
-int main(void) {
+int main (void) {
   const int32_t num = 1;
   
-  // コンパイルエラー
+  // Compile error
   num = 2;
 }
-</pre>
+</ pre>
 
-<h4>文字列を表現するためのconst char*</h4>
+<h4> constant char * </ h4> for expressing a character string
 
-constがよく使われるのは、文字列の要素に対する代入を防ぎたい場合です。
+const is often used when you want to prevent assignments to string elements.
 
-<a href="/blog/20201208125815.html">文字列を表現する型</a>として「const char*」という型について書きました。
+<a href="/blog/20201208125815.html"> I wrote about the type "const char *" as the type that expresses a character string </a>.
 
 <pre>
-// 文字列を表現する型
-const char* message = "Hello";
-</pre>
+// A type that represents a string
+const char * message = "Hello";
+</ pre>
 
-ここではconstの役割を詳しく解説します。constは代入を禁止するための構文です。では「const char*」で一体どのような代入が禁止されるのでしょうか?
+Here, I will explain the role of const in detail. const is a syntax for prohibiting assignment. So what kind of assignment is prohibited in "const char *"?
 
-勘違いしてしまいがちですが「message」への代入が禁止されるわけではありません。これは大丈夫です。
+It's easy to misunderstand, but it doesn't mean that assignment to "message" is prohibited. This is ok.
 
 <pre>
 // OK
 message = "Goodby";
-</pre>
+</ pre>
 
-実はここでのconstはポインタ「*」にかかっているのです。つまり、ポインタが指している要素への代入の禁止という意味になります。
-
-<pre>
-// コンパイルエラー
-message[3] = 'a';
-</pre>
-
-あまり意味のないことですが、もし、変数への代入を禁止したいなら次のように書きます。この場合はconstが変数名にかかっています。どこにかかっているのかを確認してください。
+Actually, the const here depends on the pointer "*". In other words, it means prohibiting assignment to the element pointed to by the pointer.
 
 <pre>
-char* const message = "Hello";
-</pre>
+// Compile error
+message [3] ='a';
+</ pre>
 
-<h4>constはキャストではずすことができる</h4>
-
-constは<a href="/blog/20210217081559.html">型キャスト</a>ではずすことができます。「ええー」。
+It doesn't make much sense, but if you want to prohibit assignments to variables, write: In this case const depends on the variable name. Check where it is.
 
 <pre>
-char* message2 = (char*)message;
-</pre>
+char * const message = "Hello";
+</ pre>
 
-ということは、const修飾は、間違いを減らすという意味しかないということです。それでも、明示的に文字列定数として使っていることを示すことができますし、間違いは起こりやすいのでconstをつけたほうが良いです。
+<h4> const can be removed by casting </ h4>
 
-<h4>文字列の配列を表現する</h4>
+const can be removed with <a href="/blog/20210217081559.html"> typecast </a>. "Eh".
 
-さてもう一つconstの使う場面を紹介。定数文字列を含んだ要素の変更ができない配列の作り方です。
+<pre>
+char * message2 = (char *) message;
+</ pre>
+
+This means that const modification only means reducing mistakes. Still, you can explicitly indicate that you're using it as a string constant, and it's easy to make mistakes, so it's better to add const.
+
+<h4> Representing an array of strings </ h4>
+
+Now, I would like to introduce another scene where const is used. This is how to create an array that cannot change the elements that include the constant string.
 
 <pre>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   
-  const char* const strings[] = {
+  const char * constant strings [] = {
     "Apple",
     "Orange",
     "Grape",
-  };
+  };;
 
-  printf("%s %s\n", strings[0], strings[1]);
+  printf ("% s% s \ n", strings [0], strings [1]);
 }
-</pre>
+</ pre>
 
-constはどこにかかっているのかなぁ。うーん。わかりにくい。
+Where does const depend? Hmmm. Difficult to understand.
 
 <pre>
-const char* const strings[]
-</pre>
+const char * const strings []
+</ pre>
 
-最初のconst「const char*」は、ポインタの指し示す先でしょう。つまり、文字列の要素への代入の禁止。
+The first const "const char *" will be where the pointer points. In other words, prohibition of assignment of character strings to elements.
 
-次は、どうなってんだ。「const strings[]」。えーっと、答えを書くと、変数への代入も禁止されますし、配列の要素への代入も禁止されます。なんで? 知らん。
+What's next? "Const strings []". Well, writing the answer prohibits assigning to variables and also to elements of arrays. Why? I don't know.
 
-次に紹介するstaticと今紹介したconstは全く機能が違うので、注意してください。雰囲気が似ているので、混同してしまいがちです。
+Please note that the functions of static introduced next and const introduced just now are completely different. It's easy to get confused because the atmosphere is similar.
 
-<h3>静的ローカル変数</h3>
+<h3> Static local variables </ h3>
 
-C言語では、ローカル変数にstatic修飾子をつけることで、静的ローカル変数を宣言できます。
+In C, you can declare static local variables by adding the static qualifier to local variables.
 
 <pre>
 int foo (void) {
-  // 静的ローカル変数
+  // Static local variables
   static int32_t foo;
   
   static int32_t bar = -5;
 }
-</pre>
+</ pre>
 
-静的ローカル変数という名前ですが、実際の役割について考えると、スコープのあるグローバル変数と考えるのがよいです。
+It's called a static local variable, but when you think about its actual role, it's better to think of it as a scoped global variable.
 
-寿命は、プログラムの開始から最後までですが、スコープを持たせて、スコープ外から直接アクセスさせないようにできます。
+The lifespan is from the beginning to the end of the program, but you can have a scope to prevent direct access from outside the scope.
 
-静的ローカル変数は、グローバル変数と同じく0(すべてのビットが0)で初期化されます。代入演算子の右辺に定数を記述すると、その値で初期化されます。
+Static local variables, like global variables, are initialized with 0 (all bits are 0). If you write a constant on the right side of the assignment operator, it will be initialized with that value.
 
-static宣言の初期化における代入は、プログラムの最初に一度だけおこなわれるということに注意してください。関数が実行されるたびに、初期値が代入されるわけではありません。
+Note that the assignment in the initialization of the static declaration is done only once at the beginning of the program. The initial value is not assigned each time the function is executed.
 
-<h4>静的ローカル変数のサンプル</h4>
+<h4> Sample static local variables </ h4>
 
-静的ローカル変数のサンプルです。静的ローカル変数は、プログラムの最初から最後まで存在しているところに注目してみてください。
+This is a sample of static local variables. Notice that static local variables exist from the beginning to the end of the program.
 
 <pre>
 #include <stdio.h>
@@ -223,29 +223,29 @@ static宣言の初期化における代入は、プログラムの最初に一�
 #include <stdlib.h>
 #include <string.h>
 
-void foo(void) {
+void foo (void) {
   static int32_t num = -5;
   
-  num++;
+  num ++;
   
-  printf("%d\n", num);
+  printf ("% d \ n", num);
 }
 
-int main(void) {
-  foo();
-  foo();
-  foo();
-  foo();
-  foo();
+int main (void) {
+  foo ();
+  foo ();
+  foo ();
+  foo ();
+  foo ();
 }
-</pre>
+</ pre>
 
-出力結果です。
+This is the output result.
 
 <pre>
--4
+-Four
 -3
 -2
 -1
 0
-</pre>
+</ pre>

@@ -1,49 +1,49 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stddef.html">
-        <span itemprop="name">stddef.h</span>
+        <span itemprop = "name"> stddef.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>NULL - ヌルポインタ定数</h2>
+<h2> NULL --Null pointer constant </ h2>
 
-<b>NULL</b>はヌルポインタ定数と呼ばれ「整数の0」または「(void*)にキャストした整数の0」として「stddef.h」で定義されています。
+<b> NULL </ b> is called a null pointer constant and is defined in "stddef.h" as "integer 0" or "integer 0 cast to (void *)".
 
-<a href="/blog/20210211090234.html">ポインタ</a>にNULLを代入したものはヌルポインタと呼ばれます。NULLはあらゆるポインタ型に代入できます。
+Substituting NULL for <a href="/blog/20210211090234.html"> pointer </a> is called a null pointer. NULL can be assigned to any pointer type.
 
 <pre>
-// ヌルポインタ
-void* ptr = NULL;
-int32_t* int32_ptr = NULL;
-float* float_ptr = NULL;
-</pre>
+// Null pointer
+void * ptr = NULL;
+int32_t * int32_ptr = NULL;
+float * float_ptr = NULL;
+</ pre>
 
-<h3>NULLのサンプル</h3>
+<h3> NULL sample </ h3>
 
-NULLのサンプルです。
+This is a null sample.
 
-<h4>メモリ割り当てのチェック</h4>
+<h4> Check memory allocation </ h4>
 
-以下のサンプルでは、<a href="/blog/20210209082644.html">calloc関数</a>のメモリ割り当てに失敗した場合はNULLが返されます。ですので、メモリが割り当てられていることのチェックに利用できます。
+In the sample below, NULL is returned if the memory allocation of the <a href="/blog/20210209082644.html"> calloc function </a> fails. Therefore, it can be used to check that memory is allocated.
 
 <pre>
 #include <stddef.h>
@@ -51,30 +51,30 @@ NULLのサンプルです。
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-  // ポインタ
-  int32_t* nums = calloc(sizeof(int32_t), 10);
+int main (void) {
+  // Pointer
+  int32_t * nums = calloc (sizeof (int32_t), 10);
   
-  // ポインタがNULLではない
-  if (nums != NULL) {
-    printf("Success\n");
+  // Pointer is not null
+  if (nums! = NULL) {
+    printf ("Success \ n");
   }
   else {
-    printf("Fail\n");
+    printf ("Fail \ n");
   }
-  free(nums);
+  free (nums);
 }
-</pre>
+</ pre>
 
-出力結果
+Output result
 
 <pre>
 Success
-</pre>
+</ pre>
 
-<h4>木のノードで子要素が存在するか</h4>
+<h4> Is there a child element in the node of the tree? </ H4>
 
-木のノードで、子要素が存在するかどうかのチェックのサンプルです。
+This is a sample of checking if a child element exists in a node of a tree.
 
 <pre>
 #include <stddef.h>
@@ -83,36 +83,36 @@ Success
 #include <stdlib.h>
 
 struct myapp_node {
-  struct myapp_node* first_child;
-  struct myapp_node* last_child;
-};
+  struct myapp_node * first_child;
+  struct myapp_node * last_child;
+};;
 
-int main(void) {
+int main (void) {
   
-  // 親ノード
-  struct myapp_node* parent = calloc(sizeof(struct myapp_node), 1);
+  // Parent node
+  struct myapp_node * parent = calloc (sizeof (struct myapp_node), 1);
   
-  // 子ノード
-  struct myapp_node* first_child = calloc(sizeof(struct myapp_node), 1);
+  // Child node
+  struct myapp_node * first_child = calloc (sizeof (struct myapp_node), 1);
   
-  // 親ノードの最初の子に代入
-  parent->first_child = first_child;
+  // Assign to the first child of the parent node
+  parent-> first_child = first_child;
   
-  if (parent->first_child != NULL) {
-    printf("Have First Child\n");
+  if (parent-> first_child! = NULL) {
+    printf ("Have First Child \ n");
   }
 
-  if (parent->last_child == NULL) {
-    printf("Don't Have Last Child\n");
+  if (parent-> last_child == NULL) {
+    printf ("Don't Have Last Child \ n");
   }
   
-  free(parent);
-  free(first_child);
+  free (parent);
+  free (first_child);
 }
-</pre>
+</ pre>
 
-出力結果
+Output result
 
 <pre>
 Have First Child
-</pre>
+</ pre>

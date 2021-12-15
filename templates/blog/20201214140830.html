@@ -1,95 +1,95 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop="name">コンパイル</span>
+        <span itemprop = "name"> Compile </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>C言語ソースコードをコンパイルする</h2>
+<h2> Compile C language source code </ h2>
 
-C言語ソースコードをコンパイルしてみましょう。ここで解説するのは、C言語ソースコードからオブジェクトファイルを生成する、純粋なコンパイルです。
+Let's compile the C language source code. This is a pure compilation that produces an object file from C source code.
 
-オブジェクトファイルは、機械語で書かれたプログラムの部品のことだと考えてください。
+Think of an object file as a part of a program written in machine language.
 
-コンパイルとは、テキストで書かれたC言語ソースファイルを、機械語で書かれたオブジェクトファイルに変換する作業のことです。
+Compiling is the process of converting a C language source file written in text into an object file written in machine language.
 
-コンパイルを行うには「-c」オプションを使用します。
+Use the "-c" option to compile.
 
 <pre>
-# C言語ソースファイルをコンパイルする
-gcc -c 入力ソースコードファイル名
-</pre>
+#Compile C language source files
+gcc -c input source code file name
+</ pre>
 
-「test.c」というファイルから「test.o」というオブジェクトファイルを生成してみましょう。
+Let's create an object file called "test.o" from a file called "test.c".
 
 <pre>
 // test.c
 
 #include <stdio.h>
 
-int main(void) {
-  printf("Hello World!\n");
+int main (void) {
+  printf ("Hello World! \ N");
 }
-</pre>
+</ pre>
 
-gccコマンドを実行します。「test.o」というオブジェクトファイルが生成されます。
+Execute the gcc command. An object file called "test.o" will be generated.
 
 <pre>
 gcc -c test.c
-</pre>
+</ pre>
 
-出力ファイル名を自分で指定したい場合は「-o」オプションが使用できます。
-
-<pre>
-gcc -o test2.o -c test.c 
-</pre>
-
-<h3>リンクを行ってオブジェクトファイルから実行ファイルを生成する</h3>
-
-ひとつのオブジェクトファイルから実行ファイルを生成してみましょう。この作業をリンクと呼びますが、ひとつのオブジェクトファイルから、ひとつの実行ファイルを生成するので、リンクという感じはしません。
-
-先ほど生成したオブジェクトファイル「test.o」から実行ファイル「test」を生成します。
+If you want to specify the output file name yourself, you can use the "-o" option.
 
 <pre>
-# オブジェクトファイルから実行ファイルを生成する
+gcc -o test2.o -c test.c
+</ pre>
+
+<h3> Link to generate an executable file from the object file </ h3>
+
+Let's generate an executable file from one object file. This work is called a link, but it doesn't feel like a link because it creates one executable file from one object file.
+
+Generate the executable file "test" from the object file "test.o" generated earlier.
+
+<pre>
+#Generate an executable file from an object file
 gcc -o test test.o
-</pre>
+</ pre>
 
-「test」が実行ファイルとして実行できるかを確認してみましょう。
+Let's check if "test" can be executed as an executable file.
 
 <pre>
 ./test
-</pre>
+</ pre>
 
-<h3>複数のオブジェクトファイルから一つの実行ファイルを生成できますか?</h3>
+<h3> Can one executable file be generated from multiple object files? </ h3>
 
-はい。複数のオブジェクトファイルから一つの実行ファイルを生成できます。
+Yes. You can generate one executable file from multiple object files.
 
 <pre>
 gcc -o test test.o foo.o bar.o
-</pre>
+</ pre>
 
-これについては、分割コンパイルの解説で行いたいと思います。
+I'll do this in the discussion of split compilation.
 
-<h3>gcc以外のコンパイラは存在しますか?</h3>
+<h3> Is there a compiler other than gcc? </ H3>
 
-gccは、GNUプロジェクトによって作成された、UNIX/LinuxのデフォルトのC言語コンパイラだと考えてください。
+Think of gcc as the default C language compiler for UNIX / Linux created by the GNU Project.
 
-他のメーカーで作成されているC言語コンパイラがあり、コンパイル速度、リンク速度、実行速度の点で、優れている場合があります。
+There are C language compilers made by other manufacturers, which may be superior in terms of compilation speed, link speed, and execution speed.
 
-UNIX/Linuxにおけるポータビリティやオープンソース文化への親和性という点で、gccは優れていると考えます。
+I think gcc is excellent in terms of portability in UNIX / Linux and its affinity for open source culture.
 
-企業製品の場合は、広告メッセージが誇大である場合も多く、もともと存在する製品が用途的に十分使える場合であっても、企業支配力を増加させることが、開発の動機になっていることもあるので、その点を差し引いて品質評価を行うと良いと思います。
+In the case of corporate products, the advertising message is often exaggerated, and even if the original product can be used sufficiently for its intended purpose, increasing corporate control may be the motivation for development. Since there is, I think it is better to subtract that point and perform quality evaluation.

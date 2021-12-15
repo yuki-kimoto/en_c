@@ -1,43 +1,43 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop="name">C言語の型</span>
+        <span itemprop = "name"> C type </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>uintptr_t - ポインタ型のサイズの符号なし整数型</h2>
+<h2> uintptr_t --Pointer type size unsigned integer type </ h2>
 
-uintptr_tは、ポインタ型のサイズを持つ符号なし整数型です。たとえば、ポインタ型が32bitで表現される処理系であれば、32bit符号なし整数型、ポインタ型が64bitで表現される処理系であれば、64bit符号なし整数型として定義されます。uintptr_tは、<a href="/blog/20201206125815.html">C99</a>で導入されました。
+uintptr_t is an unsigned integer type with a pointer type size. For example, if the pointer type is a processing system expressed in 32 bits, it is defined as a 32-bit unsigned integer type, and if the pointer type is a processing system expressed in 64 bits, it is defined as a 64-bit unsigned integer type. uintptr_t was introduced in <a href="/blog/20201206125815.html"> C99 </a>.
 
-<h3>汎用ポインタ型との相互の型変換</h3>
+<h3> Mutual type conversion with general-purpose pointer types </ h3>
 
-uintptr_t型は、<a href="/blog/20210215090234.html">汎用ポインタ型「void*」</a>と相互変換が保証されます。相互の変換でビット表現は、変わりません。
+The uintptr_t type is guaranteed to be interchanged with the <a href="/blog/20210215090234.html"> general-purpose pointer type "void *" </a>. Bit representation does not change due to mutual conversion.
 
-uintptr_tとvoid*を相互変換するサンプルプログラムです。
+This is a sample program that converts uintptr_t and void * to each other.
 
 <pre>
 #include <stdint.h>
 
-int main(void) {
-  void* ptr;
+int main (void) {
+  void * ptr;
   
-  uintptr_t iptr = (uintptr_t)ptr;
+  uintptr_t iptr = (uintptr_t) ptr;
   
-  void* ptr_again = (void*)iptr;
+  void * ptr_again = (void *) iptr;
 }
-</pre>
+</ pre>
 
-同じ用途として、ポインタ型のサイズの符号あり整数型「<a href="/blog/20210225131724.html">uintptr_t</a>」があります。
+The same use is for the pointer type size signed integer type "<a href="/blog/20210225131724.html"> uintptr_t </a>".

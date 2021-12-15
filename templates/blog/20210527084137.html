@@ -1,56 +1,56 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdlib.html">
-        <span itemprop="name">stdlib.h</span>
+        <span itemprop = "name"> stdlib.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>exit関数 - プログラムを終了する</h2>
+<h2> exit function-exit the program </ h2>
 
-exit関数を使うと、プログラムが終了します。<a href="/blog/20210227091654.html">stdlib.h</a>ヘッダをインクルードすると使用できます。
+Use the exit function to exit the program. It can be used by including the <a href="/blog/20210227091654.html"> stdlib.h </a> header.
 
 <pre>
-void exit(int status);
-</pre>
+void exit (int status);
+</ pre>
 
-正常終了を意味させる場合は引数に「0」を、異常終了を意味させる場合は「0以外」を指定します。異常終了の場合は、慣習的に「1」が指定されることが多いようです。
+Specify "0" for the argument to mean normal termination, and specify "non-zero" to mean abnormal termination. In the case of abnormal termination, it seems that "1" is customarily specified.
 
-<h3>エラーメッセージを表示してプログラムを終了するサンプル</h3>
+<h3> Sample to display an error message and exit the program </ h3>
 
-<a href="/blog/20210510093506.html">fprintf関数</a>で標準エラー出力に、エラーメッセージを表示してexit関数でプログラムを終了するサンプルです。エラーメッセージには、ファイル名と行番号を含めています。
+This is a sample that displays an error message on the standard error output with the <a href="/blog/20210510093506.html"> fprintf function </a> and terminates the program with the exit function. The error message includes the file name and line number.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main (void) {
   
-  // エラーが発生
+  // An error has occured
   int32_t error = 1;
   
   if (error) {
-    fprintf(stderr, "Error at %s line %d\n", __FILE__, __LINE__);
-    exit(1);
+    fprintf (stderr, "Error at% s line% d \ n", __FILE__, __LINE__);
+    exit (1);
   }
 }
-</pre>
+</ pre>

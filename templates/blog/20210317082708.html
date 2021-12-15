@@ -1,114 +1,114 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/assert.html">
-        <span itemprop="name">assert.h</span>
+        <span itemprop = "name"> assert.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>アサーション - assertマクロ</h2>
+<h2> Assertion --assertion macro </ h2>
 
-assertマクロを使うとアサーションをソースコードに挿入できます。
+You can insert assertions into your source code using the assert macro.
 
 <pre>
-assert(条件)
-</pre>
+assert (condition)
+</ pre>
 
-assertマクロの条件が真であるときは、何も起こりません。条件が偽である場合は、エラーメッセージを出力し、プログラムが終了します。コアダンプ出力を有効にしている場合は、コアダンプも出力されます。ある値が、期待している値であることをチェックしたい場合に便利です。
+If the condition of the assert macro is true, nothing happens. If the condition is false, an error message will be output and the program will terminate. If core dump output is enabled, core dump output is also output. This is useful if you want to check that a value is what you expect.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
 
-int main(void) {
+int main (void) {
   int32_t num = 3;
   
-  // numが1より大きいことをチェック
-  assert(num > 1);
+  // Check that num is greater than 1
+  assert (num> 1);
   
-  printf("%d\n", num);
+  printf ("% d \ n", num);
 }
-</pre>
+</ pre>
 
-出力結果です。「num」が「1」より大きいので普通に実行されます。
+This is the output result. Since "num" is larger than "1", it will be executed normally.
 
 <pre>
 3
-</pre>
+</ pre>
 
-「num」を「-1」にしてみましょう。
+Let's change "num" to "-1".
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
 
-int main(void) {
+int main (void) {
   int32_t num = -1;
   
-  // numが1より大きいことをチェック
-  assert(num > 1);
+  // Check that num is greater than 1
+  assert (num> 1);
   
-  printf("%d\n", num);
+  printf ("% d \ n", num);
 }
-</pre>
+</ pre>
 
-<a href="https://en.linux.perlzemi.com/blog/20201216103956.html">gcc</a>の場合の出力結果です。
+This is the output result for <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a>.
 
 <pre>
-a: a.c:9: main: Assertion `num > 1' failed.
+a: a.c: 9: main: Assertion `num> 1'failed.
 Aborted (core dumped)
-</pre>
+</ pre>
 
-<a href="https://en.linux.perlzemi.com/blog/20191126082723.html">lsコマンド</a>と<a href="https://en.linux.perlzemi.com/blog/20200602093211.html">grepコマンド</a>で確認すると、コアダンプも出力されています。
+<a href="https://en.linux.perlzemi.com/blog/20191126082723.html"> ls command </a> and <a href="https://en.linux.perlzemi.com/blog/ If you check with 20200602093211.html "> grep command </a>, a core dump is also output.
 
 <pre>
 $ ls | grep core
 core.28560
-</pre>
+</ pre>
 
-コアダンプは、プログラムのデバッグに関する情報が格納されているファイルだと考えてください。コアダンプを使ってプログラムをデバッグする方法については、別の箇所で解説します。
+Think of a core dump as a file that contains information about debugging your program. We will discuss how to debug a program using a core dump elsewhere.
 
-<h3>assertマクロを取り除く</h3>
+<h3> Remove assert macros </ h3>
 
-assertマクロは、NDEBUGマクロを、コンパイル時に指定することで、取り除くことができます。デバッグするときにだけassertマクロを使い、最終的な製品の出力にはassertマクロを入れたくないという場合に便利です。
+The assert macro can be removed by specifying the NDEBUG macro at compile time. This is useful if you only use the assert macro when debugging and you don't want to include the assert macro in the final product output.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 #include <assert.h>
 
-int main(void) {
+int main (void) {
   int32_t num = -1;
   
-  // numが1より大きいことをチェック
-  assert(num > 1);
+  // Check that num is greater than 1
+  assert (num> 1);
   
-  printf("%d\n", num);
+  printf ("% d \ n", num);
 }
-</pre>
+</ pre>
 
-次のようにgccの「-D」オプションで「NDEBUGマクロ」を定義して、実行してみましょう。assertマクロの部分が実行されません。
+Let's define and execute the "NDEBUG macro" with the "-D" option of gcc as follows. The assert macro part is not executed.
 
 <pre>
 gcc -DNDEBUG -o a a.c && ./a
-</pre>
+</ pre>

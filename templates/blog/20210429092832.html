@@ -1,128 +1,128 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>文字リテラル</h2>
+<h2> Character literal </ h2>
 
-文字リテラルは、ASCIIコードのひとつの文字をソースコード上で表現するものです。「'」でASCIIコードの一つの文字を囲みます。
+A character literal is a representation of a single character in ASCII code on the source code. Enclose one character in the ASCII code with "'".
 
 <pre>
-// 文字リテラル
+// Character literal
 'a'
 'b'
-</pre>
+</ pre>
 
-これは<a href="/blog/20201204103322.html">char型</a>で、ASCIIコードの値になります。ASCIIコードの文字として出力したい場合はprintf関数の「%c」を使います。
+This is a <a href="/blog/20201204103322.html"> char type </a> and will be an ASCII code value. If you want to output as ASCII code characters, use "% c" of the printf function.
 
 <pre>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   
-  char ch = 'a';
+  char ch ='a';
   
-  // ASCIIコード(数値)
-  printf("%d\n", ch);
+  // ASCII code (number)
+  printf ("% d \ n", ch);
   
-  // ASCIIコードに対応する文字
-  printf("%c\n", ch);
+  // Characters corresponding to ASCII code
+  printf ("% c \ n", ch);
 }
-</pre>
+</ pre>
 
-出力結果です。
+This is the output result.
 
 <pre>
 97
 a
-</pre>
+</ pre>
 
-<h3>文字リテラルのエスケープシーケンス</h3>
+<h3> Character literal escape sequences </ h3>
 
-文字リテラルのエスケープシーケンスです。「\t」「\n」で、タブや改行を表現できます。
+Escape sequence of character literals. You can express tabs and line breaks with "\ t" and "\ n".
 
 <table>
-  <tr><th>\t</th><td>タブ</td></tr>
-  <tr><th>\n</th><td>改行(LF)</td></tr>
-  <tr><th>\0</th><td>ヌル文字</td></tr>
-</table>
+  <tr> <th> \ t </ th> <td> Tab </ td> </ tr>
+  <tr> <th> \ n </ th> <td> Line feed (LF) </ td> </ tr>
+  <tr> <th> \ 0 </ th> <td> null character </ td> </ tr>
+</ table>
 
-文字リテラルのエスケープシーケンスのサンプルです。
+This is a sample escape sequence for character literals.
 
 <pre>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   
-  // 文字リテラルのエスケープシーケンス
-  printf("%d %d %d\n", '\t', '\n', '\0');
+  // Character literal escape sequences
+  printf ("% d% d% d \ n",'\ t','\ n','\ 0');
 }
-</pre>
+</ pre>
 
-出力結果です。
+This is the output result.
 
 <pre>
 9 10 0
-</pre>
+</ pre>
 
-<h4>ASCIIコードの任意の文字</h4>
+<h4> Any character in ASCII code </ h4>
 
-「\x16進数ASCIIコード」というエスケープシーケンスを使って、ASCIIコードの任意の文字を表現できます。以下はASCIIコードの「a」を16進数で表現しています。
+You can use the escape sequence "\ x hexadecimal ASCII code" to represent any character in the ASCII code. The following represents the ASCII code "a" in hexadecimal.
 
 <pre>
-\x61
-</pre>
+\ x61
+</ pre>
 
-文字リテラルのエスケープシーケンスでASCIIコードの任意の文字を使用するサンプルです。
+This is a sample that uses any character of ASCII code in the escape sequence of a character literal.
 
 <pre>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   
-  // 文字リテラルのエスケープシーケンス
-  printf("%c\n", '\x61');
+  // Character literal escape sequences
+  printf ("% c \ n",'\ x61');
 }
-</pre>
+</ pre>
 
-出力結果です。aが出力されます。
+This is the output result. a is output.
 
 <pre>
 a
-</pre>
+</ pre>
 
-<h4>エスケープシーケンスの一覧</h4>
+<h4> Escape sequence list </ h4>
 
 <table>
-<tr><th>記号</th><th>意味
-</th></tr><tr><td>\a</td><td>ベル
-</td></tr><tr><td>\b</td><td>バックスペース
-</td></tr><tr><td>\f</td><td>ページ送り（クリア）
-</td></tr><tr><td>\n</td><td>改行(ラインブレーク)
-</td></tr><tr><td>\r</td><td>改ページ
-</td></tr><tr><td>\t</td><td>タブ
-</td></tr><tr><td>\v</td><td>垂直タブ
-</td></tr><tr><td>\\</td><td>\
-</td></tr><tr><td>\?</td><td>?
-</td></tr><tr><td>\'</td><td>シングルクォーテーション(')
-</td></tr><tr><td>\"</td><td>ダブルクォーテーション(")
-</td></tr><tr><td>\0</td><td>ヌル文字
-</td></tr><tr><td>\N</td><td>8進定数
-</td></tr><tr><td>\xN</td><td>16進定数
-</td></tr>
-</table>
+<tr> <th> Symbol </ th> <th> Meaning
+</ th> </ tr> <tr> <td> \ a </ td> <td> Bell
+</ td> </ tr> <tr> <td> \ b </ td> <td> Backspace
+</ td> </ tr> <tr> <td> \ f </ td> <td> Page feed (clear)
+</ td> </ tr> <tr> <td> \ n </ td> <td> Line break (line break)
+</ td> </ tr> <tr> <td> \ r </ td> <td> Page breaks
+</ td> </ tr> <tr> <td> \ t </ td> <td> tab
+</ td> </ tr> <tr> <td> \ v </ td> <td> Vertical tab
+</ td> </ tr> <tr> <td> \\ </ td> <td> \
+</ td> </ tr> <tr> <td> \? </ td> <td>?
+</ td> </ tr> <tr> <td> \'</ td> <td> Single Quotation (')
+</ td> </ tr> <tr> <td> \ "</ td> <td> Double quotation (")
+</ td> </ tr> <tr> <td> \ 0 </ td> <td> Null character
+</ td> </ tr> <tr> <td> \ N </ td> <td> Octal constant
+</ td> </ tr> <tr> <td> \ xN </ td> <td> Hexadecimal constant
+</ td> </ tr>
+</ table>

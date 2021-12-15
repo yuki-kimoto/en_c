@@ -1,20 +1,20 @@
-<h2>C言語における連想配列は自作するかライブラリを使う</h2>
+<h2> Create your own associative array in C or use a library </ h2>
 
-C言語には、連想配列ライブラリがありませんので、自作するかライブラリを使います。
+There is no associative array library in C language, so you can either create your own or use the library.
 
-なぜ連想配列という使用頻度の高いライブラリがないのかというと、ライブラリの内部でメモリ確保が必要なライブラリは、C言語のコアには入らないという方針があるような気がします。
+The reason why there is no frequently used library called associative array is that there is a policy that libraries that require memory allocation inside the library are not included in the core of C language.
 
-連想配列の例として<a href="https://github.com/yuki-kimoto/SPVM/blob/master/lib/SPVM/Builder/src/spvm_hash.c">プログラミング言語SPVMの内部実装で使用している連想配列の実装例</a>を一つのサンプルとして書いておきます。
+<a href="https://github.com/yuki-kimoto/SPVM/blob/master/lib/SPVM/Builder/src/spvm_hash.c"> Used in the internal implementation of the programming language SPVM as an example of an associative array I will write an implementation example of an associative array </a> as a sample.
 
-依存はないので、ヘッダとソースをコピペして使うことができます。
+There are no dependencies, so you can copy and paste the header and source.
 
-<h3>C言語における連想配列の実装例</h3>
+<h3> Implementation example of associative array in C language </ h3>
 
-解説はないですが、連想配列の作成、連想配列の値の取得と設定という基本的な関数だけですので、ヘッダを見れば、使い方はわかると思います。連想配列の値は<a href="/blog/20210215090234.html">汎用ポインタ型 void*</a>です。要素の削除と存在の確認の関数は、残念ながら、実装されていません。内部で使用しているハッシュ関数は、ごく簡単なもので、セキュリティ強度はないです。
+There is no explanation, but since it is only a basic function of creating an associative array and getting and setting the value of an associative array, you can see how to use it by looking at the header. The value of the associative array is <a href="/blog/20210215090234.html"> general-purpose pointer type void * </a>. Unfortunately, the element deletion and existence verification functions are not implemented. The hash function used internally is very simple and has no security strength.
 
-<h4>spvm_hash.h</h4>
+<h4> spvm_hash.h </ h4>
 
-連想配列のヘッダです。
+The header of the associative array.
 
 <pre>
 #ifndef SPVM_HASH_H
@@ -31,42 +31,42 @@ typedef struct spvm_hash_entry SPVM_HASH_ENTRY;
 
 // Hash table
 struct spvm_hash {
-  int32_t* table;
-  char* key_buffer;
-  SPVM_HASH_ENTRY* entries;
+  int32_t * table;
+  char * key_buffer;
+  SPVM_HASH_ENTRY * entries;
   int32_t table_capacity;
   int32_t entries_capacity;
   int32_t entries_length;
   int32_t key_buffer_capacity;
   int32_t key_buffer_length;
-};
+};;
 
 // Hash entry
 struct spvm_hash_entry {
-  void* value;
+  void * value;
   int32_t next_index;
   int32_t key_index;
-};
+};;
 
-SPVM_HASH* SPVM_HASH_new(int32_t capacity);
+SPVM_HASH * SPVM_HASH_new (int32_t capacity);
 
-void SPVM_HASH_insert(SPVM_HASH* hash, const char* key, int32_t length, void* value);
-void* SPVM_HASH_fetch(SPVM_HASH* hash, const char* key, int32_t length);
+void SPVM_HASH_insert (SPVM_HASH * hash, const char * key, int32_t length, void * value);
+void * SPVM_HASH_fetch (SPVM_HASH * hash, const char * key, int32_t length);
 
-void SPVM_HASH_free(SPVM_HASH* hash);
+void SPVM_HASH_free (SPVM_HASH * hash);
 
-int32_t SPVM_HASH_new_hash_entry(SPVM_HASH* hash, const char* key, int32_t length, void* value);
-void SPVM_HASH_rehash(SPVM_HASH* hash, int32_t new_table_capacity);
-void SPVM_HASH_insert_norehash(SPVM_HASH* hash, const char* key, int32_t length, void* value);
-int32_t SPVM_HASH_calc_hash_value(const char* str, int32_t len);
-void SPVM_HASH_maybe_extend_entries(SPVM_HASH* hash);
+int32_t SPVM_HASH_new_hash_entry (SPVM_HASH * hash, const char * key, int32_t length, void * value);
+void SPVM_HASH_rehash (SPVM_HASH * hash, int32_t new_table_capacity);
+void SPVM_HASH_insert_norehash (SPVM_HASH * hash, const char * key, int32_t length, void * value);
+int32_t SPVM_HASH_calc_hash_value (const char * str, int32_t len);
+void SPVM_HASH_maybe_extend_entries (SPVM_HASH * hash);
 
 #endif
-</pre>
+</ pre>
 
-<h4>spvm_hash.c</h4>
+<h4> spvm_hash.c </ h4>
 
-連想配列の実装です。
+An implementation of an associative array.
 
 <pre>
 #include <string.h>
@@ -75,88 +75,88 @@ void SPVM_HASH_maybe_extend_entries(SPVM_HASH* hash);
 
 #include "spvm_hash.h"
 
-SPVM_HASH* SPVM_HASH_new(int32_t table_capacity) {
+SPVM_HASH * SPVM_HASH_new (int32_t table_capacity) {
   
-  assert(table_capacity >= 0);
+  assert (table_capacity> = 0);
 
   // Create hash
-  SPVM_HASH* hash = calloc(1, sizeof(SPVM_HASH));
+  SPVM_HASH * hash = calloc (1, sizeof (SPVM_HASH));
 
   // Default table capacity
   if (table_capacity == 0) {
-    hash->table_capacity = 1;
+    hash-> table_capacity = 1;
   }
   else {
-    hash->table_capacity = table_capacity;
+    hash-> table_capacity = table_capacity;
   }
   
   // Initialize table
-  hash->table = calloc(hash->table_capacity, sizeof(int32_t));
-  memset(hash->table, -1, hash->table_capacity * sizeof(int32_t));
+  hash-> table = calloc (hash-> table_capacity, sizeof (int32_t));
+  memset (hash-> table, -1, hash-> table_capacity * sizeof (int32_t));
   
   // Initialize entries
-  hash->entries_capacity = 1;
-  hash->entries =  calloc(hash->entries_capacity, sizeof(SPVM_HASH_ENTRY));
-  hash->entries_length = 0;
+  hash-> entries_capacity = 1;
+  hash-> entries = calloc (hash-> entries_capacity, sizeof (SPVM_HASH_ENTRY));
+  hash-> entries_length = 0;
   
   // Initialize key buffer
-  hash->key_buffer_capacity = 1;
-  hash->key_buffer = calloc(1, hash->key_buffer_capacity);
-  hash->key_buffer_length = 0;
+  hash-> key_buffer_capacity = 1;
+  hash-> key_buffer = calloc (1, hash-> key_buffer_capacity);
+  hash-> key_buffer_length = 0;
   
   return hash;
 }
 
-void SPVM_HASH_insert(SPVM_HASH* hash, const char* key, int32_t length, void* value) {
+void SPVM_HASH_insert (SPVM_HASH * hash, const char * key, int32_t length, void * value) {
   
-  assert(hash);
-  assert(key);
-  assert(length >= 0);
+  assert (hash);
+  assert (key);
+  assert (length> = 0);
   
   // Rehash
-  if (hash->entries_length > hash->table_capacity * 0.75) {
-    int32_t new_table_capacity = (hash->table_capacity * 2) + 1;
+  if (hash-> entries_length> hash-> table_capacity * 0.75) {
+    int32_t new_table_capacity = (hash-> table_capacity * 2) + 1;
     
-    SPVM_HASH_rehash(hash, new_table_capacity);
+    SPVM_HASH_rehash (hash, new_table_capacity);
   }
   
-  SPVM_HASH_insert_norehash(hash, key, length, value);
+  SPVM_HASH_insert_norehash (hash, key, length, value);
 }
 
-void* SPVM_HASH_fetch(SPVM_HASH* hash, const char* key, int32_t length) {
+void * SPVM_HASH_fetch (SPVM_HASH * hash, const char * key, int32_t length) {
   
-  assert(hash);
-  assert(length >= 0);
+  assert (hash);
+  assert (length> = 0);
   
-  int32_t hash_value = SPVM_HASH_calc_hash_value(key, length);
-  int32_t table_index = hash_value % hash->table_capacity;
+  int32_t hash_value = SPVM_HASH_calc_hash_value (key, length);
+  int32_t table_index = hash_value% hash-> table_capacity;
   
   int32_t entry_index = -1;
-  if (hash->table[table_index] != -1) {
-    entry_index = hash->table[table_index];
+  if (hash-> table [table_index]! = -1) {
+    entry_index = hash-> table [table_index];
   }
   while (1) {
-    assert(entry_index >= -1);
-    if (entry_index != -1) {
+    assert (entry_index> = -1);
+    if (entry_index! = -1) {
       int32_t match = 0;
       int32_t key_length;
-      memcpy(&key_length, &hash->key_buffer[hash->entries[entry_index].key_index], sizeof(int32_t));
+      memcpy (& key_length, & hash-> key_buffer [hash-> entries [entry_index] .key_index], sizeof (int32_t));
       if (length == 0 && key_length == 0) {
         match = 1;
       }
-      else if (key_length == length && memcmp(key, &hash->key_buffer[hash->entries[entry_index].key_index + sizeof(int32_t)], length) == 0) {
+      else if (key_length == length && memcmp (key, & hash-> key_buffer [hash-> entries [entry_index] .key_index + sizeof (int32_t)], length) == 0) {
         match = 1;
       }
       
       if (match) {
-        return hash->entries[entry_index].value;
+        return hash-> entries [entry_index] .value;
       }
       else {
-        if (hash->entries[entry_index].next_index == -1) {
+        if (hash-> entries [entry_index] .next_index == -1) {
           entry_index = -1;
         }
         else {
-          entry_index = hash->entries[entry_index].next_index;
+          entry_index = hash-> entries [entry_index] .next_index;
         }
       }
     }
@@ -166,189 +166,189 @@ void* SPVM_HASH_fetch(SPVM_HASH* hash, const char* key, int32_t length) {
   }
 }
 
-void SPVM_HASH_free(SPVM_HASH* hash) {
+void SPVM_HASH_free (SPVM_HASH * hash) {
   
-  assert(hash);
+  assert (hash);
   
-  free(hash->table);
-  free(hash->entries);
-  free(hash->key_buffer);
-  free(hash);
+  free (hash-> table);
+  free (hash-> entries);
+  free (hash-> key_buffer);
+  free (hash);
 }
 
-void SPVM_HASH_maybe_extend_entries(SPVM_HASH* hash) {
+void SPVM_HASH_maybe_extend_entries (SPVM_HASH * hash) {
   
-  assert(hash);
+  assert (hash);
   
-  int32_t entries_length = hash->entries_length;
+  int32_t entries_length = hash-> entries_length;
   
-  assert(entries_length >= 0);
+  assert (entries_length> = 0);
   
-  int32_t entries_capacity = hash->entries_capacity;
+  int32_t entries_capacity = hash-> entries_capacity;
   
-  if (entries_length >= entries_capacity) {
+  if (entries_length> = entries_capacity) {
     int32_t new_entries_capacity = entries_capacity * 2;
     
-    SPVM_HASH_ENTRY* new_entries = calloc(new_entries_capacity, sizeof(SPVM_HASH_ENTRY));
-    memcpy(new_entries, hash->entries, entries_capacity * sizeof(SPVM_HASH_ENTRY));
-    free(hash->entries);
-    hash->entries = new_entries;
+    SPVM_HASH_ENTRY * new_entries = calloc (new_entries_capacity, sizeof (SPVM_HASH_ENTRY));
+    memcpy (new_entries, hash-> entries, entries_capacity * sizeof (SPVM_HASH_ENTRY));
+    free (hash-> entries);
+    hash-> entries = new_entries;
     
-    hash->entries_capacity = new_entries_capacity;
+    hash-> entries_capacity = new_entries_capacity;
   }
 }
 
-void SPVM_HASH_maybe_extend_key_buffer(SPVM_HASH* hash, int32_t length) {
+void SPVM_HASH_maybe_extend_key_buffer (SPVM_HASH * hash, int32_t length) {
   
-  assert(hash);
+  assert (hash);
   
-  int32_t key_buffer_length = hash->key_buffer_length;
+  int32_t key_buffer_length = hash-> key_buffer_length;
   
-  assert(key_buffer_length >= 0);
+  assert (key_buffer_length> = 0);
   
-  int32_t key_buffer_capacity = hash->key_buffer_capacity;
+  int32_t key_buffer_capacity = hash-> key_buffer_capacity;
   
-  if (key_buffer_length + length + (int32_t)sizeof(int32_t) >= key_buffer_capacity) {
-    int32_t new_key_buffer_capacity = (key_buffer_length + length + sizeof(int32_t)) * 2;
+  if (key_buffer_length + length + (int32_t) sizeof (int32_t)> = key_buffer_capacity) {
+    int32_t new_key_buffer_capacity = (key_buffer_length + length + sizeof (int32_t)) * 2;
     
-    char* new_key_buffer = calloc(1, new_key_buffer_capacity);
-    memcpy(new_key_buffer, hash->key_buffer, key_buffer_capacity);
-    free(hash->key_buffer);
-    hash->key_buffer = new_key_buffer;
+    char * new_key_buffer = calloc (1, new_key_buffer_capacity);
+    memcpy (new_key_buffer, hash-> key_buffer, key_buffer_capacity);
+    free (hash-> key_buffer);
+    hash-> key_buffer = new_key_buffer;
 
-    hash->key_buffer_capacity = new_key_buffer_capacity;
+    hash-> key_buffer_capacity = new_key_buffer_capacity;
   }
 }
 
-int32_t SPVM_HASH_new_hash_entry(SPVM_HASH* hash, const char* key, int32_t key_length, void* value) {
+int32_t SPVM_HASH_new_hash_entry (SPVM_HASH * hash, const char * key, int32_t key_length, void * value) {
   
-  assert(hash);
-  assert(key);
+  assert (hash);
+  assert (key);
   
-  int32_t index = hash->entries_length;
+  int32_t index = hash-> entries_length;
   
-  SPVM_HASH_maybe_extend_entries(hash);
+  SPVM_HASH_maybe_extend_entries (hash);
   
-  SPVM_HASH_maybe_extend_key_buffer(hash, key_length);
+  SPVM_HASH_maybe_extend_key_buffer (hash, key_length);
   
-  hash->entries[index].key_index = hash->key_buffer_length;
+  hash-> entries [index] .key_index = hash-> key_buffer_length;
   
   // Copy key length
-  memcpy(&hash->key_buffer[hash->key_buffer_length], &key_length, sizeof(int32_t));
+  memcpy (& hash-> key_buffer [hash-> key_buffer_length], & key_length, sizeof (int32_t));
   
   // Copy key
-  memcpy(&hash->key_buffer[hash->key_buffer_length + sizeof(int32_t)], key, key_length);
+  memcpy (& hash-> key_buffer [hash-> key_buffer_length + sizeof (int32_t)], key, key_length);
   
-  hash->key_buffer_length += sizeof(int32_t) + key_length;
+  hash-> key_buffer_length + = sizeof (int32_t) + key_length;
   
-  hash->entries[index].value = value;
-  hash->entries[index].next_index = -1;
+  hash-> entries [index] .value = value;
+  hash-> entries [index] .next_index = -1;
   
-  hash->entries_length++;
+  hash-> entries_length ++;
   
   return index;
 }
 
-void SPVM_HASH_rehash(SPVM_HASH* hash, int32_t new_table_capacity) {
+void SPVM_HASH_rehash (SPVM_HASH * hash, int32_t new_table_capacity) {
   
-  assert(hash);
-  assert(new_table_capacity > 0);
+  assert (hash);
+  assert (new_table_capacity> 0);
   
   // Create new hash
-  SPVM_HASH* new_hash = SPVM_HASH_new(new_table_capacity);
+  SPVM_HASH * new_hash = SPVM_HASH_new (new_table_capacity);
   
   // Rehash
   {
     int32_t i;
-    for (i = 0; i < hash->entries_length; i++) {
+    for (i = 0; i <hash-> entries_length; i ++) {
       int32_t key_length;
-      memcpy(&key_length, &hash->key_buffer[hash->entries[i].key_index], sizeof(int32_t));
-      const char* key = &hash->key_buffer[hash->entries[i].key_index + sizeof(int32_t)];
+      memcpy (& key_length, & hash-> key_buffer [hash-> entries [i] .key_index], sizeof (int32_t));
+      const char * key = & hash-> key_buffer [hash-> entries [i] .key_index + sizeof (int32_t)];
       
-      void* value = hash->entries[i].value;
+      void * value = hash-> entries [i] .value;
       
-      SPVM_HASH_insert_norehash(new_hash, key, key_length, value);
+      SPVM_HASH_insert_norehash (new_hash, key, key_length, value);
     }
   }
   
   // Replace hash fields
-  free(hash->table);
-  free(hash->entries);
-  free(hash->key_buffer);
-  hash->entries_length = new_hash->entries_length;
-  hash->table_capacity = new_hash->table_capacity;
-  hash->entries_capacity = new_hash->entries_capacity;
-  hash->table = new_hash->table;
-  hash->entries = new_hash->entries;
+  free (hash-> table);
+  free (hash-> entries);
+  free (hash-> key_buffer);
+  hash-> entries_length = new_hash-> entries_length;
+  hash-> table_capacity = new_hash-> table_capacity;
+  hash-> entries_capacity = new_hash-> entries_capacity;
+  hash-> table = new_hash-> table;
+  hash-> entries = new_hash-> entries;
   
-  hash->key_buffer_capacity = new_hash->key_buffer_capacity;
-  hash->key_buffer_length = new_hash->key_buffer_length;
-  hash->key_buffer = new_hash->key_buffer;
+  hash-> key_buffer_capacity = new_hash-> key_buffer_capacity;
+  hash-> key_buffer_length = new_hash-> key_buffer_length;
+  hash-> key_buffer = new_hash-> key_buffer;
   
-  free(new_hash);
+  free (new_hash);
 }
 
-void SPVM_HASH_insert_norehash(SPVM_HASH* hash, const char* key, int32_t length, void* value) {
+void SPVM_HASH_insert_norehash (SPVM_HASH * hash, const char * key, int32_t length, void * value) {
   
-  assert(hash);
-  assert(key);
-  assert(length >= 0);
+  assert (hash);
+  assert (key);
+  assert (length> = 0);
   
-  int32_t hash_value = SPVM_HASH_calc_hash_value(key, length);
-  int32_t table_index = hash_value % hash->table_capacity;
+  int32_t hash_value = SPVM_HASH_calc_hash_value (key, length);
+  int32_t table_index = hash_value% hash-> table_capacity;
   
-  assert(hash->table[table_index] >= -1);
+  assert (hash-> table [table_index]> = -1);
   
-  if (hash->table[table_index] != -1) {
+  if (hash-> table [table_index]! = -1) {
     
-    int32_t entry_index = hash->table[table_index];
+    int32_t entry_index = hash-> table [table_index];
     while (1) {
       int32_t match = 0;
       int32_t key_length;
-      memcpy(&key_length, &hash->key_buffer[hash->entries[entry_index].key_index], sizeof(int32_t));
+      memcpy (& key_length, & hash-> key_buffer [hash-> entries [entry_index] .key_index], sizeof (int32_t));
       if (key_length == 0 && length == 0) {
         match = 1;
       }
-      else if (key_length == length && memcmp(key, &hash->key_buffer[hash->entries[entry_index].key_index + sizeof(int32_t)], length) == 0) {
+      else if (key_length == length && memcmp (key, & hash-> key_buffer [hash-> entries [entry_index] .key_index + sizeof (int32_t)], length) == 0) {
         match = 1;
       }
       
       if (match) {
-        hash->entries[entry_index].value = value;
+        hash-> entries [entry_index] .value = value;
         break;
       }
       else {
-        if (hash->entries[entry_index].next_index != -1) {
-          entry_index = hash->entries[entry_index].next_index;
+        if (hash-> entries [entry_index] .next_index! = -1) {
+          entry_index = hash-> entries [entry_index] .next_index;
         }
         else {
-          int32_t new_entry_index = SPVM_HASH_new_hash_entry(hash, key, length, value);
-          hash->entries[entry_index].next_index = new_entry_index;
+          int32_t new_entry_index = SPVM_HASH_new_hash_entry (hash, key, length, value);
+          hash-> entries [entry_index] .next_index = new_entry_index;
           break;
         }
       }
     }
   }
   else {
-    int32_t new_entry_index = SPVM_HASH_new_hash_entry(hash, key, length, value);
-    hash->table[table_index] = new_entry_index;
+    int32_t new_entry_index = SPVM_HASH_new_hash_entry (hash, key, length, value);
+    hash-> table [table_index] = new_entry_index;
   }
 }
 
-int32_t SPVM_HASH_calc_hash_value(const char* str, int32_t len) {
+int32_t SPVM_HASH_calc_hash_value (const char * str, int32_t len) {
   
-  assert(len >= 0);
+  assert (len> = 0);
   
-  const char* str_tmp = str;
+  const char * str_tmp = str;
   int32_t hash = 5381;
   while (len--) {
-    hash = ((hash << 5) + hash) + (uint8_t) *str_tmp++;
+    hash = ((hash << 5) + hash) + (uint8_t) * str_tmp ++;
   }
   
-  if (hash < 0) {
-    hash = ~hash;
+  if (hash <0) {
+    hash = ~ hash;
   }
   
   return hash;
 }
-</pre>
+</ pre>

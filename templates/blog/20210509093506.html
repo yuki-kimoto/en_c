@@ -1,62 +1,62 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>fclose関数 - ファイルを閉じる</h2>
+<h2> fclose function-close file </ h2>
 
-fclose関数はファイルを閉じます。<a href="/blog/20210418083246.html">stdio.h</a>ヘッダを読み込むと使えます。
+The fclose function closes the file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
 
 <pre>
-int fclose(FILE* fp);
-</pre>
+int fclose (FILE * fp);
+</ pre>
 
-引数は閉じたいファイルのファイルストリームです。ファイルクローズが、成功した場合は0、エラーの場合はEOFを返します。ファイルをクローズすると、バッファは、フラッシュされます。バッファとは、書き込みデータを一時的に保存している、メモリ領域のことです。フラッシュとは、バッファのデータを、書き出すことを言います。
+The argument is the file stream of the file you want to close. Returns 0 if the file close is successful, EOF if it is an error. The buffer is flushed when the file is closed. A buffer is a memory area that temporarily stores write data. Flash means writing out the data in the buffer.
 
-<h3>fclose関数のサンプル</h3>
+<h3> sample fclose function </ h3>
 
-fclose関数のサンプルです。fopen関数でファイルを開き、fclose関数で、ファイルを閉じています。
+This is a sample of the fclose function. The fopen function opens the file, and the fclose function closes the file.
 
 <pre>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
+int main (void) {
   
-  // ファイルを開く
-  const char* out_file = "output.txt";
-  FILE* out_fp = fopen(out_file, "w");
+  // Open the file
+  const char * out_file = "output.txt";
+  FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf(stderr, "Can't open file %s\n", out_file);
-    exit(1);
+    fprintf (stderr, "Can't open file% s \ n", out_file);
+    exit (1);
   }
   
-  // ファイルに書き込む
-  const char* message = "Hello";
-  fprintf(out_fp, "%s\n", message);
+  // write to file
+  const char * message = "Hello";
+  fprintf (out_fp, "% s \ n", message);
   
-  // fclose関数でファイルを閉じる
-  fclose(out_fp);
+  // Close the file with the fclose function
+  fclose (out_fp);
 }
-</pre>
+</ pre>

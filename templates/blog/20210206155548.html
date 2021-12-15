@@ -1,31 +1,31 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>共用体 - データの共用</h2>
+<h2> Union-Data sharing </ h2>
 
-共用体は、複数のデータを共用できる型です。共用するという意味は、メンバ変数が、同じメモリ領域を使うという意味です。データを共有するという点を除いては、共用体は、<a href="/blog/20210208155548.html">構造体</a>と同じように使うことができます。
+A union is a type that can share multiple data. Sharing means that member variables use the same memory area. Unions can be used in the same way as <a href="/blog/20210208155548.html"> structures </a>, except that they share data.
 
 <pre>
 #include <stdint.h>
 
-// 共用体
+// Union type
 union myapp_value {
   int8_t i8_val;
   int16_t i16_val;
@@ -33,23 +33,23 @@ union myapp_value {
   int64_t i64_val;
   float float_val;
   double double_val;
-  void* ptr_val;
-};
-</pre>
+  void * ptr_val;
+};;
+</ pre>
 
-メンバ変数は、一つのメモリ領域を共有しています。つまり、一度に、どれか一つしか利用できないということです。
+Member variables share one memory area. This means that only one can be used at a time.
 
-<a href="/blog/20210207155548.html">sizeof演算子</a>が返す共用体のサイズは、最も大きいメンバ変数の<a href="/blog/20210207155548.html">sizeof演算子</a>が返すサイズになります。
+The size of the union returned by the <a href="/blog/20210207155548.html"> sizeof operator </a> is the largest member variable <a href="/blog/20210207155548.html"> sizeof operator <a href="/blog/20210207155548.html"> sizeof operator < It is the size returned by / a>.
 
-<h3>共用体の使用</h3>
+<h3> Use of unions </ h3>
 
-共用体を使用してみましょう。共用体は、型として利用できます。共用体を宣言して、メンバ変数に値を代入して、内容を出力しています。
+Let's use a union. Unions are available as types. The union is declared, the value is assigned to the member variable, and the contents are output.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-// 書籍情報を表現する共用体の定義
+// Definition of a union that represents book information
 union myapp_value {
   int8_t i8_val;
   int16_t i16_val;
@@ -57,35 +57,35 @@ union myapp_value {
   int64_t i64_val;
   float float_val;
   double double_val;
-  void* ptr_val;
-};
+  void * ptr_val;
+};;
 
-int main(void) {
-  // 共用体変数の宣言
+int main (void) {
+  // Union variable declaration
   union myapp_value value;
   
-  // メンバ変数i32_valueに値を代入
+  // Assign a value to the member variable i32_value
   value.i32_val = 4;
-  printf("i32_val: %d\n", value.i32_val);
+  printf ("i32_val:% d \ n", value.i32_val);
   
-  // メンバ変数double_valに値を代入
+  // Assign a value to the member variable double_val
   value.double_val = 2.56;
-  printf("double_val: %f\n", value.double_val);
+  printf ("double_val:% f \ n", value.double_val);
 
-  // あら、i32_valの値は、更新されている
-  printf("i32_val: %d\n", value.i32_val);
+  // Oh, the value of i32_val has been updated
+  printf ("i32_val:% d \ n", value.i32_val);
   
-  // 共用体のサイズ
-  printf("size of union mypp_value: %d\n", sizeof(union myapp_value));
+  // Union size
+  printf ("size of union mypp_value:% d \ n", sizeof (union myapp_value));
 }
-</pre>
+</ pre>
 
-<h3>共用体は何のために存在していますか?</h3>
+<h3> What is the union for? </ H3>
 
-メモリ領域を節約するためです。
+This is to save memory area.
 
-「えっ、本当にそれだけ?」
+"Well, that's it?"
 
-はい。最適化のために、メモリを節約したい場合が実際にあり、その場合に使います。
+Yes. There are times when you really want to save memory for optimization, and use that.
 
-省メモリであるということは、メモリの局所性が高まるため、パフォーマンスにも良い影響がでます。
+Saving memory has a positive effect on performance as it increases memory locality.

@@ -1,82 +1,82 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>fputc関数 - ファイルストリームに1文字書き込む</h2>
+<h2> fputc function-write one character to the file stream </ h2>
 
-fputc関数を使うと、ファイルストリームに1文字書き込むことができます。
+You can use the fputc function to write a single character to a file stream.
 
 <pre>
 #include <stdio.h>
-int fputc(int c, FILE *fp);
-</pre>
+int fputc (int c, FILE * fp);
+</ pre>
 
-第一引数は、書き込みたい文字です。第二引数は、ファイルストリームです。
+The first argument is the character you want to write. The second argument is the file stream.
 
-<h3>ファイルを1文字づつ書き込むサンプル</h3>
+<h3> Sample to write a file character by character </ h3>
 
-fputc関数を使って、ファイルを1文字づつ書き込むサンプルです。
+This is a sample to write a file character by character using the fputc function.
 
 <pre>
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 
-int main(void) {
+int main (void) {
   
-  // ファイルを読み込みモードで開く
-  const char* in_file = "input.txt";
-  FILE* in_fp = fopen(in_file, "r");
+  // Open the file in read mode
+  const char * in_file = "input.txt";
+  FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf(stderr, "Can't open file %s\n", in_file);
-    exit(1);
+    fprintf (stderr, "Can't open file% s \ n", in_file);
+    exit (1);
   }
 
-  // ファイルを書き込みモードで開く
-  const char* out_file = "output.txt";
-  FILE* out_fp = fopen(out_file, "w");
+  // Open the file in write mode
+  const char * out_file = "output.txt";
+  FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf(stderr, "Can't open file %s\n", out_file);
-    exit(1);
+    fprintf (stderr, "Can't open file% s \ n", out_file);
+    exit (1);
   }
   
-  // 読み込んで、ファイルにに出力
+  // Read and output to file
   int32_t ch;
-  while(ch = fgetc(in_fp)) {
-    // EOFが返ってきた場合
+  while (ch = fgetc (in_fp)) {
+    // If EOF is returned
     if (ch == EOF) {
-      // ファイルの末尾かチェックする
-      if (feof(in_fp)) {
+      // Check if it is the end of the file
+      if (feof (in_fp)) {
         break;
       }
     }
-    fputc(ch, out_fp);
+    fputc (ch, out_fp);
   }
   
-  // fclose関数でファイルを閉じる
-  fclose(in_fp);
-  fclose(out_fp);
+  // Close the file with the fclose function
+  fclose (in_fp);
+  fclose (out_fp);
 }
-</pre>
+</ pre>

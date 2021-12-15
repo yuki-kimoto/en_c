@@ -1,65 +1,65 @@
-<h2>負数を表現する2の補数表現</h2>
+<h2> Two's complement representation of negative numbers </ h2>
 
-負数を表現するための2の補数表現について解説します。
+I will explain the two's complement expression for expressing negative numbers.
 
-8bit符号あり整数型の<a href="/blog/20201117090747.html">int8_t</a>の例で解説します。
+This is explained using the example of <a href="/blog/20201117090747.html"> int8_t </a>, which is an 8-bit signed integer type.
 
-コンピューターアーキテクチャでは、負の数を表現する方法が、いくつかあります。2の補数表現は、その一つです。
+In computer architecture, there are several ways to represent negative numbers. Two's complement representation is one of them.
 
-2の補数表現を具体的に書き出してみます。
+Let's write out the two's complement expression concretely.
 
 <table>
-  <tr><td>負の数</td><td>負の数のビット表現</td><td>正の数(0含む)</td><td>正の数のビット表現</td></tr>
-  <tr><td>-1</td><td>11111111</td><td>0</td><td>00000000</td></tr>
-  <tr><td>-2</td><td>11111110</td><td>1</td><td>00000001</td></tr>
-  <tr><td>-3</td><td>11111101</td><td>2</td><td>00000010</td></tr>
-  <tr><td>...</td><td>...</td><td>...</td><td>...</td></tr>
-  <tr><td>-126</td><td>10000010</td><td>125</td><td>01111101</td></tr>
-  <tr><td>-127</td><td>10000001</td><td>126</td><td>01111110</td></tr>
-  <tr><td>-128</td><td>10000000</td><td>127</td><td>01111111</td></tr>
-</table>
+  <tr> <td> Negative number </ td> <td> Negative number bit representation </ td> <td> Positive number (including 0) </ td> <td> Positive number bit representation < / td> </ tr>
+  <tr> <td> -1 </ td> <td> 11111111 </ td> <td> 0 </ td> <td> 00000000 </ td> </ tr>
+  <tr> <td> -2 </ td> <td> 11111110 </ td> <td> 1 </ td> <td> 00000001 </ td> </ tr>
+  <tr> <td> -3 </ td> <td> 11111101 </ td> <td> 2 </ td> <td> 00000010 </ td> </ tr>
+  <tr> <td> ... </ td> <td> ... </ td> <td> ... </ td> <td> ... </ td> </ tr>
+  <tr> <td> -126 </ td> <td> 10000010 </ td> <td> 125 </ td> <td> 01111101 </ td> </ tr>
+  <tr> <td> -127 </ td> <td> 10000001 </ td> <td> 126 </ td> <td> 01111110 </ td> </ tr>
+  <tr> <td> -128 </ td> <td> 10000000 </ td> <td> 127 </ td> <td> 01111111 </ td> </ tr>
+</ table>
 
-2の補数表現の特徴を見てみましょう。
+Let's take a look at the characteristics of 2's complement representation.
 
 <ul>
-  <li>最上位ビットが0の場合は正数。最上位ビットが1の場合は負数</li>
-  <li>127(正の最大値)は01111111</li>
-  <li>-1は、11111111</li>
-  <li>-128は、10000000</li>
-  <li>ビットを反転させて和をとると-1(11111111)になる</li>
-</ul>
+  <li> A positive number if the most significant bit is 0. Negative number if the most significant bit is 1 </ li>
+  <li> 127 (maximum positive value) is 01111111 </ li>
+  <li> -1 is 11111111 </ li>
+  <li> -128 is 10000000 </ li>
+  <li> Inverting the bits and summing them gives -1 (11111111) </ li>
+</ ul>
 
-2の補数の定義は、どこにでも解説があるので、調べてみてくださいね(笑)。
+The definition of 2's complement can be found everywhere, so please check it out (laughs).
 
-<h3>負数は2の補数表現であると想定してもかまいませんか?</h3>
+<h3> Can we assume that negative numbers are two's complement representations? </ H3>
 
-C言語仕様では、負数は2の補数であるとは、定義されていませんが、実際の多くの処理系では、負数の表現は、他の表現よりも、2の補数であるほうがずっと多いと考えます。
+The C language specification does not define a negative number as a two's complement, but in many implementations, the representation of a negative number is much more two's complement than any other representation. think.
 
-正の最大値に1を加えたときに、負の最小値になるのであれば、処理系が負数に2の補数表現を使っていると確信できます。
+If you get a negative minimum when you add 1 to the positive maximum, you can be confident that your implementation is using 2's complement representation for negative numbers.
 
-数値計算ライブラリが、処理系に負数の表現が2の補数であることを求めるのであれば、簡単な計算でチェックできます。
+If the Numerical Library requires the implementation to have a two's complement as a negative representation, it can be checked with a simple calculation.
 
-<h3>2の補数の特徴は何ですか?</h3>
+<h3> What are the characteristics of 2's complement? </ H3>
 
-2の補数の特徴は、引き算を足し算で表現できることです。
+The feature of 2's complement is that subtraction can be expressed by addition.
 
 <pre>
-2 - 3 = -1
-</pre>
+2-3 = -1
+</ pre>
 
-これは以下と同じ。
+This is the same as below.
 
 <pre>
 # 00000010 + 11111101 = 11111111
 2 + (-3) = -1
-</pre>
+</ pre>
 
-<h3>どこらへんに2の補数の2というニュアンスがあるのですか?</h3>
+<h3> Where is the nuance of 2's complement 2? </ H3>
 
-名前の付け方が、まずかったのかもしれません...。
+The naming method may have been wrong ...
 
-無理やりこう考えます。
+I think forcibly.
 
-第一番目に発見された補数を、1の補数と呼びましょう。単なるビット反転で、符号が変わります。
+Let's call the first discovered complement the one's complement. The sign changes by mere bit inversion.
 
-第二番目に発見された補数を、2の補数と呼びましょう。単なるビット反転に、1を足す操作を加えると、符号が変わります。
+Let's call the second found complement the two's complement. If you add 1 to the simple bit inversion, the sign will change.

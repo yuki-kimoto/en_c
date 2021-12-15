@@ -1,37 +1,37 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>EOF - ファイルの末尾を表す定数</h2>
+<h2> EOF-a constant that represents the end of the file </ h2>
 
-EOFは、ファイルの末尾を表す定数です。C言語仕様上は負の数として定義されていますが、一般的には「-1」として定義されています。<a href="/blog/20210418083246.html">stdio.h</a>ヘッダを読み込むと使えます。
+EOF is a constant that represents the end of the file. Although defined as a negative number in the C language specification, it is generally defined as "-1". You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
 
 <pre>
 EOF
-</pre>
+</ pre>
 
-<a href="/blog/20210519082217.html">fgetc関数</a>、<a href="/blog/20210516083039.html">getc関数</a>、getchar関数などは、ファイルの末尾に到達した場合に、EOFを返します。
+<a href="/blog/20210519082217.html"> fgetc function </a>, <a href="/blog/20210516083039.html"> getc function </a>, getchar function, etc. reach the end of the file If so, it returns EOF.
 
-ただし、この値は、実際にファイルの末尾に到達したことの判定に使わないでください。読み込んだファイルの1文字が、EOFと同じであった場合に、誤判定が起こります。EOFのチェックと合わせて、feof関数を使って、ファイルの末尾に到達したことを判定してください。実際のコードは<a href="/blog/20210519082217.html">fgetc関数</a>のサンプルコードを見てください。
+However, do not use this value to determine that you have actually reached the end of the file. If one character of the read file is the same as EOF, a misjudgment will occur. Use the feof function in conjunction with the EOF check to determine that you have reached the end of the file. See the sample code for the <a href="/blog/20210519082217.html"> fgetc function </a> for the actual code.

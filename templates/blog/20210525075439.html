@@ -1,81 +1,81 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>fseek関数 - ファイルストリームの位置指定子を位置を設定</h2>
+<h2> fseek function-sets the position of the file stream position specifier </ h2>
 
-fseek関数を使うと、ファイルストリームの位置指定子が指す位置を設定できます。<a href="/blog/20210418083246.html">stdio.h</a>ヘッダを読み込むと使えます。
+You can use the fseek function to set the position pointed to by the file stream position specifier. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
 
 <pre>
 #include <stdio.h>
-int fseek(FILE *fp, long offset, int origin);
-</pre>
+int fseek (FILE * fp, long offset, int origin);
+</ pre>
 
-第一引数は、ファイルストリームです。第二引数は、ファイルストリームの位置指定子が指す相対位置です。第三引数を基準位置とします。第三引数は、基準とする位置です。「SEEK_SET」でファイルの先頭、「SEEK_CUR」でファイルの現在位置、「SEEK_END」で、ファイルの末尾を指定できます。
+The first argument is the file stream. The second argument is the relative position pointed to by the file stream position specifier. The third argument is used as the reference position. The third argument is the reference position. You can specify the beginning of the file with "SEEK_SET", the current position of the file with "SEEK_CUR", and the end of the file with "SEEK_END".
 
-fseek関数が使用される主な用途は、データが固定長のファイルの読み書きをするときと、ファイルサイズを取得したいときです。
+The main uses of the fseek function are when reading and writing files with fixed length data and when you want to get the file size.
 
-<h3>ファイルサイズを取得するサンプル</h3>
+<h3> Sample to get the file size </ h3>
 
-fseek関数と<a href="/blog/20210526085256.html">ftell関数</a>を使って、ファイルサイズを取得するサンプルです。
+This is a sample to get the file size using the fseek function and <a href="/blog/20210526085256.html"> ftell function </a>.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 #include <stdlib.h>
 
-int main(void) {
-  // ファイルを開く
-  const char* in_file = "input.txt";
-  FILE* in_fp = fopen(in_file, "r");
+int main (void) {
+  // Open the file
+  const char * in_file = "input.txt";
+  FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf(stderr, "Can't open file %s\n", in_file);
-    exit(1);
+    fprintf (stderr, "Can't open file% s \ n", in_file);
+    exit (1);
   }
   
-  // ファイルの末尾に位置指定子を移動
-  fseek(in_fp, 0, SEEK_END);
+  // Move the position specifier to the end of the file
+  fseek (in_fp, 0, SEEK_END);
   
-  // ファイルの末尾の位置を取得。これは、ファイサイズになります。
-  int32_t file_size = (int32_t)ftell(in_fp);
+  // Get the position of the end of the file. This will be phi size.
+  int32_t file_size = (int32_t) ftell (in_fp);
   
-  printf("%d\n", file_size);
+  printf ("% d \ n", file_size);
   
-  // ファイルを閉じる
-  fclose(in_fp);
+  // Close the file
+  fclose (in_fp);
 }
-</pre>
+</ pre>
 
-入力ファイル。末尾に改行はありません。
-
-<pre>
-HelloWorld!
-</pre>
-
-出力結果。ファイルサイズが取得できています。
+Input file. There is no newline at the end.
 
 <pre>
-11
-</pre>
+Hello World!
+</ pre>
+
+Output result. The file size has been obtained.
+
+<pre>
+11 11
+</ pre>

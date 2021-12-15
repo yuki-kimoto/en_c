@@ -1,76 +1,76 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop="name">コンパイル</span>
+        <span itemprop = "name"> Compile </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>C言語ソースコードを実行する手順</h2>
+<h2> Procedure for executing C language source code </ h2>
 
-C言語ソースコードを実行する手順を解説します。<a href="/blog/20201214140830.html">コンパイル</a>・<a href="/blog/20201215105104.html">リンク</a>・<a href="/blog/20201216101527.html">実行</a>という流れがありますが、まずは実行することを目標にしてみましょう。<a href="/blog/20201124085008.html">C言語開発環境の構築</a>ができていることが前提です。
+I will explain the procedure to execute the C language source code. <a href="/blog/20201214140830.html"> Compile </a> ・ <a href="/blog/20201215105104.html"> Links </a> ・ <a href="/blog/20201216101527.html" There is a flow of> execution </a>, but let's first aim to execute it. It is assumed that <a href="/blog/20201124085008.html"> C language development environment has been built </a>.
 
-<h3>コンパイルとリンクで実行ファイルを生成</h3>
+<h3> Compile and link to generate an executable file </ h3>
 
-コンパイルとリンクを行って、実行ファイルを生成するにはgccコマンドで、「-o」オプションを使用します。
+To compile and link and generate an executable file, use the "-o" option with the gcc command.
 
-「-o」オプションで出力ファイル名を指定します。
+Specify the output file name with the "-o" option.
 
 <pre>
-gcc -o 出力ファイル名 入力ファイル名
-</pre>
+gcc -o output file name input file name
+</ pre>
 
-このコマンドでは、コンパイルとリンクの作業を一度に行ってしまいます。入力ファイルが一つなので、リンクした気分にはならないです。リンクという言葉の意味もまだ説明していません。まず実行できるところまでを、試してみましょう。
+This command will compile and link all at once. Since there is only one input file, I don't feel like linking. I haven't explained the meaning of the word link yet. Let's try as far as we can.
 
-「test.c」というC言語ソースファイルから「test」という実行ファイルを作成してみましょう。
+Let's create an executable file called "test" from a C language source file called "test.c".
 
 <pre>
 // test.c
 
 #include <stdio.h>
 
-int main(void) {
-  printf("Hello World!\n");
+int main (void) {
+  printf ("Hello World! \ N");
 }
-</pre>
+</ pre>
 
-gccコマンドで実行ファイルを生成します。
+Generate an executable file with the gcc command.
 
 <pre>
 gcc -o test test.c
-</pre>
+</ pre>
 
-<h3>実行ファイルを実行する</h3>
+<h3> Execute the executable file </ h3>
 
-作成された実行ファイルを実行しましょう。実行ファイルというのは、一般的にいうプログラムのことです。
+Let's execute the created executable file. An executable file is a general program.
 
 <pre>
-# 実行ファイル(プログラム)を実行する
+# Execute the executable file (program)
 ./test
-</pre>
+</ pre>
 
-出力結果です。
+This is the output result.
 
 <pre>
 Hello World!
-</pre>
+</ pre>
 
-先頭に「./」が付いているところに注目してください。<a href="https://en.linux.perlzemi.com/">Unix/Linux</a>では、セキュリティリスクを減らすために「test」と記述しただけでは、実行ファイルが実行できないようになっています。カレントディレクトリの実行ファイルを実行する場合は、「./」をつける必要があると覚えておきましょう。絶対パスであれば、このようなことを意識する必要はないです。
+Notice the "./" at the beginning. In <a href="https://en.linux.perlzemi.com/"> Unix / Linux </a>, just writing "test" to reduce security risk will prevent the executable file from being executed. It has become. Remember that you need to add "./" when executing an executable file in the current directory. If it's an absolute path, you don't have to be aware of this.
 
-コンパイル・リンク・実行を一行で書くこともできます。
+You can also write compile, link, and execute in one line.
 
 <pre>
 gcc -o test test.c && ./test
-</pre>
+</ pre>

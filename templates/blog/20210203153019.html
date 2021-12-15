@@ -1,97 +1,97 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop="name">プリプロセッサ</span>
+        <span itemprop = "name"> preprocessor </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>#includeプリプロセッサ命令 - ファイルのインクルード</h2>
+<h2> #include preprocessor instructions-file include </ h2>
 
-#includeプリプロセッサ命令は、他のソースコードをインクルードするためのプリプロセッサ命令です。
+The #include preprocessor instruction is a preprocessor instruction to include other source code.
 
 <pre>
-#include <ファイル名>
+#include <filename>
 
-#include "ファイル名"
-</pre>
+#include "filename"
+</ pre>
 
-ファイル名で指定されたファイルの内容を、現在のソースコードに、埋め込みます。
+Embeds the contents of the file specified by the file name in the current source code.
 
-「<ファイル名>」と「"ファイル名"」の違いはどうやらプリプロセッサの実装に依存するようです。
+The difference between "<filename>" and "" filename "" seems to depend on the preprocessor implementation.
 
-gccで試してみた結果です。
+This is the result of trying with gcc.
 
-「<ファイル名>」の場合は「-I オプションで指定されたディレクトリ」「システムのヘッダファイルのインクルードパス」の順にファイルを検索します。
+For "<filename>", the files are searched in the order of "directory specified by the -I option" and "system header file include path".
 
-「"ファイル名"」の場合は「カレントディレクトリ」「-I オプションで指定されたディレクトリ」「システムのヘッダファイルのインクルードパス」でファイルを検索します。
+In the case of "" file name "", the file is searched by "current directory", "directory specified by -I option", and "include path of system header file".
 
-複数の「-I」オプションが指定された場合は、先に指定したIオプションから検索されます。
+If multiple "-I" options are specified, the I option specified earlier will be searched first.
 
-使い分けとしては、<a href="/library.html">標準ライブラリ</a>を使う場合や、システムのヘッダファイルのインクルードパスにインストールされているライブラリを使う場合は「<ファイル名>」、自作のアプリケーション用のヘッダファイルはは「"ファイル名"」くらいの感じでよいのではないでしょうか。
+When using <a href="/library.html"> standard library </a>, or when using the library installed in the include path of the system header file, "<filename>", The header file for your own application should look like "" file name "".
 
-<h3>#includeプリプロセッサ命令のサンプル</h3>
+<h3> #include Preprocessor instruction sample </ h3>
 
-#includeプリプロセッサ命令のサンプルです。
+#include Preprocessor instruction sample.
 
-<h4>標準ライブラリのヘッダを読み込む</h4>
+<h4> Read the standard library header </ h4>
 
-標準ライブラリのヘッダを読み込みます。
+Load the standard library header.
 
 <pre>
 #include <stdio.h>
 
-int main(void) {
-  printf("%s\n", "Hello World!");
+int main (void) {
+  printf ("% s \ n", "Hello World!");
 }
-</pre>
+</ pre>
 
-<h4>自作のアプリケーションのヘッダファイルを読み込む</h4>
+<h4> Read the header file of your own application </ h4>
 
-自作のアプリケーションのヘッダファイルを読み込みます。
+Load the header file of your application.
 
 <pre>
 #include "myapp_lib.h"
 
-int main(void) {
-  // myapp_lib.hで宣言されている関数を使うなど
+int main (void) {
+  // Use functions declared in myapp_lib.h, etc.
 }
-</pre>
+</ pre>
 
-<h3>読み込むファイルの拡張子は「.h」でなくてもよいのですか?</h3>
+<h3> Does the extension of the file to be read need not be ".h"? </ H3>
 
-はい、拡張子名は関係ありません。たとえば「.c」でも読み込めます。読み込めますが、本当に特別な理由がない限りは、ヘッダファイル以外は読み込まない方がよいでしょう。
+Yes, the extension name doesn't matter. For example, ".c" can also be read. You can read it, but unless you really have a specific reason, you shouldn't read anything other than the header file.
 
-<h3>ファイル名は、絶対パスでも良いのですか?</h3>
+<h3> Can the file name be an absolute path? </ H3>
 
-はい、ファイル名は絶対パスでもかまいません。ただし、本当に特別な理由がない限りは、相対パスで読み込むのがよいでしょう。
+Yes, the file name can be an absolute path. However, unless you really have a specific reason, it's best to read with a relative path.
 
-<h3>システムのヘッダファイルのインクルードパスを調べるにはどうすればよいですか?</h3>
+<h3> How can I find out the include path of the system header file? </ h3>
 
-「いったいどうやってしらべりゃーいいのよ!」
+"How should I find out!"
 
-これは、コンパイラのプリプロセッサに静的に書き込まれた情報ですので、プリプロセッサの情報を調べる必要があります。
+This is information statically written to the compiler's preprocessor, so you need to look up the preprocessor's information.
 
-Ubuntuの場合に、調べ方を記述した記事があるので、参考にしてください。
+In the case of Ubuntu, there is an article that describes how to check it, so please refer to it.
 
 <ul>
-  <li><a href="https://en.ubuntu.perlzemi.com/blog/20200429174004.html">ヘッダーファイルの読み込みパス - Ubuntu+PerlでWebシステム開発 環境構築</a></li>
-</ul>
+  <li> <a href="https://en.ubuntu.perlzemi.com/blog/20200429174004.html"> Header file reading path --Web system development environment construction with Ubuntu + Perl </a> </ li>
+</ ul>
 
-<h3>なぜヘッダファイルをインクルードするだけで、標準ライブラリが使えるのですか?</h3>
+<h3> Why can I use the standard library just by including the header file? </ h3>
 
-「なぜヘッダファイルをインクルードするだけで、標準ライブラリが使えるのですか? libstdio.oのようなオブジェクトファイルをリンクしないで使えるのはなぜですか?」
+"Why can I use the standard library just by including the header file? Why can I use it without linking an object file like libstdio.o?"
 
-gccの場合で説明しますが、「printf関数」など<a href="/library.html">標準ライブラリ</a>が実装された「libglibc.o(あるいはlibglibc.so)」というオブジェクトファイルが、暗黙的にリンクされるからです。
+As explained in the case of gcc, there is an object file called "libglibc.o (or libglibc.so)" that implements <a href="/library.html"> standard library </a> such as "printf function". , Because it is implicitly linked.

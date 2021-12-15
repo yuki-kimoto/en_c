@@ -1,32 +1,32 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop="name">C言語の型</span>
+        <span itemprop = "name"> C type </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>void型 - 存在しないことを意味する特別な型</h2>
+<h2> void type-a special type that means it doesn't exist </ h2>
 
-void型は存在しないことを意味する特別な型です。<a href="/blog/20210214090234.html">関数定義</a>の戻り値の型、引数の型として使うことができます。
+The void type is a special type that means it doesn't exist. It can be used as the return type and argument type of <a href="/blog/20210214090234.html"> function definition </a>.
 
 <pre>
-# 戻り値はなし、引数なし
-void foo(void) {
+#No return value, no arguments
+void foo (void) {
   
 }
-</pre>
+</ pre>
 
-void型は、<a href="/blog/20210215090234.html">汎用ポインタ型「void*」</a>とは、意味の関連性がまったくないので注意してください。
+Note that the void type has no semantic relevance to the <a href="/blog/20210215090234.html"> general-purpose pointer type "void *" </a>.

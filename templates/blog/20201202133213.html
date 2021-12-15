@@ -1,63 +1,63 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop="name">C言語の型</span>
+        <span itemprop = "name"> C type </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>float - 単精度(32bit)浮動小数点型</h2>
+<h2> float --single precision (32bit) floating point type </ h2>
 
-「float」は単精度(32bit)浮動小数点型です。単精度というのは単に32bitという意味です。浮動小数点とは、小数をソフトウェアで表現する一つの形式で、IEEE 754 形式においては、符号部、仮数部、指数部からなります。仮数部は、有効桁数のことだと考えてください。
+"Float" is a single precision (32bit) floating point type. Single precision simply means 32bit. Floating point is a form of software representation of a decimal, and in the IEEE 754 format, it consists of a sign part, a mantissa part, and an exponent part. Think of the mantissa as the number of significant digits.
 
 <pre>
-# 単精度(32bit)浮動小数点型
+# Single precision (32bit) floating point type
 float
-</pre>
+</ pre>
 
-単精度(32bit)浮動小数点型が表現できる浮動小数の最大値はFTL_MAX、最小値はFLT_MINで定義されています。
+The maximum value of a floating point number that can be represented by a single precision (32bit) floating point type is defined by FTL_MAX, and the minimum value is defined by FLT_MIN.
 
-<h3>floatのサンプルコード</h3>
+<h3> float sample code </ h3>
 
-floatを使ったサンプルコードです。浮動小数点リテラルの型が、float型であることを明示するために「f」サフィックスを指定しています。
+This is a sample code using float. The "f" suffix is ​​specified to clearly indicate that the type of the floating-point literal is a float type.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 
-int main(void) {
+int main (void) {
   float num = 5.4f;
   
-  printf("%f\n", num);
+  printf ("% f \ n", num);
 }
-</pre>
+</ pre>
 
-<a href="/blog/20210419083246.html">printf関数</a>のフォーマット指定子で「%f」を使っています。
+"% F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
 
-出力結果。
+Output result.
 
 <pre>
 5.400000
-</pre>
+</ pre>
 
-<h3>16bit幅の整数はfloatで表現できる</h3>
+<h3> 16-bit wide integers can be represented by floats </ h3>
 
-floatは浮動小数点型ですが、整数は浮動小数点の一つの値なので、整数も表現できます。
+Float is a floating point type, but since an integer is a floating point value, it can also represent an integer.
 
-数の大小関係で覚えておいてほしいのは、16bit幅の整数(<a href="/blog/20201126090559.html">int16_t</a>, <a href="/blog/20201120084622.html">uint16_t</a>)は、floatで表現できるということです。一方で、32bit幅の整数(<a href="/blog/20201130082751.html">int32_t</a>, <a href="/blog/20201111150850.html">uint32_t</a>)は、floatでは表現できず、doubleが必要です。
+Keep in mind that the number is a 16-bit wide integer (<a href="/blog/20201126090559.html"> int16_t </a>, <a href="/blog/20201120084622.html"> uint16_t </a>) means that it can be expressed by float. On the other hand, 32-bit wide integers (<a href="/blog/20201130082751.html"> int32_t </a>, <a href="/blog/20201111150850.html"> uint32_t </a>) are available on float. It cannot be expressed and requires a double.
 
-<h3>float型とディープラーニングとGPUの関係</h3>
+<h3> Relationship between float type, deep learning and GPU </ h3>
 
-<a href="https://en.deeplearning.perlzemi.com/">ディープラーニング</a>では、計算処理の高速化のためにGPUによる演算を行います。GPUの処理は、一般的なものではfloat幅の数値の並列計算です。GPUはもともと画面表示用のプロセッサで、密度を高めて並列計算を行うためにひとつひとつのユニットはfloat幅です。これが、ディープラーニングで必要とされる数値計算と、相性が良かったのです。Perlで<a href="https://en.bind.perlzemi.com/">GPU/CUDAをバインディング</a>することも可能です。
+<a href="https://en.deeplearning.perlzemi.com/"> Deep learning </a> uses the GPU to perform calculations to speed up the calculation process. GPU processing is typically parallel computing of float-width numbers. The GPU was originally a processor for screen display, and each unit has a float width in order to increase the density and perform parallel calculations. This was a good match for the numerical calculations required for deep learning. You can also <a href="https://en.bind.perlzemi.com/"> GPU / CUDA binding </a> in Perl.

@@ -1,61 +1,61 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop="name">C標準ライブラリ</span>
+        <span itemprop = "name"> C standard library </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "2" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop="name">stdio.h</span>
+        <span itemprop = "name"> stdio.h </ span>
       </a>
-      <meta itemprop="position" content="3" />
-    </li>
+      <meta itemprop = "position" content = "3" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>putchar関数 - 1文字出力する</h2>
+<h2> putchar function --output one character </ h2>
 
-putchar関数で、1文字出力できます。<a href="/blog/20210418083246.html">stdio.h</a>ヘッダを読み込むと使えます。
+You can output one character with the putchar function. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
 
 <pre>
 #include <stdio.h>
-int putchar(int c);
-</pre>
+int putchar (int c);
+</ pre>
 
-<h3>putchar関数のサンプル</h3>
+<h3> Putchar function sample </ h3>
 
-putchar関数で1文字づつ出力するサンプルです。
+This is a sample that outputs one character at a time with the putchar function.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
 
-int main(void) {
-  const char* message = "Hello";
+int main (void) {
+  const char * message = "Hello";
 
-  int32_t message_length = strlen(message);
+  int32_t message_length = strlen (message);
 
-  for (int32_t i = 0; i < message_length; i++) {
-    putchar(message[i]);
+  for (int32_t i = 0; i <message_length; i ++) {
+    putchar (message [i]);
   }
-  putchar('\n');
+  putchar ('\ n');
 }
-</pre>
+</ pre>
 
-出力結果です。
+This is the output result.
 
 <pre>
 Hello
-</pre>
+</ pre>

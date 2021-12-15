@@ -1,59 +1,59 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop="name">C言語の型</span>
+        <span itemprop = "name"> C type </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>double - 倍精度(64bit)浮動小数点型</h2>
+<h2> double-double precision (64bit) floating point type </ h2>
 
-「double」は倍精度(64bit)浮動小数点型です。倍精度というのは単に64bitという意味です。浮動小数点とは、小数をソフトウェアで表現する一つの形式で、IEEE 754 形式においては、符号部、仮数部、指数部からなります。仮数部は、有効桁数のことだと考えてください。
+"Double" is a double precision (64bit) floating point type. Double precision simply means 64bit. Floating point is a form of software representation of a decimal, and in the IEEE 754 format, it consists of a sign part, a mantissa part, and an exponent part. Think of the mantissa as the number of significant digits.
 
 <pre>
-# 倍精度(64bit)浮動小数点型
+# Double precision (64bit) floating point type
 double
-</pre>
+</ pre>
 
-倍精度(64bit)浮動小数点型が表現できる浮動小数の最大値はDBL_MAX、最小値はFLT_MINで定義されています。
+The maximum value of a floating point number that can be represented by a double precision (64bit) floating point type is defined by DBL_MAX, and the minimum value is defined by FLT_MIN.
 
-<h3>doubleのサンプルコード</h3>
+<h3> Double sample code </ h3>
 
-doubleを使ったサンプルコードです。
+This is a sample code using double.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 
-int main(void) {
+int main (void) {
   double num = 5.4;
   
-  printf("%f\n", num);
+  printf ("% f \ n", num);
 }
-</pre>
+</ pre>
 
-<a href="/blog/20210419083246.html">printf関数</a>のフォーマット指定子で「%f」を使っています。
+"% F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
 
-出力結果。
+Output result.
 
 <pre>
 5.400000
-</pre>
+</ pre>
 
-<h3>32bit幅の整数はdoubleで表現できる</h3>
+<h3> 32-bit wide integers can be represented by doubles </ h3>
 
-doubleは浮動小数点型ですが、整数は浮動小数点の一つの値なので、整数も表現できます。
+Double is a floating point type, but since an integer is a floating point value, it can also represent an integer.
 
-数の大小関係で覚えておいてほしいのは、32bit幅の整数(<a href="/blog/20201130082751.html">int32_t</a>, <a href="/blog/20201111150850.html">uint32_t</a>)は、doubleで表現できるということです。一方で、64it幅の整数(<a href="/blog/20201127082751.html">int64_t</a>, <a href="/blog/20201109150850.html">uint64_t</a>)は、doubleでは表現できません。
+Keep in mind that the number is a 32-bit wide integer (<a href="/blog/20201130082751.html"> int32_t </a>, <a href="/blog/20201111150850.html"> uint32_t </a>) means that it can be represented by a double. On the other hand, an integer with a width of 64it (<a href="/blog/20201127082751.html"> int64_t </a>, <a href="/blog/20201109150850.html"> uint64_t </a>) is a double. I can't express it.

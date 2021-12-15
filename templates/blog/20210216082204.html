@@ -1,247 +1,247 @@
-<div class="bread">
-  <ul itemscope itemtype="http://schema.org/BreadcrumbList">
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+<div class = "bread">
+  <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop="name">C言語</span>
+        <span itemprop = "name"> C language </ span>
       </a>
-      <meta itemprop="position" content="1" />
-    </li>
-    <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+      <meta itemprop = "position" content = "1" />
+    </ li>
+    <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop="name">基本文法</span>
+        <span itemprop = "name"> Basic grammar </ span>
       </a>
-      <meta itemprop="position" content="2" />
-    </li>
+      <meta itemprop = "position" content = "2" />
+    </ li>
     <li>
       here
-    </li>
-  </ul>
-</div>
+    </ li>
+  </ ul>
+</ div>
 
-<h2>比較演算子</h2>
+<h2> Comparison operator </ h2>
 
-C言語の比較演算子について解説します。C言語の比較演算子は、左辺と右辺の数値を比較します。
+Explains the comparison operator in C language. The C comparison operator compares numbers on the left and right sides.
 
-<h3>比較演算子の一覧</h3>
+<h3> List of comparison operators </ h3>
 
-比較演算子の一覧です。
+A list of comparison operators.
 
 <table>
-  <tr><th>演算子</th><th>解説</th></tr>
-  <tr><td>==</td><td>左辺と右辺は等しい</td></tr>
-  <tr><td>!=</td><td>左辺と右辺は等しくない</td></tr>
-  <tr><td>&gt;</td><td>左辺は右辺より大きい</td></tr>
-  <tr><td>&gt;=</td><td>左辺は右辺より大きいまたは等しい</td></tr>
-  <tr><td>&lt;</td><td>左辺は右辺より小さい</td></tr>
-  <tr><td>&lt;=</td><td>左辺は右辺より小さいまたは等しい</td></tr>
-</table>
+  <tr> <th> Operator </ th> <th> Explanation </ th> </ tr>
+  <tr> <td> == </ td> <td> Left side and right side are equal </ td> </ tr>
+  <tr> <td>! = </ td> <td> Left and right sides are not equal </ td> </ tr>
+  <tr> <td> & gt; </ td> <td> The left side is larger than the right side </ td> </ tr>
+  <tr> <td> & gt; = </ td> <td> The left side is greater than or equal to the right side </ td> </ tr>
+  <tr> <td> & lt; </ td> <td> The left side is smaller than the right side </ td> </ tr>
+  <tr> <td> & lt; = </ td> <td> The left side is less than or equal to the right side </ td> </ tr>
+</ table>
 
-比較演算子は、条件を満たした場合はint型の「1」、満たさなかった場合は「0」を返します。これはC言語の仕様で、どの処理系でも同じです。
+The comparison operator returns an int type "1" if the condition is met, or "0" if the condition is not met. This is a C language specification and is the same for all implementations.
 
-<h3>数値の大小を比較する</h3>
+<h3> Compare the magnitude of numbers </ h3>
 
-数値の大小を比較してみましょう。
+Let's compare the magnitude of the numbers.
 
-<h4>int32_t型の数値の大小比較</h4>
+<h4> Comparison of magnitude of int32_t type numbers </ h4>
 
-比較演算子を使って数値の大小を比較してみましょう。<a href="/blog/20201130082751.html">int32_t</a>型どうしの比較を行うサンプルです。
+Let's compare the magnitude of the numbers using the comparison operator. <a href="/blog/20201130082751.html"> int32_t </a> This is a sample to compare types.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   int32_t num1 = 15;
   int32_t num2 = 10;
   
-  if (num1 > num2) {
-    printf("Match\n");
+  if (num1> num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-<h4>int64_t型の数値の大小比較</h4>
+<h4> Comparison of magnitude of int64_t type numbers </ h4>
 
-比較演算子で、<a href="/blog/20201127082751.html">int64_t</a>型どうしの比較を行うサンプルです。
+This is a sample to compare <a href="/blog/20201127082751.html"> int64_t </a> types with the comparison operator.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   int64_t num1 = 15;
   int64_t num2 = 10;
   
-  if (num1 > num2) {
-    printf("Match\n");
+  if (num1> num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-<h4>int32_t型とint8_t型の数値の大小比較</h4>
+<h4> Comparison of magnitude between int32_t type and int8_t type numbers </ h4>
 
-比較演算子で、<a href="/blog/20201130082751.html">int32_t</a>型と<a href="/blog/20201117090747.html">int8_t</a>型の比較を行うサンプルです。
+This is a sample to compare <a href="/blog/20201130082751.html"> int32_t </a> type and <a href="/blog/20201117090747.html"> int8_t </a> type with the comparison operator. ..
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   int32_t num1 = 15;
   int8_t num2 = 10;
   
-  if (num1 > num2) {
-    printf("Match\n");
+  if (num1> num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-C言語では二項演算子の両辺は、int型よりも小さな型の場合は、int型に拡張されるという規則があります。また両辺の型の大きさが異なる場合は、小さな型の値が、大きな型の値に変換されます。
+In C, there is a rule that both sides of a binary operator are extended to an int if the type is smaller than the int. Also, if the types on both sides are of different sizes, the smaller type values ​​are converted to the larger type values.
 
-処理系のintのサイズが仮に16bitであったとして、上記の記述を、明示的な型キャストを使って書き直してみましょう。
+Assuming that the implementation int size is 16bit, let's rewrite the above description using an explicit type cast.
 
-まずint8_t(符号あり8bit整数)は、int(符号あり16bit整数)に変換され、さらにint32_t(符号あり32bit整数)に変換されます。
+First, int8_t (signed 8bit integer) is converted to int (signed 16bit integer), and then to int32_t (signed 32bit integer).
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   int32_t num1 = 15;
   int8_t num2 = 10;
   
-  // 明示的に型キャストを書くと
-  if (num1 > (int32_t)(int)num2) {
-    printf("Match\n");
+  // If you explicitly write a type cast
+  if (num1> (int32_t) (int) num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-他の型の場合でも暗黙的な型変換の規則は同じです。型の大きさには順序があって「double」「float」「int64_t」「int32_t」「int16_t」「int8_t」の順番になることを覚えておきましょう。
+The implicit conversion rules are the same for other types. Keep in mind that the size of the type is in order, "double" "float" "int64_t" "int32_t" "int16_t" "int8_t".
 
-<h4>uint32_t型の数値の大小比較</h4>
+<h4> Comparison of magnitude of uint32_t type numbers </ h4>
 
-比較演算子を使って数値の大小を比較してみましょう。<a href="/blog/20201111150850.html">uint32_t</a>型どうしの比較を行うサンプルです。
+Let's compare the magnitude of the numbers using the comparison operator. <a href="/blog/20201111150850.html"> uint32_t </a> This is a sample to compare types.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   uint32_t num1 = 15;
   uint32_t num2 = 10;
   
-  if (num1 > num2) {
-    printf("Match\n");
+  if (num1> num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-<h3>符号あり整数と符号なし整数の比較はお勧めしない理由</h3>
+<h3> Reasons why we do not recommend comparing signed and unsigned integers </ h3>
 
-符号なし整数と符号あり整数の比較は、お勧めしないです。意図していない暗黙の型変換が発生している場合があるので、明示的に型キャストして、比較することをお勧めします。
+Comparing unsigned and signed integers is not recommended. It's a good idea to explicitly typecast and compare, as unintended implicit conversions may occur.
 
-<h3>float型どうしの比較</h3>
+<h3> Comparison between float types </ h3>
 
-比較演算子で、<a href="/blog/20201202133213.html">float</a>型の比較を行うサンプルです。
+This is a sample to compare <a href="/blog/20201202133213.html"> float </a> type with the comparison operator.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   float num1 = 15.5f;
   float num2 = 10.2f;
   
-  if (num1 > num2) {
-    printf("Match\n");
+  if (num1> num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-<h3>double型どうしの比較</h3>
+<h3> Comparison between double types </ h3>
 
-比較演算子で、<a href="/blog/20201203133213.html">double</a>型の比較を行うサンプルです。
+This is a sample to compare <a href="/blog/20201203133213.html"> double </a> type with the comparison operator.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
-int main(void) {
+int main (void) {
   double num1 = 15.5;
   double num2 = 10.2;
   
-  if (num1 > num2) {
-    printf("Match\n");
+  if (num1> num2) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
 }
-</pre>
+</ pre>
 
-<h3>ポインタどうしの比較</h3>
+<h3> Comparison of pointers </ h3>
 
-<a href="/blog/20210211090234.html">ポインタ</a>を比較してみましょう。ポインタにはアドレスが代入されていますが、アドレスというのは数値です。C言語の比較演算子は数値を比較しますが、アドレスが同じかどうかという判定も比較演算子で行うことができます。
+Let's compare <a href="/blog/20210211090234.html"> pointers </a>. Addresses are assigned to pointers, but addresses are numbers. The C language comparison operator compares numbers, but you can also use the comparison operator to determine if the addresses are the same.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-  // ポインタ
-  int32_t* nums1 = calloc(sizeof(int32_t), 10);
-  int32_t* nums2 = nums1;
+int main (void) {
+  // Pointer
+  int32_t * nums1 = calloc (sizeof (int32_t), 10);
+  int32_t * nums2 = nums1;
   
   if (nums1 == nums2) {
-    printf("Match\n");
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
-  free(nums1);
+  free (nums1);
 }
-</pre>
+</ pre>
 
-<h3>ポインタとNULLの比較</h3>
+<h3> Pointer to NULL comparison </ h3>
 
-ポインタと<a href="/blog/20210213090234.html">NULL</a>を比較してみましょう。NULLは0と等価ですので、比較演算子で比較できます。
+Let's compare the pointer with <a href="/blog/20210213090234.html"> NULL </a>. NULL is equivalent to 0 and can be compared with the comparison operator.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(void) {
-  // ポインタ
-  int32_t* nums1 = calloc(sizeof(int32_t), 10);
+int main (void) {
+  // Pointer
+  int32_t * nums1 = calloc (sizeof (int32_t), 10);
   
-  // ポインタがNULLではない
-  if (nums1 != NULL) {
-    printf("Match\n");
+  // Pointer is not null
+  if (nums1! = NULL) {
+    printf ("Match \ n");
   }
   else {
-    printf("Not Match\n");
+    printf ("Not Match \ n");
   }
-  free(nums1);
+  free (nums1);
 }
-</pre>
+</ pre>
