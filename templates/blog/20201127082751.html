@@ -2,36 +2,36 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> int64_t --Signed 64-bit integer type </ h2>
+<h2> int64_t --Signed 64-bit integer type </h2>
 
-"Int64_t" is a signed 64-bit integer type. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h </a>" header. This is the type introduced in <a href="/blog/20201206125815.html"> C99 </a>.
+"Int64_t" is a signed 64-bit integer type. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h</a>" header. This is the type introduced in <a href="/blog/20201206125815.html"> C99</a>.
 
 <pre>
 # Signed 64-bit integer type
 int64_t
-</ pre>
+</pre>
 
 The maximum value of an integer that can be represented by a signed 64-bit integer type is "9223372036854775807", and the minimum value is "-9223372036854775808".
 
-The maximum value is "<a href="/blog/20201118082751.html"> INT64_MAX </a>" and the minimum value is "<a href="/blog/20201112150850.html"> INT64_MIN </a>". It is defined.
+The maximum value is "<a href="/blog/20201118082751.html"> INT64_MAX</a>" and the minimum value is "<a href="/blog/20201112150850.html"> INT64_MIN</a>". It is defined.
 
-<h3> int64_t sample code </ h3>
+<h3> int64_t sample code </h3>
 
 This is a sample code using int64_t.
 
@@ -42,16 +42,16 @@ This is a sample code using int64_t.
 int main (void) {
   int64_t num = -9223372036854775808LL;
   
-  printf ("% lld \ n", num);
+  printf("%lld\n", num);
 }
-</ pre>
+</pre>
 
-I am using "% lld" in the format specifier of the <a href="/blog/20210419083246.html"> printf function </a>.
+I am using "%lld" in the format specifier of the <a href="/blog/20210419083246.html"> printf function</a>.
 
-The integer literal suffix is ​​"LL" and the format specifier is "% lld" so that everything works correctly on Unix / Linux / Mac / Windows. This is because "L" and "% ld" mean signed 32-bit integers in Windows. "LL" and "% lld" are used to guarantee signed 64-bit integers.
+The integer literal suffix is ​​"LL" and the format specifier is "%lld" so that everything works correctly on Unix / Linux / Mac / Windows. This is because "L" and "%ld" mean signed 32-bit integers in Windows. "LL" and "%lld" are used to guarantee signed 64-bit integers.
 
 Output result.
 
 <pre>
 -9223372036854775808
-</ pre>
+</pre>

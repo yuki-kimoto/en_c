@@ -2,44 +2,44 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/string.html">
-        <span itemprop = "name"> string.h </ span>
-      </a>
+        <span itemprop = "name"> string.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> strstr function-check if a string is included </ h2>
+<h2> strstr function-check if a string is included </h2>
 
-Use the strstr function to check if a string is included. You can use the strstr function by loading <a href="/blog/20210303101711.html"> string.h </a>.
+Use the strstr function to check if a string is included. You can use the strstr function by loading <a href="/blog/20210303101711.html"> string.h</a>.
 
 <pre>
 #include <string.h>
 char * strstr (const char * str1, const char * str2);
-</ pre>
+</pre>
 
 If str1 contains str2, the first matching address is returned. If not found, returns NULL.
 
-In C language, there is a promise that <a href="/blog/20210331101342.html"> string </a> ends with "\ 0". The strstr function presupposes this convention and searches for a string.
+In C language, there is a promise that <a href="/blog/20210331101342.html"> string</a> ends with "\ 0". The strstr function presupposes this convention and searches for a string.
 
 When using the strstr function, make sure that the two strings of the argument end with "\ 0".
 
-<h3> Check if a string is included </ h3>
+<h3> Check if a string is included </h3>
 
 This is a sample to check if a string is included with the strstr function. Make sure it's not NULL and you're good to go.
 
@@ -49,25 +49,25 @@ This is a sample to check if a string is included with the strstr function. Make
 #include <stdio.h>
 
 int main (void) {
-  const char * message = "I like orange \ n";
+  const char * message = "I like orange\n";
   const char * match = "orange";
   
   if (strstr (message, match)! = NULL) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Match
-</ pre>
+</pre>
 
-<h3> Count the number of strings included </ h3>
+<h3> Count the number of strings included </h3>
 
 The strstr function returns the position when there is a match, so let's use this to count the number of strings included.
 
@@ -94,12 +94,12 @@ int main (void) {
     }
   }
   
-  printf ("Match Count% d \ n", match_count);
+  printf("Match Count%d\n", match_count);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Match Count 3
-</ pre>
+</pre>

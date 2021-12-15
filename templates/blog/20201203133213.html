@@ -2,34 +2,34 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> double-double precision (64bit) floating point type </ h2>
+<h2> double-double precision (64bit) floating point type </h2>
 
 "Double" is a double precision (64bit) floating point type. Double precision simply means 64bit. Floating point is a form of software representation of a decimal, and in the IEEE 754 format, it consists of a sign part, a mantissa part, and an exponent part. Think of the mantissa as the number of significant digits.
 
 <pre>
 # Double precision (64bit) floating point type
 double
-</ pre>
+</pre>
 
 The maximum value of a floating point number that can be represented by a double precision (64bit) floating point type is defined by DBL_MAX, and the minimum value is defined by FLT_MIN.
 
-<h3> Double sample code </ h3>
+<h3> Double sample code </h3>
 
 This is a sample code using double.
 
@@ -40,20 +40,20 @@ This is a sample code using double.
 int main (void) {
   double num = 5.4;
   
-  printf ("% f \ n", num);
+  printf("%f\n", num);
 }
-</ pre>
+</pre>
 
-"% F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 Output result.
 
 <pre>
 5.400000
-</ pre>
+</pre>
 
-<h3> 32-bit wide integers can be represented by doubles </ h3>
+<h3> 32-bit wide integers can be represented by doubles </h3>
 
 Double is a floating point type, but since an integer is a floating point value, it can also represent an integer.
 
-Keep in mind that the number is a 32-bit wide integer (<a href="/blog/20201130082751.html"> int32_t </a>, <a href="/blog/20201111150850.html"> uint32_t </a>) means that it can be represented by a double. On the other hand, an integer with a width of 64it (<a href="/blog/20201127082751.html"> int64_t </a>, <a href="/blog/20201109150850.html"> uint64_t </a>) is a double. I can't express it.
+Keep in mind that the number is a 32-bit wide integer (<a href="/blog/20201130082751.html"> int32_t</a>, <a href="/blog/20201111150850.html"> uint32_t</a>) means that it can be represented by a double. On the other hand, an integer with a width of 64it (<a href="/blog/20201127082751.html"> int64_t</a>, <a href="/blog/20201109150850.html"> uint64_t</a>) is a double. I can't express it.

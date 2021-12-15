@@ -2,37 +2,37 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> General-purpose pointer type --void * </ h3>
+<h2> General-purpose pointer type --void * </h3>
 
 There is a general-purpose pointer type "void *" as a pointer type to which any pointer type can be assigned.
 
 <pre>
 void *
-</ pre>
+</pre>
 
-<h3> General-purpose pointer type sample </ h3>
+<h3> General-purpose pointer type sample </h3>
 
 This is a general-purpose pointer type sample.
 
-<h4> Assignment to a general-purpose pointer and vice versa </ h3>
+<h4> Assignment to a general-purpose pointer and vice versa </h3>
 
-<a href="/blog/20210210082644.html"> malloc function </a> and <a href="/blog/20210209082644.html"> calloc function </a> return a value of type "void *" .. Let's actually declare a variable of type "void *" and assign it to another pointer type.
+<a href="/blog/20210210082644.html"> malloc function</a> and <a href="/blog/20210209082644.html"> calloc function</a> return a value of type "void *" .. Let's actually declare a variable of type "void *" and assign it to another pointer type.
 
 Let's also try assigning another pointer type to the "void *" type.
 
@@ -51,13 +51,13 @@ int main (void) {
   void * memory_block1_again = nums1;
   void * memory_block2_again = nums2;
 }
-</ pre>
+</pre>
 
 In C, no explicit cast is required to assign a void * type to another pointer type or to another pointer type.
 
-<h4> Save int32_t type value in general pointer type variable </ h3>
+<h4> Save int32_t type value in general pointer type variable </h3>
 
-This is a tricky method, but you can store a value of type <a href="/blog/20201130082751.html"> int32_t </a> in a variable of general-purpose pointer type. This trick can be used when "I implemented an array element with void * type, but uh, I want to save an integer as well, how do I do it?"
+This is a tricky method, but you can store a value of type <a href="/blog/20201130082751.html"> int32_t</a> in a variable of general-purpose pointer type. This trick can be used when "I implemented an array element with void * type, but uh, I want to save an integer as well, how do I do it?"
 
 <pre>
 #include <stdint.h>
@@ -78,23 +78,23 @@ int main (void) {
   // Cast void * type to intptr_t, then cast to int32_t type and get
   int32_t num2 = (int32_t) (intptr_t) objects [1];
   
-  printf ("% d \ n", num2);
+  printf("%d\n", num2);
 }
-</ pre>
+</pre>
 
-The point is to insert a cast of <a href="/blog/20210225131724.html"> intptr_t type </a> that is compatible with "void * type" and also compatible with signed integer type.
+The point is to insert a cast of <a href="/blog/20210225131724.html"> intptr_t type</a> that is compatible with "void * type" and also compatible with signed integer type.
 
-If you use this trick technique, please note that int32_t is used to work in both 32bit and 64bit environments. If you use <a href="/blog/20201127082751.html"> int64_t </a>, it will not work properly in a 32bit environment. The unsigned 32-bit integer type <a href="/blog/20201111150850.html"> uint32_t </a> can be used without any problem.
+If you use this trick technique, please note that int32_t is used to work in both 32bit and 64bit environments. If you use <a href="/blog/20201127082751.html"> int64_t</a>, it will not work properly in a 32bit environment. The unsigned 32-bit integer type <a href="/blog/20201111150850.html"> uint32_t</a> can be used without any problem.
 
-If you want to save floating point, <a href="/blog/20201202133213.html"> float </a> is 32bit wide, so it's OK. <a href="/blog/20201203133213.html"> double </a> is 64bit wide, so it's out.
+If you want to save floating point, <a href="/blog/20201202133213.html"> float</a> is 32bit wide, so it's OK. <a href="/blog/20201203133213.html"> double</a> is 64bit wide, so it's out.
 
-<h3> void of void type and void of type * have the same meaning? </ h3>
+<h3> void of void type and void of type * have the same meaning? </h3>
 
 No, the void type void is a special type that means "doesn't exist".
 
 On the other hand, the void part of "void * type" means "general purpose (any type)".
 
-<h3> What do you think about the explicit cast from void * to other point types? </ h3>
+<h3> What do you think about the explicit cast from void * to other point types? </h3>
 
 What do you think about the explicit cast from void * to other point types?
 
@@ -103,7 +103,7 @@ It's written as follows.
 <pre>
   void * memory_block1 = malloc (sizeof (int32_t) * 10);
   int32_t * nums1 = (int32_t *) memory_block1;
-</ pre>
+</pre>
 
 This is not specifically required by the C language specification. On the other hand, the C ++ specification requires it.
 

@@ -2,35 +2,35 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Four arithmetic operations of integers </ h2>
+<h2> Four arithmetic operations of integers </h2>
 
-Let's perform <b> four arithmetic operations on integers </ b>. Adds, subtracts, multiplies, and divides integers.
+Let's perform <b> four arithmetic operations on integers </b>. Adds, subtracts, multiplies, and divides integers.
 
-<h3> Four arithmetic operations on int32_t type values ​​</ h3>
+<h3> Four arithmetic operations on int32_t type values ​​</h3>
 
 Let's perform four arithmetic operations with the int32_t type. The point of division is that the result does not have a decimal point. The decimal point is truncated.
 
 The maximum value of an integer that can be represented by a signed 32-bit integer type is "2147483647", and the minimum value is "-2147483648".
 
-The maximum value is "<a href="/blog/20201115090747.html"> INT32_MAX </a>" and the minimum value is "<a href="/blog/20201128082751.html"> INT32_MIN </a>". It is defined.
+The maximum value is "<a href="/blog/20201115090747.html"> INT32_MAX</a>" and the minimum value is "<a href="/blog/20201128082751.html"> INT32_MIN</a>". It is defined.
 
-To output, specify "% d" in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+To output, specify "%d" in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 <pre>
 #include <stdio.h>
@@ -45,9 +45,9 @@ int main (void) {
   int32_t mul = num1 * num2;
   int32_t div = num1 / num2;
   
-  printf ("add:% d \ nsub:% d \ nmul:% d \ ndiv:% d \ n", add, sub, mul, div);
+  printf("add:%d\nsub:%d\nmul:%d\ndiv:%d\n", add, sub, mul, div);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -56,17 +56,17 @@ add: 7
 sub: 3
 mul: 10
 div: 2
-</ pre>
+</pre>
 
-<h3> Four arithmetic operations on int64_t type values ​​</ h3>
+<h3> Four arithmetic operations on int64_t type values ​​</h3>
 
 Let's perform four arithmetic operations with the int64_t type.
 
 The maximum value of an integer that can be represented by a signed 64-bit integer type is "9223372036854775807", and the minimum value is "-9223372036854775808".
 
-The maximum value is "<a href="/blog/20201118082751.html"> INT64_MAX </a>" and the minimum value is "<a href="/blog/20201112150850.html"> INT64_MIN </a>". It is defined.
+The maximum value is "<a href="/blog/20201118082751.html"> INT64_MAX</a>" and the minimum value is "<a href="/blog/20201112150850.html"> INT64_MIN</a>". It is defined.
 
-To output, specify "PRId64" as the format specifier of <a href="/blog/20210419083246.html"> printf function </a>. This is a bit annoying, but to avoid portability issues.
+To output, specify "PRId64" as the format specifier of <a href="/blog/20210419083246.html"> printf function</a>. This is a bit annoying, but to avoid portability issues.
 
 <pre>
 #include <stdio.h>
@@ -82,9 +82,9 @@ int main (void) {
   int64_t mul = num1 * num2;
   int64_t div = num1 / num2;
   
-  printf ("add:%" PRId64 "\ nsub:%" PRId64 "\ nmul:%" PRId64 "\ ndiv:%" PRId64 "\ n", add, sub, mul, div);
+  printf("add:%" PRId64 "\ nsub:%" PRId64 "\ nmul:%" PRId64 "\ ndiv:%" PRId64 "\ n", add, sub, mul, div);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -93,13 +93,13 @@ add: 7
 sub: 3
 mul: 10
 div: 2
-</ pre>
+</pre>
 
-<h3> Notes on the four arithmetic operations of integers in C language </ h3>
+<h3> Notes on the four arithmetic operations of integers in C language </h3>
 
 The rules of four arithmetic operations for integers in C seem simple and are surprisingly complicated. First of all, I will write the complicated reason.
 
-<h4> Distinguishing between signed and unsigned integer types </ h4>
+<h4> Distinguishing between signed and unsigned integer types </h4>
 
 First, in C language, there are two types, signed integer type and unsigned integer type.
 
@@ -109,19 +109,19 @@ The specification of C type automatic conversion rules is complicated and diffic
 
 So, here, let's write the best practices first.
 
-<h4> Do not perform operations that mix signed integer types and unsigned integer types </ h4>
+<h4> Do not perform operations that mix signed integer types and unsigned integer types </h4>
 
 Do not perform operations that mix signed integer types and unsigned integer types. If you need to perform an operation, use type conversion to make it a signed integer type or an unsigned integer type.
 
-<h4> Integer operations are performed in signed integer types </ h4>
+<h4> Integer operations are performed in signed integer types </h4>
 
 Integer operations are performed on signed integer types.
 
-Integer operations are performed between signed integer types as much as possible. <a href="/blog/20201109150850.html"> Unsigned 64-bit integer type uint64_t type </a> operations are required very occasionally, but other operations are signed integers of 64 bits or less. Type (<a href="/blog/20201127082751.html"> int64_t </a>, <a href="/blog/20201130082751.html"> int32_t </a>, <a href="/blog/20201126090559. You can do this with html "> int16_t </a>, <a href="/blog/20201117090747.html"> int8_t </a>).
+Integer operations are performed between signed integer types as much as possible. <a href="/blog/20201109150850.html"> Unsigned 64-bit integer type uint64_t type</a> operations are required very occasionally, but other operations are signed integers of 64 bits or less. Type (<a href="/blog/20201127082751.html"> int64_t</a>, <a href="/blog/20201130082751.html"> int32_t</a>, <a href="/blog/20201126090559. You can do this with html "> int16_t</a>, <a href="/blog/20201117090747.html"> int8_t</a>).
 
-<h4> The first choice is a signed 32-bit integer type </ h4>
+<h4> The first choice is a signed 32-bit integer type </h4>
 
-The first integer type to select in integer arithmetic is <a href="/blog/20201130082751.html"> signed 32-bit integer type int32_t </a>.
+The first integer type to select in integer arithmetic is <a href="/blog/20201130082751.html"> signed 32-bit integer type int32_t</a>.
 
 <pre>
 #include <stdint.h>
@@ -130,7 +130,7 @@ int main (void) {
   // Signed 32-bit integer type
   int32_t num = 3;
 }
-</ pre>
+</pre>
 
 Signed 32-bit integers are the most basic type of integer type.
 
@@ -142,7 +142,7 @@ Signed 16-bit integer types and signed 8-bit integer types are not selected beca
 
 According to the C language specification, signed integer types (short and signed char) smaller than int type are extended to int. The definition in the C language int specification is "integer type with a minimum width of 16 bits". However, in 2020, in many implementations, you can assume that the int type is 32bit. In other words, assume that signed integers smaller than 32 bits are type-extended to signed 32 bit integers.
 
-<h4> Automatic type expansion conversion in signed integer type operations </ h4>
+<h4> Automatic type expansion conversion in signed integer type operations </h4>
 
 In signed integer type operations, the smaller width type is expanded to the wider type and calculated.
 
@@ -157,23 +157,23 @@ int main (void) {
 
   int64_t num3 = num1 + num2;
 }
-</ pre>
+</pre>
 
 It has the same meaning as below.
 
 <pre>
 int64_t num3 = (int64_t) num1 + num2;
-</ pre>
+</pre>
 
 You can rest assured that the value of the contents does not change when expanding the type in a signed integer type.
 
 If you want to know more about type conversion, see C type conversion rules.
 
 <ul>
-  <a href="/blog/20210222132505.html"> C type conversion rules </a>
-</ ul>
+  <a href="/blog/20210222132505.html"> C type conversion rules</a>
+</ul>
 
-<h3> What happens if the integer exceeds the maximum value? </ H3>
+<h3> What happens if the integer exceeds the maximum value? </H3>
 
 Let's add 1 to the maximum value of the integer. What will happen?
 
@@ -186,14 +186,14 @@ int main (void) {
   
   num ++;
   
-  printf ("% d \ n", num);
+  printf("%d\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result. It is the minimum value.
 
 <pre>
 -2147483648
-</ pre>
+</pre>
 
-<a href="/blog/20210224132505.html"> If a negative number is in 2's complement representation </a>, add 1 to the maximum value to get the minimum value.
+<a href="/blog/20210224132505.html"> If a negative number is in 2's complement representation</a>, add 1 to the maximum value to get the minimum value.

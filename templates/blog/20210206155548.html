@@ -2,25 +2,25 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Union-Data sharing </ h2>
+<h2> Union-Data sharing </h2>
 
-A union is a type that can share multiple data. Sharing means that member variables use the same memory area. Unions can be used in the same way as <a href="/blog/20210208155548.html"> structures </a>, except that they share data.
+A union is a type that can share multiple data. Sharing means that member variables use the same memory area. Unions can be used in the same way as <a href="/blog/20210208155548.html"> structures</a>, except that they share data.
 
 <pre>
 #include <stdint.h>
@@ -35,13 +35,13 @@ union myapp_value {
   double double_val;
   void * ptr_val;
 };;
-</ pre>
+</pre>
 
 Member variables share one memory area. This means that only one can be used at a time.
 
-The size of the union returned by the <a href="/blog/20210207155548.html"> sizeof operator </a> is the largest member variable <a href="/blog/20210207155548.html"> sizeof operator <a href="/blog/20210207155548.html"> sizeof operator < It is the size returned by / a>.
+The size of the union returned by the <a href="/blog/20210207155548.html"> sizeof operator</a> is the largest member variable <a href="/blog/20210207155548.html"> sizeof operator <a href="/blog/20210207155548.html"> sizeof operator < It is the size returned by / a>.
 
-<h3> Use of unions </ h3>
+<h3> Use of unions </h3>
 
 Let's use a union. Unions are available as types. The union is declared, the value is assigned to the member variable, and the contents are output.
 
@@ -66,21 +66,21 @@ int main (void) {
   
   // Assign a value to the member variable i32_value
   value.i32_val = 4;
-  printf ("i32_val:% d \ n", value.i32_val);
+  printf("i32_val:%d\n", value.i32_val);
   
   // Assign a value to the member variable double_val
   value.double_val = 2.56;
-  printf ("double_val:% f \ n", value.double_val);
+  printf("double_val:%f\n", value.double_val);
 
   // Oh, the value of i32_val has been updated
-  printf ("i32_val:% d \ n", value.i32_val);
+  printf("i32_val:%d\n", value.i32_val);
   
   // Union size
-  printf ("size of union mypp_value:% d \ n", sizeof (union myapp_value));
+  printf("size of union mypp_value:%d\n", sizeof (union myapp_value));
 }
-</ pre>
+</pre>
 
-<h3> What is the union for? </ H3>
+<h3> What is the union for? </H3>
 
 This is to save memory area.
 

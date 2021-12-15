@@ -2,25 +2,25 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> continue statement-move to the beginning of the next loop </ h2>
+<h2> continue statement-move to the beginning of the next loop </h2>
 
-You can use the continue statement to move to the beginning of the next loop. It can be used in the block of <a href="/blog/20210115151850.html"> for statement </a> and <a href="/blog/20210119082326.html"> while statement </a>.
+You can use the continue statement to move to the beginning of the next loop. It can be used in the block of <a href="/blog/20210115151850.html"> for statement</a> and <a href="/blog/20210119082326.html"> while statement</a>.
 
 <pre>
 for (Initialize loop variable; Condition to loop; Update loop variable) {
@@ -34,7 +34,7 @@ while (condition to loop) {
   #Move to the next loop
   continue; continue;
 }
-</ pre>
+</pre>
 
 This is a sample to move to the next loop by using the continue statement in the block of the for statement. It skips only when it is an even number and moves to the beginning of the next loop.
 
@@ -48,32 +48,32 @@ int main (void) {
   int32_t total = 0;
   for (int32_t i = 0; i <10; i ++) {
     // Move to the next loop only if it is an even number
-    if (i% 2 == 0) {
+    if (i%2 == 0) {
       continue; continue;
     }
     
     total + = i;
   }
   
-  printf ("% d \ n", total);
+  printf("%d\n", total);
 }
-</ pre>
+</pre>
 
 Output result
 
 <pre>
 twenty five
-</ pre>
+</pre>
 
-<h3> Relationship between goto statement and continue statement </ h3>
+<h3> Relationship between goto statement and continue statement </h3>
 
 The continue statement is a kind of goto statement. You can think of it as a goto statement with a limited destination that moves to the beginning of the next loop.
 
 In C language, it is a good practice to write a program without using goto statements as much as possible.
 
-<h3> Use of continue statement and if statement properly </ h3>
+<h3> Use of continue statement and if statement properly </h3>
 
-How do you use the continue statement and the <a href="/blog/20201224090954.html"> if statement </a> properly? You can also write the sample you wrote earlier with an if statement.
+How do you use the continue statement and the <a href="/blog/20201224090954.html"> if statement</a> properly? You can also write the sample you wrote earlier with an if statement.
 
 <pre>
 #include <stdint.h>
@@ -84,14 +84,14 @@ int main (void) {
   // Find the total with a for statement
   int32_t total = 0;
   for (int32_t i = 0; i <10; i ++) {
-    if (i% 2! = 0) {
+    if (i%2! = 0) {
       total + = i;
     }
   }
   
-  printf ("% d \ n", total);
+  printf("%d\n", total);
 }
-</ pre>
+</pre>
 
 In a nutshell, all programs can be written with a while statement and an if statement. The other syntax is syntactic sugar.
 
@@ -110,7 +110,7 @@ while (condition) {
   
   // Main process
 }
-</ pre>
+</pre>
 
 This can also be written in an if statement. The nesting of the main process is one deeper.
 
@@ -121,12 +121,12 @@ while (condition) {
     // Main process
   }
 }
-</ pre>
+</pre>
 
 Both are the same from the computer's point of view, but if you want to emphasize the main process, you can write the exception by skipping the continue statement.
 
 Is it a feeling that it is used properly for human sensitivity and ease of perception?
 
-<h3> Differences from Perl in statements that move to the next loop </ h3>
+<h3> Differences from Perl in statements that move to the next loop </h3>
 
-The C language continue statement corresponds to Perl's <a href="https://perlzemi.com/blog/20080329120687.html"> next statement </a>.
+The C language continue statement corresponds to Perl's <a href="https://perlzemi.com/blog/20080329120687.html"> next statement</a>.

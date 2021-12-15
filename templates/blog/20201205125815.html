@@ -2,49 +2,49 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/float.html">
-        <span itemprop = "name"> float.h </ span>
-      </a>
+        <span itemprop = "name"> float.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> FLT_MAX --Constant representing the minimum positive value of float </ h2>
+<h2> FLT_MAX --Constant representing the minimum positive value of float </h2>
 
-FLT_MAX is a constant that represents the maximum positive value of <a href="/blog/20201202133213.html"> float --single precision (32bit) floating point type </a>. It can be used by including the <a href="/blog/20210219132505.html"> float.h </a> header.
+FLT_MAX is a constant that represents the maximum positive value of <a href="/blog/20201202133213.html"> float --single precision (32bit) floating point type</a>. It can be used by including the <a href="/blog/20210219132505.html"> float.h</a> header.
 
 <pre>
 #include <stdio.h>
 #include <float.h>
 
 int main (void) {
-  printf ("% f \ n", FLT_MAX);
+  printf("%f\n", FLT_MAX);
 }
-</ pre>
+</pre>
 
-"% F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 The output FLT_MAX value.
 
 <pre style = "word-break: break-all;">
 340282346638528859811704183484516925440.000000
-</ pre>
+</pre>
 
-<h3> Constant representing the negative minimum value of float </ h3>
+<h3> Constant representing the negative minimum value of float </h3>
 
 The maximum negative value can be expressed by "-FLT_MAX" with a minus sign.

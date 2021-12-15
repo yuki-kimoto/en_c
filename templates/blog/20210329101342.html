@@ -2,38 +2,38 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdlib.html">
-        <span itemprop = "name"> stdlib.h </ span>
-      </a>
+        <span itemprop = "name"> stdlib.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> free function --free the allocated memory </ h2>
+<h2> free function --free the allocated memory </h2>
 
-You can free the reserved memory area with the <b> free function </ b>. The <a href="/blog/20210227091654.html"> stdlib.h </a> header must be <a href="/blog/20210203153019.html"> include </a>.
+You can free the reserved memory area with the <b> free function </b>. The <a href="/blog/20210227091654.html"> stdlib.h</a> header must be <a href="/blog/20210203153019.html"> include</a>.
 
 <pre>
 #include <stdlib.h>
 void free (void * ptr);
-</ pre>
+</pre>
 
-<h3> Free function sample </ h3>
+<h3> Free function sample </h3>
 
 This is a sample to free the memory using the free function.
 
@@ -52,4 +52,4 @@ int main (void) {
   // Release with free when you no longer need it
   free (bytes);
 }
-</ pre>
+</pre>

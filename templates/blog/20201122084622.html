@@ -2,36 +2,36 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> uint8_t --Unsigned 8bit integer type </ h2>
+<h2> uint8_t --Unsigned 8bit integer type </h2>
 
-"Uint8_t" is an unsigned 8-bit integer type. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h </a>" header. This is the type introduced in <a href="/blog/20201206125815.html"> C99 </a>.
+"Uint8_t" is an unsigned 8-bit integer type. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h</a>" header. This is the type introduced in <a href="/blog/20201206125815.html"> C99</a>.
 
 <pre>
 # Unsigned 8-bit integer type
 uint8_t
-</ pre>
+</pre>
 
 The maximum value of an integer that can be represented by an unsigned 8-bit integer type is "255", and the minimum value is "0".
 
-The maximum value is defined by the macro "<a href="/blog/20201123084622.html"> UINT8_MAX </a>".
+The maximum value is defined by the macro "<a href="/blog/20201123084622.html"> UINT8_MAX</a>".
 
-<h3> uint8_t sample code </ h3>
+<h3> uint8_t sample code </h3>
 
 This is a sample code using uint8_t.
 
@@ -42,14 +42,14 @@ This is a sample code using uint8_t.
 int main (void) {
   uint8_t num = 255;
   
-  printf ("% u \ n", num);
+  printf("%u\n", num);
 }
-</ pre>
+</pre>
 
-"% U" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%U" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 Output result.
 
 <pre>
 255
-</ pre>
+</pre>

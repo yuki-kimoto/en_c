@@ -2,42 +2,42 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/string.html">
-        <span itemprop = "name"> string.h </ span>
-      </a>
+        <span itemprop = "name"> string.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> strcmp function-Compare strings </ h2>
+<h2> strcmp function-Compare strings </h2>
 
-The <b> strcmp function </ b> is a function that compares strings. Returns a positive number if "s1" is greater than "s2" in lexicographical order, 0 if they are the same, and a negative number if they are smaller.
+The <b> strcmp function </b> is a function that compares strings. Returns a positive number if "s1" is greater than "s2" in lexicographical order, 0 if they are the same, and a negative number if they are smaller.
 
-You can use it by including "<a href="/blog/20210303101711.html"> string.h </a>".
+You can use it by including "<a href="/blog/20210303101711.html"> string.h</a>".
 
 <pre>
 #include <string.h>
 int strcmp (const char * s1, const char * s2);
-</ pre>
+</pre>
 
-There is a promise that <a href="/blog/20210331101342.html"> C string </a> ends with "\ 0". The strcmp function assumes this convention and compares strings.
+There is a promise that <a href="/blog/20210331101342.html"> C string</a> ends with "\ 0". The strcmp function assumes this convention and compares strings.
 
-<h3> Strcmp function sample </ h3>
+<h3> Strcmp function sample </h3>
 
 This is a sample that compares strings with the strcmp function. If there is a match, Match is displayed.
 
@@ -50,10 +50,10 @@ int main (void) {
   
   // Compare strings
   if (strcmp (message, "Hello") == 0) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>

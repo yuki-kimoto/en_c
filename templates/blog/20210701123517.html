@@ -1,20 +1,20 @@
-<h2> make command and Makefile </ h2>
+<h2> make command and Makefile </h2>
 
 make is a tool for defining source file dependencies and compiling only the source files that need to be compiled. Write a configuration file called Makefile. There are dialects such as nmake, dmake, and cmake in make, but the make introduced here is GNU make.
 
-<h3> Why use make? </ h3>
+<h3> Why use make? </h3>
 
 I will write about the motivation for using make.
 
-<h4> It's hard to wait for the C language source file to compile </ h4>
+<h4> It's hard to wait for the C language source file to compile </h4>
 
 The main motivation for writing make is that as the number of C language source files increases and the amount of description increases, it is difficult to wait for the C language source files to compile.
 
-Often gives <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a> the "-O3" option to maximize C performance. I think. This takes a lot of time to compile as the source files get bigger.
+Often gives <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc</a> the "-O3" option to maximize C performance. I think. This takes a lot of time to compile as the source files get bigger.
 
 Recompiling only those that depend on the modified file will save time.
 
-<h4> General installation procedure on UNIX / Linux </ h4>
+<h4> General installation procedure on UNIX / Linux </h4>
 
 The general software installation procedure for UNIX / Linux is standardized as follows. Check the OS settings with a command such as "./configure" and generate a Makefile. Execute the generated Makefile with make, compile it, and install the software with "make install".
 
@@ -22,73 +22,72 @@ The general software installation procedure for UNIX / Linux is standardized as 
 ./configure
 make
 make install
-</ pre>
+</pre>
 
-<h3> Makefile basics </ h3>
+<h3> Makefile basics </h3>
 
-Here, I will explain only the basics of Makefile. Let's write a Makefile to generate the executable file of the application explained in <a href="/blog/20210622081112.html"> Split compilation </a>. Use "make" to generate an executable file of the application, and "make clean" to delete the object files and executable files that can be created in the middle.
+Here, I will explain only the basics of Makefile. Let's write a Makefile to generate the executable file of the application explained in <a href="/blog/20210622081112.html"> Split compilation</a>. Use "make" to generate an executable file of the application, and "make clean" to delete the object files and executable files that can be created in the middle.
 
 Below is the contents of the Makefile. The description of "all" describes the operation of "make". The description of "clean" describes the operation of "make clean". The part with a tab at the beginning is the command you want to execute. After "::", describe the dependent file (or just a symbol). From the second line onward, start with a tab (not blank) and write the command you want to execute.
 
 Dependencies can be described continuously, and if the dependent file is updated, the command will be executed.
 
 
-Let's write a Makefile for the file explained in <a href="/blog/20210622081112.html"> Split compilation </a>. Use the "make" command to link with split compilation to generate an executable file. Use "make clean" to delete the generated object files and executable files.
+Let's write a Makefile for the file explained in <a href="/blog/20210622081112.html"> Split compilation</a>. Use the "make" command to link with split compilation to generate an executable file. Use "make clean" to delete the generated object files and executable files.
 
 <pre>
-all :: myapp
+all::myapp
 
 myapp: myapp.o mylib1.o mylib2.o
 gcc -o myapp myapp.o mylib1.o mylib2.o
 
-myapp.o :: src / myapp.c
+myapp.o::src / myapp.c
 gcc -Iinclude -c -o myapp.o src / myapp.c
 
-mylib1.o :: src / mylib1.c include / mylib1.h
+mylib1.o::src / mylib1.c include / mylib1.h
 gcc -Iinclude -c -o mylib1.o src / mylib1.c
 
-mylib2.o :: src / mylib2.c include / mylib2.h
+mylib2.o::src / mylib2.c include / mylib2.h
 gcc -Iinclude -c -o mylib2.o src / mylib2.c
 
-clean ::
-rm * .o
+clean::rm * .o
 rm -f myapp
-</ pre>
+</pre>
 
 Let's run make.
 
 <pre>
-$ make
+$make
 gcc -Iinclude -c -o myapp.o src / myapp.c
 gcc -Iinclude -c -o mylib1.o src / mylib1.c
 gcc -Iinclude -c -o mylib2.o src / mylib2.c
 gcc -o myapp myapp.o mylib1.o mylib2.o
-</ pre>
+</pre>
 
 The executable file "myapp" is generated. Let's try to modify only "src / mylib1.c". Running make will only execute the commands you need.
 
 <pre>
-$ make
+$make
 gcc -Iinclude -c -o mylib1.o src / mylib1.c
 gcc -o myapp myapp.o mylib1.o mylib2.o
-</ pre>
+</pre>
 
 Run "make clean". The object file and the executable file are deleted.
 
 <pre>
-$ make clean
+$make clean
 rm * .o
 rm -f myapp
-</ pre>
+</pre>
 
-<h3> How does make detect that a dependent file has been updated? </ h3>
+<h3> How does make detect that a dependent file has been updated? </h3>
 
 For example, suppose "mylib.c" depends on "mylib1.h". In this case, if the update time of "mybli1.h" is newer than the update time of "mylib.c", it is judged that the file has been updated.
 
-<h3> I want to automate the generation of Makefile </ h3>
+<h3> I want to automate the generation of Makefile </h3>
 
-Since Makefile is a text file, it is a practical text processing programming language in <a href="https://en.linux.perlzemi.com/"> Linux / UNIX </a> <a href="https:: It's also easy to generate at //perlzemi.com/ "> Perl </a>. Makefile has dialects depending on the type of make, so you can use it to absorb it on the Perl side.
+Since Makefile is a text file, it is a practical text processing programming language in <a href="https://en.linux.perlzemi.com/"> Linux / UNIX</a> <a href="https:: It's also easy to generate at //perlzemi.com/ "> Perl</a>. Makefile has dialects depending on the type of make, so you can use it to absorb it on the Perl side.
 
-<h3> Can make be used on Windows? </ H3>
+<h3> Can make be used on Windows? </H3>
 
 When using MinGW on Windows, use the "gmake" command instead of the make command. The description of Makefile is the same as the one introduced. On Windows, make means "nmake", which is probably gmake because of the conflict.

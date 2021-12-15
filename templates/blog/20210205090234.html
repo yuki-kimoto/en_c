@@ -2,31 +2,31 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Pointer operation </ h2>
+<h2> Pointer operation </h2>
 
 The C language has a function called pointer operation that can advance the position of an address based on the width of the data type.
 
-This is often used in practice to advance the position of each element of an array one by one, so first <a href="/blog/20210211090234.html"> pointer </a> and <a href= I will write about the relationship of "/blog/20210129143859.html"> arrays </a>.
+This is often used in practice to advance the position of each element of an array one by one, so first <a href="/blog/20210211090234.html"> pointer</a> and <a href= I will write about the relationship of "/blog/20210129143859.html"> arrays</a>.
 
-<h3> Relationship between arrays and pointers in C </ h3>
+<h3> Relationship between arrays and pointers in C </h3>
 
-In C, accessing the elements of an array is syntactic sugar for pointer arithmetic. First of all, please feel that you can access the memory area allocated by <a href="/blog/20210209082644.html"> calloc function </a> as an array.
+In C, accessing the elements of an array is syntactic sugar for pointer arithmetic. First of all, please feel that you can access the memory area allocated by <a href="/blog/20210209082644.html"> calloc function</a> as an array.
 
 <pre>
 #include <stdint.h>
@@ -43,20 +43,20 @@ int main (void) {
   nums [2] = 5;
   
   // Output array elements
-  printf ("nums [2]:% d \ n", nums [2]);
+  printf("nums [2]:%d\n", nums [2]);
   
   // Set element values ​​using pointer operations
   * (nums + 2) = 7;
 
   // Output array elements
-  printf ("nums [2]:% d \ n", nums [2]);
+  printf("nums [2]:%d\n", nums [2]);
   
   // Output element values ​​using pointer operations
-  printf ("* (num2 + 3):% d \ n", * (nums + 2));
+  printf("* (num2 + 3):%d\n", * (nums + 2));
   
   free (nums);
 }
-</ pre>
+</pre>
 
 Output result.
 
@@ -64,21 +64,21 @@ Output result.
 nums [2]: 5
 nums [2]: 7
 * (nums + 2): 7
-</ pre>
+</pre>
 
 See that "nums [2]" is syntactic sugar for "* (nums + 2)".
 
 nums represents the start address of memory allocated by calloc.
 
-The entity is acquired by "* (nums + 2)". The acquisition of the entity is explained in <a href="/blog/20210211090234.html"> pointer </a>.
+The entity is acquired by "* (nums + 2)". The acquisition of the entity is explained in <a href="/blog/20210211090234.html"> pointer</a>.
 
-<h3> Take a look at pointer operations </ h3>
+<h3> Take a look at pointer operations </h3>
 
-Pointer operation advances the address by multiplying the specified value by the value in units of the size that can be obtained by <a href="/blog/20210207155548.html"> sizeof operator </a>.
+Pointer operation advances the address by multiplying the specified value by the value in units of the size that can be obtained by <a href="/blog/20210207155548.html"> sizeof operator</a>.
 
-The operation "nums + 2" seems to add 3, but since num2 is a <a href="/blog/20201130082751.html"> int32_t </a> type, it is actually "sizeof (" int32_t) * 3 ”will increase.
+The operation "nums + 2" seems to add 3, but since num2 is a <a href="/blog/20201130082751.html"> int32_t</a> type, it is actually "sizeof (" int32_t) * 3 ”will increase.
 
-Let's actually output it. The address can be output with the "% p" format specifier. It is output in hexadecimal.
+Let's actually output it. The address can be output with the "%p" format specifier. It is output in hexadecimal.
 
 <pre>
 #include <stdint.h>
@@ -91,14 +91,14 @@ int main (void) {
   int32_t nums_length = 10;
   int32_t * nums = calloc (sizeof (int32_t), nums_length);
   
-  printf ("nums:% p \ n", nums);
-  printf ("nums + 1:% p \ n", nums + 1);
-  printf ("nums + 2:% p \ n", nums + 2);
-  printf ("nums + 3:% p \ n", nums + 3);
+  printf("nums:%p\n", nums);
+  printf("nums + 1:%p\n", nums + 1);
+  printf("nums + 2:%p\n", nums + 2);
+  printf("nums + 3:%p\n", nums + 3);
   
   free (nums);
 }
-</ pre>
+</pre>
 
 This is the output result in my environment. Since the size of int32_t obtained by the sizeof operator is 4, the address increases in units of this.
 
@@ -107,9 +107,9 @@ nums: 0x4538010
 nums + 1: 0x4538014
 nums + 2: 0x4538018
 nums + 3: 0x453801c
-</ pre>
+</pre>
 
-Also try <a href="/blog/20201127082751.html"> int64_t </a> to see the difference.
+Also try <a href="/blog/20201127082751.html"> int64_t</a> to see the difference.
 
 <pre>
 #include <stdint.h>
@@ -122,14 +122,14 @@ int main (void) {
   int64_t nums_length = 10;
   int64_t * nums = calloc (sizeof (int64_t), nums_length);
   
-  printf ("nums:% p", nums);
-  printf ("nums + 1:% p, nums + 1);
-  printf ("nums + 2:% p, nums + 2);
-  printf ("nums + 3:% p, nums + 3);
+  printf("nums:%p", nums);
+  printf("nums + 1:%p, nums + 1);
+  printf("nums + 2:%p, nums + 2);
+  printf("nums + 3:%p, nums + 3);
   
   free (nums);
 }
-</ pre>
+</pre>
 
 This is the output result. Since the size of int64_t obtained by the sizeof operator is 8, the address will increase in units of this.
 
@@ -138,13 +138,13 @@ nums: 0x6c39010
 nums + 1: 0x6c39018
 nums + 2: 0x6c39020
 nums + 3: 0x6c39028
-</ pre>
+</pre>
 
-<h3> Is there any reason to use pointer arithmetic when it can be accessed as an array? </ h3>
+<h3> Is there any reason to use pointer arithmetic when it can be accessed as an array? </h3>
 
 Well, not much. I think the array is more intuitive and readable.
 
-<h3> Pointer operation sample </ h3>
+<h3> Pointer operation sample </h3>
 
 As a sample for frequent use, I will write a thing to access the characters contained in the string in order.
 
@@ -166,17 +166,17 @@ int main (void) {
   while (* ch_ptr! ='\ 0') {
     
     // 1 character output
-    printf ("% c", * ch_ptr);
+    printf("%c", * ch_ptr);
     
     // Advance the pointer
     ch_ptr ++;
   }
-  printf ("\ n");
+  printf("\ n");
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello World!
-</ pre>
+</pre>

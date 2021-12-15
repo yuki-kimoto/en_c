@@ -2,40 +2,40 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> snprintf function --output format string to string variable (with maximum character limit) </ h2>
+<h2> snprintf function --output format string to string variable (with maximum character limit) </h2>
 
-The <b> snprintf function </ b> has the same functionality as the <a href="/blog/20210517083039.html"> sprintf function </a>, but you can specify the maximum number of characters. It can be used when you want to ensure that a buffer overrun is prevented. The snprintf function can be used by loading <a href="/blog/20210418083246.html"> stdio.h </a>.
+The <b> snprintf function </b> has the same functionality as the <a href="/blog/20210517083039.html"> sprintf function</a>, but you can specify the maximum number of characters. It can be used when you want to ensure that a buffer overrun is prevented. The snprintf function can be used by loading <a href="/blog/20210418083246.html"> stdio.h</a>.
 
 <pre>
 #include <stdio.h>
 int snprintf (char * restrict s, size_t n, const char * restrict format, ...);
-</ pre>
+</pre>
 
-<a href="/blog/20210517083039.html" except that the maximum number of characters (the number of characters including the null character "\ 0" at the end of the string, so it is practically "n-1") can be specified in the second argument. Same as "> sprintf function </a>. If the number of characters exceeds "n -1", the character string after that is not written, and the null character "\ 0" is written.
+<a href="/blog/20210517083039.html" except that the maximum number of characters (the number of characters including the null character "\ 0" at the end of the string, so it is practically "n-1") can be specified in the second argument. Same as "> sprintf function</a>. If the number of characters exceeds "n -1", the character string after that is not written, and the null character "\ 0" is written.
 
-<h3> Snprintf function sample </ h3>
+<h3> Snprintf function sample </h3>
 
 This is a sample of the snprintf function.
 
@@ -50,16 +50,16 @@ int main (void) {
   char message [16];
   
   // Since the maximum number of characters is limited, buffer overrun does not occur.
-  snprintf (message, 16, "I'm% s. Age is% d.", name, age);
+  snprintf (message, 16, "I'm%s. Age is%d.", name, age);
   
-  printf ("% s \ n", message);
+  printf("%s\n", message);
 }
-</ pre>
+</pre>
 
 This is the output result. The output is missing.
 
 <pre>
 I'm long_long_l
-</ pre>
+</pre>
 
 There is no buffer overrun, but programmatically, this is probably not the correct result, so it is likely that you will need to modify your program, such as increasing the length of the buffer.

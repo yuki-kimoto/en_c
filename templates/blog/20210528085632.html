@@ -2,64 +2,64 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop = "name"> preprocessor </ span>
-      </a>
+        <span itemprop = "name"> preprocessor </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> __FILE__ --filename </ h2>
+<h2> __FILE__ --filename </h2>
 
-"__FILE__" is expanded by <a href="/preprocessor.html"> preprocessor </a> to the filename of the file where the source code is written. This depends on what name you specified the C source file at compile time.
+"__FILE__" is expanded by <a href="/preprocessor.html"> preprocessor</a> to the filename of the file where the source code is written. This depends on what name you specified the C source file at compile time.
 
 <pre>
 __FILE__
-</ pre>
+</pre>
 
-<h3> Sample to get the file name </ h3>
+<h3> Sample to get the file name </h3>
 
 <pre>
 #include <stdio.h>
 
 int main (void) {
-  printf ("% s \ n", __FILE__);
+  printf("%s\n", __FILE__);
 }
-</ pre>
+</pre>
 
 Compile and run.
 
 <pre>
 gcc -o a a.c && ./a
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 a.c
-</ pre>
+</pre>
 
 Compile and run. Relative path.
 
 <pre>
 gcc -o a ../labo/a.c && ./a
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 ../labo/a.c
-</ pre>
+</pre>
 
-<h3> Sample to display an error message and exit the program </ h3>
+<h3> Sample to display an error message and exit the program </h3>
 
-A sample that combines the exit function, __FILE__, and <a href="/blog/20210515085632.html"> __LINE__ </a> to display an error message and exit the program is <a href="/blog/20210527084137. You can find it in the explanation of html "> exit function </a>.
+A sample that combines the exit function, __FILE__, and <a href="/blog/20210515085632.html"> __LINE__</a> to display an error message and exit the program is <a href="/blog/20210527084137. You can find it in the explanation of html "> exit function</a>.

@@ -2,44 +2,44 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fseek function-sets the position of the file stream position specifier </ h2>
+<h2> fseek function-sets the position of the file stream position specifier </h2>
 
-You can use the fseek function to set the position pointed to by the file stream position specifier. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can use the fseek function to set the position pointed to by the file stream position specifier. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 #include <stdio.h>
 int fseek (FILE * fp, long offset, int origin);
-</ pre>
+</pre>
 
 The first argument is the file stream. The second argument is the relative position pointed to by the file stream position specifier. The third argument is used as the reference position. The third argument is the reference position. You can specify the beginning of the file with "SEEK_SET", the current position of the file with "SEEK_CUR", and the end of the file with "SEEK_END".
 
 The main uses of the fseek function are when reading and writing files with fixed length data and when you want to get the file size.
 
-<h3> Sample to get the file size </ h3>
+<h3> Sample to get the file size </h3>
 
-This is a sample to get the file size using the fseek function and <a href="/blog/20210526085256.html"> ftell function </a>.
+This is a sample to get the file size using the fseek function and <a href="/blog/20210526085256.html"> ftell function</a>.
 
 <pre>
 #include <stdio.h>
@@ -51,7 +51,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
   
@@ -61,21 +61,21 @@ int main (void) {
   // Get the position of the end of the file. This will be phi size.
   int32_t file_size = (int32_t) ftell (in_fp);
   
-  printf ("% d \ n", file_size);
+  printf("%d\n", file_size);
   
   // Close the file
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 Input file. There is no newline at the end.
 
 <pre>
 Hello World!
-</ pre>
+</pre>
 
 Output result. The file size has been obtained.
 
 <pre>
 11 11
-</ pre>
+</pre>

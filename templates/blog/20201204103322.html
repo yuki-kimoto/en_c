@@ -2,32 +2,32 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> char --Type that represents a character </ h2>
+<h2> char --Type that represents a character </h2>
 
 char is a type that represents a character. The char type is supposed to represent ASCII character codes (0 to 127). The char type is defined as an 8-bit signed integer type or an 8-bit unsigned integer type.
 
 <pre>
 #Type that represents a character
 char
-</ pre>
+</pre>
 
-<h3> char sample code </ h3>
+<h3> char sample code </h3>
 
 This is a sample code using char.
 
@@ -38,31 +38,31 @@ This is a sample code using char.
 int main (void) {
   char ch ='a';
   
-  printf ("% c \ n", ch);
+  printf("%c\n", ch);
 }
-</ pre>
+</pre>
 
-"% C" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%C" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 Output result.
 
 <pre>
 a
-</ pre>
+</pre>
 
-<h3> Why is it unclear whether the char type has a sign or not? </ h3>
+<h3> Why is it unclear whether the char type has a sign or not? </h3>
 
 It is thought that this is because there was a processing system that implemented char as an 8-bit signed integer and a processing system that implemented it as an 8-bit unsigned integer for historical reasons. Therefore, in the C language specification, char is defined as an 8-bit signed integer or an 8-bit unsigned integer.
 
-<h3> Is it guaranteed that the width is 8bit? </ H3>
+<h3> Is it guaranteed that the width is 8bit? </H3>
 
 Yes, the width is guaranteed to be 8 bits.
 
-<h3> Use int8_t and uint8_t when dealing with 8-bit numbers </ h3>
+<h3> Use int8_t and uint8_t when dealing with 8-bit numbers </h3>
 
-When expressing an 8-bit number instead of a character, signed and unsigned are defined <a href="/blog/20201117090747.html"> int8_t </a>, <a href="/blog". Use 20201122084622.html "> uint8_t </a>.
+When expressing an 8-bit number instead of a character, signed and unsigned are defined <a href="/blog/20201117090747.html"> int8_t</a>, <a href="/blog". Use 20201122084622.html "> uint8_t</a>.
 
-<h3> Should I use int8_t and uint8_t in all places instead of char? </ H3>
+<h3> Should I use int8_t and uint8_t in all places instead of char? </H3>
 
 Ideally, that's right. However, for historical reasons, in C language, the argument types of functions that receive characters and strings are "char" and "char *".
 
@@ -72,17 +72,17 @@ Also, in the case of characters, there is not much trouble because it is not pos
 
 Rather than replacing everything, it's one of the best ways to reconcile the past, present and future, while respecting the widespread description and using new and useful features where it's needed. I think it's one.
 
-<h3> Is it possible to express Unicode in C? </ H3>
+<h3> Is it possible to express Unicode in C? </H3>
 
 First of all, it is assumed that "Unicode which is a code point" and "UTF-8, UTF-16 and UTF-32 which are actual coding" can be distinguished.
 
-<h4> Unicode code point </ h3>
+<h4> Unicode code point </h3>
 
-Unicode (the de facto standard UCS-4) expresses one character with a maximum of 31 bits. In other words, if you want to express it comprehensively, you need 4 bytes. In other words, <a href="<a href="/blog/20201130082751.html"> int32_t type </a> is required. The 32nd bit of the largest bit is guaranteed not to be used by the specifications. , <a href="/blog/20201111150850.html"> uint32_t type </a> does not need to be used.
+Unicode (the de facto standard UCS-4) expresses one character with a maximum of 31 bits. In other words, if you want to express it comprehensively, you need 4 bytes. In other words, <a href="<a href="/blog/20201130082751.html"> int32_t type</a> is required. The 32nd bit of the largest bit is guaranteed not to be used by the specifications. , <a href="/blog/20201111150850.html"> uint32_t type</a> does not need to be used.
 
 You can also use char32_t added in C11.
 
-<h4> UTF-8 </ h4>
+<h4> UTF-8 </h4>
 
 UTF-8 is a coding format that encodes Unicode code points with a variable length of 1 to 4 bytes. UTF-8 is just a byte string and you don't have to be endian. That is, a character or string can be represented as an array of chars.
 
@@ -90,21 +90,21 @@ UTF-8 is a coding format that encodes Unicode code points with a variable length
 // UTF-8 representation in C (source code saved in UTF-8)
 const char * ch = "A";
 const char * string = "aiueo";
-</ pre>
+</pre>
 
 UTF-8 is a printf function and can be output normally.
 
 <pre>
-printf ("% s \ n", string);
-</ pre>
+printf("%s\n", string);
+</pre>
 
-<h4> UTF-32 </ h4>
+<h4> UTF-32 </h4>
 
 UTF-32 is exactly the same as the Unicode code point, except that it is coded. Read the Unicode code point description.
 
 UTF-32 needs to be endian conscious.
 
-<h4> UTF-16 </ h4>
+<h4> UTF-16 </h4>
 
 UTF-16 is an encoding format that expresses Unicode in 2 bytes. However, the characters that need to be represented in Unicode exceed the set of characters that can be represented in 2 bytes. In that case, it is expressed using 4 bytes by a method called surrogate pair.
 

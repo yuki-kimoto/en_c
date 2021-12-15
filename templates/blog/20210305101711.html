@@ -2,27 +2,27 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop = "name"> preprocessor </ span>
-      </a>
+        <span itemprop = "name"> preprocessor </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Preprocessor conditional branching </ h2>
+<h2> Preprocessor conditional branching </h2>
 
 The preprocessor has a conditional branching syntax.
 
-<h3> #ifdef-if a macro is defined </ h3>
+<h3> #ifdef-if a macro is defined </h3>
 
 If a macro is defined, it can be expressed by "#ifdef".
 
@@ -32,7 +32,7 @@ If a macro is defined, it can be expressed by "#ifdef".
 // process
 
 #endif
-</ pre>
+</pre>
 
 This is a sample of "#ifdef".
 
@@ -44,15 +44,15 @@ This is a sample of "#ifdef".
 int main (void) {
 
 #ifdef MYAPP_FOO
-  printf ("Hello \ n");
+  printf("Hello\n");
 #endif
 
 }
-</ pre>
+</pre>
 
-If <a href="/blog/20210302083009.html"> macro </a> called "MYAPP_FOO" is defined in #define, "Hello" is output, and if this line is removed, nothing is output. Hmm.
+If <a href="/blog/20210302083009.html"> macro</a> called "MYAPP_FOO" is defined in #define, "Hello" is output, and if this line is removed, nothing is output. Hmm.
 
-<h3> #ifndef --If the macro is not defined </ h3>
+<h3> #ifndef --If the macro is not defined </h3>
 
 If a macro is not defined, can be represented by "#ifndef".
 
@@ -62,9 +62,9 @@ If a macro is not defined, can be represented by "#ifndef".
 // process
 
 #endif
-</ pre>
+</pre>
 
-"#Ifndef" is often used when writing <a href="/blog/20210201153503.html"> include guard </a>.
+"#Ifndef" is often used when writing <a href="/blog/20210201153503.html"> include guard</a>.
 
 This is a sample of "#ifndef".
 
@@ -74,15 +74,15 @@ This is a sample of "#ifndef".
 int main (void) {
 
 #ifndef MYAPP_FOO
-  printf ("Hello \ n");
+  printf("Hello\n");
 #endif
 
 }
-</ pre>
+</pre>
 
-If the <a href="/blog/20210302083009.html"> macro </a> called "MYAPP_FOO" is not defined in #define, "Hello" is output, and if it is defined, nothing is output. It will not be.
+If the <a href="/blog/20210302083009.html"> macro</a> called "MYAPP_FOO" is not defined in #define, "Hello" is output, and if it is defined, nothing is output. It will not be.
 
-<h3> #if --If the conditions are met </ h3>
+<h3> #if --If the conditions are met </h3>
 
 You can describe the processing when the condition is met with "#if". You can use the comparison operator, negation operator, and defined. Comparison operations can be performed using only integer constants. If the comparison operation did not define a macro, the value is assumed to be 0.
 
@@ -92,7 +92,7 @@ You can describe the processing when the condition is met with "#if". You can us
 // process
 
 #endif
-</ pre>
+</pre>
 
 This is a sample of "#if".
 
@@ -103,23 +103,23 @@ This is a sample of "#if".
 
 int main (void) {
 
-#if defined (MYAPP_FOO)
-  printf ("MYAPP_FOO is defined \ n");
+#if defined(MYAPP_FOO)
+  printf("MYAPP_FOO is defined\n");
 #endif
 
-#if! defined (MYAPP_FOO)
-  printf ("MYAPP_FOO is not defined \ n");
+#if! defined(MYAPP_FOO)
+  printf("MYAPP_FOO is not defined\n");
 #endif
 
-#if defined (MYAPP_FOO)
+#if defined(MYAPP_FOO)
 #if MYAPP_FOO> 3
-  printf ("MYAPP_FOO is defined and greater than 3 \ n");
+  printf("MYAPP_FOO is defined and greater than 3\n");
 # endif
 #endif
 }
-</ pre>
+</pre>
 
-<h3> #elif, #else </ h3>
+<h3> #elif, #else </h3>
 
 Multiple conditions are applied with "#elif", and processing is applied when the conditions are not satisfied with "#else".
 
@@ -131,24 +131,24 @@ Multiple conditions are applied with "#elif", and processing is applied when the
 int main (void) {
 
 #if MYAPP_FOO> 10
-  printf ("MYAPP_FOO is greater than 10 \ n");
+  printf("MYAPP_FOO is greater than 10\n");
 #elif MYAPP_FOO> 3
-  printf ("MYAPP_FOO is greater than 3 \ n");
+  printf("MYAPP_FOO is greater than 3\n");
 #else
-  printf ("MYAPP_FOO is others \ n");
+  printf("MYAPP_FOO is others\n");
 #endif
 }
-</ pre>
+</pre>
 
-<h3> Is it possible to use the sizeof operator with the comparison operator? </ H3>
+<h3> Is it possible to use the sizeof operator with the comparison operator? </H3>
 
-Yes, you cannot use the <a href="/blog/20210207155548.html"> sizeof operator </a> with the preprocessor comparison operator.
+Yes, you cannot use the <a href="/blog/20210207155548.html"> sizeof operator</a> with the preprocessor comparison operator.
 
 This means that in principle it is not possible to make 32-bit or 64-bit decisions using the preprocessor.
 
 It must be given as a macro definition from outside C.
 
-Also, if a macro definition for judgment has already been given, it can be used. For example, <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a> is used to judge 32bit.
+Also, if a macro definition for judgment has already been given, it can be used. For example, <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc</a> is used to judge 32bit.
 
 <pre>
 #include <stdio.h>
@@ -160,4 +160,4 @@ int main () {
 
 #endif
 }
-</ pre>
+</pre>

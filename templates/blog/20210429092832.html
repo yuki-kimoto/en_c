@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Character literal </ h2>
+<h2> Character literal </h2>
 
 A character literal is a representation of a single character in ASCII code on the source code. Enclose one character in the ASCII code with "'".
 
@@ -26,9 +26,9 @@ A character literal is a representation of a single character in ASCII code on t
 // Character literal
 'a'
 'b'
-</ pre>
+</pre>
 
-This is a <a href="/blog/20201204103322.html"> char type </a> and will be an ASCII code value. If you want to output as ASCII code characters, use "% c" of the printf function.
+This is a <a href="/blog/20201204103322.html"> char type</a> and will be an ASCII code value. If you want to output as ASCII code characters, use "%c" of the printf function.
 
 <pre>
 #include <stdio.h>
@@ -38,29 +38,29 @@ int main (void) {
   char ch ='a';
   
   // ASCII code (number)
-  printf ("% d \ n", ch);
+  printf("%d\n", ch);
   
   // Characters corresponding to ASCII code
-  printf ("% c \ n", ch);
+  printf("%c\n", ch);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 97
 a
-</ pre>
+</pre>
 
-<h3> Character literal escape sequences </ h3>
+<h3> Character literal escape sequences </h3>
 
 Escape sequence of character literals. You can express tabs and line breaks with "\ t" and "\ n".
 
 <table>
-  <tr> <th> \ t </ th> <td> Tab </ td> </ tr>
-  <tr> <th> \ n </ th> <td> Line feed (LF) </ td> </ tr>
-  <tr> <th> \ 0 </ th> <td> null character </ td> </ tr>
-</ table>
+  <tr> <th> \ t </th> <td> Tab </td> </tr>
+  <tr> <th>\n </th> <td> Line feed (LF) </td> </tr>
+  <tr> <th> \ 0 </th> <td> null character </td> </tr>
+</table>
 
 This is a sample escape sequence for character literals.
 
@@ -70,23 +70,23 @@ This is a sample escape sequence for character literals.
 int main (void) {
   
   // Character literal escape sequences
-  printf ("% d% d% d \ n",'\ t','\ n','\ 0');
+  printf("%d%d%d\n",'\ t','\ n','\ 0');
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 9 10 0
-</ pre>
+</pre>
 
-<h4> Any character in ASCII code </ h4>
+<h4> Any character in ASCII code </h4>
 
 You can use the escape sequence "\ x hexadecimal ASCII code" to represent any character in the ASCII code. The following represents the ASCII code "a" in hexadecimal.
 
 <pre>
 \ x61
-</ pre>
+</pre>
 
 This is a sample that uses any character of ASCII code in the escape sequence of a character literal.
 
@@ -96,33 +96,33 @@ This is a sample that uses any character of ASCII code in the escape sequence of
 int main (void) {
   
   // Character literal escape sequences
-  printf ("% c \ n",'\ x61');
+  printf("%c\n",'\ x61');
 }
-</ pre>
+</pre>
 
 This is the output result. a is output.
 
 <pre>
 a
-</ pre>
+</pre>
 
-<h4> Escape sequence list </ h4>
+<h4> Escape sequence list </h4>
 
 <table>
-<tr> <th> Symbol </ th> <th> Meaning
-</ th> </ tr> <tr> <td> \ a </ td> <td> Bell
-</ td> </ tr> <tr> <td> \ b </ td> <td> Backspace
-</ td> </ tr> <tr> <td> \ f </ td> <td> Page feed (clear)
-</ td> </ tr> <tr> <td> \ n </ td> <td> Line break (line break)
-</ td> </ tr> <tr> <td> \ r </ td> <td> Page breaks
-</ td> </ tr> <tr> <td> \ t </ td> <td> tab
-</ td> </ tr> <tr> <td> \ v </ td> <td> Vertical tab
-</ td> </ tr> <tr> <td> \\ </ td> <td> \
-</ td> </ tr> <tr> <td> \? </ td> <td>?
-</ td> </ tr> <tr> <td> \'</ td> <td> Single Quotation (')
-</ td> </ tr> <tr> <td> \ "</ td> <td> Double quotation (")
-</ td> </ tr> <tr> <td> \ 0 </ td> <td> Null character
-</ td> </ tr> <tr> <td> \ N </ td> <td> Octal constant
-</ td> </ tr> <tr> <td> \ xN </ td> <td> Hexadecimal constant
-</ td> </ tr>
-</ table>
+<tr> <th> Symbol </th> <th> Meaning
+</th> </tr> <tr> <td> \ a </td> <td> Bell
+</td> </tr> <tr> <td> \ b </td> <td> Backspace
+</td> </tr> <tr> <td> \ f </td> <td> Page feed (clear)
+</td> </tr> <tr> <td>\n </td> <td> Line break (line break)
+</td> </tr> <tr> <td> \ r </td> <td> Page breaks
+</td> </tr> <tr> <td> \ t </td> <td> tab
+</td> </tr> <tr> <td> \ v </td> <td> Vertical tab
+</td> </tr> <tr> <td> \\ </td> <td> \
+</td> </tr> <tr> <td> \? </td> <td>?
+</td> </tr> <tr> <td> \'</td> <td> Single Quotation (')
+</td> </tr> <tr> <td> \ "</td> <td> Double quotation (")
+</td> </tr> <tr> <td> \ 0 </td> <td> Null character
+</td> </tr> <tr> <td> \ N </td> <td> Octal constant
+</td> </tr> <tr> <td> \ xN </td> <td> Hexadecimal constant
+</td> </tr>
+</table>

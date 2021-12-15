@@ -2,35 +2,35 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop = "name"> Compile </ span>
-      </a>
+        <span itemprop = "name"> Compile </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Type Declaration Header-Reduces reading between header files </ h2>
+<h2> Type Declaration Header-Reduces reading between header files </h2>
 
 As a technique to reduce the reading between header files in C language, I will introduce the type declaration header.
 
-A type declaration header is a header file that uses a <a href="/blog/20210204153019.html"> typedef statement </a> to create an alias for a structure.
+A type declaration header is a header file that uses a <a href="/blog/20210204153019.html"> typedef statement</a> to create an alias for a structure.
 
 The file name is "spvm_typedecl.h".
 
-<h3> Type declaration header </ h3>
+<h3> Type declaration header </h3>
 
-What we are doing in the type declaration header is to use a typedef statement to give the structure "struct spvm_field" an alias of the type "SPVM_FIELD" and to the structure "struct spvm_package" of the type "SPVM_PACKAGE". It has an alias. By the way, in order to use the integer type with guaranteed width, "<a href="/blog/20210220132505.html"> stdint.h </a>" is read. I'm loading <a href="/blog/20210125140655.html"> stddef.h </a> to allow NULL.
+What we are doing in the type declaration header is to use a typedef statement to give the structure "struct spvm_field" an alias of the type "SPVM_FIELD" and to the structure "struct spvm_package" of the type "SPVM_PACKAGE". It has an alias. By the way, in order to use the integer type with guaranteed width, "<a href="/blog/20210220132505.html"> stdint.h</a>" is read. I'm loading <a href="/blog/20210125140655.html"> stddef.h</a> to allow NULL.
 
-<b> spvm_typedecl.h </ b>
+<b> spvm_typedecl.h </b>
 
 <pre>
 #ifndef SPVM_TYPEDECL_H
@@ -47,7 +47,7 @@ typedef struct spvm_field SPVM_FIELD;
 struct spvm_package;
 typedef struct spvm_package SPVM_PACKAGE;
 #endif
-</ pre>
+</pre>
 
 The definition of a structure can only be defined once, but the name of the structure can be declared independently and the definition of the structure can be written later.
 
@@ -64,24 +64,24 @@ struct spvm_field {
   const char * name;
   SPVM_PACKAGE * package;
 };;
-</ pre>
+</pre>
 
 With this in mind, you can declare the name of a structure and give it an alias in a typedef statement before defining the structure.
 
-The following part is <a href="/blog/20210201153503.html"> include guard </a>.
+The following part is <a href="/blog/20210201153503.html"> include guard</a>.
 
 <pre>
 #ifndef SPVM_TYPEDECL_H
 #define SPVM_TYPEDECL_H
 
 #endif
-</ pre>
+</pre>
 
 Next, let's look at the separate header files "spvm_filed.h" and "spvm_package.h".
 
-<h3> Individual header file </ h3>
+<h3> Individual header file </h3>
 
-<h4> spvm_filed.h </ h4>
+<h4> spvm_filed.h </h4>
 
 In "spvm_filed.h", we refer to the type SPVM_PACKAGE.
 
@@ -98,11 +98,11 @@ struct spvm_field {
 };;
 
 #endif
-</ pre>
+</pre>
 
 Notice that we are including "spvm_typedecl.h" instead of "spvm_package.h".
 
-<h4> spvm_package.h </ h4>
+<h4> spvm_package.h </h4>
 
 In "spvm_package.h", we refer to the type SPVM_FIELD.
 
@@ -119,7 +119,7 @@ struct spvm_package {
 };;
 
 #endif
-</ pre>
+</pre>
 
 Notice that we are importing "spvm_typedecl.h" instead of "spvm_field.h".
 

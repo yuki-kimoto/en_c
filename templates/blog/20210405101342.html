@@ -2,36 +2,36 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/string.html">
-        <span itemprop = "name"> string.h </ span>
-      </a>
+        <span itemprop = "name"> string.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> strlen function-get the length of a string </ h2>
+<h2> strlen function-get the length of a string </h2>
 
-Use the strlen function to get the length of the string. You can use the strlen function by reading <a href="/blog/20210303101711.html"> string.h </a>.
+Use the strlen function to get the length of the string. You can use the strlen function by reading <a href="/blog/20210303101711.html"> string.h</a>.
 
 <pre>
 #include <string.h>
 size_t strlen (const char * s);
-</ pre>
+</pre>
 
 In C language, there is a promise that strings end with "\ 0". The strlen function assumes this convention and calculates the length of the string. In other words, it loops and counts the number of characters until "\ 0" is found. Conversely, if the string does not end with "\ 0", it will go to an unintended memory area and a buffer overrun will occur.
 
@@ -49,12 +49,12 @@ int main (void) {
   
   int32_t string_length = strlen (string);
   
-  printf ("% d \ n", string_length);
+  printf("%d\n", string_length);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Five
-</ pre>
+</pre>

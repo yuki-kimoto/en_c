@@ -2,45 +2,45 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdint.html">
-        <span itemprop = "name"> stdint.h </ span>
-      </a>
+        <span itemprop = "name"> stdint.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> INT32_MAX --Constant representing the maximum value of int32_t </ h2>
+<h2> INT32_MAX --Constant representing the maximum value of int32_t </h2>
 
-INT32_MAX is a constant that represents the maximum value of <a href="/blog/20201130082751.html"> int32_t --signed 32-bit integer type </a>. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h </a>" header. This is the <a href="/blog/20210302083009.html"> constant macro </a> introduced in <a href="/blog/20201206125815.html"> C99 </a>.
+INT32_MAX is a constant that represents the maximum value of <a href="/blog/20201130082751.html"> int32_t --signed 32-bit integer type</a>. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h</a>" header. This is the <a href="/blog/20210302083009.html"> constant macro</a> introduced in <a href="/blog/20201206125815.html"> C99</a>.
 
 <pre>
 #include <stdio.h>
 #include <stdint.h>
 
 int main (void) {
-  printf ("% d", INT32_MAX);
+  printf("%d", INT32_MAX);
 }
-</ pre>
+</pre>
 
-"% D" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%D" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 The output INT32_MAX value.
 
 <pre>
 2147483647
-</ pre>
+</pre>

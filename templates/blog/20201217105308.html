@@ -2,33 +2,33 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Local variables </ h2>
+<h2> Local variables </h2>
 
 I will explain about local variables in C language. Local variables are variables declared inside a function.
 
-<h3> Declaration of local variables </ h3>
+<h3> Declaration of local variables </h3>
 
 Variables are declared with the following syntax.
 
 <pre>
 Type name Variable name;
-</ pre>
+</pre>
 
 Variable declarations written in functions are declarations of local variables.
 
@@ -36,7 +36,7 @@ Variable declarations written in functions are declarations of local variables.
 int main (void) {
   Type name Variable name;
 }
-</ pre>
+</pre>
 
 Let's write a sample that declares a variable of type int32_t.
 
@@ -46,9 +46,9 @@ Let's write a sample that declares a variable of type int32_t.
 int main (void) {
   int32_t num;
 }
-</ pre>
+</pre>
 
-<h3> Initialization of local variables </ h3>
+<h3> Initialization of local variables </h3>
 
 Variable declarations can be made at the same time as variable initialization.
 
@@ -58,15 +58,15 @@ Variable declarations can be made at the same time as variable initialization.
 int main (void) {
   int32_t num = 1;
 }
-</ pre>
+</pre>
 
 Note that in C, if you do not initialize the variable, it will not be automatically initialized to 0 and the value will be undefined.
 
-<a href="https://perlzemi.com/blog/20161107147852.html"> For Perl variables </a>, <a href="https://perlzemi.com/blog/20100220126425.html"> The difference is that it is initialized with the undefined value undef </a>.
+<a href="https://perlzemi.com/blog/20161107147852.html"> For Perl variables</a>, <a href="https://perlzemi.com/blog/20100220126425.html"> The difference is that it is initialized with the undefined value undef</a>.
 
-<h3> Scope of local variables </ h3>
+<h3> Scope of local variables </h3>
 
-I will write about the <a href="/blog/20210311085419.html"> scope </a> of local variables in C language. In C language, the scope can be described using "{}". You can make variable declarations within the scope. Variables can only be referenced within scope. You can only use scopes inside functions.
+I will write about the <a href="/blog/20210311085419.html"> scope</a> of local variables in C language. In C language, the scope can be described using "{}". You can make variable declarations within the scope. Variables can only be referenced within scope. You can only use scopes inside functions.
 
 <pre>
 #include <stdint.h>
@@ -81,11 +81,11 @@ int main (void) {
   }
 }
 // You cannot see num1 and num2 at this position.
-</ pre>
+</pre>
 
-<h3> Local variable declaration is possible at any position from C99 </ h3>
+<h3> Local variable declaration is possible at any position from C99 </h3>
 
-From <a href="/blog/20201206125815.html"> C99 </a>, you can declare local variables at any position. The restriction that the declaration of a local variable must be at the beginning of the block is removed.
+From <a href="/blog/20201206125815.html"> C99</a>, you can declare local variables at any position. The restriction that the declaration of a local variable must be at the beginning of the block is removed.
 
 <pre>
 #include <stdint.h>
@@ -100,9 +100,9 @@ int main (void) {
     int32_t num2 = 4;
   }
 }
-</ pre>
+</pre>
 
-<h3> const modifier </ h3>
+<h3> const modifier </h3>
 
 You can use the const modifier on a local variable to prohibit assignment to a local variable other than initialization. This raises a compile-time error.
 
@@ -116,18 +116,18 @@ int main (void) {
   // Compile error
   num = 2;
 }
-</ pre>
+</pre>
 
-<h4> constant char * </ h4> for expressing a character string
+<h4> constant char * </h4> for expressing a character string
 
 const is often used when you want to prevent assignments to string elements.
 
-<a href="/blog/20201208125815.html"> I wrote about the type "const char *" as the type that expresses a character string </a>.
+<a href="/blog/20201208125815.html"> I wrote about the type "const char *" as the type that expresses a character string</a>.
 
 <pre>
 // A type that represents a string
 const char * message = "Hello";
-</ pre>
+</pre>
 
 Here, I will explain the role of const in detail. const is a syntax for prohibiting assignment. So what kind of assignment is prohibited in "const char *"?
 
@@ -136,32 +136,32 @@ It's easy to misunderstand, but it doesn't mean that assignment to "message" is 
 <pre>
 // OK
 message = "Goodby";
-</ pre>
+</pre>
 
 Actually, the const here depends on the pointer "*". In other words, it means prohibiting assignment to the element pointed to by the pointer.
 
 <pre>
 // Compile error
 message [3] ='a';
-</ pre>
+</pre>
 
 It doesn't make much sense, but if you want to prohibit assignments to variables, write: In this case const depends on the variable name. Check where it is.
 
 <pre>
 char * const message = "Hello";
-</ pre>
+</pre>
 
-<h4> const can be removed by casting </ h4>
+<h4> const can be removed by casting </h4>
 
-const can be removed with <a href="/blog/20210217081559.html"> typecast </a>. "Eh".
+const can be removed with <a href="/blog/20210217081559.html"> typecast</a>. "Eh".
 
 <pre>
 char * message2 = (char *) message;
-</ pre>
+</pre>
 
 This means that const modification only means reducing mistakes. Still, you can explicitly indicate that you're using it as a string constant, and it's easy to make mistakes, so it's better to add const.
 
-<h4> Representing an array of strings </ h4>
+<h4> Representing an array of strings </h4>
 
 Now, I would like to introduce another scene where const is used. This is how to create an array that cannot change the elements that include the constant string.
 
@@ -176,15 +176,15 @@ int main (void) {
     "Grape",
   };;
 
-  printf ("% s% s \ n", strings [0], strings [1]);
+  printf("%s%s\n", strings [0], strings [1]);
 }
-</ pre>
+</pre>
 
 Where does const depend? Hmmm. Difficult to understand.
 
 <pre>
 const char * const strings []
-</ pre>
+</pre>
 
 The first const "const char *" will be where the pointer points. In other words, prohibition of assignment of character strings to elements.
 
@@ -192,7 +192,7 @@ What's next? "Const strings []". Well, writing the answer prohibits assigning to
 
 Please note that the functions of static introduced next and const introduced just now are completely different. It's easy to get confused because the atmosphere is similar.
 
-<h3> Static local variables </ h3>
+<h3> Static local variables </h3>
 
 In C, you can declare static local variables by adding the static qualifier to local variables.
 
@@ -203,7 +203,7 @@ int foo (void) {
   
   static int32_t bar = -5;
 }
-</ pre>
+</pre>
 
 It's called a static local variable, but when you think about its actual role, it's better to think of it as a scoped global variable.
 
@@ -213,7 +213,7 @@ Static local variables, like global variables, are initialized with 0 (all bits 
 
 Note that the assignment in the initialization of the static declaration is done only once at the beginning of the program. The initial value is not assigned each time the function is executed.
 
-<h4> Sample static local variables </ h4>
+<h4> Sample static local variables </h4>
 
 This is a sample of static local variables. Notice that static local variables exist from the beginning to the end of the program.
 
@@ -228,7 +228,7 @@ void foo (void) {
   
   num ++;
   
-  printf ("% d \ n", num);
+  printf("%d\n", num);
 }
 
 int main (void) {
@@ -238,7 +238,7 @@ int main (void) {
   foo ();
   foo ();
 }
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -248,4 +248,4 @@ This is the output result.
 -2
 -1
 0
-</ pre>
+</pre>

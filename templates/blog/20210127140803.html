@@ -1,13 +1,13 @@
-<h2> Isn't there GC in C? </ H2>
+<h2> Isn't there GC in C? </H2>
 
 There is no GC in C language.
 
-<h3> How to perform automatic GC in C? </ H3>
+<h3> How to perform automatic GC in C? </H3>
 
 As a software technology, if you want to perform automatic GC, you need a runtime that creates and retrieves objects, whether it is reference counting GC or generational GC.
 
 Also, instead of manually allocating memory manually, it is necessary to leave all the dynamic allocation and release of memory to the runtime.
 
-Developed by <a href="https://perlclub.net/"> Perl Research Institute </a>, with the proviso that pure C source code can be given as compiler input. a href = "https://metacpan.org/pod/SPVM/"> SPVM </a> is one option. SPVM is a transpiler to C and implements reference counting GC. One caveat is that you can generate an executable, but you can't create a library.
+Developed by <a href="https://perlclub.net/"> Perl Research Institute</a>, with the proviso that pure C source code can be given as compiler input. a href = "https://metacpan.org/pod/SPVM/"> SPVM</a> is one option. SPVM is a transpiler to C and implements reference counting GC. One caveat is that you can generate an executable, but you can't create a library.
 
 There may be other products that can output pure C source code and implement GC.

@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop = "name"> preprocessor </ span>
-      </a>
+        <span itemprop = "name"> preprocessor </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> #include preprocessor instructions-file include </ h2>
+<h2> #include preprocessor instructions-file include </h2>
 
 The #include preprocessor instruction is a preprocessor instruction to include other source code.
 
@@ -26,7 +26,7 @@ The #include preprocessor instruction is a preprocessor instruction to include o
 #include <filename>
 
 #include "filename"
-</ pre>
+</pre>
 
 Embeds the contents of the file specified by the file name in the current source code.
 
@@ -40,13 +40,13 @@ In the case of "" file name "", the file is searched by "current directory", "di
 
 If multiple "-I" options are specified, the I option specified earlier will be searched first.
 
-When using <a href="/library.html"> standard library </a>, or when using the library installed in the include path of the system header file, "<filename>", The header file for your own application should look like "" file name "".
+When using <a href="/library.html"> standard library</a>, or when using the library installed in the include path of the system header file, "<filename>", The header file for your own application should look like "" file name "".
 
-<h3> #include Preprocessor instruction sample </ h3>
+<h3> #include Preprocessor instruction sample </h3>
 
 #include Preprocessor instruction sample.
 
-<h4> Read the standard library header </ h4>
+<h4> Read the standard library header </h4>
 
 Load the standard library header.
 
@@ -54,11 +54,11 @@ Load the standard library header.
 #include <stdio.h>
 
 int main (void) {
-  printf ("% s \ n", "Hello World!");
+  printf("%s\n", "Hello World!");
 }
-</ pre>
+</pre>
 
-<h4> Read the header file of your own application </ h4>
+<h4> Read the header file of your own application </h4>
 
 Load the header file of your application.
 
@@ -68,17 +68,17 @@ Load the header file of your application.
 int main (void) {
   // Use functions declared in myapp_lib.h, etc.
 }
-</ pre>
+</pre>
 
-<h3> Does the extension of the file to be read need not be ".h"? </ H3>
+<h3> Does the extension of the file to be read need not be ".h"? </H3>
 
 Yes, the extension name doesn't matter. For example, ".c" can also be read. You can read it, but unless you really have a specific reason, you shouldn't read anything other than the header file.
 
-<h3> Can the file name be an absolute path? </ H3>
+<h3> Can the file name be an absolute path? </H3>
 
 Yes, the file name can be an absolute path. However, unless you really have a specific reason, it's best to read with a relative path.
 
-<h3> How can I find out the include path of the system header file? </ h3>
+<h3> How can I find out the include path of the system header file? </h3>
 
 "How should I find out!"
 
@@ -87,11 +87,11 @@ This is information statically written to the compiler's preprocessor, so you ne
 In the case of Ubuntu, there is an article that describes how to check it, so please refer to it.
 
 <ul>
-  <li> <a href="https://en.ubuntu.perlzemi.com/blog/20200429174004.html"> Header file reading path --Web system development environment construction with Ubuntu + Perl </a> </ li>
-</ ul>
+  <li> <a href="https://en.ubuntu.perlzemi.com/blog/20200429174004.html"> Header file reading path --Web system development environment construction with Ubuntu + Perl</a> </li>
+</ul>
 
-<h3> Why can I use the standard library just by including the header file? </ h3>
+<h3> Why can I use the standard library just by including the header file? </h3>
 
 "Why can I use the standard library just by including the header file? Why can I use it without linking an object file like libstdio.o?"
 
-As explained in the case of gcc, there is an object file called "libglibc.o (or libglibc.so)" that implements <a href="/library.html"> standard library </a> such as "printf function". , Because it is implicitly linked.
+As explained in the case of gcc, there is an object file called "libglibc.o (or libglibc.so)" that implements <a href="/library.html"> standard library</a> such as "printf function". , Because it is implicitly linked.

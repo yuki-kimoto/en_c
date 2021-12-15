@@ -2,30 +2,30 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> C language array </ h2>
+<h2> C language array </h2>
 
 This is an explanation of arrays in C language. Arrays in C are static arrays of fixed length.
 
 <pre>
 # Array declaration
 Type variable name [number of elements];
-</ pre>
+</pre>
 
 This is a sample that declares an int32_t type array of length 3.
 
@@ -38,18 +38,18 @@ int main (void) {
   // Declaration of array
   int32_t nums [3];
 }
-</ pre>
+</pre>
 
 The elements of the array have not been initialized. Note that it is not initialized with 0.
 
-<h3> Array initialization </ h3>
+<h3> Array initialization </h3>
 
 You can initialize the array at the same time as the declaration. The number of elements can be omitted.
 
 <pre>
 # Array declaration and initialization
 Type variable name [] = {initial value of element 0, initial value of element 1, initial value of element 2};
-</ pre>
+</pre>
 
 This is a sample that initializes an array of type int32_t at the same time as the declaration.
 
@@ -62,9 +62,9 @@ int main (void) {
   // Declaration of array
   int32_t nums [] = {3, 5, 9};
 }
-</ pre>
+</pre>
 
-<h3> Initialize array with 0 </ h3>
+<h3> Initialize array with 0 </h3>
 
 I will introduce a simple syntax for initializing an array with 0. This is an initialization syntax that takes advantage of the C language specification that 0 (all bits are 0) is used as the initial value if no initial value is specified.
 
@@ -77,23 +77,23 @@ int main (void) {
   // Array declaration and 0 initialization --int32_t
   int32_t nums [3] = {0};
   
-  printf ("% d \ n", nums [2]);
+  printf("%d\n", nums [2]);
 
   // Array declaration and 0 initialization --double
   double dnums [3] = {0};
   
-  printf ("% f \ n", nums [2]);
+  printf("%f\n", nums [2]);
 }
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 0
 0.000000
-</ pre>
+</pre>
 
-<h3> Manage array length </ h3>
+<h3> Manage array length </h3>
 
 In C, you can't get the length of an array. You have to manage it yourself. This is because arrays in C are pointers to memory and have no length information.
 
@@ -111,9 +111,9 @@ int main (void) {
   // Array length
   int32_t nums_length = 3;
 }
-</ pre>
+</pre>
 
-<h3> Get and set the elements of the array </ h3>
+<h3> Get and set the elements of the array </h3>
 
 To get and set the elements of the array, use the following syntax. Element numbers start at 0.
 
@@ -123,7 +123,7 @@ Array [element number]
 
 # Array element settings
 Array [element number] = value
-</ pre>
+</pre>
 
 This is a sample setting for getting the elements of an array. If you mistakenly exceed the element number at the end of the array, you are accessing a memory area that should not be accessed, so be careful.
 
@@ -138,17 +138,17 @@ int main (void) {
   
   // Get array elements
   int32_t num1 = nums [1];
-  printf ("% d \ n", num1);
+  printf("%d\n", num1);
   
   // Setting the elements of the array
   nums [1] = 12;
-  printf ("% d \ n", nums [1]);
+  printf("%d\n", nums [1]);
 }
-</ pre>
+</pre>
 
-<h3> Process all elements of the array </ h3>
+<h3> Process all elements of the array </h3>
 
-Let's output all the elements of the array using <a href="/blog/20210115151850.html"> for statement </a>.
+Let's output all the elements of the array using <a href="/blog/20210115151850.html"> for statement</a>.
 
 <pre>
 #include <stdint.h>
@@ -164,10 +164,10 @@ int main (void) {
   
   // Output all elements of the array
   for (int32_t i = 0; i <nums_length; i ++) {
-    printf ("% d \ n", nums [i]);
+    printf("%d\n", nums [i]);
   }
 }
-</ pre>
+</pre>
 
 Output result.
 
@@ -175,16 +175,16 @@ Output result.
 3
 Five
 9
-</ pre>
+</pre>
 
-<h3> Array data is stored on the function call stack </ h3>
+<h3> Array data is stored on the function call stack </h3>
 
 The array data is stored on the function's call stack. When you make a function call, the call stack is reserved for local variables, but this area is used. This is in contrast to using malloc to allocate the heap.
 
 Memory access on the call stack is more local and therefore has better performance than the heap.
 
-<h3> Differences from Perl arrays </ h3>
+<h3> Differences from Perl arrays </h3>
 
 An array in C is a static array that reserves memory on the function's call stack. The size of the elements in the array is the size of the element type (in the case of a structure, the size including padding).
 
-On the other hand, the <a href="https://perlzemi.com/blog/20161012147627.html"> Perl array </a> is a dynamic array that reserves memory on the heap. The size of the elements in the array is the size of the SV type.
+On the other hand, the <a href="https://perlzemi.com/blog/20161012147627.html"> Perl array</a> is a dynamic array that reserves memory on the heap. The size of the elements in the array is the size of the SV type.

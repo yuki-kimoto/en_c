@@ -2,51 +2,51 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fopen function-open file </ h2>
+<h2> fopen function-open file </h2>
 
-You can use the fopen function to open a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can use the fopen function to open a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 FILE * fopen (const char * file_name, const char * mode);
-</ pre>
+</pre>
 
 The first argument is the filename of the file you want to open. The second argument is the mode. If the file is opened successfully, a value of "FILE * type" representing the file stream is returned.
 
-<h4> List of modes </ h4>
+<h4> List of modes </h4>
 
 A list of modes.
 
 <table>
-  <tr> <th> Mode </ th> <th> Behavior </ th> </ tr>
-  <tr> <td> r </ td> <td> Read (error if there is no file) </ td> </ tr>
-  <tr> <td> w </ td> <td> Write (create new if there is no file) </ td> </ tr>
-  <tr> <td> a </ td> <td> Additional write (create new if there is no file) </ td> </ tr>
-  <tr> <td> r + </ td> <td> Read and write (error if there is no file) </ td> </ tr>
-  <tr> <td> w + </ td> <td> Read and write (create new if there is no file) </ td> </ tr>
-  <tr> <td> a + </ td> <td> Read and add write (create new if there is no file) </ td> </ tr>
-</ table>
+  <tr> <th> Mode </th> <th> Behavior </th> </tr>
+  <tr> <td> r </td> <td> Read (error if there is no file) </td> </tr>
+  <tr> <td> w </td> <td> Write (create new if there is no file) </td> </tr>
+  <tr> <td> a </td> <td> Additional write (create new if there is no file) </td> </tr>
+  <tr> <td> r + </td> <td> Read and write (error if there is no file) </td> </tr>
+  <tr> <td> w + </td> <td> Read and write (create new if there is no file) </td> </tr>
+  <tr> <td> a + </td> <td> Read and add write (create new if there is no file) </td> </tr>
+</table>
 
 Writing means that the contents of the file are cleared and you are writing with new contents. Additional write means to add to the end of the file and write.
 
@@ -55,17 +55,17 @@ The above modes can be combined with "b" which means binary mode.
 <pre>
 br
 bw
-</ pre>
+</pre>
 
 The default behavior is to open in text mode, and in the case of Windows, the line feed characters "CR" and "LF" contained in the file are replaced with "\ n".
 
 In binary mode, this replacement is not possible.
 
-<h3> sample fopen function </ h3>
+<h3> sample fopen function </h3>
 
 This is a sample of the fopen function.
 
-<h4> Read the file </ h4>
+<h4> Read the file </h4>
 
 The fopen function opens the file in read mode, the fgetc function reads it, and outputs it to standard output.
 
@@ -79,7 +79,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
   
@@ -94,30 +94,30 @@ int main (void) {
   
   // write to file
   const char * message = "Hello";
-  fprintf (in_fp, "% s \ n", message);
+  fprintf (in_fp, "%s\n", message);
   
   // Close the file with the fopen function
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
-<h4> Write to file </ h4>
+<h4> Write to file </h4>
 
-Open the file in write mode with the fopen function, write the contents with the <a href="/blog/20210510093506.html"> fprintf function </a>, and use the <a href="/blog/20210509093506.html"> fclose function. </a> closes the file.
+Open the file in write mode with the fopen function, write the contents with the <a href="/blog/20210510093506.html"> fprintf function</a>, and use the <a href="/blog/20210509093506.html"> fclose function.</a> closes the file.
 
 <pre>
 #include <stdio.h>
@@ -129,15 +129,15 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
   
   // write to file
   const char * message = "Hello";
-  fprintf (out_fp, "% s \ n", message);
+  fprintf (out_fp, "%s\n", message);
   
   // Close the file with the fopen function
   fopen (out_fp);
 }
-</ pre>
+</pre>

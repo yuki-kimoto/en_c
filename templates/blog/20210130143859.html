@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> int type --signed integer type of 16 bits or more </ h2>
+<h2> int type --signed integer type of 16 bits or more </h2>
 
 The int type is a signed integer type that is guaranteed to be 16 bits or more by specification. In many implementations, it may be implemented as a 32-bit signed integer type, but that is not guaranteed by the C language specifications.
 
@@ -27,26 +27,26 @@ The int type is a signed integer type that is guaranteed to be 16 bits or more b
 
 int main (void) {
   int num = 34;
-  printf ("% d \ n", num);
+  printf("%d\n", num);
 }
-</ pre>
+</pre>
 
-<h3> Integer type that guarantees width and signing / unsigned introduced in C99 </ h3>
+<h3> Integer type that guarantees width and signing / unsigned introduced in C99 </h3>
 
 To ensure that the bit width and signed / unsigned are specified, use the following integer types introduced in C99. This is recommended for numerical calculations.
 
 <ul>
-  <li> <a href="/blog/20201117090747.html"> int8_t --Signed 8-bit integer type </a> </ li>
-  <li> <a href="/blog/20201126090559.html"> int16_t --Signed 16bit integer type </a> </ li>
-  <li> <a href="/blog/20201130082751.html"> int32_t --Signed 32-bit integer type </a> </ li>
-  <li> <a href="/blog/20201127082751.html"> int64_t --Signed 64-bit integer type </a> </ li>
-  <li> <a href="/blog/20201122084622.html"> uint8_t --Unsigned 8bit integer type </a> </ li>
-  <li> <a href="/blog/20201120084622.html"> uint16_t --Unsigned 16bit integer type </a> </ li>
-  <li> <a href="/blog/20201111150850.html"> uint32_t --Unsigned 32bit integer type </a> </ li>
-  <li> <a href="/blog/20201109150850.html"> uint64_t --Unsigned 64-bit integer type </a> </ li>
-</ ul>
+  <li> <a href="/blog/20201117090747.html"> int8_t --Signed 8-bit integer type</a> </li>
+  <li> <a href="/blog/20201126090559.html"> int16_t --Signed 16bit integer type</a> </li>
+  <li> <a href="/blog/20201130082751.html"> int32_t --Signed 32-bit integer type</a> </li>
+  <li> <a href="/blog/20201127082751.html"> int64_t --Signed 64-bit integer type</a> </li>
+  <li> <a href="/blog/20201122084622.html"> uint8_t --Unsigned 8bit integer type</a> </li>
+  <li> <a href="/blog/20201120084622.html"> uint16_t --Unsigned 16bit integer type</a> </li>
+  <li> <a href="/blog/20201111150850.html"> uint32_t --Unsigned 32bit integer type</a> </li>
+  <li> <a href="/blog/20201109150850.html"> uint64_t --Unsigned 64-bit integer type</a> </li>
+</ul>
 
-<h3> Is the return value of main an int type? </ h3>
+<h3> Is the return value of main an int type? </h3>
 
 The return value of main is an int or a type compatible with the int.
 
@@ -54,10 +54,10 @@ In the implementation, if the width of the int type is 32bit, it is okay to use 
 
 Let's make it an int type obediently.
 
-<h3> When performing numerical operations, implicit type conversion is used, and values ​​smaller than int type become int type </ h3>
+<h3> When performing numerical operations, implicit type conversion is used, and values ​​smaller than int type become int type </h3>
 
 When performing numerical operations, implicit type conversion is used to convert values ​​smaller than int type to int type. It is covered in detail in the following articles.
 
 <ul>
-  <li> <a href="/blog/20210218081559.html"> Implicit type conversion and type conversion rules </a> </ li>
-</ ul>
+  <li> <a href="/blog/20210218081559.html"> Implicit type conversion and type conversion rules</a> </li>
+</ul>

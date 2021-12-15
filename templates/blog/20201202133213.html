@@ -2,34 +2,34 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> float --single precision (32bit) floating point type </ h2>
+<h2> float --single precision (32bit) floating point type </h2>
 
 "Float" is a single precision (32bit) floating point type. Single precision simply means 32bit. Floating point is a form of software representation of a decimal, and in the IEEE 754 format, it consists of a sign part, a mantissa part, and an exponent part. Think of the mantissa as the number of significant digits.
 
 <pre>
 # Single precision (32bit) floating point type
 float
-</ pre>
+</pre>
 
 The maximum value of a floating point number that can be represented by a single precision (32bit) floating point type is defined by FTL_MAX, and the minimum value is defined by FLT_MIN.
 
-<h3> float sample code </ h3>
+<h3> float sample code </h3>
 
 This is a sample code using float. The "f" suffix is ​​specified to clearly indicate that the type of the floating-point literal is a float type.
 
@@ -40,24 +40,24 @@ This is a sample code using float. The "f" suffix is ​​specified to clearly 
 int main (void) {
   float num = 5.4f;
   
-  printf ("% f \ n", num);
+  printf("%f\n", num);
 }
-</ pre>
+</pre>
 
-"% F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%F" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 Output result.
 
 <pre>
 5.400000
-</ pre>
+</pre>
 
-<h3> 16-bit wide integers can be represented by floats </ h3>
+<h3> 16-bit wide integers can be represented by floats </h3>
 
 Float is a floating point type, but since an integer is a floating point value, it can also represent an integer.
 
-Keep in mind that the number is a 16-bit wide integer (<a href="/blog/20201126090559.html"> int16_t </a>, <a href="/blog/20201120084622.html"> uint16_t </a>) means that it can be expressed by float. On the other hand, 32-bit wide integers (<a href="/blog/20201130082751.html"> int32_t </a>, <a href="/blog/20201111150850.html"> uint32_t </a>) are available on float. It cannot be expressed and requires a double.
+Keep in mind that the number is a 16-bit wide integer (<a href="/blog/20201126090559.html"> int16_t</a>, <a href="/blog/20201120084622.html"> uint16_t</a>) means that it can be expressed by float. On the other hand, 32-bit wide integers (<a href="/blog/20201130082751.html"> int32_t</a>, <a href="/blog/20201111150850.html"> uint32_t</a>) are available on float. It cannot be expressed and requires a double.
 
-<h3> Relationship between float type, deep learning and GPU </ h3>
+<h3> Relationship between float type, deep learning and GPU </h3>
 
-<a href="https://en.deeplearning.perlzemi.com/"> Deep learning </a> uses the GPU to perform calculations to speed up the calculation process. GPU processing is typically parallel computing of float-width numbers. The GPU was originally a processor for screen display, and each unit has a float width in order to increase the density and perform parallel calculations. This was a good match for the numerical calculations required for deep learning. You can also <a href="https://en.bind.perlzemi.com/"> GPU / CUDA binding </a> in Perl.
+<a href="https://en.deeplearning.perlzemi.com/"> Deep learning</a> uses the GPU to perform calculations to speed up the calculation process. GPU processing is typically parallel computing of float-width numbers. The GPU was originally a processor for screen display, and each unit has a float width in order to increase the density and perform parallel calculations. This was a good match for the numerical calculations required for deep learning. You can also <a href="https://en.bind.perlzemi.com/"> GPU / CUDA binding</a> in Perl.

@@ -1,32 +1,32 @@
-<h2> File input / output </ h2>
+<h2> File input / output </h2>
 
 This is an introductory explanation of C language file input / output. As for the file input / output method, we will introduce the method of reading and writing one character at a time, the method of reading and writing several bytes at a time, and the method of reading and writing the entire file.
 
-<h3> Open the file </ h3>
+<h3> Open the file </h3>
 
 In order to input / output a file, you must first open the file.
 
-You can use the <a href="/blog/20210513075631.html"> fopen function </a> to open the file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can use the <a href="/blog/20210513075631.html"> fopen function</a> to open the file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 FILE * fopen (const char * file_name, const char * mode);
-</ pre>
+</pre>
 
 The first argument is the filename of the file you want to open. The second argument is the mode. If the file is opened successfully, a value of "FILE * type" representing the file stream is returned.
 
-<h4> List of modes </ h4>
+<h4> List of modes </h4>
 
 A list of modes.
 
 <table>
-  <tr> <th> Mode </ th> <th> Behavior </ th> </ tr>
-  <tr> <td> r </ td> <td> Read (error if there is no file) </ td> </ tr>
-  <tr> <td> w </ td> <td> Write (create new if there is no file) </ td> </ tr>
-  <tr> <td> a </ td> <td> Additional write (create new if there is no file) </ td> </ tr>
-  <tr> <td> r + </ td> <td> Read and write (error if there is no file) </ td> </ tr>
-  <tr> <td> w + </ td> <td> Read and write (create new if there is no file) </ td> </ tr>
-  <tr> <td> a + </ td> <td> Read and add write (create new if there is no file) </ td> </ tr>
-</ table>
+  <tr> <th> Mode </th> <th> Behavior </th> </tr>
+  <tr> <td> r </td> <td> Read (error if there is no file) </td> </tr>
+  <tr> <td> w </td> <td> Write (create new if there is no file) </td> </tr>
+  <tr> <td> a </td> <td> Additional write (create new if there is no file) </td> </tr>
+  <tr> <td> r + </td> <td> Read and write (error if there is no file) </td> </tr>
+  <tr> <td> w + </td> <td> Read and write (create new if there is no file) </td> </tr>
+  <tr> <td> a + </td> <td> Read and add write (create new if there is no file) </td> </tr>
+</table>
 
 Writing means that the contents of the file are cleared and you are writing with new contents. Additional write means to add to the end of the file and write.
 
@@ -35,40 +35,40 @@ The above modes can be combined with "b" which means binary mode.
 <pre>
 br
 bw
-</ pre>
+</pre>
 
 The default behavior is to open in text mode, and in the case of Windows, the line feed characters "CR" and "LF" contained in the file are replaced with "\ n".
 
 In binary mode, this replacement is not possible.
 
-<h3> Close the file </ h3>
+<h3> Close the file </h3>
 
 When you have finished inputting and outputting the file, you need to close the file.
 
-You can close the file with the <a href="/blog/20210509093506.html"> fclose function </a>. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can close the file with the <a href="/blog/20210509093506.html"> fclose function</a>. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 int fclose (FILE * fp);
-</ pre>
+</pre>
 
 The argument is the file stream of the file you want to close. Returns 0 if the file close is successful, EOF if it is an error. The buffer is flushed when the file is closed. A buffer is a memory area that temporarily stores write data. Flash means writing out the data in the buffer.
 
-<h3> Read one character from a file </ h3>
+<h3> Read one character from a file </h3>
 
-To read a single character from a file, use the <a href="/blog/20210519082217.html"> fgetc function </a>.
+To read a single character from a file, use the <a href="/blog/20210519082217.html"> fgetc function</a>.
 
-The fgetc function is a function that reads one character from a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+The fgetc function is a function that reads one character from a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 #include <stdio.h>
 int fgetc (FILE * fp);
-</ pre>
+</pre>
 
 Reads one character from the file stream and returns the read character. If the end of the file is reached, EOF is returned.
 
-<h3> Read character by character from a file </ h3>
+<h3> Read character by character from a file </h3>
 
-This is a sample to read one character at a time from a file. This is a sample of the fgetc function. Open the file in read mode with the <a href="/blog/20210513075631.html"> fopen function </a> and use the <a href="/blog/20210519082217.html"> fgetc function </a> one character at a time. It is read, output to standard output, and the file is closed with the <a href="/blog/20210509093506.html"> fclose function </a>.
+This is a sample to read one character at a time from a file. This is a sample of the fgetc function. Open the file in read mode with the <a href="/blog/20210513075631.html"> fopen function</a> and use the <a href="/blog/20210519082217.html"> fgetc function</a> one character at a time. It is read, output to standard output, and the file is closed with the <a href="/blog/20210509093506.html"> fclose function</a>.
 
 <pre>
 #include <stdio.h>
@@ -81,7 +81,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
   
@@ -101,23 +101,23 @@ int main (void) {
   // Close the file with the fclose function
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
-<h3> Export to file </ h3>
+<h3> Export to file </h3>
 
 Let's set the output destination of the above sample to "output.txt".
 
@@ -132,7 +132,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
 
@@ -140,7 +140,7 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
   
@@ -161,11 +161,11 @@ int main (void) {
   fclose (in_fp);
   fclose (out_fp);
 }
-</ pre>
+</pre>
 
-<h3> Read / write in units of several bytes </ h3>
+<h3> Read / write in units of several bytes </h3>
 
-This is a sample to read and write in units of several bytes. <a href="/blog/20210520080906.html"> fread function </a> reads several bytes from the input file, and <a href="/blog/20210613143712.html"> fwrite function </a> Writes a few bytes to the output file.
+This is a sample to read and write in units of several bytes. <a href="/blog/20210520080906.html"> fread function</a> reads several bytes from the input file, and <a href="/blog/20210613143712.html"> fwrite function</a> Writes a few bytes to the output file.
 
 <pre>
 #include <stdio.h>
@@ -178,7 +178,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
 
@@ -186,7 +186,7 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
 
@@ -210,25 +210,25 @@ int main (void) {
   // Close the file with the fclose function
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 The output file is "output.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
-<h3> Read and write the entire file </ h3>
+<h3> Read and write the entire file </h3>
 
-This is a sample to read and write the entire file. Use the <a href="/blog/20210526085256.html"> ftell function </a> and the <a href="/blog/20210525075439.html"> fseek function </a> to get the size of the file. , <a href="/blog/20210209082644.html"> calloc function </a> to allocate memory, and <a href="/blog/20210520080906.html"> fread function </a> to fill the entire file. It is read and written with the <a href="/blog/20210613143712.html"> fwrite function </a>.
+This is a sample to read and write the entire file. Use the <a href="/blog/20210526085256.html"> ftell function</a> and the <a href="/blog/20210525075439.html"> fseek function</a> to get the size of the file. , <a href="/blog/20210209082644.html"> calloc function</a> to allocate memory, and <a href="/blog/20210520080906.html"> fread function</a> to fill the entire file. It is read and written with the <a href="/blog/20210613143712.html"> fwrite function</a>.
 
 The file is open in binary mode when reading and writing.
 
@@ -242,7 +242,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "rb");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s at% s line% d \ n", in_file, __FILE__, __LINE__);
+    fprintf (stderr, "Can't open file%s at%s line%d\n", in_file, __FILE__, __LINE__);
     exit (1);
   }
 
@@ -250,7 +250,7 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "wb");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
 
@@ -269,7 +269,7 @@ int main (void) {
   // Read the file
   size_t read_count = fread (buffer, sizeof (char), file_size, in_fp);
   if (read_count! = file_size) {
-    fprintf (stderr, "Can't read file% s at% s line% d \ n", in_file, __FILE__, __LINE__);
+    fprintf (stderr, "Can't read file%s at%s line%d\n", in_file, __FILE__, __LINE__);
     exit (1);
   }
   
@@ -279,23 +279,23 @@ int main (void) {
   // Close the file
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 The output file is "output.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
-<h3> How to read from a file line by line? </ H3>
+<h3> How to read from a file line by line? </H3>
 
 In the C language standard, there is no easy way to read from a file, line by line. You can do it with some ingenuity, but you will need to manage your own memory. Many of the things posted on the net use a fixed array and there is a possibility that the line will be cut off in the middle.
 

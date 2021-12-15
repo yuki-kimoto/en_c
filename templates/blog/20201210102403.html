@@ -2,48 +2,48 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/float.html">
-        <span itemprop = "name"> float.h </ span>
-      </a>
+        <span itemprop = "name"> float.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> DBL_MAX --Constant representing the minimum positive value of double </ h2>
+<h2> DBL_MAX --Constant representing the minimum positive value of double </h2>
 
-DBL_MAX is a constant that represents the maximum positive value of <a href="/blog/20201203133213.html"> double-double precision (64bit) floating point type </a>. It can be used by including "float.h".
+DBL_MAX is a constant that represents the maximum positive value of <a href="/blog/20201203133213.html"> double-double precision (64bit) floating point type</a>. It can be used by including "float.h".
 
 <pre>
 #include <stdio.h>
 #include <float.h>
 
 int main (void) {
-  printf ("% f \ n", DBL_MAX);
+  printf("%f\n", DBL_MAX);
 }
-</ pre>
+</pre>
 
 The value of DBL_MAX.
 
 <pre style = "word-break: break-all;">
 1797693134862315708145274237317043567980705675258449965989174768031572607800285387605895586327668781715404589535143824642343213268894641827684675467035375169860499105765512820762454900903893289440758685084551339423045832369032229481658085593321233482747978824.
-</ pre>
+</pre>
 
 
-<h3> Constant representing the negative minimum value of double </ h3>
+<h3> Constant representing the negative minimum value of double </h3>
 
 The maximum negative value can be expressed by "-DBL_MAX" with a minus sign.

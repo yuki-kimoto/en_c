@@ -2,53 +2,53 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> sizeof operator </ h2>
+<h2> sizeof operator </h2>
 
 The sizeof operator returns the size of a type if that type is an element of an array. The unit is bytes.
 
 <pre>
 sizeof (type name)
-</ pre>
+</pre>
 
 The confusing expression "the size of a type when that type is an element of an array" is because the sizeof operator does not always return the defined size. You can see the difference when you look at the size of the structure with the sizeof operator.
 
-<h3> Numeric type size </ h3>
+<h3> Numeric type size </h3>
 
-First, <a href="/blog/20201130082751.html"> int32_t </a>, <a href="/blog/20201127082751.html"> int64_t </a>, <a href="/blog/20201202133213. Let's look at the size of the html "> float </a>, <a href="/blog/20201203133213.html"> double </a> type.
+First, <a href="/blog/20201130082751.html"> int32_t</a>, <a href="/blog/20201127082751.html"> int64_t</a>, <a href="/blog/20201202133213. Let's look at the size of the html "> float</a>, <a href="/blog/20201203133213.html"> double</a> type.
 
 <pre>
 #include <stdint.h>
 #include <stdio.h>
 
 int main (void) {
-  printf ("int32_t:% d, int64_t:% d, float:% d, double:% d",
+  printf("int32_t:%d, int64_t:%d, float:%d, double:%d",
     sizeof (int32_t), sizeof (int64_t), sizeof (float), sizeof (double));
 }
-</ pre>
+</pre>
 
 This is the output result. int32_t is 4 bytes, int64_t is 8 bytes, float is 4 bytes, and double is 8 bytes.
 
 <pre>
 int32_t: 4, int64_t: 8, float: 4, double: 8
-</ pre>
+</pre>
 
-<h3> Void * type type size </ h3>
+<h3> Void * type type size </h3>
 
 Let's take a look at the size of the general-purpose pointer type "void *". The sizes of generic pointer types and other pointer types always match.
 
@@ -58,11 +58,11 @@ A CPU with a memory space of 32 bits has 4 bytes, and a CPU with a memory space 
 #include <stdio.h>
 
 int main (void) {
-  printf ("void *:% d \ n", sizeof (void *));
+  printf("void *:%d\n", sizeof (void *));
 }
-</ pre>
+</pre>
 
-<h3> Union size </ h3>
+<h3> Union size </h3>
 
 If you define a union, it will be the size if the type of the size of the largest member is an element of the array.
 
@@ -78,21 +78,21 @@ union myapp_value {
 };;
 
 int main (void) {
-  printf ("union myapp_value:% d \ n", sizeof (union myapp_value));
+  printf("union myapp_value:%d\n", sizeof (union myapp_value));
 }
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 union myapp_value: 8
-</ pre>
+</pre>
 
 It is now the same size as the largest member, int64_t.
 
-<h3> Structure size </ h3>
+<h3> Structure size </h3>
 
-Understanding the size of the <a href="/blog/20210208155548.html"> structure </a> is a bit tricky. So what value does the following sizeof operator return?
+Understanding the size of the <a href="/blog/20210208155548.html"> structure</a> is a bit tricky. So what value does the following sizeof operator return?
 
 <pre>
 #include <stdint.h>
@@ -105,9 +105,9 @@ struct myapp_data {
 };;
 
 int main (void) {
-  printf ("struct myapp_data:% d \ n", sizeof (struct myapp_data));
+  printf("struct myapp_data:%d\n", sizeof (struct myapp_data));
 }
-</ pre>
+</pre>
 
 int64_t is 8 bytes, int8_t is 2 bytes, and the total is 10 bytes.
 
@@ -115,13 +115,13 @@ The output result is as follows.
 
 <pre>
 struct myapp_data: 16
-</ pre>
+</pre>
 
 Oh, the result is 16. why?
 
 This is because, as I wrote at the beginning, the sizeof operator returns "the size of the type when the type is an element of the array" rather than the size of the type.
 
-<h3> Structure alignment </ h3>
+<h3> Structure alignment </h3>
 
 How is "the size of the type when that type is an element of the array" determined?
 
@@ -141,7 +141,7 @@ struct myapp_data {
   int8_t int8_val2; // 1 byte
                      // 6 byte padding
 };;
-</ pre>
+</pre>
 
 Now let's take a look at some examples.
 
@@ -154,7 +154,7 @@ struct myapp_data {
   int32_t d; // 4 bytes
              // 2-byte padding
 };;
-</ pre>
+</pre>
 
 <pre>
 // sizeof returns 24
@@ -167,7 +167,7 @@ struct myapp_data {
   int32_t e; // 4 bytes
              // 4-byte padding
 };;
-</ pre>
+</pre>
 
 <pre>
 // sizeof returns 12
@@ -178,7 +178,7 @@ struct myapp_data {
              // 2-byte padding
   int32_t d; // 4 bytes
 };;
-</ pre>
+</pre>
 
 <pre>
 // sizeof returns 16
@@ -191,4 +191,4 @@ struct myapp_data {
              // 3 byte padding
   int32_t e; // 4 bytes
 };;
-</ pre>
+</pre>

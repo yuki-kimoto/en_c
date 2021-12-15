@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Structure-Composite Data Type </ h2>
+<h2> Structure-Composite Data Type </h2>
 
 Structures are composite data types that can store multiple types of data.
 
@@ -33,15 +33,15 @@ struct myapp_book {
   const char * name;
   int32_t price;
 };;
-</ pre>
+</pre>
 
 The data that is the element of the structure is called a member variable. "Id", "name" and "price" are member variables.
 
-"Id" and "price" are "<a href="/blog/20201130082751.html"> int32_t type </a>", and "name" is "<a href="/blog/20201208125815.html"> const char * Type </a> ".
+"Id" and "price" are "<a href="/blog/20201130082751.html"> int32_t type</a>", and "name" is "<a href="/blog/20201208125815.html"> const char * Type</a> ".
 
 To access a member variable, use "structure variable name.member variable name".
 
-<h3> Use of structures </ h3>
+<h3> Use of structures </h3>
 
 Let's use a structure. Structures are available as types. The structure is declared, the value is assigned to the member variable, and the content is output.
 
@@ -65,15 +65,15 @@ int main (void) {
   book.name = "C99 Book";
   book.price = 2000;
   
-  printf ("id:% d, name:% s, price:% d \ n", book.id, book.name, book.price);
+  printf("id:%d, name:%s, price:%d\n", book.id, book.name, book.price);
 }
-</ pre>
+</pre>
 
-<h3> Initialization of structure variables </ h3>
+<h3> Initialization of structure variables </h3>
 
 Structure variables can be initialized first.
 
-<h4> Specify the values ​​in the order of the member variables of the structure </ h4>
+<h4> Specify the values ​​in the order of the member variables of the structure </h4>
 
 It is a method to specify the values ​​in the order of the member variables of the structure.
 
@@ -92,11 +92,11 @@ int main (void) {
   // Declare and initialize structure variables (specify values ​​in the order of member variables)
   struct myapp_book book = {1, "C99 Book", 2000};
   
-  printf ("id:% d, name:% s, price:% d \ n", book.id, book.name, book.price);
+  printf("id:%d, name:%s, price:%d\n", book.id, book.name, book.price);
 }
-</ pre>
+</pre>
 
-<h4> Initialize structure member variables with 0 </ h4>
+<h4> Initialize structure member variables with 0 </h4>
 
 I will introduce a simple syntax for initializing a structure with 0. This is an initialization syntax that takes advantage of the C language specification that 0 (all bits are 0) is used as the initial value if no initial value is specified.
 
@@ -115,19 +115,19 @@ int main (void) {
   // Declaration of structure variables and 0 initialization
   struct myapp_book book = {0};
   
-  printf ("id:% d, name:% s, price:% d \ n", book.id, book.name, book.price);
+  printf("id:%d, name:%s, price:%d\n", book.id, book.name, book.price);
 }
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 id: 0, name: (null), price: 0
-</ pre>
+</pre>
 
-<h4> Specify the member variable name of the structure and specify the value </ h4>
+<h4> Specify the member variable name of the structure and specify the value </h4>
 
-You can specify a value by specifying the member variable name of the structure. This is the syntax added in <a href="/blog/20201206125815.html"> C99 </a>.
+You can specify a value by specifying the member variable name of the structure. This is the syntax added in <a href="/blog/20201206125815.html"> C99</a>.
 
 <pre>
 #include <stdint.h>
@@ -144,21 +144,21 @@ int main (void) {
   // Declare and initialize structure variables (specify member variable names and specify values)
   struct myapp_book book = {.id = 1, .name = "C99 Book", .price = 2000};
   
-  printf ("id:% d, name:% s, price:% d \ n", book.id, book.name, book.price);
+  printf("id:%d, name:%s, price:%d\n", book.id, book.name, book.price);
 }
-</ pre>
+</pre>
 
-<h3> Structure dynamic memory allocation </ h3>
+<h3> Structure dynamic memory allocation </h3>
 
 Let's allocate dynamic memory for the structure in the heap area. If you want to allocate memory dynamically, use the pointer type of the structure. In this example it is "struct myapp_book *".
 
-This is a sample that uses <a href="/blog/20210210082644.html"> malloc function </a> and calloc function. It is recommended because calloc initializes to 0, but remember that the malloc function is also a standard method.
+This is a sample that uses <a href="/blog/20210210082644.html"> malloc function</a> and calloc function. It is recommended because calloc initializes to 0, but remember that the malloc function is also a standard method.
 
 The malloc function and calloc function can be used by reading "stdlib.h".
 
-The argument of the malloc function specifies the size of the structure. You can get the size of the structure with <a href="/blog/20210207155548.html"> sizeof operator </a>.
+The argument of the malloc function specifies the size of the structure. You can get the size of the structure with <a href="/blog/20210207155548.html"> sizeof operator</a>.
 
-The first argument of the malloc function specifies the size of the structure. You can get the size of the structure with <a href="/blog/20210207155548.html"> sizeof operator </a>. The second argument is the number of elements, but here it is "1" because there is only one.
+The first argument of the malloc function specifies the size of the structure. You can get the size of the structure with <a href="/blog/20210207155548.html"> sizeof operator</a>. The second argument is the number of elements, but here it is "1" because there is only one.
 
 When accessing a member variable from the pointer type of a structure, use "->" instead of ".".
 
@@ -179,35 +179,35 @@ struct myapp_book {
 int main (void) {
   // Structure dynamic memory allocation (malloc)
   struct myapp_book * book0 = malloc (sizeof (struct myapp_book));
-  book0-> id = 1;
-  book0-> name = "C99 Book";
-  book0-> price = 2000;
+  book0->id= 1;
+  book0->name= "C99 Book";
+  book0->price= 2000;
   
   // Dynamic memory allocation of structure (calloc .0 safe because it initializes)
   struct myapp_book * book1 = calloc (sizeof (struct myapp_book), 1);
-  book1-> id = 2;
-  book1-> name = "C Function Book";
-  book1-> price = 3000;
+  book1->id= 2;
+  book1->name= "C Function Book";
+  book1->price= 3000;
   
-  printf ("[book0] id:% d, name:% s, price:% d \ n", book0-> id, book0-> name, book0-> price);
-  printf ("[book1] id:% d, name:% s, price:% d \ n", book1-> id, book1-> name, book1-> price);
+  printf("[book0] id:%d, name:%s, price:%d\n", book0->id, book0->name, book0->price);
+  printf("[book1] id:%d, name:%s, price:%d\n", book1->id, book1->name, book1->price);
   
   // Memory release
   free (book0);
   free (book1);
 }
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 [book0] id: 1, name: C99 Book, price: 2000
 [book1] id: 2, name: C Function Book, price: 3000
-</ pre>
+</pre>
 
-<h3> Structure array </ h3>
+<h3> Structure array </h3>
 
-Let's create an array of structures. Please refer to the <a href="/blog/20210129143859.html"> C language array </a> article for the array.
+Let's create an array of structures. Please refer to the <a href="/blog/20210129143859.html"> C language array</a> article for the array.
 
 <pre>
 #include <stdint.h>
@@ -233,19 +233,19 @@ int main (void) {
   books [1] .name = "C Function Book";
   books [1] .price = 3000;
   
-  printf ("books [0] id:% d, name:% s, price:% d \ n", books [0] .id, books [0] .name, books [0] .price);
-  printf ("books [1] id:% d, name:% s, price:% d \ n", books [1] .id, books [1] .name, books [1] .price);
+  printf("books [0] id:%d, name:%s, price:%d\n", books [0] .id, books [0] .name, books [0] .price);
+  printf("books [1] id:%d, name:%s, price:%d\n", books [1] .id, books [1] .name, books [1] .price);
 }
-</ pre>
+</pre>
 
 outputresult.
 
 <pre>
 books [0] id: 1, name: C99 Book, price: 2000
 books [1] id: 2, name: C Function Book, price: 3000
-</ pre>
+</pre>
 
-<h3> Dynamic allocation of structure array memory </ h3>
+<h3> Dynamic allocation of structure array memory </h3>
 
 Let's dynamically allocate memory for an array of structures. I will show you how to secure with calloc. calloc is safe and recommended as it will initialize the element to 0.
 
@@ -272,32 +272,32 @@ int main (void) {
   books [1] .name = "C Function Book";
   books [1] .price = 3000;
   
-  printf ("books [0] id:% d, name:% s, price:% d \ n", books [0] .id, books [0] .name, books [0] .price);
-  printf ("books [1] id:% d, name:% s, price:% d \ n", books [1] .id, books [1] .name, books [1] .price);
+  printf("books [0] id:%d, name:%s, price:%d\n", books [0] .id, books [0] .name, books [0] .price);
+  printf("books [1] id:%d, name:%s, price:%d\n", books [1] .id, books [1] .name, books [1] .price);
   
   // Memory release
   free (books);
 }
-</ pre>
+</pre>
 
 Output result.
 
 <pre>
 books [0] id: 1, name: C99 Book, price: 2000
 books [1] id: 2, name: C Function Book, price: 3000
-</ pre>
+</pre>
 
 For malloc, change the calloc part as follows. In this case, note that the elements of the array (each member variable of the structure) are not zero-initialized.
 
 <pre>
   struct myapp_book * books = malloc (sizeof (struct myapp_book) * 2);
-</ pre>
+</pre>
 
-<h3> Where do you write the definition of the structure? </ H3>
+<h3> Where do you write the definition of the structure? </H3>
 
 The structure definition is written in the header file. This is a sample code for split compilation when the structure definition is split into headers.
 
-<h4> myapp_book.h </ h4>
+<h4> myapp_book.h </h4>
 
 <pre>
 #ifndef MYAPP_BOOK_H
@@ -313,9 +313,9 @@ struct myapp_book {
 };;
 
 #endif
-</ pre>
+</pre>
 
-<h4> myapp.c </ h4>
+<h4> myapp.c </h4>
 
 <pre>
 #include <stdio.h>
@@ -330,17 +330,17 @@ int main (void) {
   book.name = "C99 Book";
   book.price = 2000;
   
-  printf ("id:% d, name:% s, price:% d \ n", book.id, book.name, book.price);
+  printf("id:%d, name:%s, price:%d\n", book.id, book.name, book.price);
 }
-</ pre>
+</pre>
 
-<h4> Compile and run </ h4>
+<h4> Compile and run </h4>
 
 <pre>
 gcc -o myapp myapp.c && ./myapp
-</ pre>
+</pre>
 
-<h3> Do I have to write "struct ○○" at any time? </ H3>
+<h3> Do I have to write "struct ○○" at any time? </H3>
 
 You can also use the typedef statement to give an alias to the type name "struct 〇〇".
 
@@ -362,18 +362,18 @@ int main (void) {
   // Declare and initialize structure variables (specify member variable names and specify values)
   MYAPP_BOOK book = {.id = 1, .name = "C99 Book", .price = 2000};
   
-  printf ("id:% d, name:% s, price:% d \ n", book.id, book.name, book.price);
+  printf("id:%d, name:%s, price:%d\n", book.id, book.name, book.price);
 }
-</ pre>
+</pre>
 
 Please refer to the following contents.
 
 <ul>
-  <li> <a href="/blog/20210204153019.html"> typedef statement-create a type alias </a> </ li>
-  <li> <a href="/blog/20210202153503.html"> Type Declaration Header-Reduces loading between header files </a> </ li>
-</ ul>
+  <li> <a href="/blog/20210204153019.html"> typedef statement-create a type alias</a> </li>
+  <li> <a href="/blog/20210202153503.html"> Type Declaration Header-Reduces loading between header files</a> </li>
+</ul>
 
-<h3> What is the memory area of ​​the structure? </ H3>
+<h3> What is the memory area of ​​the structure? </H3>
 
 If declared as a structure variable, the structure will be allocated on the call stack.
 

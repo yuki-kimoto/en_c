@@ -2,29 +2,29 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/string.html">
-        <span itemprop = "name"> string.h </ span>
-      </a>
+        <span itemprop = "name"> string.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> memcpy function-copy memory area in bytes </ h2>
+<h2> memcpy function-copy memory area in bytes </h2>
 
 The memcpy function is a function that copies a memory area in bytes. Include "string.h".
 
@@ -32,19 +32,19 @@ The memcpy function is a function that copies a memory area in bytes. Include "s
 #include <string.h>
 
 void * memcpy (void * buf1, const void * buf2, size_t n);
-</ pre>
+</pre>
 
-The first argument is the <a href="/blog/20210211090234.html"> address </a> of the copy destination. <a href="/blog/20210215090234.html"> General-purpose pointer type </a>, so any pointer type is fine.
+The first argument is the <a href="/blog/20210211090234.html"> address</a> of the copy destination. <a href="/blog/20210215090234.html"> General-purpose pointer type</a>, so any pointer type is fine.
 
-The second argument is the <a href="/blog/20210211090234.html"> address </a> of the copy source. <a href="/blog/20210215090234.html"> General-purpose pointer type </a>, so any pointer type is fine.
+The second argument is the <a href="/blog/20210211090234.html"> address</a> of the copy source. <a href="/blog/20210215090234.html"> General-purpose pointer type</a>, so any pointer type is fine.
 
-Specify the byte size in the third argument. It is size_t type. <a href="/blog/20201130082751.html"> int32_t </a> If the value is 0 or more in the range up to the type, it is safe first. Specifying 0 is a valid argument, in which case no copy will be done.
+Specify the byte size in the third argument. It is size_t type. <a href="/blog/20201130082751.html"> int32_t</a> If the value is 0 or more in the range up to the type, it is safe first. Specifying 0 is a valid argument, in which case no copy will be done.
 
-Operation is not guaranteed if the copy destination and copy source data areas overlap. Use the <a href="/blog/20210412082820.html"> memmove function </a> to operate correctly even if the copy destination and copy source data areas overlap. If they do not overlap, use the memcpy function, which gives priority to performance.
+Operation is not guaranteed if the copy destination and copy source data areas overlap. Use the <a href="/blog/20210412082820.html"> memmove function</a> to operate correctly even if the copy destination and copy source data areas overlap. If they do not overlap, use the memcpy function, which gives priority to performance.
 
-<h3> Copy the string </ h3>
+<h3> Copy the string </h3>
 
-This is a sample to copy a character string with the memcpy function. Get the length of the string with <a href="/blog/20210405101342.html"> strlen function </a>, with <a href="/blog/20210209082644.html"> calloc function </a> A memory area is secured, and a process called copying is performed to that area with the memcpy function. If the copy destination variable has the const qualifier, it cannot be copied, so it is copied to a temporary character string without the const qualifier.
+This is a sample to copy a character string with the memcpy function. Get the length of the string with <a href="/blog/20210405101342.html"> strlen function</a>, with <a href="/blog/20210209082644.html"> calloc function</a> A memory area is secured, and a process called copying is performed to that area with the memcpy function. If the copy destination variable has the const qualifier, it cannot be copied, so it is copied to a temporary character string without the const qualifier.
 
 <pre>
 #include <stddef.h>
@@ -69,19 +69,19 @@ int main (void) {
   const char * new_message = new_message_tmp;
   new_message_tmp = NULL;
   
-  printf ("% s \ n", new_message);
+  printf("%s\n", new_message);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
-</ pre>
+</pre>
 
-<h3> Copy an array of signed 32-bit integers </ h3>
+<h3> Copy an array of signed 32-bit integers </h3>
 
-This is a sample to copy <a href="/blog/20210129143859.html"> array </a> of <a href="/blog/20201130082751.html"> int32_t --signed 32-bit integer </a> with the memcpy function. .. The <a href="/blog/20210209082644.html"> calloc function </a> allocates a memory area, and the memcpy function copies it to that area. Note that the length to copy is "element type size x array length". The <a href="/blog/20210115151850.html"> for statement </a> outputs the elements of the array.
+This is a sample to copy <a href="/blog/20210129143859.html"> array</a> of <a href="/blog/20201130082751.html"> int32_t --signed 32-bit integer</a> with the memcpy function. .. The <a href="/blog/20210209082644.html"> calloc function</a> allocates a memory area, and the memcpy function copies it to that area. Note that the length to copy is "element type size x array length". The <a href="/blog/20210115151850.html"> for statement</a> outputs the elements of the array.
 
 <pre>
 #include <string.h>
@@ -101,10 +101,10 @@ int main (void) {
   memcpy (new_nums, nums, sizeof (int32_t) * nums_length);
   
   for (int32_t i = 0; i <nums_length; i ++) {
-    printf ("nums [% d]:% d \ n", i, new_nums [i]);
+    printf("nums [%d]:%d\n", i, new_nums [i]);
   }
 }
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -112,4 +112,4 @@ This is the output result.
 nums [0]: 3
 nums [1]: 5
 nums [2]: 7
-</ pre>
+</pre>

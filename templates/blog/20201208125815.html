@@ -2,48 +2,48 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> char * --Type that represents a string </ h2>
+<h2> char * --Type that represents a string </h2>
 
-To express <a href="/blog/20210331101342.html"> string </a>, use "char *" which is a pointer type of char.
+To express <a href="/blog/20210331101342.html"> string</a>, use "char *" which is a pointer type of char.
 
 <pre>
 char *
-</ pre>
+</pre>
 
 You can assign a string literal to the "char *" type.
 
 <pre>
 char * name = "Perl";
-</ pre>
+</pre>
 
 In general, when using the "char *" type for assigning string literals, it is advisable to add a constant qualifier to prevent character changes.
 
 <pre>
 const char * name = "Perl";
-</ pre>
+</pre>
 
 Keep in mind that a string in C is an array of characters ending in "\ 0". If you write the element, it will be as follows.
 
 <pre>
 0 1 2 3 4
 P e r l \ 0
-</ pre>
+</pre>
 
 Semantically, the assignment of a string literal is the same as the code below.
 
@@ -54,11 +54,11 @@ This is a sample that substitutes a string literal and outputs it.
 
 int main (void) {
   const char * name = "Perl";
-  printf ("% s \ n", name);
+  printf("%s\n", name);
 }
-</ pre>
+</pre>
 
-<h3> When generating a character string at runtime </ h3>
+<h3> When generating a character string at runtime </h3>
 
 To dynamically generate a string at run time, allocate memory with malloc. The character Perl is 4 characters, but 5 bytes are reserved because "\ 0" is required at the end. The size of char is 1 byte.
 
@@ -73,7 +73,7 @@ name [1] ='e';
 name [2] ='r';
 name [3] ='l';
 name [4] ='\ 0';
-</ pre>
+</pre>
 
 This is a sample that outputs a dynamically generated character string.
 
@@ -92,19 +92,19 @@ int main (void) {
   name [3] ='l';
   name [4] ='\ 0';
 
-  printf ("% s \ n", name);
+  printf("%s\n", name);
 }
-</ pre>
+</pre>
 
-<h3> Is it possible to create a string containing \ 0 in the middle? </ h3>
+<h3> Is it possible to create a string containing \ 0 in the middle? </h3>
 
 Although it can be included, C language functions for strings assume that the end of the string is "\ 0". If "\ 0" is included in the middle of the character string, that position is recognized as the end position of the character string. The expression of the character string constant is also automatically added with "\ 0" at the end. In C, it's best to assume that the grammar or function expects the string to end with "\ 0".
 
-<h3> Does the C language string contain length information? </ H3>
+<h3> Does the C language string contain length information? </H3>
 
 Yes. C language strings do not contain length information. Since "\ 0" is regarded as the end position, it is necessary to count the number of characters up to "\ 0" when acquiring the length. The strlen function that gets the length of the string counts the number of characters up to "\ 0".
 
-<h3> C language string security risk </ h3>
+<h3> C language string security risk </h3>
 
 Since there is a specification that a character string in C language is regarded as a character string up to "\ 0" at the end, if you forget to include "\ 0" at the end of the character string, the character string function in C language (maximum) If the number of characters to be processed cannot be specified), it will be read to an unintended position. If you write at this position, a buffer overrun will occur.
 

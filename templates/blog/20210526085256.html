@@ -2,39 +2,39 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> ftell function-get the position of the file stream position specifier </ h2>
+<h2> ftell function-get the position of the file stream position specifier </h2>
 
-You can use the ftell function to get the position pointed to by the file stream position specifier. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can use the ftell function to get the position pointed to by the file stream position specifier. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 #include <stdio.h>
 long int ftell (FILE * fp);
-</ pre>
+</pre>
 
 The argument is a file stream. The return value is the position pointed to by the file stream's position specifier.
 
-<h3> Sample to get the file size </ h3>
+<h3> Sample to get the file size </h3>
 
-Please refer to the <a href="/blog/20210525075439.html"> fseek function </a> article for a sample to get the file size using the fseek and ftell functions.
+Please refer to the <a href="/blog/20210525075439.html"> fseek function</a> article for a sample to get the file size using the fseek and ftell functions.

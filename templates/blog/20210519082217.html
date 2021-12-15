@@ -2,42 +2,42 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fgetc function-read one character from a file </ h2>
+<h2> fgetc function-read one character from a file </h2>
 
-The fgetc function is a function that reads one character from a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+The fgetc function is a function that reads one character from a file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 #include <stdio.h>
 int fgetc (FILE * fp);
-</ pre>
+</pre>
 
 Reads one character from the file stream and returns the read character. If the end of the file is reached, EOF is returned.
 
-<h3> Sample fgetc function </ h3>
+<h3> Sample fgetc function </h3>
 
-This is a sample of the fgetc function. <a href="/blog/20210513075631.html"> fopen function </a> opens the file in read mode, <b> fgetc function </ b> reads one character at a time, outputs to standard output, and <a The file is closed with the href = "/blog/20210509093506.html"> fclose function </a>.
+This is a sample of the fgetc function. <a href="/blog/20210513075631.html"> fopen function</a> opens the file in read mode, <b> fgetc function </b> reads one character at a time, outputs to standard output, and <a The file is closed with the href = "/blog/20210509093506.html"> fclose function</a>.
 
 <pre>
 #include <stdio.h>
@@ -50,7 +50,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
   
@@ -70,23 +70,23 @@ int main (void) {
   // Close the file with the fclose function
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
-<h3> What if EOF is found in the middle of the file? </ H3>
+<h3> What if EOF is found in the middle of the file? </H3>
 
 If EOF is found in the middle of the file, EOF will be returned. So keep in mind that EOF is not always the true end of file. Use the feof function to verify that it is the end of a real file.
 
@@ -98,11 +98,11 @@ If EOF is found in the middle of the file, EOF will be returned. So keep in mind
         break;
       }
     }
-</ pre>
+</pre>
 
-<h3> What is the difference between the fgetc function and the getc function? </ h3>
+<h3> What is the difference between the fgetc function and the getc function? </h3>
 
-The getc function, like the fget function, reads one character from the file, but is allowed to be implemented as a <a href="/blog/20210124140655.html"> function macro </a> to improve performance. I am. fgetc is implemented as a function.
+The getc function, like the fget function, reads one character from the file, but is allowed to be implemented as a <a href="/blog/20210124140655.html"> function macro</a> to improve performance. I am. fgetc is implemented as a function.
 
 As an implementation experience, getc can be implemented as a macro, so it has some side effects. I can't remember for sure, but I've experienced compilation errors in the FreeBSD environment.
 

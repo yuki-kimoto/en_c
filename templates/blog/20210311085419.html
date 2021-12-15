@@ -2,31 +2,31 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> C scope </ h2>
+<h2> C scope </h2>
 
 I will explain the scope of C language.
 
-<h3> Scope of local variables </ h3>
+<h3> Scope of local variables </h3>
 
-First, about the scope of <a href="/blog/20201217105308.html"> local variables </a>. The scope of local variables is defined inside the function.
+First, about the scope of <a href="/blog/20201217105308.html"> local variables</a>. The scope of local variables is defined inside the function.
 
-<h4> Blocks scope local variables </ h4>
+<h4> Blocks scope local variables </h4>
 
 The scope of local variables is created by blocks. Think of a block as the part closed by the "{" and "}" used inside the function.
 
@@ -62,9 +62,9 @@ void foo (void) {
     1;
   }
 }
-</ pre>
+</pre>
 
-<h4> How local variables look </ h4>
+<h4> How local variables look </h4>
 
 Local variables can be defined for each scope. If you can't find a local variable in your scope, go look for a local variable in the next higher scope. Repeat below. If you can't find a local variable, you'll go looking for a global variable with file scope, and if you can't find it, you'll go looking for a global variable, which we'll discuss later.
 
@@ -77,22 +77,22 @@ int main (void) {
   int32_t num2 = 12;
   int32_t num3 = 13;
 
-  printf ("[SCOPE1] num1:% d, num2:% d, num3:% d \ n", num1, num2, num3);
+  printf("[SCOPE1] num1:%d, num2:%d, num3:%d\n", num1, num2, num3);
   
   if (1) {
     int32_t num1 = 21;
     int32_t num2 = 22;
 
-    printf ("[SCOPE2] num1:% d, num2:% d, num3:% d \ n", num1, num2, num3);
+    printf("[SCOPE2] num1:%d, num2:%d, num3:%d\n", num1, num2, num3);
     
     {
       int32_t num1 = 31;
       
-      printf ("[SCOPE3] num1:% d, num2:% d, num3:% d \ n", num1, num2, num3);
+      printf("[SCOPE3] num1:%d, num2:%d, num3:%d\n", num1, num2, num3);
     }
   }
 }
-</ pre>
+</pre>
 
 This is the output result. Take a closer look at where you can see the declared variables.
 
@@ -100,4 +100,4 @@ This is the output result. Take a closer look at where you can see the declared 
 [SCOPE1] num1: 11, num2: 12, num3: 13
 [SCOPE2] num1: 21, num2: 22, num3: 13
 [SCOPE3] num1: 31, num2: 22, num3: 13
-</ pre>
+</pre>

@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> while statement-repeating syntax </ h2>
+<h2> while statement-repeating syntax </h2>
 
 You can write iteratively using the while statement.
 
@@ -26,7 +26,7 @@ You can write iteratively using the while statement.
 while (repetition condition) {
   
 }
-</ pre>
+</pre>
 
 This is a sample to calculate the total with a while statement.
 
@@ -44,23 +44,23 @@ int main (void) {
     i ++;
   }
   
-  printf ("% d \ n", total);
+  printf("%d\n", total);
 }
-</ pre>
+</pre>
 
 The total from 0 to 9 is output.
 
 <pre>
 45 45
-</ pre>
+</pre>
 
-The above while statement can be written concisely using <a href="/blog/20210115151850.html"> for statement </a>.
+The above while statement can be written concisely using <a href="/blog/20210115151850.html"> for statement</a>.
 
-<h3> Use of while statement and for statement properly </ h3>
+<h3> Use of while statement and for statement properly </h3>
 
 How do you use the while statement and the for statement properly?
 
-<h4> Sample for which for statement is suitable </ h4>
+<h4> Sample for which for statement is suitable </h4>
 
 Processing that uses indexes such as arrays can be written in a for statement in an easy-to-understand and concise manner. If the index spacing is fixed, such as +1 or +2, the for statement is sufficient.
 
@@ -78,11 +78,11 @@ int main (void) {
     total + = nums [i];
   }
   
-  printf ("% d \ n", total);
+  printf("%d\n", total);
 }
-</ pre>
+</pre>
 
-<h4> Sample for which while statement is suitable </ h4>
+<h4> Sample for which while statement is suitable </h4>
 
 If the above does not apply, write using a while statement. This is not an absolute standard, so use it as a rough guide.
 
@@ -104,10 +104,10 @@ int main (void) {
   while (* buf_ptr! ='\ 0') {
     
     // * to extract the actual character and output it
-    printf ("% c \ n", * buf_ptr);
+    printf("%c\n", * buf_ptr);
     
     // Increment the pointer to advance the character position
     buf_ptr ++;
   }
 }
-</ pre>
+</pre>

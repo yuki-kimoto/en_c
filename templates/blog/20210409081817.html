@@ -2,44 +2,44 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/string.html">
-        <span itemprop = "name"> string.h </ span>
-      </a>
+        <span itemprop = "name"> string.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> strrchr function-checks for characters from behind </ h2>
+<h2> strrchr function-checks for characters from behind </h2>
 
-Use the strrchr function to check from behind if a character is included. You can use the strrchr function by loading <a href="/blog/20210303101711.html"> string.h </a>.
+Use the strrchr function to check from behind if a character is included. You can use the strrchr function by loading <a href="/blog/20210303101711.html"> string.h</a>.
 
 <pre>
 #include <string.h>
 char * strrchr (const char * string, int ch);
-</ pre>
+</pre>
 
 If string contains ch, it will search from the back and return the first matching address. If not found, returns NULL.
 
-In C language, there is a promise that <a href="/blog/20210331101342.html"> string </a> ends with "\ 0". The strrchr function presupposes this convention and searches for a string.
+In C language, there is a promise that <a href="/blog/20210331101342.html"> string</a> ends with "\ 0". The strrchr function presupposes this convention and searches for a string.
 
 When using the strrchr function, make sure that the string of the first argument ends with "\ 0".
 
-<h3> Get the position where the character was found </ h3>
+<h3> Get the position where the character was found </h3>
 
 This is a sample to get the position where the character is found by searching from the back with the strrchr function. Displays the position of the string where the last ":" is found.
 
@@ -49,7 +49,7 @@ This is a sample to get the position where the character is found by searching f
 #include <stdio.h>
 
 int main (void) {
-  const char * module_name = "Foo :: Bar :: Baz";
+  const char * module_name = "Foo::Bar::Baz";
   
   // Get the address of the last ":"
   const char * match_ptr = strrchr (module_name,':');
@@ -58,16 +58,16 @@ int main (void) {
     // Calculate the found position (relative position)
     int32_t match_index = match_ptr --module_name;
     
-    printf ("Match Position% d \ n", match_index);
+    printf("Match Position%d\n", match_index);
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Match Position 3
-</ pre>
+</pre>

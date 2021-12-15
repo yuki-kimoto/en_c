@@ -2,40 +2,40 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> C language truth value </ h2>
+<h2> C language truth value </h2>
 
 This is an explanation of the truth value of C language.
 
-<h3> C language truth value </ h3>
+<h3> C language truth value </h3>
 
 In C, 0 is a false value and everything else is a true value. It's very simple. NULL is a false value because it is defined as equivalent to 0 in C.
 
 <table>
   <tr>
-    <th> True value </ th> <td> Non-zero </ td>
-  </ tr>
+    <th> True value </th> <td> Non-zero </td>
+  </tr>
   <tr>
-    <th> False value </ th> <td> 0 </ td>
-  </ tr>
-</ table>
+    <th> False value </th> <td> 0 </td>
+  </tr>
+</table>
 
-Let's use the true and false value in the <a href="/blog/20201224090954.html"> if statement </a>.
+Let's use the true and false value in the <a href="/blog/20201224090954.html"> if statement</a>.
 
 <pre>
 #include <stdio.h>
@@ -46,13 +46,13 @@ int main (void) {
   // int32_t flag = 0;
   
   if (flag) {
-    printf ("OK \ n");
+    printf("OK\n");
   }
   else {
-    printf ("Not OK \ n");
+    printf("Not OK\n");
   }
 }
-</ pre>
+</pre>
 
 When the flag is 1, "OK" is displayed, and when the flag is 0, "Not OK" is displayed.
 
@@ -67,31 +67,31 @@ int main (void) {
   // const char * string = NULL;
   
   if (string) {
-    printf ("OK \ n");
+    printf("OK\n");
   }
   else {
-    printf ("Not OK \ n");
+    printf("Not OK\n");
   }
 }
-</ pre>
+</pre>
 
 "OK" is displayed when a character string is assigned, and "Not OK" is displayed when NULL is assigned.
 
-<h3> Is there a false value type in C? </ H3>
+<h3> Is there a false value type in C? </H3>
 
-<a href="/blog/20201206125815.html"> C99 </a> introduced stdbool.h and added the _Bool type.
+<a href="/blog/20201206125815.html"> C99</a> introduced stdbool.h and added the _Bool type.
 
 It is a type that can only be 1 or 0.
 
-However, it is unlikely that the processing system will be implemented with 1 bit, and at least 1 byte is used, so I think that <a href="/blog/20201117090747.html"> int8_t </a> that can be used for general purposes may be sufficient. ..
+However, it is unlikely that the processing system will be implemented with 1 bit, and at least 1 byte is used, so I think that <a href="/blog/20201117090747.html"> int8_t</a> that can be used for general purposes may be sufficient. ..
 
-I usually use <a href="/blog/20201130082751.html"> int32_t </a>, and if I want to save size, it's like int8_t.
+I usually use <a href="/blog/20201130082751.html"> int32_t</a>, and if I want to save size, it's like int8_t.
 
 I will leave it to you to decide whether to use it. My evaluation is that it's okay, but it doesn't have to be.
 
-<h3> What is the difference from Perl's boolean value? </ H3>
+<h3> What is the difference from Perl's boolean value? </H3>
 
-The C Boolean value is similar to <a href="https://perlzemi.com/blog/20080323120628.html"> Perl Boolean </a>.
+The C Boolean value is similar to <a href="https://perlzemi.com/blog/20080323120628.html"> Perl Boolean</a>.
 
 In C, 0 is a false value and everything else is true. NULL is false because it is defined as equivalent to 0.
 

@@ -2,29 +2,29 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> uintptr_t --Pointer type size unsigned integer type </ h2>
+<h2> uintptr_t --Pointer type size unsigned integer type </h2>
 
-uintptr_t is an unsigned integer type with a pointer type size. For example, if the pointer type is a processing system expressed in 32 bits, it is defined as a 32-bit unsigned integer type, and if the pointer type is a processing system expressed in 64 bits, it is defined as a 64-bit unsigned integer type. uintptr_t was introduced in <a href="/blog/20201206125815.html"> C99 </a>.
+uintptr_t is an unsigned integer type with a pointer type size. For example, if the pointer type is a processing system expressed in 32 bits, it is defined as a 32-bit unsigned integer type, and if the pointer type is a processing system expressed in 64 bits, it is defined as a 64-bit unsigned integer type. uintptr_t was introduced in <a href="/blog/20201206125815.html"> C99</a>.
 
-<h3> Mutual type conversion with general-purpose pointer types </ h3>
+<h3> Mutual type conversion with general-purpose pointer types </h3>
 
-The uintptr_t type is guaranteed to be interchanged with the <a href="/blog/20210215090234.html"> general-purpose pointer type "void *" </a>. Bit representation does not change due to mutual conversion.
+The uintptr_t type is guaranteed to be interchanged with the <a href="/blog/20210215090234.html"> general-purpose pointer type "void *"</a>. Bit representation does not change due to mutual conversion.
 
 This is a sample program that converts uintptr_t and void * to each other.
 
@@ -38,6 +38,6 @@ int main (void) {
   
   void * ptr_again = (void *) iptr;
 }
-</ pre>
+</pre>
 
-The same use is for the pointer type size signed integer type "<a href="/blog/20210225131724.html"> uintptr_t </a>".
+The same use is for the pointer type size signed integer type "<a href="/blog/20210225131724.html"> uintptr_t</a>".

@@ -2,27 +2,27 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Global variables </ h2>
+<h2> Global variables </h2>
 
 This is an explanation of global variables in C language.
 
-<h3> C language programming without global variables is recommended </ h3>
+<h3> C language programming without global variables is recommended </h3>
 
 First of all, it is highly recommended to do C programming without using global variables.
 
@@ -30,7 +30,7 @@ If you create your own live concert or application, you can program it without u
 
 If a library you haven't created requires you to use global variables as the library's interface, you'll need to use global variables, but if you're programming your own C language, use global variables. You can program without it. Even in such a case, we will devise ways to avoid access to global variables as much as possible.
 
-<h4> Dangers of global variables </ h4>
+<h4> Dangers of global variables </h4>
 
 The danger of global variables is that, in a nutshell, global variables can be changed from anywhere.
 
@@ -40,7 +40,7 @@ Now, do you want to struggle to find this part, or do you want to eliminate the 
 
 The C99-enabled introduction to C strongly recommends ways to eliminate risk from the beginning.
 
-<h4> But why are global variables overflowing? </ H4>
+<h4> But why are global variables overflowing? </H4>
 
 But why, after all, is programming out there so full of global variables?
 
@@ -52,49 +52,49 @@ Even if I try to rewrite it, I will not be given time for refactoring. There is 
 
 A realistic way to achieve the next requirement is to copy and paste the previous one and use it with a slight modification. And because I neglected to refactor it so much, the time I spent writing programming was steadily increasing and I was reaching the exam period. At the last minute of the exam, I worked overtime until 10 pm and finally finished writing the program. Now, is such a system a reliable system?
 
-<h3> How to program without using global variables </ h3>
+<h3> How to program without using global variables </h3>
 
 I will introduce a method of programming without using global variables.
 
-<h4> Integer constant is enum </ h4>
+<h4> Integer constant is enum </h4>
 
-If you want to use integer constants, use <a href="/blog/20210120133501.html"> enum enum </a>.
+If you want to use integer constants, use <a href="/blog/20210120133501.html"> enum enum</a>.
 
-<h4> Floating point constants are constant macros </ h4>
+<h4> Floating point constants are constant macros </h4>
 
-If you want to use floating point constants, <a href="/blog/20210302083009.html"> #define macro description </a>.
+If you want to use floating point constants, <a href="/blog/20210302083009.html"> #define macro description</a>.
 
-<h4> String constants are static local variables </ h4>
+<h4> String constants are static local variables </h4>
 
 The technique for using string constants is described in the static local variables section of the explanation of local variables.
 
 <ul>
   <li>
-    <a href="/blog/20201217105308.html"> The "static local variables" part of the article on local variables </a>
-  </ li>
-</ ul>
+    <a href="/blog/20201217105308.html"> The "static local variables" part of the article on local variables</a>
+  </li>
+</ul>
 
-<h4> An array of string constants is a static local variable </ h4>
+<h4> An array of string constants is a static local variable </h4>
 
 The technique for using an array of string constants is described in the static local variables section of the explanation of local variables.
 
 <ul>
   <li>
-    <a href="/blog/20201217105308.html"> The "static local variables" part of the article on local variables </a>
-  </ li>
-</ ul>
+    <a href="/blog/20201217105308.html"> The "static local variables" part of the article on local variables</a>
+  </li>
+</ul>
 
-<h4> I want to keep the same value from the beginning to the end of the program </ h4>
+<h4> I want to keep the same value from the beginning to the end of the program </h4>
 
 You can use static local variables in this case as well.
 
 <ul>
   <li>
-    <a href="/blog/20201217105308.html"> The "static local variables" part of the article on local variables </a>
-  </ li>
-</ ul>
+    <a href="/blog/20201217105308.html"> The "static local variables" part of the article on local variables</a>
+  </li>
+</ul>
 
-<h4> I want to access a set of data from multiple functions </ h4>
+<h4> I want to access a set of data from multiple functions </h4>
 
 The motivation for using global variables is that it is troublesome to pass only the necessary data to the function as an argument, and you may want to access a set of data from multiple functions.
 
@@ -103,16 +103,16 @@ Passing only the data you need to a function is the safest way to reentrant, but
 In such cases, let's incorporate object-oriented thinking into C language. Save data to the object for access.
 
 <ul>
-  <li> <a href="/blog/20210212090234.html"> Object-oriented C language </a> </ li>
-</ ul>
+  <li> <a href="/blog/20210212090234.html"> Object-oriented C language</a> </li>
+</ul>
 
-<h3> Explanation of the grammar of global variables </ h3>
+<h3> Explanation of the grammar of global variables </h3>
 
 So far, I will explain the grammar by letting you feel the global variable "Hiyari, Hatto".
 
-<h4> Declaration of global variables </ h4>
+<h4> Declaration of global variables </h4>
 
-Variables declared outside the function are global variables. Global variables are initialized with 0 (all bits are 0). This is different from <a href="/blog/20201217105308.html"> local variables </a>, which have indefinite values.
+Variables declared outside the function are global variables. Global variables are initialized with 0 (all bits are 0). This is different from <a href="/blog/20201217105308.html"> local variables</a>, which have indefinite values.
 
 Global variables are valid from the beginning to the end of the program. Global variables are visible everywhere in the program (extern if outside the file).
 
@@ -125,15 +125,15 @@ int32_t MYAPP_GLOBAL_VAR;
 
 // Output the contents
 int main (void) {
-  printf ("% d \ n", MYAPP_GLOBAL_VAR);
+  printf("%d\n", MYAPP_GLOBAL_VAR);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 0
-</ pre>
+</pre>
 
 The C language has a specification that you cannot write an expression outside a function, but you can write a term on the right-hand side to initialize a global variable.
 
@@ -152,13 +152,13 @@ int32_t MYAPP_GLOBAL_VAR_NO_CONST = strlen ("AAABBB");
 
 // Output the contents
 int main (void) {
-  printf ("% d \ n", MYAPP_GLOBAL_VAR_CONST1);
-  printf ("% d \ n", MYAPP_GLOBAL_VAR_CONST2);
-  printf ("% d \ n", MYAPP_GLOBAL_VAR_NO_CONST);
+  printf("%d\n", MYAPP_GLOBAL_VAR_CONST1);
+  printf("%d\n", MYAPP_GLOBAL_VAR_CONST2);
+  printf("%d\n", MYAPP_GLOBAL_VAR_NO_CONST);
 }
-</ pre>
+</pre>
 
-This is the output result of <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a>. If the initialization is not a constant, you will be warned.
+This is the output result of <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc</a>. If the initialization is not a constant, you will be warned.
 
 <pre>
 a.c: 8: warning: initializer element is not constant
@@ -166,20 +166,20 @@ a.c: 8: warning: (near initialization for ‘MYAPP_GLOBAL_VAR_NO_CONST’)
 Five
 Four
 6
-</ pre>
+</pre>
 
 Keep this in mind as a specification, and if you want to use constants, we recommend not using the global variables introduced above.
 
-<h3> Access global variables defined in other object files </ h3>
+<h3> Access global variables defined in other object files </h3>
 
 The C language has the concept of file scope, and global variables described in other object files cannot be seen as they are. If you want to access global variables in other object files, use the extern declaration.
 
 <pre>
 # Allow access to global variables described in other files
 extern OUTER_GLOBAL_VAR;
-</ pre>
+</pre>
 
-<h3> Make global variables inaccessible from other object files </ h3>
+<h3> Make global variables inaccessible from other object files </h3>
 
 Use the static modifier to make global variables inaccessible from other object files. With the static modifier, you can only use it in this file (imagine it's an object file).
 
@@ -192,11 +192,11 @@ static int32_t MYAPP_GLOBAL_VAR;
 
 // Output the contents
 int main (void) {
-  printf ("% d \ n", MYAPP_GLOBAL_VAR);
+  printf("%d\n", MYAPP_GLOBAL_VAR);
 }
-</ pre>
+</pre>
 
-<h3> Please let me know if you have actually used global variables. </ H3>
+<h3> Please let me know if you have actually used global variables. </H3>
 
 Yes. I confess honestly.
 

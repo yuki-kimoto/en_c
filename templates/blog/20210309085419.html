@@ -2,42 +2,42 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Shift operator </ h2>
+<h2> Shift operator </h2>
 
 This section describes the shift operator in C language. A shift operation is an operation that moves the bit position to the right or left.
 
-Although not defined in the C language specification, as a de facto standard, assume that logical shift operations are implemented for unsigned integers and arithmetic shift operations are implemented for signed integers. Both VC ++ and <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a> do this.
+Although not defined in the C language specification, as a de facto standard, assume that logical shift operations are implemented for unsigned integers and arithmetic shift operations are implemented for signed integers. Both VC ++ and <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc</a> do this.
 
 However, since this is implementation-dependent, there may be some implementations that do not work, but unless implemented in this way, logical shift operations and arithmetic shift operations cannot be defined in C language, and a portable library is available. I can't write it, so as time goes by, I imagine that it will be implemented by the implementation on the de facto standard side.
 
 I will explain based on this premise.
 
-<h3> Left logical shift operation </ h3>
+<h3> Left logical shift operation </h3>
 
 The left logical shift operation logically shifts to the left a specified number of times. x is an unsigned integer.
 
 <pre>
 // Left logical shift operation
 x << count
-</ pre>
+</pre>
 
-Suppose the value is <a href="/blog/20201122084622.html"> unsigned 8-bit integer </a>. When this is shifted to the left by 2 bits, it becomes as follows. The part exceeding 8 bits is truncated. The right side is filled with 0s.
+Suppose the value is <a href="/blog/20201122084622.html"> unsigned 8-bit integer</a>. When this is shifted to the left by 2 bits, it becomes as follows. The part exceeding 8 bits is truncated. The right side is filled with 0s.
 
 <pre>
 // If you shift this to the left by 2 bits
@@ -48,7 +48,7 @@ Suppose the value is <a href="/blog/20201122084622.html"> unsigned 8-bit integer
 
 // Truncate the part over 8bit and fill the right side with 0
   10110100
-</ pre>
+</pre>
 
 This is a sample program for left logical shift operation.
 
@@ -63,26 +63,26 @@ int main (void) {
   // 2bit left logical shift
   uint8_t y = x << 2;
   
-  printf ("% X \ n", y);
+  printf("%X\n", y);
 }
-</ pre>
+</pre>
 
 This is the output result. The binary number is "10110100".
 
 <pre>
 B4
-</ pre>
+</pre>
 
-<h3> Right logical shift operation </ h3>
+<h3> Right logical shift operation </h3>
 
 The right logical shift operation logically shifts to the right a specified number of times. x is an unsigned integer.
 
 <pre>
 // Right logical shift operation
 x << count
-</ pre>
+</pre>
 
-Suppose the value is <a href="/blog/20201122084622.html"> unsigned 8-bit integer </a>. When this is shifted to the right by 2 bits, it becomes as follows. The part below 1bit is truncated. The left side is filled with 0s.
+Suppose the value is <a href="/blog/20201122084622.html"> unsigned 8-bit integer</a>. When this is shifted to the right by 2 bits, it becomes as follows. The part below 1bit is truncated. The left side is filled with 0s.
 
 <pre>
 // If you shift this to the right by 2 bits
@@ -93,7 +93,7 @@ Suppose the value is <a href="/blog/20201122084622.html"> unsigned 8-bit integer
 
 // Truncate the part below 1bit and fill the left side with 0
 00101011
-</ pre>
+</pre>
 
 This is a sample program for right logical shift operation.
 
@@ -108,26 +108,26 @@ int main (void) {
   // 2bit right logical shift
   uint8_t y = x >> 2;
   
-  printf ("% X \ n", y);
+  printf("%X\n", y);
 }
-</ pre>
+</pre>
 
 This is the output result. The binary number is "00101011".
 
 <pre>
 2B
-</ pre>
+</pre>
 
-<h3> Left arithmetic shift operation </ h3>
+<h3> Left arithmetic shift operation </h3>
 
 The left arithmetic shift operation shifts the arithmetic to the left a specified number of times. x is a signed integer. Left arithmetic shift is exactly the same operation as left logical shift.
 
 <pre>
 // Left arithmetic shift operation
 x << count
-</ pre>
+</pre>
 
-Suppose the value is <a href="/blog/20201117090747.html"> signed 8-bit integer </a>. When this is shifted to the left by 2 bits, it becomes as follows. The part exceeding 8 bits is truncated. The right side is filled with 0s.
+Suppose the value is <a href="/blog/20201117090747.html"> signed 8-bit integer</a>. When this is shifted to the left by 2 bits, it becomes as follows. The part exceeding 8 bits is truncated. The right side is filled with 0s.
 
 <pre>
 // If you shift this to the left by 2 bits
@@ -138,7 +138,7 @@ Suppose the value is <a href="/blog/20201117090747.html"> signed 8-bit integer <
 
 // Truncate the part over 8bit and fill the right side with 0
   10110100
-</ pre>
+</pre>
 
 This is a sample program for left arithmetic shift operation.
 
@@ -154,26 +154,26 @@ int main (void) {
   int8_t y = x << 2;
   
   // Output unsigned because I want to see what happened to the bits
-  printf ("% X \ n", (uint8_t) y);
+  printf("%X\n", (uint8_t) y);
 }
-</ pre>
+</pre>
 
 This is the output result. The binary number is "10110100".
 
 <pre>
 B4
-</ pre>
+</pre>
 
-<h3> Right arithmetic shift operation </ h3>
+<h3> Right arithmetic shift operation </h3>
 
 The right arithmetic shift operation shifts the arithmetic to the right a specified number of times. x is a signed integer.
 
 <pre>
 // Right arithmetic shift operation
 x << count
-</ pre>
+</pre>
 
-Suppose the value is <a href="/blog/20201117090747.html"> signed 8-bit integer </a>. When this is shifted to the right by 2 bits, it becomes as follows. The part below 1bit is truncated. The left side is filled with the sign bit (the leftmost bit, in this case 1).
+Suppose the value is <a href="/blog/20201117090747.html"> signed 8-bit integer</a>. When this is shifted to the right by 2 bits, it becomes as follows. The part below 1bit is truncated. The left side is filled with the sign bit (the leftmost bit, in this case 1).
 
 <pre>
 // If you shift this to the right by 2 bits
@@ -184,7 +184,7 @@ Suppose the value is <a href="/blog/20201117090747.html"> signed 8-bit integer <
 
 // Truncate the part below 1bit and fill the left side with the sign bit (the leftmost bit of the original bit, in this case 1)
 11101011
-</ pre>
+</pre>
 
 This is a sample program for right arithmetic shift operation.
 
@@ -200,23 +200,23 @@ int main (void) {
   int8_t y = x >> 2;
   
   // Output unsigned because I want to see what happened to the bits
-  printf ("% X \ n", (uint8_t) y);
+  printf("%X\n", (uint8_t) y);
 }
-</ pre>
+</pre>
 
 This is the output result. The binary number is "11101011".
 
 <pre>
 EB
-</ pre>
+</pre>
 
-<h3> Where do you use shift operation? </ H3>
+<h3> Where do you use shift operation? </H3>
 
 Well, I don't usually use it (laughs). If you're building an application, don't you use it?
 
 However, I don't know the edge case, so I'll just say "I don't think I'll use it."
 
-It's unlikely that using shift operations will be faster than <a href="/blog/20210108153045.html"> arithmetic operations </a>, as the compiler will automatically optimize them for you.
+It's unlikely that using shift operations will be faster than <a href="/blog/20210108153045.html"> arithmetic operations</a>, as the compiler will automatically optimize them for you.
 
 Again, I don't know the edge case, so I'll keep it to the extent that it's unlikely.
 

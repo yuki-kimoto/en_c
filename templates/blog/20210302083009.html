@@ -2,35 +2,35 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop = "name"> preprocessor </ span>
-      </a>
+        <span itemprop = "name"> preprocessor </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Macro description-#define </ h2>
+<h2> Macro description-#define </h2>
 
 Explains how to define and use macros. A macro is a string that is expanded in the source code by the preprocessor's "#define" instruction before the source code is compiled.
 
 <pre>
 #define macro name string
-</ pre>
+</pre>
 
 Macro names can use the same characters that can be used in C identifiers. The string is any string and can contain spaces.
 
 Macros have several possible uses, so I will introduce them.
 
-<h3> Macro constants </ h3>
+<h3> Macro constants </h3>
 
 The first use of macros is to define constants. Here, we will call this a macro constant.
 
@@ -39,7 +39,7 @@ Macro constants are constructed in uppercase, as is customary in the C language.
 <pre>
 #define MYAPP_PI 3.14
 #define MYAPP_PARALLEL_PROCESS 10
-</ pre>
+</pre>
 
 This is a sample program that uses macro constants. "MYAPP_PI" is expanded to "3.14" before it is compiled.
 
@@ -51,27 +51,27 @@ This is a sample program that uses macro constants. "MYAPP_PI" is expanded to "3
 int main (void) {
   double num = 3 * MYAPP_PI;
   
-  printf ("% f \ n", num);
+  printf("%f\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 9.420000
-</ pre>
+</pre>
 
-<h3> Use enum for integer constants </ h3>
+<h3> Use enum for integer constants </h3>
 
-For integer constants, it is recommended to use <a href="/blog/20210120133501.html"> enum "enum" </a> instead of macros. The enum is processed by the compiler and has no side effects.
+For integer constants, it is recommended to use <a href="/blog/20210120133501.html"> enum "enum"</a> instead of macros. The enum is processed by the compiler and has no side effects.
 
 <pre>
 enum {
   MYAPP_PARALLEL_PROCESS = 10
 }
-</ pre>
+</pre>
 
-<h3> Do not use macros as much as possible </ h3>
+<h3> Do not use macros as much as possible </h3>
 
 When creating a program, we recommend that you do not use macros as much as possible.
 
@@ -81,25 +81,25 @@ For example, the following side effects.
 
 <pre>
 #define FOO 2 + 3
-</ pre>
+</pre>
 
 What is the result of the following formula?
 
 <pre>
 1 * FOO * 3
-</ pre>
+</pre>
 
 It will be expanded as follows.
 
 <pre>
 1 * 2 + 3 * 3
-</ pre>
+</pre>
 
 2 + 9 gives 11. Didn't FOO expect it to be 5?
 
 <pre>
 #define FOO (2 + 3)
-</ pre>
+</pre>
 
 If you write, it will work correctly.
 
@@ -111,7 +111,7 @@ Side effects become more difficult to track down as the program grows. And progr
 
 "Today's a little painful, but it'll be okay" will lead to the future "It's terrible, it's no good anymore".
 
-<h3> When do you use macros? </ H3>
+<h3> When do you use macros? </H3>
 
 If you shouldn't use it as much as possible, then when do you use macros?
 
@@ -131,7 +131,7 @@ In such cases, you can configure your application with minimal macro definitions
 
 If macros are heavily used in such applications, it's likely that something is wrong.
 
-On the other hand, again, in some applications, there must be a significant number of macros. It may be an application that was created to absorb environmental differences. For example, in order for users to see the same socket API, we have to absorb the difference between Windows and <a href="https://en.linux.perlzemi.com/"> Linux / UNIX </a> socket communication. Not to be.
+On the other hand, again, in some applications, there must be a significant number of macros. It may be an application that was created to absorb environmental differences. For example, in order for users to see the same socket API, we have to absorb the difference between Windows and <a href="https://en.linux.perlzemi.com/"> Linux / UNIX</a> socket communication. Not to be.
 
 Also, since there is a condition that you want to maximize the performance, you can also use macros if you want to expand manually without expecting inline expansion of the compiler.
 

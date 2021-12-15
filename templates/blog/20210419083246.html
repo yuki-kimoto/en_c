@@ -2,38 +2,38 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> printf function-formats and prints a string </ h2>
+<h2> printf function-formats and prints a string </h2>
 
-You can use the printf function to format and output the string. It can be used by including <a href="/blog/20210418083246.html"> stdio.h header </a>.
+You can use the printf function to format and output the string. It can be used by including <a href="/blog/20210418083246.html"> stdio.h header</a>.
 
 <pre>
 #include <stdio.h>
-int printf (const char * restrict format, ...);
-</ pre>
+int printf(const char * restrict format, ...);
+</pre>
 
-This is a sample of the printf function. The first argument is a string that contains format specifiers such as "% s" which means a string and "% d" which means an integer. After the second argument, it is a variable length argument, and the value corresponding to the format specifier is passed.
+This is a sample of the printf function. The first argument is a string that contains format specifiers such as "%s" which means a string and "%d" which means an integer. After the second argument, it is a variable length argument, and the value corresponding to the format specifier is passed.
 
 <pre>
 #include <stdio.h>
@@ -43,31 +43,31 @@ int main (void) {
   const char * name = "Yuki Kimoto";
   int32_t age = 40;
   
-  printf ("My name is% s. Age is% d. \ N", name, age);
+  printf("My name is%s. Age is%d. \ N", name, age);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 My name is Yuki Kimoto. Age is 40.
-</ pre>
+</pre>
 
-<h3> Integer format </ h3>
+<h3> Integer format </h3>
 
-<h4> int32_t (signed 32-bit integer type) format </ h4>
+<h4> int32_t (signed 32-bit integer type) format </h4>
 
-Use "% d" to format <a href="/blog/20201130082751.html"> int32_t type </a> (32bit signed integer type).
+Use "%d" to format <a href="/blog/20201130082751.html"> int32_t type</a> (32bit signed integer type).
 
 <pre>
-% d
-</ pre>
+%d
+</pre>
 
-"% D" is, to be exact, the format of <a href="/blog/20210130143859.html"> int type </a>.
+"%D" is, to be exact, the format of <a href="/blog/20210130143859.html"> int type</a>.
 
-Therefore, if the int type definition is a 16-bit implementation, the value of <a href="/blog/20201130082751.html"> int32_t </a> will not be output correctly in the format "% d". Hmm. However, assuming that all implementations in the world express int in 32bit or more, the code to format an int32_t type integer with "% d" is correct.
+Therefore, if the int type definition is a 16-bit implementation, the value of <a href="/blog/20201130082751.html"> int32_t</a> will not be output correctly in the format "%d". Hmm. However, assuming that all implementations in the world express int in 32bit or more, the code to format an int32_t type integer with "%d" is correct.
 
-As a trial, let's pass the minimum value of int32_t type to "% d". How is it in your environment?
+As a trial, let's pass the minimum value of int32_t type to "%d". How is it in your environment?
 
 <pre>
 #include <stdio.h>
@@ -76,67 +76,67 @@ As a trial, let's pass the minimum value of int32_t type to "% d". How is it in 
 int main (void) {
   int32_t num = INT32_MIN;
   
-  printf ("% d \ n", num);
+  printf("%d\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 -2147483648
-</ pre>
+</pre>
 
 We'll show you how to format a size-guaranteed integer type perfectly correctly later. It is more accurate to use this, but it has the drawback that it cannot be remembered in memory.
 
-<h4> int16_t (signed 16bit integer type) format </ h4>
+<h4> int16_t (signed 16bit integer type) format </h4>
 
-Use "% d" to format <a href="/blog/20201126090559.html"> int16_t </a> (16bit signed integer type).
-
-<pre>
-% d
-</ pre>
-
-<h4> int8_t (signed 8-bit integer type) format </ h4>
-
-Use "% d" to format <a href="/blog/20201117090747.html"> int8_t </a> (8bit signed integer type).
+Use "%d" to format <a href="/blog/20201126090559.html"> int16_t</a> (16bit signed integer type).
 
 <pre>
-% d
-</ pre>
+%d
+</pre>
 
-<h4> int64_t (signed 64-bit integer type) format </ h4>
+<h4> int8_t (signed 8-bit integer type) format </h4>
 
-To format <a href="/blog/20201127082751.html"> int64_t </a> (64bit signed integer type), use "PRId64" which will be explained later.
-
-<pre>
-printf ("%" PRId64 "\ n", num);
-</ pre>
-
-Since "% ld" and "% lld" may give a portability warning, it is safe to use PRId64 when outputting int64_t.
-
-<h4> uint32_t (unsigned 32bit integer type) format </ h4>
-
-Use "% u" for the format of <a href="/blog/20201111150850.html"> uint32_t </a> (unsigned 32-bit integer type). The reason is the same as explained in the int32_t type format.
-
-<h4> uint8_t (unsigned 8-bit integer type) format </ h4>
-
-Use "% u" for the format of <a href="/blog/20201122084622.html"> uint8_t </a> (unsigned 8-bit integer type).
-
-<h4> uint16_t (unsigned 16bit integer type) format </ h4>
-
-Use "% u" for the format of <a href="/blog/20201120084622.html"> uint16_t </a> (unsigned 16bit integer type).
-
-<h4> uint64_t (unsigned 64-bit integer type) format </ h4>
-
-For the format of <a href="/blog/20201109150850.html"> uint64_t </a> (unsigned 64-bit integer type), use "PRIu64" described later.
+Use "%d" to format <a href="/blog/20201117090747.html"> int8_t</a> (8bit signed integer type).
 
 <pre>
-printf ("%" PRIu64 "\ n", num);
-</ pre>
+%d
+</pre>
 
-Since "% lu" and "% llu" may give a portability warning, it is safe to use PRIu64 when outputting int64_t.
+<h4> int64_t (signed 64-bit integer type) format </h4>
 
-<h4> Integer format with guaranteed size </ h4>
+To format <a href="/blog/20201127082751.html"> int64_t</a> (64bit signed integer type), use "PRId64" which will be explained later.
+
+<pre>
+printf("%" PRId64 "\ n", num);
+</pre>
+
+Since "%ld" and "%lld" may give a portability warning, it is safe to use PRId64 when outputting int64_t.
+
+<h4> uint32_t (unsigned 32bit integer type) format </h4>
+
+Use "%u" for the format of <a href="/blog/20201111150850.html"> uint32_t</a> (unsigned 32-bit integer type). The reason is the same as explained in the int32_t type format.
+
+<h4> uint8_t (unsigned 8-bit integer type) format </h4>
+
+Use "%u" for the format of <a href="/blog/20201122084622.html"> uint8_t</a> (unsigned 8-bit integer type).
+
+<h4> uint16_t (unsigned 16bit integer type) format </h4>
+
+Use "%u" for the format of <a href="/blog/20201120084622.html"> uint16_t</a> (unsigned 16bit integer type).
+
+<h4> uint64_t (unsigned 64-bit integer type) format </h4>
+
+For the format of <a href="/blog/20201109150850.html"> uint64_t</a> (unsigned 64-bit integer type), use "PRIu64" described later.
+
+<pre>
+printf("%" PRIu64 "\ n", num);
+</pre>
+
+Since "%lu" and "%llu" may give a portability warning, it is safe to use PRIu64 when outputting int64_t.
+
+<h4> Integer format with guaranteed size </h4>
 
 There is a way to correctly output an integer format with a guaranteed size. Let's format the value of int32_t type correctly. Use the PRId32 macro defined in the inttypes.h header.
 
@@ -148,37 +148,37 @@ There is a way to correctly output an integer format with a guaranteed size. Let
 int main (void) {
   int32_t num = INT32_MIN;
   
-  printf ("%" PRId32 "\ n", num);
+  printf("%" PRId32 "\ n", num);
 }
-</ pre>
+</pre>
 
-I feel like "What is this way of writing ...". In C, string literals are combined at compile time by arranging them like "" Foo "" Bar "". PRId32 is a macro. It will be replaced with the appropriate format, depending on the implementation definition. For example, it will be replaced with ""% "" d "" \ n "".
+I feel like "What is this way of writing ...". In C, string literals are combined at compile time by arranging them like "" Foo "" Bar "". PRId32 is a macro. It will be replaced with the appropriate format, depending on the implementation definition. For example, it will be replaced with ""%"" d ""\n "".
 
 Here's a list of the most commonly used integer formats with guaranteed sizes.
 
 <table>
-  <tr> <th> PRId8 </ th> <td> int8_t format </ td> </ tr>
-  <tr> <th> PRId16 </ th> <td> int16_t format </ td> </ tr>
-  <tr> <th> PRId32 </ th> <td> int32_t format </ td> </ tr>
-  <tr> <th> PRId64 </ th> <td> int64_t format </ td> </ tr>
-  <tr> <th> PRIu8 </ th> <td> uint8_t format </ td> </ tr>
-  <tr> <th> PRIu16 </ th> <td> uint16_t format </ td> </ tr>
-  <tr> <th> PRIu32 </ th> <td> uint32_t format </ td> </ tr>
-  <tr> <th> PRIu64 </ th> <td> uint64_t format </ td> </ tr>
-</ table>
+  <tr> <th> PRId8 </th> <td> int8_t format </td> </tr>
+  <tr> <th> PRId16 </th> <td> int16_t format </td> </tr>
+  <tr> <th> PRId32 </th> <td> int32_t format </td> </tr>
+  <tr> <th> PRId64 </th> <td> int64_t format </td> </tr>
+  <tr> <th> PRIu8 </th> <td> uint8_t format </td> </tr>
+  <tr> <th> PRIu16 </th> <td> uint16_t format </td> </tr>
+  <tr> <th> PRIu32 </th> <td> uint32_t format </td> </tr>
+  <tr> <th> PRIu64 </th> <td> uint64_t format </td> </tr>
+</table>
 
-<h3> Specifying the display width of an integer format </ h3>
+<h3> Specifying the display width of an integer format </h3>
 
 Let's specify the display width in integer format.
 
-<h4> Right justify by specifying the display width </ h4>
+<h4> Right justify by specifying the display width </h4>
 
-Specify "Display width" after "%" like "% 5d". By default, integers are right-justified. The missing digits are filled with blanks.
+Specify "Display width" after "%" like "%5d". By default, integers are right-justified. The missing digits are filled with blanks.
 
 <pre>
 # Specify the display width of an integer
-% 2d
-</ pre>
+%2d
+</pre>
 
 This is a sample that specifies the display width to 5 digits in the integer format of fprintf. It is right-justified by 5 digits.
 
@@ -190,24 +190,24 @@ int main (void) {
   int32_t num = 123;
   
   // Specify display width to 5 digits Right justified
-  printf ("foo,% 5d, bar \ n", num);
+  printf("foo,%5d, bar\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result. The integer is output with 5 digits right justified.
 
 <pre>
 foo, 123, bar
-</ pre>
+</pre>
 
-<h4> Specify the display width and left justify </ h4>
+<h4> Specify the display width and left justify </h4>
 
-To specify the display width and left justify, add a minus in front of the display width, such as "% -5d".
+To specify the display width and left justify, add a minus in front of the display width, such as "%-5d".
 
 <pre>
 // Specify the display width and left justify
-% -5d
-</ pre>
+%-5d
+</pre>
 
 This is a sample that specifies the display width and displays it left-justified.
 
@@ -219,23 +219,23 @@ int main (void) {
   int32_t num = 123;
   
   // Specify the number of digits as 5 digits Left justified
-  printf ("foo,% -5d, bar \ n", num);
+  printf("foo,%-5d, bar\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 foo,123, bar
-</ pre>
+</pre>
 
-<h4> Specify the display width and fill it with 0 </ h4>
+<h4> Specify the display width and fill it with 0 </h4>
 
-To specify the display width and left justify, add 0 in front of the display width, such as "% 05d".
+To specify the display width and left justify, add 0 in front of the display width, such as "%05d".
 
 <pre>// Specify the display width and left justify
-% 05d
-</ pre>
+%05d
+</pre>
 
 This is a sample that specifies the display width and displays it left-justified.
 
@@ -247,19 +247,19 @@ int main (void) {
   int32_t num = 123;
   
   // Specify the number of digits as 5 digits --- padded with 0
-  printf ("foo,% 05d, bar \ n", num);
+  printf("foo,%05d, bar\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 foo,00123, bar
-</ pre>
+</pre>
 
-<h3> Display integer type in hexadecimal </ h3>
+<h3> Display integer type in hexadecimal </h3>
 
-Use "% x" or "% X" to display integer types in hexadecimal. "% X" is output using "a to z", and "% X" is output using "A to Z".
+Use "%x" or "%X" to display integer types in hexadecimal. "%X" is output using "a to z", and "%X" is output using "A to Z".
 
 <pre>
 #include <stdio.h>
@@ -268,22 +268,22 @@ Use "% x" or "% X" to display integer types in hexadecimal. "% X" is output usin
 int main (void) {
   int32_t num = 0x34AB;
   
-  printf ("% x \ n", num);
-  printf ("% X \ n", num);
+  printf("%x\n", num);
+  printf("%X\n", num);
 }
-</ pre>
+</pre>
 
-<h3> Floating point format </ h3>
+<h3> Floating point format </h3>
 
 A description of the floating point format for the printf function.
 
-<h4> Floating point format </ h4>
+<h4> Floating point format </h4>
 
-The floating point format of the printf function is "% f". Both <a href="/blog/20201202133213.html"> float type </a> and <a href="/blog/20201203133213.html"> double type </a> are okay with "% f".
+The floating point format of the printf function is "%f". Both <a href="/blog/20201202133213.html"> float type</a> and <a href="/blog/20201203133213.html"> double type</a> are okay with "%f".
 
 <pre>
-% f
-</ pre>
+%f
+</pre>
 
 This is a sample that outputs a floating point number with the printf function.
 
@@ -294,19 +294,19 @@ This is a sample that outputs a floating point number with the printf function.
 int main (void) {
   double num = 123.56;
   
-  printf ("% f \ n", num);
+  printf("%f\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 123.560000
-</ pre>
+</pre>
 
-<h4> Specify the number of digits after the decimal point of the floating point number </ h4>
+<h4> Specify the number of digits after the decimal point of the floating point number </h4>
 
-To specify the number of digits after the decimal point of a floating point number, write as "% .2f".
+To specify the number of digits after the decimal point of a floating point number, write as "%.2f".
 
 This is a sample that outputs a floating point number with two decimal places by the printf function.
 
@@ -318,19 +318,19 @@ int main (void) {
   double num = 123.56;
   
   // Specify the number of digits after the decimal point as 2 digits
-  printf ("% .2f \ n", num);
+  printf("%.2f\n", num);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 123.56
-</ pre>
+</pre>
 
-<h4> Display floating point numbers nicely </ h4>
+<h4> Display floating point numbers nicely </h4>
 
-Use "% g" to get a nice floating point display. If there are many digits in exponential notation, it will be automatically converted to exponential notation.
+Use "%g" to get a nice floating point display. If there are many digits in exponential notation, it will be automatically converted to exponential notation.
 
 <pre>
 #include <stdio.h>
@@ -341,27 +341,27 @@ int main (void) {
   double num2 = 2.56e40;
   
   // Display floating point nicely
-  printf ("% g \ n", num1);
-  printf ("% g \ n", num2);
+  printf("%g\n", num1);
+  printf("%g\n", num2);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 123.56
 2.56e + 40
-</ pre>
+</pre>
 
-<h3> Character format </ h3>
+<h3> Character format </h3>
 
-Use "% c" to format the characters with the printf function.
+Use "%c" to format the characters with the printf function.
 
 <pre>
-% c
-</ pre>
+%c
+</pre>
 
-This is a sample to format characters with the printf function. <a href="/blog/20210429092832.html"> Character literal </a> The value described in "'a'" is <a href="/blog/20201204103322.html"> char type </a>. It is retained as an ASCII code. This is output as a character with "% c".
+This is a sample to format characters with the printf function. <a href="/blog/20210429092832.html"> Character literal</a> The value described in "'a'" is <a href="/blog/20201204103322.html"> char type</a>. It is retained as an ASCII code. This is output as a character with "%c".
 
 <pre>
 #include <stdio.h>
@@ -370,23 +370,23 @@ int main (void) {
   char ch ='a';
   
   // Output string
-  printf ("% c \ n", ch);
+  printf("%c\n", ch);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 a
-</ pre>
+</pre>
 
-<h3> String format </ h3>
+<h3> String format </h3>
 
-Use "% s" to format the <a href="/blog/20210331101342.html"> string </a> with the printf function.
+Use "%s" to format the <a href="/blog/20210331101342.html"> string</a> with the printf function.
 
 <pre>
-% s
-</ pre>
+%s
+</pre>
 
 This is a sample to format a string with the printf function.
 
@@ -397,23 +397,23 @@ int main (void) {
   const char * message = "Hello";
   
   // Output string
-  printf ("% s \ n", message);
+  printf("%s\n", message);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
-</ pre>
+</pre>
 
-<h3> Pointer format </ h3>
+<h3> Pointer format </h3>
 
-Use "% p" to format the <a href="/blog/20210211090234.html"> pointer </a> with the printf function. You can get the value (address) of the pointer.
+Use "%p" to format the <a href="/blog/20210211090234.html"> pointer</a> with the printf function. You can get the value (address) of the pointer.
 
 <pre>
-% p
-</ pre>
+%p
+</pre>
 
 This is a sample to format the pointer with the printf function.
 
@@ -424,12 +424,12 @@ int main (void) {
   const char * message = "Hello";
   
   // Output pointer
-  printf ("% p \ n", message);
+  printf("%p\n", message);
 }
-</ pre>
+</pre>
 
 This is the output result in my environment. The pointer value (address) is output.
 
 <pre>
 0x4005c8
-</ pre>
+</pre>

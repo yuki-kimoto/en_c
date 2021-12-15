@@ -2,55 +2,55 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop = "name"> Compile </ span>
-      </a>
+        <span itemprop = "name"> Compile </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Explanation of split compilation method </ h2>
+<h2> Explanation of split compilation method </h2>
 
-I will explain the division compilation method of C language. Use <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a> for the compiler. This is a split compilation method that can be used in practice. The split compilation method is described here by dividing it into the application source file, library header file, and library source file, and <a href="/blog/20201214140830.html"> compiling </a> them. , <a href="/blog/20201215105104.html"> Link to generate an executable file </a>.
+I will explain the division compilation method of C language. Use <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc</a> for the compiler. This is a split compilation method that can be used in practice. The split compilation method is described here by dividing it into the application source file, library header file, and library source file, and <a href="/blog/20201214140830.html"> compiling</a> them. , <a href="/blog/20201215105104.html"> Link to generate an executable file</a>.
 
-<h3> Overview of split compilation method </ h3>
+<h3> Overview of split compilation method </h3>
 
 I will explain the outline of the split compilation method.
 
-<h4> Application source files </ h4>
+<h4> Application source files </h4>
 
-The application source file is the source file that contains the <a href="/blog/20210314140759.html"> main function </a>. The application runs from here.
+The application source file is the source file that contains the <a href="/blog/20210314140759.html"> main function</a>. The application runs from here.
 
-In order to compile the application source files, the functions and structures used in the application must be present in the <a href="/blog/20210203153019.html"> included </a> header. ..
+In order to compile the application source files, the functions and structures used in the application must be present in the <a href="/blog/20210203153019.html"> included</a> header. ..
 
 When compiling the source files of your application, you only need to resolve the names of functions, structs, etc., and you don't need to know the source files of other libraries. If you want to link, you will need to compile the source files of the library into object files.
 
-<h4> Library header file </ h4>
+<h4> Library header file </h4>
 
-This is the header file of my own library. <a href="/blog/20210208155548.html"> Structure definition </a>, <a href="/blog/20210204153019.html"> typedef statement </a>, <a href="/blog/20210120133501" .html "> enums </a>, <a href="/blog/20210302083009.html"> constant macros </a>, <a href="/blog/20210124140655.html"> function macros </a> , <a href="/blog/20210625091605.html"> Function prototype declaration </a> is done in the header file.
+This is the header file of my own library. <a href="/blog/20210208155548.html"> Structure definition</a>, <a href="/blog/20210204153019.html"> typedef statement</a>, <a href="/blog/20210120133501" .html "> enums</a>, <a href="/blog/20210302083009.html"> constant macros</a>, <a href="/blog/20210124140655.html"> function macros</a> , <a href="/blog/20210625091605.html"> Function prototype declaration</a> is done in the header file.
 
-It is <a href="/blog/20210203153019.html"> included </a> in the source file of the application or the source file of the library.
+It is <a href="/blog/20210203153019.html"> included</a> in the source file of the application or the source file of the library.
 
-<h4> Library source files </ h4>
+<h4> Library source files </h4>
 
-This is the source file of my own library. In the source file of the library, <a href="/blog/20210214090234.html"> function definition </a> is performed. Function prototype declarations are made in the header file.
+This is the source file of my own library. In the source file of the library, <a href="/blog/20210214090234.html"> function definition</a> is performed. Function prototype declarations are made in the header file.
 
-In the library source file, <a href="/blog/20210203153019.html"> include </a> the library header file.
+In the library source file, <a href="/blog/20210203153019.html"> include</a> the library header file.
 
 In order to compile the library source file, the functions and structures used in the library source file must be present in the included header.
 
 When compiling the source files of a library, you only need to resolve the names of functions, structs, etc., and you don't need to know the source files of other libraries. If you want to link, you will need to compile the source files of the library into object files.
 
-<h4> Split compilation procedure </ h4>
+<h4> Split compilation procedure </h4>
 
 This is the procedure for split compilation.
 
@@ -58,17 +58,17 @@ This is the procedure for split compilation.
 2. Compile the application source file to generate an object file.
 3. Link all the object files generated above to generate an executable file.
 
-The header file will be stored in a directory called "include". We will store the application source files and library source files in a directory called "src". In the header file, <a href="/blog/20210201153503.html"> include guard </a> is performed.
+The header file will be stored in a directory called "include". We will store the application source files and library source files in a directory called "src". In the header file, <a href="/blog/20210201153503.html"> include guard</a> is performed.
 
-<h3> Split compilation sample </ h3>
+<h3> Split compilation sample </h3>
 
 This is a sample of split compilation.
 
-<h4> Application source files </ h4>
+<h4> Application source files </h4>
 
 The source file "myapp.c" for the application.
 
-<b> myapp.c </ b>
+<b> myapp.c </b>
 
 <pre>
 #include <stdio.h>
@@ -81,13 +81,13 @@ int main (void) {
   mylib1_print ();
   mylib2_print ();
 }
-</ pre>
+</pre>
 
-<h4> Library header file </ h4>
+<h4> Library header file </h4>
 
 The library header files "mylib1.h" and "mylib2.h".
 
-<b> mylib1.h </ b>
+<b> mylib1.h </b>
 
 <pre>
 #ifndef MYLIB1_H
@@ -96,9 +96,9 @@ The library header files "mylib1.h" and "mylib2.h".
 void mylib1_print (void);
 
 #endif
-</ pre>
+</pre>
 
-<b> mylib2.h </ b>
+<b> mylib2.h </b>
 
 <pre>
 #ifndef MYLIB2_H
@@ -107,13 +107,13 @@ void mylib1_print (void);
 void mylib2_print (void);
 
 #endif
-</ pre>
+</pre>
 
-<h4> Library source files </ h4>
+<h4> Library source files </h4>
 
 The library source files "mylib1.c" and "mylib2.c".
 
-<b> mylib1.c </ b>
+<b> mylib1.c </b>
 
 <pre>
 #include <stdio.h>
@@ -121,11 +121,11 @@ The library source files "mylib1.c" and "mylib2.c".
 #include "mylib1.h"
 
 void mylib1_print (void) {
-  printf ("mylib1_print \ n");
+  printf("mylib1_print\n");
 }
-</ pre>
+</pre>
 
-<b> mylib2.c </ b>
+<b> mylib2.c </b>
 
 <pre>
 #include <stdio.h>
@@ -133,65 +133,65 @@ void mylib1_print (void) {
 #include "mylib2.h"
 
 void mylib2_print (void) {
-  printf ("mylib2_print \ n");
+  printf("mylib2_print\n");
 }
-</ pre>
+</pre>
 
-<h4> Compile </ h4>
+<h4> Compile </h4>
 
-<a href="/blog/20201214140830.html"> Compile </a> the application source file and the library file respectively. Specify the location of the header file with the option "-I".
+<a href="/blog/20201214140830.html"> Compile</a> the application source file and the library file respectively. Specify the location of the header file with the option "-I".
 
 <pre>
 gcc -Iinclude -c -o myapp.o src / myapp.c
 gcc -Iinclude -c -o mylib1.o src / mylib1.c
 gcc -Iinclude -c -o mylib2.o src / mylib2.c
-</ pre>
+</pre>
 
 When compiled, it becomes an object file. The object file is in machine language, but it is not an executable yet.
 
-<h4> Link-Create executable file </ h4>
+<h4> Link-Create executable file </h4>
 
-<a href="/blog/20201215105104.html"> Link </a> to create an executable file. Symbols such as function names are tied to the entity.
+<a href="/blog/20201215105104.html"> Link</a> to create an executable file. Symbols such as function names are tied to the entity.
 
 <pre>
 gcc -o myapp myapp.o mylib1.o mylib2.o
-</ pre>
+</pre>
 
-<h4> Execution </ h4>
+<h4> Execution </h4>
 
-Let's <a href="/blog/20201216101527.html"> execute </a> the executable file.
+Let's <a href="/blog/20201216101527.html"> execute</a> the executable file.
 
 <pre>
 ./myapp
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 mylib1_print
 mylib2_print
-</ pre>
+</pre>
 
 You have now mastered the C language split compilation technique. It is the same even if the number of library files increases.
 
 In this example, only the function prototype declaration is made in the header and the function definition is made in the source file, but the important thing is to understand exactly what should be defined in the header.
 
-In the header file, <a href="/blog/20210208155548.html"> structure definition </a>, <a href="/blog/20210204153019.html"> typedef statement </a>, <a href=" /blog/20210120133501.html"> Enumeration </a>, <a href="/blog/20210302083009.html"> Constant macro </a>, <a href="/blog/20210124140655.html"> Function macro </a>, declare the function as a prototype.
+In the header file, <a href="/blog/20210208155548.html"> structure definition</a>, <a href="/blog/20210204153019.html"> typedef statement</a>, <a href=" /blog/20210120133501.html"> Enumeration</a>, <a href="/blog/20210302083009.html"> Constant macro</a>, <a href="/blog/20210124140655.html"> Function macro</a>, declare the function as a prototype.
 
-In the source file, <a href="/blog/20210214090234.html"> function definition </a> is performed.
+In the source file, <a href="/blog/20210214090234.html"> function definition</a> is performed.
 
-<h3> How to avoid circular references of type </ h3>
+<h3> How to avoid circular references of type </h3>
 
 One problem with the above split compilation method is that it creates a circular reference of the type. Cross-references between libraries are a common occurrence in practical programming, and one way to solve this is with a technique called type declaration headers. You can reduce the reading between header files and resolve circular references.
 
 <ul>
-  <li> <a href="/blog/20210202153503.html"> Type declaration header </a> </ li>
-</ ul>
+  <li> <a href="/blog/20210202153503.html"> Type declaration header</a> </li>
+</ul>
 
-<h3> Object-oriented C language </ h3>
+<h3> Object-oriented C language </h3>
 
 We also introduce the object-oriented C language as an application of split compilation.
 
 <ul>
-  <li> <a href="/blog/20210212090234.html"> Object-oriented C language </a> </ li>
-</ ul>
+  <li> <a href="/blog/20210212090234.html"> Object-oriented C language</a> </li>
+</ul>

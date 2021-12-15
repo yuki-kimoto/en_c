@@ -2,56 +2,55 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Standard C library </ h2>
+<h2> Standard C library </h2>
 
 Introducing the standard C library. It mainly introduces frequently used functions.
 
-The standard C library can be used by <a href="/blog/20210203153019.html"> include </a> the standard header.
+The standard C library can be used by <a href="/blog/20210203153019.html"> include</a> the standard header.
 
 <pre>
 #include <string.h>
-</ pre>
+</pre>
 
-<h3> List of standard C libraries </ h3>
+<h3> List of standard C libraries </h3>
 
 A list of frequently used standard C libraries. Introduced by header name.
 
 <table>
-  <tr> <td> <a href="/blog/20210418083246.html"> stdio.h </a> </ td> <td> Standard input / output functions, etc. </ td> </ tr>
-  <tr> <td> <a href="/blog/20210303101711.html"> string.h </a> </ td> <td> String operations, memory copy functions, etc. </ td> </ tr>
-  <tr> <td> <a href="/blog/20210227091654.html"> stdlib.h </a> </ td> <td> Memory allocation function etc. </ td> </ tr>
-  <tr> <td> <a href="/blog/20210220132505.html"> stdint.h </a> </ td> <td> Define integer type with size guarantee </ td> </ tr>
-  <tr> <td> <a href="/blog/20210219132505.html"> float.h </a> </ td> <td> Floating point type maximum / minimum values, etc. </ td> </ tr> >
-  <tr> <td> <a href="/blog/20210125140655.html"> stddef.h </a> </ td> <td> NULL definition etc. </ td> </ tr>
-  <tr> <td> <a href="/blog/20210316082708.html"> assert.h </a> </ td> <td> Assertion function </ td> </ tr>
-</ table>
+  <tr> <td> <a href="/blog/20210418083246.html"> stdio.h</a> </td> <td> Standard input / output functions, etc. </td> </tr>
+  <tr> <td> <a href="/blog/20210303101711.html"> string.h</a> </td> <td> String operations, memory copy functions, etc. </td> </tr>
+  <tr> <td> <a href="/blog/20210227091654.html"> stdlib.h</a> </td> <td> Memory allocation function etc. </td> </tr>
+  <tr> <td> <a href="/blog/20210220132505.html"> stdint.h</a> </td> <td> Define integer type with size guarantee </td> </tr>
+  <tr> <td> <a href="/blog/20210219132505.html"> float.h</a> </td> <td> Floating point type maximum / minimum values, etc. </td> </tr> >
+  <tr> <td> <a href="/blog/20210125140655.html"> stddef.h</a> </td> <td> NULL definition etc. </td> </tr>
+  <tr> <td> <a href="/blog/20210316082708.html"> assert.h</a> </td> <td> Assertion function </td> </tr>
+</table>
 
 <!-
 
 inttypes.h
 
 ->
-
-<h3> Where is the standard C library implementation? </ H3>
+<h3> Where is the standard C library implementation? </H3>
 
 The implementation of the standard C library is implemented in each processing system, and the C compiler links it by default, so you can use it just by reading the header file.
 
-In the case of <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc </a>, the standard C library is implemented by a library called glibc.
+In the case of <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc</a>, the standard C library is implemented by a library called glibc.
 
-<h3> C Language Function Dictionary </ h3>
+<h3> C Language Function Dictionary </h3>
 
 This is an introduction to the C language function dictionary site. The C99-compatible introduction to C language focuses on functions that are frequently used in practice, so it is very helpful if you want to know all the functions.
 
 <ul>
-  <li> <a target="_blank" href="http://www.c-tipsref.com/"> C Language Function Dictionary </a> </ li>
-</ ul>
+  <li> <a target="_blank" href="http://www.c-tipsref.com/"> C Language Function Dictionary</a> </li>
+</ul>

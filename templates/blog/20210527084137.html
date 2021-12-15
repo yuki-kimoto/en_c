@@ -2,41 +2,41 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdlib.html">
-        <span itemprop = "name"> stdlib.h </ span>
-      </a>
+        <span itemprop = "name"> stdlib.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> exit function-exit the program </ h2>
+<h2> exit function-exit the program </h2>
 
-Use the exit function to exit the program. It can be used by including the <a href="/blog/20210227091654.html"> stdlib.h </a> header.
+Use the exit function to exit the program. It can be used by including the <a href="/blog/20210227091654.html"> stdlib.h</a> header.
 
 <pre>
 void exit (int status);
-</ pre>
+</pre>
 
 Specify "0" for the argument to mean normal termination, and specify "non-zero" to mean abnormal termination. In the case of abnormal termination, it seems that "1" is customarily specified.
 
-<h3> Sample to display an error message and exit the program </ h3>
+<h3> Sample to display an error message and exit the program </h3>
 
-This is a sample that displays an error message on the standard error output with the <a href="/blog/20210510093506.html"> fprintf function </a> and terminates the program with the exit function. The error message includes the file name and line number.
+This is a sample that displays an error message on the standard error output with the <a href="/blog/20210510093506.html"> fprintf function</a> and terminates the program with the exit function. The error message includes the file name and line number.
 
 <pre>
 #include <stdint.h>
@@ -49,8 +49,8 @@ int main (void) {
   int32_t error = 1;
   
   if (error) {
-    fprintf (stderr, "Error at% s line% d \ n", __FILE__, __LINE__);
+    fprintf (stderr, "Error at%s line%d\n", __FILE__, __LINE__);
     exit (1);
   }
 }
-</ pre>
+</pre>

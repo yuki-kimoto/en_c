@@ -2,36 +2,36 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/types.html">
-        <span itemprop = "name"> C type </ span>
-      </a>
+        <span itemprop = "name"> C type </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> int32_t --Signed 32-bit integer type </ h2>
+<h2> int32_t --Signed 32-bit integer type </h2>
 
-"Int32_t" is a signed 32-bit integer type. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h </a>" header. This is the type introduced in <a href="/blog/20201206125815.html"> C99 </a>.
+"Int32_t" is a signed 32-bit integer type. It can be used by including the "<a href="/blog/20210220132505.html"> stdint.h</a>" header. This is the type introduced in <a href="/blog/20201206125815.html"> C99</a>.
 
 <pre>
 # Signed 32-bit integer type
 int32_t
-</ pre>
+</pre>
 
 The maximum value of an integer that can be represented by a signed 32-bit integer type is "2147483647", and the minimum value is "-2147483648".
 
-The maximum value is "<a href="/blog/20201129082751.html"> INT32_MAX </a>" and the minimum value is "<a href="/blog/20201128082751.html"> INT32_MIN </a>". It is defined.
+The maximum value is "<a href="/blog/20201129082751.html"> INT32_MAX</a>" and the minimum value is "<a href="/blog/20201128082751.html"> INT32_MIN</a>". It is defined.
 
-<h3> int32_t sample code </ h3>
+<h3> int32_t sample code </h3>
 
 This is a sample code using int32_t.
 
@@ -42,14 +42,14 @@ This is a sample code using int32_t.
 int main (void) {
   int32_t num = -2147483648;
   
-  printf ("% d \ n", num);
+  printf("%d\n", num);
 }
-</ pre>
+</pre>
 
-"% D" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function </a>.
+"%D" is used in the format specifier of <a href="/blog/20210419083246.html"> printf function</a>.
 
 Output result.
 
 <pre>
 -2147483648
-</ pre>
+</pre>

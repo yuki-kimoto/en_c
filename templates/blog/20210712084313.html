@@ -1,32 +1,32 @@
-<h2> Function pointer </ h2>
+<h2> Function pointer </h2>
 
-A function pointer is a pointer to which the <a href="/blog/20210211090234.html"> address </a> of the <a href="/blog/20210214090234.html"> function </a> is assigned. Function pointers allow you to specify a return value and arguments.
+A function pointer is a pointer to which the <a href="/blog/20210211090234.html"> address</a> of the <a href="/blog/20210214090234.html"> function</a> is assigned. Function pointers allow you to specify a return value and arguments.
 
 <pre>
 // Function pointer
 Return type (* variable name) (type name 1, type name 2, ...);
-</ pre>
+</pre>
 
-<h3> Get the address of the function </ h3>
+<h3> Get the address of the function </h3>
 
 You can get the address of a function by omitting the parentheses from the function.
 
 <pre>
 // Get the address of the function
 Function name
-</ pre>
+</pre>
 
-<h3> Call a function from a function pointer </ h3>
+<h3> Call a function from a function pointer </h3>
 
 You can call a function from a function pointer. The calling method is the same as a normal function.
 
 <pre>
 Function pointer (argument 1, argument 2, ...);
-</ pre>
+</pre>
 
 You can call a function from a function pointer.
 
-<h3> Sample using function pointer </ h3>
+<h3> Sample using function pointer </h3>
 
 This is a sample using a function pointer. I am calling a function using a function pointer.
 
@@ -43,7 +43,7 @@ int main (void) {
   
   int32_t total = sum_ptr (2, 3);
   
-  printf ("% d \ n", total);
+  printf("%d\n", total);
 }
 
 int32_t sum (int32_t num1, int32_t num2) {
@@ -51,19 +51,19 @@ int32_t sum (int32_t num1, int32_t num2) {
   
   return total;
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Five
-</ pre>
+</pre>
 
-<h3> What is the address of a function? </ h3>
+<h3> What is the address of a function? </h3>
 
 It's not just the data that has the address. Functions also have expanded addresses in memory. The address of a function is the first address that indicates the location of the function that exists in memory.
 
-<h3> What are function pointers useful for? </ H3>
+<h3> What are function pointers useful for? </H3>
 
 Since the address of the function is assigned to the function pointer, the value of the address can be passed to the argument of another function.
 

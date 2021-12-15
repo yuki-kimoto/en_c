@@ -2,44 +2,44 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fwrite function-write to file with specified number of bytes </ h2>
+<h2> fwrite function-write to file with specified number of bytes </h2>
 
-You can use the <b> fwrite function </ b> to write to a file by specifying the number of bytes. You can use it by writing the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can use the <b> fwrite function </b> to write to a file by specifying the number of bytes. You can use it by writing the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 #include <stdio.h>
 size_t fwrite (const void * buf, size_t size, size_t n, FILE * fp);
-</ pre>
+</pre>
 
 The first argument is the buffer that contains the content you want to write. The second argument is the unit of bytes of data to write. The third argument is the number of data to write. The actual byte size written will be "size * n". The fourth argument is the file stream of the file you want to write.
 
 The return value is the number of data written. It corresponds to the number of data specified by the third argument. Please note that it is not a byte size. If a write error occurs, the return value will be less than the number of data specified by the third argument.
 
-<h3> Sample to write with fwrite function </ h3>
+<h3> Sample to write with fwrite function </h3>
 
-This is a sample to write with the fwrite function. Open the file with <a href="/blog/20210513075631.html"> fopen function </a>, and read 4 bytes at a time with <a href="/blog/20210520080906.html"> fread function </a>. The fwrite function writes to the file 4 bytes at a time, and the <a href="/blog/20210509093506.html"> fclose function </a> closes the file.
+This is a sample to write with the fwrite function. Open the file with <a href="/blog/20210513075631.html"> fopen function</a>, and read 4 bytes at a time with <a href="/blog/20210520080906.html"> fread function</a>. The fwrite function writes to the file 4 bytes at a time, and the <a href="/blog/20210509093506.html"> fclose function</a> closes the file.
 
 The file is open in binary mode when reading and writing.
 
@@ -54,7 +54,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "rb");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
 
@@ -62,7 +62,7 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "wb");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
 
@@ -86,25 +86,25 @@ int main (void) {
   // Close the file with the fclose function
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 The output file is "output.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
-<h3> Read and write the entire file </ h3>
+<h3> Read and write the entire file </h3>
 
-This is a sample to read and write the entire file. Use the <a href="/blog/20210526085256.html"> ftell function </a> and the <a href="/blog/20210525075439.html"> fseek function </a> to get the size of the file. , <a href="/blog/20210209082644.html"> calloc function </a> to allocate memory, and <a href="/blog/20210520080906.html"> fread function </a> to fill the entire file. Read and write with the fwrite function.
+This is a sample to read and write the entire file. Use the <a href="/blog/20210526085256.html"> ftell function</a> and the <a href="/blog/20210525075439.html"> fseek function</a> to get the size of the file. , <a href="/blog/20210209082644.html"> calloc function</a> to allocate memory, and <a href="/blog/20210520080906.html"> fread function</a> to fill the entire file. Read and write with the fwrite function.
 
 The file is open in binary mode when reading and writing.
 
@@ -118,7 +118,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "rb");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s at% s line% d \ n", in_file, __FILE__, __LINE__);
+    fprintf (stderr, "Can't open file%s at%s line%d\n", in_file, __FILE__, __LINE__);
     exit (1);
   }
 
@@ -126,7 +126,7 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "wb");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
 
@@ -145,7 +145,7 @@ int main (void) {
   // Read the file
   size_t read_count = fread (buffer, sizeof (char), file_size, in_fp);
   if (read_count! = file_size) {
-    fprintf (stderr, "Can't read file% s at% s line% d \ n", in_file, __FILE__, __LINE__);
+    fprintf (stderr, "Can't read file%s at%s line%d\n", in_file, __FILE__, __LINE__);
     exit (1);
   }
   
@@ -155,7 +155,7 @@ int main (void) {
   // Close the file
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 
 It is an input file "input.txt".
@@ -163,11 +163,11 @@ It is an input file "input.txt".
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 The output file is "output.txt".
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>

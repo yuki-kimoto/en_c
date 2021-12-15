@@ -2,27 +2,27 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Pointers and addresses </ h2>
+<h2> Pointers and addresses </h2>
 
 Let's take a closer look at pointers and addresses.
 
-<h3> What is an address? </ H3>
+<h3> What is an address? </H3>
 
 An address is an address in memory. Imagine memory like a road that stretches straight from left to right. And it is divided into sections for each street address.
 
@@ -32,13 +32,13 @@ For CPUs that can handle 64-bit addresses, the address is from "0" to "2 to the 
 | | | | ... | | |
 0 1 2 3 "2 to the 64th power --2" "2 to the 64th power --1"
 (Unit is bytes)
-</ pre>
+</pre>
 
 Imagine if the virtual memory that your application sees is like this, aside from whether the actual physical memory is so widely available.
 
 This is the area where application data can be stored. It's like a very big desk for working.
 
-<h3> What is a pointer? </ H3>
+<h3> What is a pointer? </H3>
 
 A pointer is a variable that stores an address. Also known as a pointer variable.
 
@@ -46,7 +46,7 @@ A pointer is a variable that stores an address. Also known as a pointer variable
 
 Yes. The commentary is over (laughs). All you have to do is learn the grammar.
 
-<h3> Declaration of pointer variables </ h3>
+<h3> Declaration of pointer variables </h3>
 
 Let's declare a pointer variable. To declare a pointer variable, use "type name * variable name;".
 
@@ -68,29 +68,29 @@ struct myapp_book * book_ptr;
 
 // Declaration of pointer type variable of union myapp_value
 union myapp_value * value;
-</ pre>
+</pre>
 
 Look at the rules. Add "*" after the actual model name.
 
-<a href="/blog/20201130082751.html"> int32_t </a> pointer type, <a href="/blog/20201127082751.html"> int64_t </a> pointer type, <a href="/ blog / 20201202133213.html "> float </a> pointer type, <a href="/blog/20201203133213.html"> double </a> pointer type, <a href="/blog/20210208155548.html" I wrote a sample of pointer type of> structure </a> and pointer type of <a href="/blog/20210206155548.html"> union </a>.
+<a href="/blog/20201130082751.html"> int32_t</a> pointer type, <a href="/blog/20201127082751.html"> int64_t</a> pointer type, <a href="/ blog / 20201202133213.html "> float</a> pointer type, <a href="/blog/20201203133213.html"> double</a> pointer type, <a href="/blog/20210208155548.html" I wrote a sample of pointer type of> structure</a> and pointer type of <a href="/blog/20210206155548.html"> union</a>.
 
 As shown below, I think there is a reference book that describes "*" just before the variable name. This is correct with this.
 
 <pre>
 int32_t * num_ptr;
-</ pre>
+</pre>
 
 The C99-compatible introduction to C language consistently treats the understanding of "*" as a pointer type. In a sense, I feel that this is not a strictly correct explanation of C language, but in practice, there is no contradiction and it is easy to understand.
 
-<h3> Get the address </ h3>
+<h3> Get the address </h3>
 
 Use the address operator "&" to get the address.
 
 <pre>
 &Variable name
-</ pre>
+</pre>
 
-Let's get the address and assign it to the pointer. Let's write an example of an int32_t pointer, a double pointer, and a structure pointer. The address value can be output with the "% p" format specifier of the printf function.
+Let's get the address and assign it to the pointer. Let's write an example of an int32_t pointer, a double pointer, and a structure pointer. The address value can be output with the "%p" format specifier of the printf function.
 
 <pre>
 #include <stdint.h>
@@ -111,7 +111,7 @@ int main (void) {
   int32_t * numi_ptr = & numi;
 
   // Output address
-  printf ("numi_ptr% p \ n", numi_ptr);
+  printf("numi_ptr%p\n", numi_ptr);
   
   // Actual value of double
   double numd = 2.5;
@@ -120,7 +120,7 @@ int main (void) {
   double * numd_ptr = & numd;
 
   // Output address
-  printf ("numd_ptr% p \ n", numd_ptr);
+  printf("numd_ptr%p\n", numd_ptr);
   
   // Actual value of myapp_book
   struct myapp_book book = {id: 1, name: "C99 Book", price: 1500};
@@ -129,9 +129,9 @@ int main (void) {
   struct myapp_book * book_ptr = & book;
   
   // Output address
-  printf ("book_ptr% p \ n", book_ptr);
+  printf("book_ptr%p\n", book_ptr);
 }
-</ pre>
+</pre>
 
 This is the output result in my environment. The address is output in hexadecimal.
 
@@ -139,9 +139,9 @@ This is the output result in my environment. The address is output in hexadecima
 numi_ptr 0x7fff6d615824
 numd_ptr 0x7fff6d615818
 book_ptr 0x7fff6d615800
-</ pre>
+</pre>
 
-<h3> Extract the entity from the pointer </ h3>
+<h3> Extract the entity from the pointer </h3>
 
 Let's get the actual value (called an entity) from the pointer. This is the opposite of getting the address.
 
@@ -149,7 +149,7 @@ To retrieve the entity, add "*" before the variable name.
 
 <pre>
 * Pointer variable
-</ pre>
+</pre>
 
 Let's write a sample to get the entity.
 
@@ -173,7 +173,7 @@ int main (void) {
   
   // Get the entity and output
   int32_t numi_real = * numi_ptr;
-  printf ("numi_real% d \ n", numi_real);
+  printf("numi_real%d\n", numi_real);
   
   // Actual value of double
   double numd = 2.5;
@@ -183,7 +183,7 @@ int main (void) {
 
   // Get the entity and output
   double numd_real = * numd_ptr;
-  printf ("numd_real% f \ n", numd_real);
+  printf("numd_real%f\n", numd_real);
   
   // Actual value of myapp_book
   struct myapp_book book = {id: 1, name: "C99 Book", price: 1500};
@@ -193,9 +193,9 @@ int main (void) {
   
   // Get the entity and output
   struct myapp_book book_real = * book_ptr;
-  printf ("book_real id:% d, name:% s, price:% d \ n", book_real.id, book_real.name, book_real.price);
+  printf("book_real id:%d, name:%s, price:%d\n", book_real.id, book_real.name, book_real.price);
 }
-</ pre>
+</pre>
 
 This is the output result. It is the actual value.
 
@@ -203,9 +203,9 @@ This is the output result. It is the actual value.
 numi_real 5
 numd_real 2.500000
 book_real id: 1, name: C99 Book, price: 1500
-</ pre>
+</pre>
 
-<h3> Access the member variables of the structure directly from the pointer </ h3>
+<h3> Access the member variables of the structure directly from the pointer </h3>
 
 Use "->" instead of "." To access the structure's member variables directly from the pointer.
 
@@ -229,25 +229,25 @@ int main (void) {
   struct myapp_book * book_ptr = & book;
   
   // Output address
-  printf ("id:% d, name:% s, price:% d", book_ptr-> id, book_ptr-> name, book_ptr-> book_ptr% p \ n ", book_ptr);
+  printf("id:%d, name:%s, price:%d", book_ptr->id, book_ptr->name, book_ptr->book_ptr%p\n ", book_ptr);
 }
-</ pre>
+</pre>
 
-<h3> What is the variable name of the pointer when writing in practice? </ H3>
+<h3> What is the variable name of the pointer when writing in practice? </H3>
 
 When writing in practice, it is not so common to add "_ptr" like "book_ptr". In my case, I don't add "_ptr" except for the exception that I want to explicitly indicate that it is a pointer.
 
 <pre>
 // Variable name sample when allocating memory dynamically for structure
 struct myapp_book * book = calloc (sizeof (struct myapp_)book), 1);
-</ pre>
+</pre>
 
-Memory of structure data using <a href="/blog/20210209082644.html"> calloc function </a> and <a href="/blog/20210207155548.html"> sizeof operator </a> It is allocated and assigned to the pointer of the structure.
+Memory of structure data using <a href="/blog/20210209082644.html"> calloc function</a> and <a href="/blog/20210207155548.html"> sizeof operator</a> It is allocated and assigned to the pointer of the structure.
 
-<h3> Where is the pointer operation explained? </ H3>
+<h3> Where is the pointer operation explained? </H3>
 
 Pointer operations will be explained soon.
 
-<h3> Where are general pointers explained? </ H3>
+<h3> Where are general pointers explained? </H3>
 
 General-purpose pointers will be explained soon.

@@ -2,39 +2,39 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fclose function-close file </ h2>
+<h2> fclose function-close file </h2>
 
-The fclose function closes the file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+The fclose function closes the file. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 int fclose (FILE * fp);
-</ pre>
+</pre>
 
 The argument is the file stream of the file you want to close. Returns 0 if the file close is successful, EOF if it is an error. The buffer is flushed when the file is closed. A buffer is a memory area that temporarily stores write data. Flash means writing out the data in the buffer.
 
-<h3> sample fclose function </ h3>
+<h3> sample fclose function </h3>
 
 This is a sample of the fclose function. The fopen function opens the file, and the fclose function closes the file.
 
@@ -48,15 +48,15 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
   
   // write to file
   const char * message = "Hello";
-  fprintf (out_fp, "% s \ n", message);
+  fprintf (out_fp, "%s\n", message);
   
   // Close the file with the fclose function
   fclose (out_fp);
 }
-</ pre>
+</pre>

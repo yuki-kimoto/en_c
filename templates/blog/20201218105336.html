@@ -2,29 +2,29 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Floating point arithmetic operations </ h2>
+<h2> Floating point arithmetic operations </h2>
 
-Let's perform <b> floating-point arithmetic operations </ b>. Adds, subtracts, multiplies, and divides floating point numbers.
+Let's perform <b> floating-point arithmetic operations </b>. Adds, subtracts, multiplies, and divides floating point numbers.
 
-<h3> 64-bit floating-point arithmetic operations using double type </ h3>
+<h3> 64-bit floating-point arithmetic operations using double type </h3>
 
-It is a 64-bit floating point four arithmetic operation using <a href="/blog/20201203133213.html"> double type </a>. If you want to output floating point, use "% f" for the format specifier.
+It is a 64-bit floating point four arithmetic operation using <a href="/blog/20201203133213.html"> double type</a>. If you want to output floating point, use "%f" for the format specifier.
 
 <pre>
 #include <stdio.h>
@@ -45,12 +45,12 @@ int main (void) {
   // Division
   double num_div = num1 / num2;
   
-  printf ("Add% f \ n", num_add);
-  printf ("Subtract% f \ n", num_sub);
-  printf ("Multiply% f \ n", num_mul);
-  printf ("Division% f \ n", num_div);
+  printf("Add%f\n", num_add);
+  printf("Subtract%f\n", num_sub);
+  printf("Multiply%f\n", num_mul);
+  printf("Division%f\n", num_div);
 }
-</ pre>
+</pre>
 
 Output result.
 
@@ -59,11 +59,11 @@ Add 6.120000
 Subtract -3.220000
 Multiply 6.771500
 Division 0.310493
-</ pre>
+</pre>
 
-<h3> 32-bit floating point four arithmetic operations using float type </ h3>
+<h3> 32-bit floating point four arithmetic operations using float type </h3>
 
-It is a 32-bit floating point four arithmetic operation using <a href="/blog/20201202133213.html"> float type </a>. I'm using the floating point literal f suffix to make it a float type. If you want to output floating point, use "% f" for the format specifier.
+It is a 32-bit floating point four arithmetic operation using <a href="/blog/20201202133213.html"> float type</a>. I'm using the floating point literal f suffix to make it a float type. If you want to output floating point, use "%f" for the format specifier.
 
 <pre>
 #include <stdio.h>
@@ -84,12 +84,12 @@ int main (void) {
   // Division
   float num_div = num1 / num2;
   
-  printf ("Add% f \ n", num_add);
-  printf ("Subtract% f \ n", num_sub);
-  printf ("Multiply% f \ n", num_mul);
-  printf ("Division% f \ n", num_div);
+  printf("Add%f\n", num_add);
+  printf("Subtract%f\n", num_sub);
+  printf("Multiply%f\n", num_mul);
+  printf("Division%f\n", num_div);
 }
-</ pre>
+</pre>
 
 Output result.
 
@@ -98,31 +98,31 @@ Add 6.120000
 Subtract -3.220000
 Multiply 6.771500
 Division 0.310493
-</ pre>
+</pre>
 
-<h3> Features of floating point arithmetic </ h3>
+<h3> Features of floating point arithmetic </h3>
 
 It is a feature of floating point arithmetic.
 
-<h4> There is an error, not an exact value </ h4>
+<h4> There is an error, not an exact value </h4>
 
 Floating point has an internal error, except for numbers that can be represented in binary.
 
 For example, 0.5, 0.25, 0.125, etc. can be expressed as 0.1, 0.01, 0.001 in binary, so there is no error, but if it is not, there is an error from the exact value handled in mathematics. increase.
 
-<h4> Floating-point arithmetic does not result in an error even if it is divided by zero </ h4>
+<h4> Floating-point arithmetic does not result in an error even if it is divided by zero </h4>
 
 Floating-point arithmetic, unlike integer arithmetic, does not result in an error when divided by zero. A value called nan (Not A Number) is set. There is no need to check before calculation like integer division.
 
-<h4> Can express the value of infinity </ h4>
+<h4> Can express the value of infinity </h4>
 
 If the maximum value that can be expressed by double or float is exceeded, an infinite value called Inf is set. Depending on the sign, there are positive infinity and negative infinity.
 
-<h4> Even if the same 0 exists, there are 0s with different signs </ h4>
+<h4> Even if the same 0 exists, there are 0s with different signs </h4>
 
 Even with the same 0, there are 0s with a positive sign and 0s with a negative sign. Positive 0s and negative 0s are considered equivalent in comparison operations, but they have different internal representations and different results in conscious operations.
 
-<h4> Calculation results may differ depending on the CPU </ h4>
+<h4> Calculation results may differ depending on the CPU </h4>
 
 The double type represents a 64-bit floating point number, but the CPU may actually calculate beyond the 64-bit precision. As an example, Intel CPU has an area for 80bit floating point calculation.
 

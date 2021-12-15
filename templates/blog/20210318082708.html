@@ -2,35 +2,35 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Command line arguments </ h2>
+<h2> Command line arguments </h2>
 
-A description of how to receive command line arguments in C. Command line arguments can be taken as arguments to the <a href="/blog/20210314140759.html"> main function </a>.
+A description of how to receive command line arguments in C. Command line arguments can be taken as arguments to the <a href="/blog/20210314140759.html"> main function</a>.
 
 <pre>
 int main (int argc, char * argv []) {
 
 }
-</ pre>
+</pre>
 
 The first argument is the number of command line arguments. It is an int type.
 
-The second argument is the <a href="/blog/20210129143859.html"> array </a> type of "char *". Command line arguments are passed as an array of strings.
+The second argument is the <a href="/blog/20210129143859.html"> array</a> type of "char *". Command line arguments are passed as an array of strings.
 
 Note that in C, the name of the executed program is also included as part of the command line arguments.
 
@@ -38,17 +38,17 @@ for example
 
 <pre>
 ./test apple orange banana
-</ pre>
+</pre>
 
 When executed with, argv becomes as follows.
 
 <pre>
 "./test", "apple", "orange", "banana"
-</ pre>
+</pre>
 
 The names argc and argv can be anything, but I will introduce them with the names described in the C language specification.
 
-<h3> Sample command line arguments </ h3>
+<h3> Sample command line arguments </h3>
 
 It receives command line arguments and outputs the contents as they are.
 
@@ -59,16 +59,16 @@ It receives command line arguments and outputs the contents as they are.
 
 int main (int argc, char * argv []) {
   for (int32_t i = 0; i <argc; i ++) {
-    printf ("% s \ n", argv [i]);
+    printf("%s\n", argv [i]);
   }
 }
-</ pre>
+</pre>
 
 Let's compile and run it like this:
 
 <pre>
 gcc -o test test.c && ./test apple orange banana
-</ pre>
+</pre>
 
 The output result is as follows.
 
@@ -77,4 +77,4 @@ The output result is as follows.
 apple
 orange
 banana
-</ pre>
+</pre>

@@ -2,35 +2,35 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop = "name"> Compile </ span>
-      </a>
+        <span itemprop = "name"> Compile </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> How to create and use a shared library </ h2>
+<h2> How to create and use a shared library </h2>
 
-Explains how to create and use shared libraries on Unix / Linux. This article assumes that you understand the <a href="/blog/20210622081112.html"> split compilation technique </a>.
+Explains how to create and use shared libraries on Unix / Linux. This article assumes that you understand the <a href="/blog/20210622081112.html"> split compilation technique</a>.
 
-<h3> What is a shared library? </ H3>
+<h3> What is a shared library? </H3>
 
 A shared library is an object file that is not statically linked when an executable file is generated, but can be linked at run time. Shared libraries can be linked at link time and can also be loaded at run time. The extension is ".so".
 
 Please note that the shared libraries described here are a UNIX / Linux mechanism, not a Mac or Windows mechanism. For Mac, the extension is different. Windows has a similar mechanism called DLL (Dynamic Link Library), but it is different from UNIX / Linux shared libraries.
 
-<h3> How to create a shared library </ h3>
+<h3> How to create a shared library </h3>
 
-Specify the "-shared" option to create a shared library. Generally, specify "-fPIC" and <a href="https://ja.wikipedia.org/wiki/%E4%BD%8D%E7%BD%AE%E7%8B%AC%E7" % AB% 8B% E3% 82% B3% E3% 83% BC% E3% 83% 89 "> Position-independent code </a>.
+Specify the "-shared" option to create a shared library. Generally, specify "-fPIC" and <a href="https://ja.wikipedia.org/wiki/%E4%BD%8D%E7%BD%AE%E7%8B%AC%E7" %AB%8B%E3%82%B3%E3%83%BC%E3%83%89 "> Position-independent code</a>.
 
 Add the "-shared" and "-fPIC" options to the procedure for creating the object file so that:
 
@@ -40,17 +40,17 @@ gcc -Iinclude -c -o mylib1.o src / mylib1.c
 
 #Create a shared library
 gcc -Iinclude -c -shared -fPIC -o mylib1.so src / mylib1.c
-</ pre>
+</pre>
 
-<h3> Create and link a shared library </ h3>
+<h3> Create and link a shared library </h3>
 
-For this procedure, you can use the procedure used in <a href="/blog/20210622081112.html"> Split compilation method </a>. Create the library as a shared library.
+For this procedure, you can use the procedure used in <a href="/blog/20210622081112.html"> Split compilation method</a>. Create the library as a shared library.
 
-<h4> Application source files </ h4>
+<h4> Application source files </h4>
 
 The source file "myapp.c" for the application.
 
-<b> myapp.c </ b>
+<b> myapp.c </b>
 
 <pre>
 #include <stdio.h>
@@ -63,13 +63,13 @@ int main (void) {
   mylib1_print ();
   mylib2_print ();
 }
-</ pre>
+</pre>
 
-<h4> Library header file </ h4>
+<h4> Library header file </h4>
 
 The library header files "mylib1.h" and "mylib2.h".
 
-<b> mylib1.h </ b>
+<b> mylib1.h </b>
 
 <pre>
 #ifndef MYLIB1_H
@@ -78,9 +78,9 @@ The library header files "mylib1.h" and "mylib2.h".
 void mylib1_print (void);
 
 #endif
-</ pre>
+</pre>
 
-<b> mylib2.h </ b>
+<b> mylib2.h </b>
 
 <pre>
 #ifndef MYLIB2_H
@@ -89,13 +89,13 @@ void mylib1_print (void);
 void mylib2_print (void);
 
 #endif
-</ pre>
+</pre>
 
-<h4> Library source files </ h4>
+<h4> Library source files </h4>
 
 The library source files "mylib1.c" and "mylib2.c".
 
-<b> mylib1.c </ b>
+<b> mylib1.c </b>
 
 <pre>
 #include <stdio.h>
@@ -103,11 +103,11 @@ The library source files "mylib1.c" and "mylib2.c".
 #include "mylib1.h"
 
 void mylib1_print (void) {
-  printf ("mylib1_print \ n");
+  printf("mylib1_print\n");
 }
-</ pre>
+</pre>
 
-<b> mylib2.c </ b>
+<b> mylib2.c </b>
 
 <pre>
 #include <stdio.h>
@@ -115,46 +115,46 @@ void mylib1_print (void) {
 #include "mylib2.h"
 
 void mylib2_print (void) {
-  printf ("mylib2_print \ n");
+  printf("mylib2_print\n");
 }
-</ pre>
+</pre>
 
-<h4> Compile </ h4>
+<h4> Compile </h4>
 
-<a href="/blog/20201214140830.html"> Compile </a> the application source file and the shared library source file respectively. Specify the location of the header file with the option "-I". Create a shared library with the "-shared" and "-fPIC" options.
+<a href="/blog/20201214140830.html"> Compile</a> the application source file and the shared library source file respectively. Specify the location of the header file with the option "-I". Create a shared library with the "-shared" and "-fPIC" options.
 
 <pre>
 gcc -Iinclude -c -o myapp.o src / myapp.c
 gcc -Iinclude -c -shared -fPIC -o mylib1.so src / mylib1.c
 gcc -Iinclude -c -shared -fPIC -o mylib2.so src / mylib2.c
-</ pre>
+</pre>
 
-<h4> Link-Create executable file </ h4>
+<h4> Link-Create executable file </h4>
 
-<a href="/blog/20201215105104.html"> Link </a> to create an executable file. Symbols such as function names are tied to the entity.
+<a href="/blog/20201215105104.html"> Link</a> to create an executable file. Symbols such as function names are tied to the entity.
 
 <pre>
 gcc -o myapp myapp.o mylib1.so mylib2.so
-</ pre>
+</pre>
 
-<h4> Execution </ h4>
+<h4> Execution </h4>
 
-Let's <a href="/blog/20201216101527.html"> execute </a> the executable file.
+Let's <a href="/blog/20201216101527.html"> execute</a> the executable file.
 
 <pre>
 ./myapp
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 mylib1_print
 mylib2_print
-</ pre>
+</pre>
 
 I've mastered how to create a shared library and link it when creating an executable.
 
-<h3> How to load a shared library at runtime and execute a function? </ h3>
+<h3> How to load a shared library at runtime and execute a function? </h3>
 
 Load the shared library at run time and expose only the steps to execute the function.
 
@@ -164,13 +164,13 @@ Load the shared library at run time and expose only the steps to execute the fun
 
 3. Execute the function from the function pointer.
 
-<h3> How to know the symbols such as function names included in the shared library? </ H3>
+<h3> How to know the symbols such as function names included in the shared library? </H3>
 
 Use the "nm" command to find out the symbols such as function names contained in the shared library. It seems to be an abbreviation for "name".
 
 <pre>
 nm mylib1.so
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -178,25 +178,25 @@ This is the output result.
                  U _GLOBAL_OFFSET_TABLE_
 0000000000000000 T mylib1_print
                  U puts
-</ pre>
+</pre>
 
 The nm command can be used not only for shared libraries, but also for executables and object files.
 
-<h3> Search for shared libraries </ h3>
+<h3> Search for shared libraries </h3>
 
 Shared libraries have a mechanism to avoid collisions. For shared libraries, you can specify the shared library search directory with the "-L" option without having to name the file directly. The library name must start with "lib".
 
 
 If you place a shared library in the shared library search directory, the first shared library found specified by the "-l" option will be used. The "-l" option omits the leading "lib" and ".so".
 
-<b> Shared library </ b>
+<b> Shared library </b>
 
 <pre>
 /foo/lib/libmylib1.so
-</ pre>
+</pre>
 
-<b> Shared library links </ b>
+<b> Shared library links </b>
 
 <pre>
 gcc -o myapp myapp.o -L /foo/lib -l mylib1
-</ pre>
+</pre>

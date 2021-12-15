@@ -1,11 +1,11 @@
-<h2> Function prototype declaration </ h2>
+<h2> Function prototype declaration </h2>
 
-The function prototype declaration only performs the function name, argument, and return value in the <a href="/blog/20210214090234.html"> function definition </a>.
+The function prototype declaration only performs the function name, argument, and return value in the <a href="/blog/20210214090234.html"> function definition</a>.
 
 <pre>
 // Function prototype declaration
 int32_t foo (int32_t args1, double args2);
-</ pre>
+</pre>
 
 For practical purposes, function prototype declarations are made above the function definition.
 
@@ -17,27 +17,27 @@ int32_t foo (int32_t args1, double args2);
 int32_t foo (int32_t args1, double args2) {
   // process
 }
-</ pre>
+</pre>
 
-In a program configured to <a href="/blog/20210622081112.html"> split compilation </a>, the function prototype declaration is placed in the header.
+In a program configured to <a href="/blog/20210622081112.html"> split compilation</a>, the function prototype declaration is placed in the header.
 
-<b> mylib.h </ b>
+<b> mylib.h </b>
 
 <pre>
 // Function prototype declaration
 int32_t foo (int32_t args1, double args2);
 <pre>
 
-<b> mylib.c </ b>
+<b> mylib.c </b>
 
 <pre>
 // Function definition
 int32_t foo (int32_t args1, double args2) {
   // process
 }
-</ pre>
+</pre>
 
-<h3> What is the function prototype declaration for? </ H3>
+<h3> What is the function prototype declaration for? </H3>
 
 What is the function prototype declaration for?
 
@@ -55,7 +55,7 @@ int main (void) {
 int32_t foo (int32_t args1, double args2) {
   // process
 }
-</ pre>
+</pre>
 
 Function prototype declarations can solve this.
 
@@ -71,17 +71,17 @@ int main (void) {
 int32_t foo (int32_t args1, double args2) {
   // process
 }
-</ pre>
+</pre>
 
 Suppose you want to call this function from yet another source file. In such a case, only the function specifications, that is, the name, arguments, and return value, are exposed in the header, not the function definition that is the substance of the process.
 
-<b> mylib.h </ b>
+<b> mylib.h </b>
 
 <pre>
 int32_t foo (int32_t args1, double args2);
-</ pre>
+</pre>
 
-<b> mylib.c </ b>
+<b> mylib.c </b>
 
 <pre>
 #include "mylib.h"
@@ -90,9 +90,9 @@ int32_t foo (int32_t args1, double args2);
 int32_t foo (int32_t args1, double args2) {
   // process
 }
-</ pre>
+</pre>
 
-<b> myapp.c </ b>
+<b> myapp.c </b>
 
 <pre>
 #include "mylib.h"
@@ -101,19 +101,19 @@ int main (void) {
   // Found
   foo (1, 2.5);
 }
-</ pre>
+</pre>
 
-This is all you need to compile other source files (here myapp.c). Of course, you can also compile mylib.c. In other words, in order to <a href="/blog/20201214140830.html"> compile </a>, you don't need the substance of the function, you just need to know the specifications of the function.
+This is all you need to compile other source files (here myapp.c). Of course, you can also compile mylib.c. In other words, in order to <a href="/blog/20201214140830.html"> compile</a>, you don't need the substance of the function, you just need to know the specifications of the function.
 
 <pre>
 # Split compilation
 gcc -c -o myapp.o myapp.c
 gcc -c -o mylib.o mylib.c
-</ pre>
+</pre>
 
-Then, at the timing of <a href="/blog/20201215105104.html"> link </a>, the entity of the function is connected.
+Then, at the timing of <a href="/blog/20201215105104.html"> link</a>, the entity of the function is connected.
 
 <pre>
 #Link to generate executable file
 gcc -o myapp myapp.o mylib.o
-</ pre>
+</pre>

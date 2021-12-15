@@ -2,37 +2,37 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/preprocessor.html">
-        <span itemprop = "name"> preprocessor </ span>
-      </a>
+        <span itemprop = "name"> preprocessor </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Function macro </ h2>
+<h2> Function macro </h2>
 
 I will explain about function macros. Function macros are pseudo-functions that the preprocessor expands before compilation.
 
 <pre>
 #define Macro function name (argument 1, argument 2, ...) Processing content
-</ pre>
+</pre>
 
-<a href="http://www.dd.e-mansion.com/~kumada/laboratory/column/c_macro.html"> Function macros have a very high risk of causing side effects </a>, so use them first. We recommend that you do not.
+<a href="http://www.dd.e-mansion.com/~kumada/laboratory/column/c_macro.html"> Function macros have a very high risk of causing side effects</a>, so use them first. We recommend that you do not.
 
 However, in some cases you may not want to rely on the inline expansion of the compiler for the fastest tuning, and in other cases you may want to use function macros.
 
 In such a case, you can reduce the side effects by surrounding the process with "do {} while (0)". In this case, the return value cannot be returned. In the macro function, you can rewrite the value directly, but if there is a value you want to change, it is recommended to pass it with a pointer to match the specifications of the C language function.
 
-<h3> Function macro sample program </ h3>
+<h3> Function macro sample program </h3>
 
 This is a sample that adds two numbers using a function macro. If the process spans multiple lines, escape the line breaks with "\".
 
@@ -54,6 +54,6 @@ int main (void) {
   // Use function macros
   MYAPP_ADD (num1, num2, & total);
   
-  printf ("% d \ n", total);
+  printf("%d\n", total);
 }
-</ pre>
+</pre>

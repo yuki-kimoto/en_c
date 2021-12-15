@@ -2,37 +2,37 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Dynamically allocate memory </ h2>
+<h2> Dynamically allocate memory </h2>
 
 This is an introduction to how to dynamically allocate memory in C language. In C, dynamic memory allocation is required to represent data structures whose size is known only at run time.
 
-The C language <a href="/blog/20210129143859.html"> array </a> is a static array that is sized at compile time. String literals are also sized at compile time.
+The C language <a href="/blog/20210129143859.html"> array</a> is a static array that is sized at compile time. String literals are also sized at compile time.
 
 Practical programming often requires dynamic data whose size is known only at run time. If you want to determine the number of elements at runtime, you need to create a dynamic array, and to create a dynamic string that you want to determine the number of characters at runtime, you basically need to remember dynamic memory allocation.
 
-<h3> Dynamically allocate memory </ h3>
+<h3> Dynamically allocate memory </h3>
 
-To allocate memory dynamically, <a href="/blog/20210210082644.html"> malloc defined in the <a href="/blog/20210227091654.html"> stdlib.h </a> header Use the function </a> or <a href="/blog/20210209082644.html"> calloc function </a>.
+To allocate memory dynamically, <a href="/blog/20210210082644.html"> malloc defined in the <a href="/blog/20210227091654.html"> stdlib.h</a> header Use the function</a> or <a href="/blog/20210209082644.html"> calloc function</a>.
 
-In the introduction to C language with C99, we recommend the <a href="/blog/20210209082644.html"> calloc function </a> that initializes the memory area to 0. I will explain how to allocate memory dynamically using the calloc function.
+In the introduction to C language with C99, we recommend the <a href="/blog/20210209082644.html"> calloc function</a> that initializes the memory area to 0. I will explain how to allocate memory dynamically using the calloc function.
 
-Let's allocate memory dynamically with the calloc function. <a href="/blog/20201204103322.html"> char type </a> (1 byte), allocate a memory area of ​​length 4.
+Let's allocate memory dynamically with the calloc function. <a href="/blog/20201204103322.html"> char type</a> (1 byte), allocate a memory area of ​​length 4.
 
 <pre>
 #include <stdio.h>
@@ -46,17 +46,17 @@ int main (void) {
   
   // Use the reserved memory area. Be careful not to exceed the reserved area. Initially it is zero initialized.
   bytes [2] = 5;
-  printf ("% d% d% d \ n", bytes [0], bytes [1], bytes [2]);
+  printf("%d%d%d\n", bytes [0], bytes [1], bytes [2]);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 0 0 5
-</ pre>
+</pre>
 
-Next, try to secure a memory area of ​​3 length with <a href="/blog/20201130082751.html"> int32_t type </a> (4 bytes). 4x3 reserves 12 bytes of memory.
+Next, try to secure a memory area of ​​3 length with <a href="/blog/20201130082751.html"> int32_t type</a> (4 bytes). 4x3 reserves 12 bytes of memory.
 
 <pre>
 #include <stdio.h>
@@ -70,17 +70,17 @@ int main (void) {
   
   // Use the reserved memory area. Be careful not to exceed the reserved area. Initially it is zero initialized.
   nums [2] = 7;
-  printf ("% d% d% d \ n", nums [0], nums [1], nums [2]);
+  printf("%d%d%d\n", nums [0], nums [1], nums [2]);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 0 0 7
-</ pre>
+</pre>
 
-<h3> Release the reserved memory </ h3>
+<h3> Release the reserved memory </h3>
 
 The reserved memory area is released by using the free function when it is no longer needed.
 
@@ -99,7 +99,7 @@ int main (void) {
   // Release with free when you no longer need it
   free (bytes);
 }
-</ pre>
+</pre>
 
 It cannot be said unconditionally when the reserved memory area becomes unnecessary. If the data is required from the beginning to the end of the program, release it just before the program ends.
 
@@ -107,9 +107,9 @@ Also, in the program, the memory area is repeatedly secured, and when it is no l
 
 For example, suppose an HTTP request is sent, the HTTP request data is represented by a structure, and the HTTP request data is no longer needed after processing. In such a case, the memory is allocated when the HTTP request is sent, and the memory is released when it is no longer needed.
 
-<h3> Creating a dynamic array </ h3>
+<h3> Creating a dynamic array </h3>
 
-As a sample of dynamic memory allocation, let's dynamically allocate memory and create a dynamic array to which elements can be added. The data type of the element should be <a href="/blog/20201130082751.html"> int32_t type </a>. The length of the first memory area of ​​the array should be 4.
+As a sample of dynamic memory allocation, let's dynamically allocate memory and create a dynamic array to which elements can be added. The data type of the element should be <a href="/blog/20201130082751.html"> int32_t type</a>. The length of the first memory area of ​​the array should be 4.
 
 <pre>
 #include <stdio.h>
@@ -169,10 +169,10 @@ int main (void) {
   last_index ++;
   
   for (int32_t i = 0; i <last_index; i ++) {
-    printf ("% d \ n", nums [i]);
+    printf("%d\n", nums [i]);
   }
 }
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -182,8 +182,8 @@ This is the output result.
 7
 15
 20
-</ pre>
+</pre>
 
-If this can be expressed by <a href="/blog/20210115151850.html"> for statement </a> and <a href="/blog/20210214090234.html"> function </a>, <a href = "/ blog / 20210323082708.html"> You will be able to create your own dynamic array library </a>.
+If this can be expressed by <a href="/blog/20210115151850.html"> for statement</a> and <a href="/blog/20210214090234.html"> function</a>, <a href = "/ blog / 20210323082708.html"> You will be able to create your own dynamic array library</a>.
 
 I wrote it as a dynamic array, but if you look closely at the implementation later, it looks like it represents a stack (Oh).

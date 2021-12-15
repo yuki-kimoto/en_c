@@ -1,18 +1,18 @@
-<h2> Create your own dynamic array in C language or use a library </ h2>
+<h2> Create your own dynamic array in C language or use a library </h2>
 
-In C language, there is a method to dynamically allocate memory with <a href="/blog/20210129143859.html"> static array </a>, but since there is no dynamic array library, you can create your own or library. Is used.
+In C language, there is a method to dynamically allocate memory with <a href="/blog/20210129143859.html"> static array</a>, but since there is no dynamic array library, you can create your own or library. Is used.
 
 The reason why there is no frequently used library called dynamic array is that there is a policy that libraries that require memory allocation inside the library are not included in the core of C language.
 
-<a href="https://github.com/yuki-kimoto/SPVM/blob/master/lib/SPVM/Builder/src/spvm_list.c"> Used in the internal implementation of the programming language SPVM as an example of a dynamic array I will write an implementation example of the dynamic array </a> as a sample.
+<a href="https://github.com/yuki-kimoto/SPVM/blob/master/lib/SPVM/Builder/src/spvm_list.c"> Used in the internal implementation of the programming language SPVM as an example of a dynamic array I will write an implementation example of the dynamic array</a> as a sample.
 
 There are no dependencies, so you can copy and paste the header and source.
 
-<h3> Implementation example of dynamic array in C language </ h3>
+<h3> Implementation example of dynamic array in C language </h3>
 
-There is no explanation, but since it is only the basic functions of creating a dynamic array, getting and setting the elements of the array, and fetching from the beginning and end, you can see how to use it by looking at the header. The elements of the array are <a href="/blog/20210215090234.html"> general-purpose pointer type void * </a>.
+There is no explanation, but since it is only the basic functions of creating a dynamic array, getting and setting the elements of the array, and fetching from the beginning and end, you can see how to use it by looking at the header. The elements of the array are <a href="/blog/20210215090234.html"> general-purpose pointer type void *</a>.
 
-<h4> spvm_list.h </ h4>
+<h4> spvm_list.h </h4>
 
 Dynamic array header.
 
@@ -43,9 +43,9 @@ void * SPVM_LIST_pop (SPVM_LIST * array);
 void * SPVM_LIST_shift (SPVM_LIST * array);
 
 #endif
-</ pre>
+</pre>
 
-<h4> spvm_list.c </ h4>
+<h4> spvm_list.c </h4>
 
 An implementation of a dynamic array.
 
@@ -62,18 +62,18 @@ SPVM_LIST * SPVM_LIST_new (int32_t capacity) {
   
   SPVM_LIST * array = calloc (1, sizeof (SPVM_LIST));
   
-  array-> length = 0;
+  array->length= 0;
   
   if (capacity == 0) {
-    array-> capacity = 1;
+    array->capacity= 1;
   }
   else {
-    array-> capacity = capacity;
+    array->capacity= capacity;
   }
   
-  void ** values ​​= calloc (array-> capacity, sizeof (void *));
+  void ** values ​​= calloc (array->capacity, sizeof (void *));
   
-  array-> values ​​= values;
+  array->values​​= values;
   
   return array;
 }
@@ -82,24 +82,24 @@ void SPVM_LIST_maybe_extend (SPVM_LIST * array) {
   
   assert (array);
   
-  int32_t length = array-> length;
-  int32_t capacity = array-> capacity;
+  int32_t length = array->length;
+  int32_t capacity = array->capacity;
   
   if (length> = capacity) {
     int32_t new_capacity = capacity * 2;
     
     void ** new_values ​​= calloc (new_capacity, sizeof (void *));
-    memcpy (new_values, array-> values, capacity * sizeof (void *));
-    free (array-> values);
-    array-> values ​​= new_values;
+    memcpy (new_values, array->values, capacity * sizeof (void *));
+    free (array->values);
+    array->values​​= new_values;
     
-    array-> capacity = new_capacity;
+    array->capacity= new_capacity;
   }
 }
 
 void SPVM_LIST_free (SPVM_LIST * array) {
   
-  free (array-> values);
+  free (array->values);
   free (array);
 }
 
@@ -107,58 +107,58 @@ void SPVM_LIST_push (SPVM_LIST * array, void * value) {
   
   SPVM_LIST_maybe_extend (array);
   
-  int32_t length = array-> length;
+  int32_t length = array->length;
   
-  * (void **) & array-> values ​​[length] = value;
-  array-> length ++;
+  * (void **) & array->values​​[length] = value;
+  array->length++;
 }
 
 void * SPVM_LIST_fetch (SPVM_LIST * array, int32_t index) {
   assert (array);
   assert (index> = 0);
-  assert (index <array-> length);
+  assert (index <array->length);
   
   
-  return * (void **) & array-> values ​​[index];
+  return * (void **) & array->values​​[index];
 }
 
 void SPVM_LIST_store (SPVM_LIST * array, int32_t index, void * value) {
   
   assert (array);
   assert (index> = 0);
-  assert (index <array-> length);
+  assert (index <array->length);
   
-  * (void **) & array-> values ​​[index] = value;
+  * (void **) & array->values​​[index] = value;
 }
 
 void * SPVM_LIST_pop (SPVM_LIST * array) {
   
-  assert (array-> length> = 0);
+  assert (array->length> = 0);
   
-  if (array-> length == 0) {
+  if (array->length== 0) {
     return NULL;
   }
   else {
-    array-> length-;
-    return * (void **) & array-> values ​​[array-> length];
+    array->length-;
+    return * (void **) & array->values​​[array->length];
   }
 }
 
 void * SPVM_LIST_shift (SPVM_LIST * array) {
   
-  assert (array-> length> = 0);
+  assert (array->length> = 0);
   
-  if (array-> length == 0) {
+  if (array->length== 0) {
     return NULL;
   }
   else {
-    void * return_value = array-> values ​​[0];
-    for (int32_t i = 0; i <array-> length --1; i ++) {
-      array-> values ​​[i] = array-> values ​​[i + 1];
+    void * return_value = array->values​​[0];
+    for (int32_t i = 0; i <array->length--1; i ++) {
+      array->values​​[i] = array->values​​[i + 1];
     }
 
-    array-> length-;
+    array->length-;
     return return_value;
   }
 }
-</ pre>
+</pre>

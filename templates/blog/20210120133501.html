@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> enum --enumeration </ h2>
+<h2> enum --enumeration </h2>
 
 The enum enum makes it easy to write consecutive integer constants. Constant name 1 is 0, constant name 2 is 1, and constant name 3 is 2.
 
@@ -29,9 +29,9 @@ enum {
   Constant name 3,
   ...
 };;
-</ pre>
+</pre>
 
-This is a sample using enum type enum. Since enum is often used in combination with <a href="/blog/20210122133501.html"> switch statement </a>, I used it as a sample of switch statement.
+This is a sample using enum type enum. Since enum is often used in combination with <a href="/blog/20210122133501.html"> switch statement</a>, I used it as a sample of switch statement.
 
 <pre>
 #include <stdint.h>
@@ -51,35 +51,35 @@ int main (void) {
   
   switch (id) {
     case SPVM_OP_C_ID_IF: {
-      printf ("IF \ n");
+      printf("IF\n");
       break;
     }
     case SPVM_OP_C_ID_UNLESS: {
-      printf ("UNLESS \ n");
+      printf("UNLESS\n");
       break;
     }
     case SPVM_OP_C_ID_ELSIF: {
-      printf ("ELSIF \ n");
+      printf("ELSIF\n");
       break;
     }
     case SPVM_OP_C_ID_ELSE: {
-      printf ("ELSE \ n");
+      printf("ELSE\n");
       break;
     }
     case SPVM_OP_C_ID_FOR: {
-      printf ("FOR \ n");
+      printf("FOR\n");
       break;
     }
     default: {
-      printf ("No Match \ n");
+      printf("No Match\n");
     }
   }
 }
-</ pre>
+</pre>
 
 The enumerated identifier can be any identifier name, but since there is no namespace in C language, in the sample, the name "SPVM_OP_C_XXX" (spvm_op.c source code) as if it had a namespace. It uses the constant "constant" definition in).
 
-<h3> Enums are semantically the same as macro constant definitions </ h3>
+<h3> Enums are semantically the same as macro constant definitions </h3>
 
 Enums are semantically the same as macro constant definitions.
 
@@ -95,17 +95,17 @@ enum {
 #define SPVM_OP_C_ID_IF 0
 #define SPVM_OP_C_ID_UNLESS 1
 #define SPVM_OP_C_ID_ELSIF 2
-</ pre>
+</pre>
 
 Although semantically the same, enums are characterized by being processed by the compiler rather than the preprocessor, unlike macros. Expanded to a constant by the compiler.
 
 The best practice in C is to use macros only where they are needed, so if you want contiguous integer constants, it's best to use enums.
 
-<h3> Enumeration questions </ h3>
+<h3> Enumeration questions </h3>
 
 Enumerates enumerated questions.
 
-<h4> Is it possible to change the starting value of an integer in an enum? </ h4>
+<h4> Is it possible to change the starting value of an integer in an enum? </h4>
 
 Yes, I can. To change the starting value of an integer, write "constant name = number". The next low number will be the incremented value.
 
@@ -117,21 +117,21 @@ enum {
   SPVM_OP_C_ID_ELSE = 10, # 10
   SPVM_OP_C_ID_FOR, # 11
 };;
-</ pre>
+</pre>
 
-<h4> Is it possible to use floating point in enums? </ h4>
+<h4> Is it possible to use floating point in enums? </h4>
 
 can not. If you want to define a floating point constant, use a macro.
 
 <pre>
 #define SPVM_OP_C_ID_IF 5.23
-</ pre>
+</pre>
 
-<h4> Are enum identifiers uppercase? </ H4>
+<h4> Are enum identifiers uppercase? </H4>
 
 As a general practice in C, it's best to write constants in uppercase.
 
-<h4> Which side of the enum is the type? </ H4>
+<h4> Which side of the enum is the type? </H4>
 
 Enums can be named like types and treated like types.
 
@@ -143,24 +143,24 @@ enum SPVM_OP_C_ID_TYPE {
   SPVM_OP_C_ID_ELSE,
   SPVM_OP_C_ID_FOR,
 };;
-</ pre>
+</pre>
 
 However, the behavior when assigning to an enumeration type is not defined in the C language specification and depends on the processing system, so I think that it is better not to use the enumeration type as a type too much.
 
-<h4> Shouldn't I use strings instead of enums? </ h4>
+<h4> Shouldn't I use strings instead of enums? </h4>
 
-Enumerations are the ability to give an identifier, or name, to an integer. If so, shouldn't I use <a href="/blog/20210331101342.html"> strings </a> from the beginning?
+Enumerations are the ability to give an identifier, or name, to an integer. If so, shouldn't I use <a href="/blog/20210331101342.html"> strings</a> from the beginning?
 
-I think this is the best option for programming languages ​​like <a href="https://perlzemi.com/"> Perl </a> that have dynamic types.
+I think this is the best option for programming languages ​​like <a href="https://perlzemi.com/"> Perl</a> that have dynamic types.
 
 <pre>
-if ($ id eq'if') {
+if ($id eq'if') {
   
 }
-elsif ($ id eq'unless') {
+elsif ($id eq'unless') {
   
 }
-</ pre>
+</pre>
 
 However, if you use C language, you probably use it with the motive of wanting to speed up performance. If the number of identifiers exceeds a certain number (about 10?), It is the fastest to make an integer judgment with a switch statement and jump.
 
@@ -168,13 +168,13 @@ Also, for C language string comparison, you need to use the strcmp function, and
 
 As you can see, there are many things to think about in C strings, so it is easier to define integers in enumerations.
 
-<h4> Where do you define enums when compiling separately? </ H4>
+<h4> Where do you define enums when compiling separately? </H4>
 
 The enumeration type is described in the header file as the configuration when compiling the header using split compilation and the source code separately.
 
 Constant definitions such as macro constants and enumerated types are described in the header.
 
-<b> spvm_op.h </ b>
+<b> spvm_op.h </b>
 
 <pre>
 enum {
@@ -184,9 +184,9 @@ enum {
   SPVM_OP_C_ID_ELSE,
   SPVM_OP_C_ID_FOR,
 };;
-</ pre>
+</pre>
 
-<b> spvm_op.c </ b>
+<b> spvm_op.c </b>
 
 <pre>
 #include <stdint.h>
@@ -200,28 +200,28 @@ int main (void) {
   
   switch (id) {
     case SPVM_OP_C_ID_IF: {
-      printf ("IF \ n");
+      printf("IF\n");
       break;
     }
     case SPVM_OP_C_ID_UNLESS: {
-      printf ("UNLESS \ n");
+      printf("UNLESS\n");
       break;
     }
     case SPVM_OP_C_ID_ELSIF: {
-      printf ("ELSIF \ n");
+      printf("ELSIF\n");
       break;
     }
     case SPVM_OP_C_ID_ELSE: {
-      printf ("ELSE \ n");
+      printf("ELSE\n");
       break;
     }
     case SPVM_OP_C_ID_FOR: {
-      printf ("FOR \ n");
+      printf("FOR\n");
       break;
     }
     default: {
-      printf ("No Match \ n");
+      printf("No Match\n");
     }
   }
 }
-</ pre>
+</pre>

@@ -2,27 +2,27 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop = "name"> Compile </ span>
-      </a>
+        <span itemprop = "name"> Compile </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Procedure for executing C language source code </ h2>
+<h2> Procedure for executing C language source code </h2>
 
-I will explain the procedure to execute the C language source code. <a href="/blog/20201214140830.html"> Compile </a> ・ <a href="/blog/20201215105104.html"> Links </a> ・ <a href="/blog/20201216101527.html" There is a flow of> execution </a>, but let's first aim to execute it. It is assumed that <a href="/blog/20201124085008.html"> C language development environment has been built </a>.
+I will explain the procedure to execute the C language source code. <a href="/blog/20201214140830.html"> Compile</a> ・ <a href="/blog/20201215105104.html"> Links</a> ・ <a href="/blog/20201216101527.html" There is a flow of> execution</a>, but let's first aim to execute it. It is assumed that <a href="/blog/20201124085008.html"> C language development environment has been built</a>.
 
-<h3> Compile and link to generate an executable file </ h3>
+<h3> Compile and link to generate an executable file </h3>
 
 To compile and link and generate an executable file, use the "-o" option with the gcc command.
 
@@ -30,7 +30,7 @@ Specify the output file name with the "-o" option.
 
 <pre>
 gcc -o output file name input file name
-</ pre>
+</pre>
 
 This command will compile and link all at once. Since there is only one input file, I don't feel like linking. I haven't explained the meaning of the word link yet. Let's try as far as we can.
 
@@ -42,35 +42,35 @@ Let's create an executable file called "test" from a C language source file call
 #include <stdio.h>
 
 int main (void) {
-  printf ("Hello World! \ N");
+  printf("Hello World! \ N");
 }
-</ pre>
+</pre>
 
 Generate an executable file with the gcc command.
 
 <pre>
 gcc -o test test.c
-</ pre>
+</pre>
 
-<h3> Execute the executable file </ h3>
+<h3> Execute the executable file </h3>
 
 Let's execute the created executable file. An executable file is a general program.
 
 <pre>
 # Execute the executable file (program)
 ./test
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello World!
-</ pre>
+</pre>
 
-Notice the "./" at the beginning. In <a href="https://en.linux.perlzemi.com/"> Unix / Linux </a>, just writing "test" to reduce security risk will prevent the executable file from being executed. It has become. Remember that you need to add "./" when executing an executable file in the current directory. If it's an absolute path, you don't have to be aware of this.
+Notice the "./" at the beginning. In <a href="https://en.linux.perlzemi.com/"> Unix / Linux</a>, just writing "test" to reduce security risk will prevent the executable file from being executed. It has become. Remember that you need to add "./" when executing an executable file in the current directory. If it's an absolute path, you don't have to be aware of this.
 
 You can also write compile, link, and execute in one line.
 
 <pre>
 gcc -o test test.c && ./test
-</ pre>
+</pre>

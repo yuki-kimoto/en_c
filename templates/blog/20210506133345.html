@@ -2,32 +2,32 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> String literal </ h2>
+<h2> String literal </h2>
 
-This is a description of a string literal that expresses <a href="/blog/20210331101342.html"> string </a> in the source code. String literals are represented by enclosing them in double quotation "" ".
+This is a description of a string literal that expresses <a href="/blog/20210331101342.html"> string</a> in the source code. String literals are represented by enclosing them in double quotation "" ".
 
 <pre>
 // String literal
 "Hello"
-</ pre>
+</pre>
 
-This is a sample that outputs a string literal. String literals can be assigned to variables in <a href="/blog/20201208125815.html"> char * </a>. I think that string literals are mostly treated as constants, so it is recommended to assign them to variables declared with "const char *". You can print a string in the "% s" format of the printf function.
+This is a sample that outputs a string literal. String literals can be assigned to variables in <a href="/blog/20201208125815.html"> char *</a>. I think that string literals are mostly treated as constants, so it is recommended to assign them to variables declared with "const char *". You can print a string in the "%s" format of the printf function.
 
 <pre>
 #include <stdio.h>
@@ -35,24 +35,24 @@ This is a sample that outputs a string literal. String literals can be assigned 
 int main (void) {
   const char * message = "Hello";
   
-  printf ("% s \ n", message);
+  printf("%s\n", message);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
-</ pre>
+</pre>
 
-<h3> Escape sequence of string literals </ h3>
+<h3> Escape sequence of string literals </h3>
 
 Escape sequence of string literals. You can express tabs and line breaks with "\ t" and "\ n".
 
 <table>
-  <tr> <th> \ t </ th> <td> Tab </ td> </ tr>
-  <tr> <th> \ n </ th> <td> Line feed (LF) </ td> </ tr>
-</ table>
+  <tr> <th> \ t </th> <td> Tab </td> </tr>
+  <tr> <th>\n </th> <td> Line feed (LF) </td> </tr>
+</table>
 
 This is a sample escape sequence for string literals.
 
@@ -61,26 +61,26 @@ This is a sample escape sequence for string literals.
 
 int main (void) {
 
-  const char * message = "He \ tllo \ n";
+  const char * message = "He \ tllo\n";
   
   // Escape sequence of string literals
-  printf ("% s", message);
+  printf("%s", message);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 He llo
-</ pre>
+</pre>
 
-<h4> Arbitrary string of ASCII code </ h4>
+<h4> Arbitrary string of ASCII code </h4>
 
 You can use the escape sequence "\ x hexadecimal ASCII code" to represent any string of ASCII code. The following represents the ASCII code "a" in hexadecimal.
 
 <pre>
 \ x61
-</ pre>
+</pre>
 
 This is a sample that uses an arbitrary string of ASCII code in the escape sequence of a string literal.
 
@@ -92,33 +92,33 @@ int main (void) {
   const char * message = "He \ x61 llo";
   
   // Escape sequence of string literals
-  printf ("% s \ n", message);
+  printf("%s\n", message);
 }
-</ pre>
+</pre>
 
 This is the output result. "\ X61" outputs a.
 
 <pre>
 He a llo
-</ pre>
+</pre>
 
-<h4> Escape sequence list </ h4>
+<h4> Escape sequence list </h4>
 
 <table>
-<tr> <th> Symbol </ th> <th> Meaning
-</ th> </ tr> <tr> <td> \ a </ td> <td> Bell
-</ td> </ tr> <tr> <td> \ b </ td> <td> Backspace
-</ td> </ tr> <tr> <td> \ f </ td> <td> Page feed (clear)
-</ td> </ tr> <tr> <td> \ n </ td> <td> Line break (line break)
-</ td> </ tr> <tr> <td> \ r </ td> <td> Page breaks
-</ td> </ tr> <tr> <td> \ t </ td> <td> tab
-</ td> </ tr> <tr> <td> \ v </ td> <td> Vertical tab
-</ td> </ tr> <tr> <td> \\ </ td> <td> \
-</ td> </ tr> <tr> <td> \? </ td> <td>?
-</ td> </ tr> <tr> <td> \'</ td> <td> Single Quotation (')
-</ td> </ tr> <tr> <td> \ "</ td> <td> Double quotation (")
-</ td> </ tr> <tr> <td> \ 0 </ td> <td> Null character
-</ td> </ tr> <tr> <td> \ N </ td> <td> Octal constant
-</ td> </ tr> <tr> <td> \ xN </ td> <td> Hexadecimal constant
-</ td> </ tr>
-</ table>
+<tr> <th> Symbol </th> <th> Meaning
+</th> </tr> <tr> <td> \ a </td> <td> Bell
+</td> </tr> <tr> <td> \ b </td> <td> Backspace
+</td> </tr> <tr> <td> \ f </td> <td> Page feed (clear)
+</td> </tr> <tr> <td>\n </td> <td> Line break (line break)
+</td> </tr> <tr> <td> \ r </td> <td> Page breaks
+</td> </tr> <tr> <td> \ t </td> <td> tab
+</td> </tr> <tr> <td> \ v </td> <td> Vertical tab
+</td> </tr> <tr> <td> \\ </td> <td> \
+</td> </tr> <tr> <td> \? </td> <td>?
+</td> </tr> <tr> <td> \'</td> <td> Single Quotation (')
+</td> </tr> <tr> <td> \ "</td> <td> Double quotation (")
+</td> </tr> <tr> <td> \ 0 </td> <td> Null character
+</td> </tr> <tr> <td> \ N </td> <td> Octal constant
+</td> </tr> <tr> <td> \ xN </td> <td> Hexadecimal constant
+</td> </tr>
+</table>

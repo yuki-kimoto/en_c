@@ -2,44 +2,44 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fread function-read from file with specified number of bytes </ h2>
+<h2> fread function-read from file with specified number of bytes </h2>
 
-You can use the <b> fread function </ b> to read from a file by specifying the number of bytes. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h </a> header.
+You can use the <b> fread function </b> to read from a file by specifying the number of bytes. You can use it by reading the <a href="/blog/20210418083246.html"> stdio.h</a> header.
 
 <pre>
 #include <stdio.h>
 size_t fread (void * buffer, size_t size, size_t n, FILE * fp);
-</ pre>
+</pre>
 
 The first argument is a buffer that stores the contents read from the file. Secure a memory size that can store the read contents. The second argument is the unit of bytes of data to read. The third argument is the number of data to read. The actual byte size to be read is "size * n". The fourth argument is the file stream of the file you want to read.
 
 The return value is the number of data read. It corresponds to the number of data specified by the third argument. Please note that it is not a byte size. When the read reaches the end of the file, the return value will be less than the number of data specified by the third argument.
 
-<h3> Sample read by fread function </ h3>
+<h3> Sample read by fread function </h3>
 
-This is a sample read by the fread function. Open the file with <a href="/blog/20210513075631.html"> fopen function </a>, read 16 bytes at a time, output to standard output with putchar function, <a href="/blog/20210509093506.html" The file is closed with the> fclose function </a>.
+This is a sample read by the fread function. Open the file with <a href="/blog/20210513075631.html"> fopen function</a>, read 16 bytes at a time, output to standard output with putchar function, <a href="/blog/20210509093506.html" The file is closed with the> fclose function</a>.
 
 <pre>
 #include <stdio.h>
@@ -52,7 +52,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
   
@@ -70,7 +70,7 @@ int main (void) {
     }
     
     // Line breaks for clarity
-    printf ("\ n");
+    printf("\ n");
     
     if (real_read_count <read_count) {
       break;
@@ -80,13 +80,13 @@ int main (void) {
   // Close the file with the fclose function
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 It is an input file "input.txt".
 
 <pre>
 aaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbccccccccccccccccccccccccccddddddddddddddddddddd
-</ pre>
+</pre>
 
 This is the output result.
 
@@ -97,11 +97,11 @@ bbbbbbbbbbbbbbcc
 cccccccccccccccc
 ccccccccdddddddd
 ddddddddddddd
-</ pre>
+</pre>
 
-<h3> Read the entire file </ h3>
+<h3> Read the entire file </h3>
 
-This is a sample to read the entire file with the fread function. Use the <a href="/blog/20210526085256.html"> ftell function </a> and the <a href="/blog/20210525075439.html"> fseek function </a> to get the size of the file. , <a href="/blog/20210209082644.html"> calloc function </a> allocates memory and reads the entire file.
+This is a sample to read the entire file with the fread function. Use the <a href="/blog/20210526085256.html"> ftell function</a> and the <a href="/blog/20210525075439.html"> fseek function</a> to get the size of the file. , <a href="/blog/20210209082644.html"> calloc function</a> allocates memory and reads the entire file.
 
 <pre>
 #include <stdio.h>
@@ -113,7 +113,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s at% s line% d \ n", in_file, __FILE__, __LINE__);
+    fprintf (stderr, "Can't open file%s at%s line%d\n", in_file, __FILE__, __LINE__);
     exit (1);
   }
   
@@ -132,28 +132,28 @@ int main (void) {
   // Read the file
   size_t read_count = fread (buffer, sizeof (char), file_size, in_fp);
   if (read_count! = file_size) {
-    fprintf (stderr, "Can't read file% s at% s line% d \ n", in_file, __FILE__, __LINE__);
+    fprintf (stderr, "Can't read file%s at%s line%d\n", in_file, __FILE__, __LINE__);
     exit (1);
   }
   
   // Check the contents of the file
-  printf ("% s \ n", buffer);
+  printf("%s\n", buffer);
   
   // Close the file
   fclose (in_fp);
 }
-</ pre>
+</pre>
 
 This is an input file.
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 Hello
 World!
-</ pre>
+</pre>

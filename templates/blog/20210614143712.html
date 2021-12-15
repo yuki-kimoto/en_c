@@ -2,40 +2,40 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stdio.html">
-        <span itemprop = "name"> stdio.h </ span>
-      </a>
+        <span itemprop = "name"> stdio.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> fputc function-write one character to the file stream </ h2>
+<h2> fputc function-write one character to the file stream </h2>
 
 You can use the fputc function to write a single character to a file stream.
 
 <pre>
 #include <stdio.h>
 int fputc (int c, FILE * fp);
-</ pre>
+</pre>
 
 The first argument is the character you want to write. The second argument is the file stream.
 
-<h3> Sample to write a file character by character </ h3>
+<h3> Sample to write a file character by character </h3>
 
 This is a sample to write a file character by character using the fputc function.
 
@@ -50,7 +50,7 @@ int main (void) {
   const char * in_file = "input.txt";
   FILE * in_fp = fopen (in_file, "r");
   if (in_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", in_file);
+    fprintf (stderr, "Can't open file%s\n", in_file);
     exit (1);
   }
 
@@ -58,7 +58,7 @@ int main (void) {
   const char * out_file = "output.txt";
   FILE * out_fp = fopen (out_file, "w");
   if (out_fp == NULL) {
-    fprintf (stderr, "Can't open file% s \ n", out_file);
+    fprintf (stderr, "Can't open file%s\n", out_file);
     exit (1);
   }
   
@@ -79,4 +79,4 @@ int main (void) {
   fclose (in_fp);
   fclose (out_fp);
 }
-</ pre>
+</pre>

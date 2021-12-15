@@ -2,49 +2,49 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Comparison operator </ h2>
+<h2> Comparison operator </h2>
 
 Explains the comparison operator in C language. The C comparison operator compares numbers on the left and right sides.
 
-<h3> List of comparison operators </ h3>
+<h3> List of comparison operators </h3>
 
 A list of comparison operators.
 
 <table>
-  <tr> <th> Operator </ th> <th> Explanation </ th> </ tr>
-  <tr> <td> == </ td> <td> Left side and right side are equal </ td> </ tr>
-  <tr> <td>! = </ td> <td> Left and right sides are not equal </ td> </ tr>
-  <tr> <td> & gt; </ td> <td> The left side is larger than the right side </ td> </ tr>
-  <tr> <td> & gt; = </ td> <td> The left side is greater than or equal to the right side </ td> </ tr>
-  <tr> <td> & lt; </ td> <td> The left side is smaller than the right side </ td> </ tr>
-  <tr> <td> & lt; = </ td> <td> The left side is less than or equal to the right side </ td> </ tr>
-</ table>
+  <tr> <th> Operator </th> <th> Explanation </th> </tr>
+  <tr> <td> == </td> <td> Left side and right side are equal </td> </tr>
+  <tr> <td>! = </td> <td> Left and right sides are not equal </td> </tr>
+  <tr> <td> & gt; </td> <td> The left side is larger than the right side </td> </tr>
+  <tr> <td> & gt; = </td> <td> The left side is greater than or equal to the right side </td> </tr>
+  <tr> <td> & lt; </td> <td> The left side is smaller than the right side </td> </tr>
+  <tr> <td> & lt; = </td> <td> The left side is less than or equal to the right side </td> </tr>
+</table>
 
 The comparison operator returns an int type "1" if the condition is met, or "0" if the condition is not met. This is a C language specification and is the same for all implementations.
 
-<h3> Compare the magnitude of numbers </ h3>
+<h3> Compare the magnitude of numbers </h3>
 
 Let's compare the magnitude of the numbers.
 
-<h4> Comparison of magnitude of int32_t type numbers </ h4>
+<h4> Comparison of magnitude of int32_t type numbers </h4>
 
-Let's compare the magnitude of the numbers using the comparison operator. <a href="/blog/20201130082751.html"> int32_t </a> This is a sample to compare types.
+Let's compare the magnitude of the numbers using the comparison operator. <a href="/blog/20201130082751.html"> int32_t</a> This is a sample to compare types.
 
 <pre>
 #include <stdint.h>
@@ -55,17 +55,17 @@ int main (void) {
   int32_t num2 = 10;
   
   if (num1> num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
-<h4> Comparison of magnitude of int64_t type numbers </ h4>
+<h4> Comparison of magnitude of int64_t type numbers </h4>
 
-This is a sample to compare <a href="/blog/20201127082751.html"> int64_t </a> types with the comparison operator.
+This is a sample to compare <a href="/blog/20201127082751.html"> int64_t</a> types with the comparison operator.
 
 <pre>
 #include <stdint.h>
@@ -76,17 +76,17 @@ int main (void) {
   int64_t num2 = 10;
   
   if (num1> num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
-<h4> Comparison of magnitude between int32_t type and int8_t type numbers </ h4>
+<h4> Comparison of magnitude between int32_t type and int8_t type numbers </h4>
 
-This is a sample to compare <a href="/blog/20201130082751.html"> int32_t </a> type and <a href="/blog/20201117090747.html"> int8_t </a> type with the comparison operator. ..
+This is a sample to compare <a href="/blog/20201130082751.html"> int32_t</a> type and <a href="/blog/20201117090747.html"> int8_t</a> type with the comparison operator. ..
 
 <pre>
 #include <stdint.h>
@@ -97,19 +97,19 @@ int main (void) {
   int8_t num2 = 10;
   
   if (num1> num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
 In C, there is a rule that both sides of a binary operator are extended to an int if the type is smaller than the int. Also, if the types on both sides are of different sizes, the smaller type values ​​are converted to the larger type values.
 
 Assuming that the implementation int size is 16bit, let's rewrite the above description using an explicit type cast.
 
-First, int8_t (signed 8bit integer) is converted to int (signed 16bit integer), and then to int32_t (signed 32bit integer).
+First, int8_t (signed 8bit integer) is converted to int(signed 16bit integer), and then to int32_t (signed 32bit integer).
 
 <pre>
 #include <stdint.h>
@@ -121,19 +121,19 @@ int main (void) {
   
   // If you explicitly write a type cast
   if (num1> (int32_t) (int) num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
 The implicit conversion rules are the same for other types. Keep in mind that the size of the type is in order, "double" "float" "int64_t" "int32_t" "int16_t" "int8_t".
 
-<h4> Comparison of magnitude of uint32_t type numbers </ h4>
+<h4> Comparison of magnitude of uint32_t type numbers </h4>
 
-Let's compare the magnitude of the numbers using the comparison operator. <a href="/blog/20201111150850.html"> uint32_t </a> This is a sample to compare types.
+Let's compare the magnitude of the numbers using the comparison operator. <a href="/blog/20201111150850.html"> uint32_t</a> This is a sample to compare types.
 
 <pre>
 #include <stdint.h>
@@ -144,21 +144,21 @@ int main (void) {
   uint32_t num2 = 10;
   
   if (num1> num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
-<h3> Reasons why we do not recommend comparing signed and unsigned integers </ h3>
+<h3> Reasons why we do not recommend comparing signed and unsigned integers </h3>
 
 Comparing unsigned and signed integers is not recommended. It's a good idea to explicitly typecast and compare, as unintended implicit conversions may occur.
 
-<h3> Comparison between float types </ h3>
+<h3> Comparison between float types </h3>
 
-This is a sample to compare <a href="/blog/20201202133213.html"> float </a> type with the comparison operator.
+This is a sample to compare <a href="/blog/20201202133213.html"> float</a> type with the comparison operator.
 
 <pre>
 #include <stdint.h>
@@ -169,17 +169,17 @@ int main (void) {
   float num2 = 10.2f;
   
   if (num1> num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
-<h3> Comparison between double types </ h3>
+<h3> Comparison between double types </h3>
 
-This is a sample to compare <a href="/blog/20201203133213.html"> double </a> type with the comparison operator.
+This is a sample to compare <a href="/blog/20201203133213.html"> double</a> type with the comparison operator.
 
 <pre>
 #include <stdint.h>
@@ -190,17 +190,17 @@ int main (void) {
   double num2 = 10.2;
   
   if (num1> num2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
 }
-</ pre>
+</pre>
 
-<h3> Comparison of pointers </ h3>
+<h3> Comparison of pointers </h3>
 
-Let's compare <a href="/blog/20210211090234.html"> pointers </a>. Addresses are assigned to pointers, but addresses are numbers. The C language comparison operator compares numbers, but you can also use the comparison operator to determine if the addresses are the same.
+Let's compare <a href="/blog/20210211090234.html"> pointers</a>. Addresses are assigned to pointers, but addresses are numbers. The C language comparison operator compares numbers, but you can also use the comparison operator to determine if the addresses are the same.
 
 <pre>
 #include <stdint.h>
@@ -213,18 +213,18 @@ int main (void) {
   int32_t * nums2 = nums1;
   
   if (nums1 == nums2) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
   free (nums1);
 }
-</ pre>
+</pre>
 
-<h3> Pointer to NULL comparison </ h3>
+<h3> Pointer to NULL comparison </h3>
 
-Let's compare the pointer with <a href="/blog/20210213090234.html"> NULL </a>. NULL is equivalent to 0 and can be compared with the comparison operator.
+Let's compare the pointer with <a href="/blog/20210213090234.html"> NULL</a>. NULL is equivalent to 0 and can be compared with the comparison operator.
 
 <pre>
 #include <stdint.h>
@@ -237,11 +237,11 @@ int main (void) {
   
   // Pointer is not null
   if (nums1! = NULL) {
-    printf ("Match \ n");
+    printf("Match\n");
   }
   else {
-    printf ("Not Match \ n");
+    printf("Not Match\n");
   }
   free (nums1);
 }
-</ pre>
+</pre>

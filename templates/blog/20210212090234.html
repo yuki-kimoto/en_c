@@ -1,4 +1,4 @@
-<h2> Object-oriented C language </ h2>
+<h2> Object-oriented C language </h2>
 
 I will explain how to write C language in an object-oriented manner.
 
@@ -8,9 +8,9 @@ In other words, object-oriented programming can be done in any programming langu
 
 When I write the conclusion, "It can be object-oriented even in C language! The description is a little troublesome."
 
-The <h3> class is a structure </ h3>
+The <h3> class is a structure </h3>
 
-The class corresponds to <a href="/blog/20210208155548.html"> structure </a>. The fields correspond to the member variables of the structure. To solve problems such as header cross-references, we use aliases in typedef statements (see <a href="/blog/20210202153503.html"> type declaration headers </a> for this technique. please).
+The class corresponds to <a href="/blog/20210208155548.html"> structure</a>. The fields correspond to the member variables of the structure. To solve problems such as header cross-references, we use aliases in typedef statements (see <a href="/blog/20210202153503.html"> type declaration headers</a> for this technique. please).
 
 <pre>
 // Give strcut myapp_lib the alias MYAPP_LIB
@@ -21,9 +21,9 @@ struct myapp_lib {
   // Fields are member variables
   int32_t flag;
 };;
-</ pre>
+</pre>
 
-<h3> Constructor is a function </ h3>
+<h3> Constructor is a function </h3>
 
 A constructor is a function that returns an object. On this page, we will refer to pointers that point to the memory areas of structures that are dynamically allocated to memory as objects.
 
@@ -41,29 +41,29 @@ MYAPP_LIB * MYAPP_LIB_new () {
 MYAPP_LIB * MYAPP_LIB_new_with_flag (int32_t flag) {
   
   MYAPP_LIB * self = MYAPP_LIB_new ();
-  self-> flag = flag;
+  self->flag= flag;
   
   return self;
 }
-</ pre>
+</pre>
 
-The <h3> method is a function that takes an object as the first argument </ h3>
+The <h3> method is a function that takes an object as the first argument </h3>
 
 A method is a function that takes an object as its first argument.
 
 <pre>
 // Set the flag
 void MYAPP_LIB_set_flag (MYAPP_LIB * self, int32_t flag) {
-  self-> flag = flag;
+  self->flag= flag;
 }
 
 // get the flag
 int32_t MYAPP_LIB_get_flag (MYAPP_LIB * self) {
-  return self-> flag;
+  return self->flag;
 }
-</ pre>
+</pre>
 
-<h3> Destructor is a function </ h3>
+<h3> Destructor is a function </h3>
 
 Destructors are functions. This has to be called manually.
 
@@ -73,9 +73,9 @@ void MYAPP_LIB_free (MYAPP_LIB * self) {
   // Free memory allocation
   free (self);
 }
-</ pre>
+</pre>
 
-<h3> Object-oriented programming sample </ h3>
+<h3> Object-oriented programming sample </h3>
 
 This is a sample of object-oriented programming.
 
@@ -105,19 +105,19 @@ MYAPP_LIB * MYAPP_LIB_new () {
 MYAPP_LIB * MYAPP_LIB_new_with_flag (int32_t flag) {
   
   MYAPP_LIB * self = MYAPP_LIB_new ();
-  self-> flag = flag;
+  self->flag= flag;
   
   return self;
 }
 
 // Set the flag
 void MYAPP_LIB_set_flag (MYAPP_LIB * self, int32_t flag) {
-  self-> flag = flag;
+  self->flag= flag;
 }
 
 // get the flag
 int32_t MYAPP_LIB_get_flag (MYAPP_LIB * self) {
-  return self-> flag;
+  return self->flag;
 }
 
 void MYAPP_LIB_free (MYAPP_LIB * self) {
@@ -133,18 +133,18 @@ int main (void) {
   // Method call
   MYAPP_LIB_set_flag (myapp_lib, 5);
   int32_t myapp_lib_flag = MYAPP_LIB_get_flag (myapp_lib);
-  printf ("% d \ n", myapp_lib_flag);
+  printf("%d\n", myapp_lib_flag);
   
   // Release the object
   MYAPP_LIB_free (myapp_lib);
 }
-</ pre>
+</pre>
 
-<h3> Split compilation support-Object-oriented programming sample </ h3>
+<h3> Split compilation support-Object-oriented programming sample </h3>
 
 Let's support split compilation of object-oriented programming samples. With this, it is safe even if the C language program becomes a big program in the actual battle.
 
-<h4> myapp_typedecl.h </ h4>
+<h4> myapp_typedecl.h </h4>
 
 <pre>
 #ifndef MYAPP_TYPEDECL_H
@@ -154,9 +154,9 @@ Let's support split compilation of object-oriented programming samples. With thi
 typedef struct myapp_lib MYAPP_LIB;
 
 #endif
-</ pre>
+</pre>
 
-<h4> myapp_lib.h </ h4>
+<h4> myapp_lib.h </h4>
 
 <pre>
 #ifndef MYAPP_LIB_H
@@ -175,9 +175,9 @@ int32_t MYAPP_LIB_get_flag (MYAPP_LIB * self);
 void MYAPP_LIB_free (MYAPP_LIB * self);
 
 #endif
-</ pre>
+</pre>
 
-<h4> myapp_lib.c </ h4>
+<h4> myapp_lib.c </h4>
 
 <pre>
 #include <stdlib.h>
@@ -197,19 +197,19 @@ MYAPP_LIB * MYAPP_LIB_new () {
 MYAPP_LIB * MYAPP_LIB_new_with_flag (int32_t flag) {
   
   MYAPP_LIB * self = MYAPP_LIB_new ();
-  self-> flag = flag;
+  self->flag= flag;
   
   return self;
 }
 
 // Set the flag
 void MYAPP_LIB_set_flag (MYAPP_LIB * self, int32_t flag) {
-  self-> flag = flag;
+  self->flag= flag;
 }
 
 // get the flag
 int32_t MYAPP_LIB_get_flag (MYAPP_LIB * self) {
-  return self-> flag;
+  return self->flag;
 }
 
 void MYAPP_LIB_free (MYAPP_LIB * self) {
@@ -217,9 +217,9 @@ void MYAPP_LIB_free (MYAPP_LIB * self) {
   // Free memory allocation
   free (self);
 }
-</ pre>
+</pre>
 
-<h4> myapp.c </ h4>
+<h4> myapp.c </h4>
 
 <pre>
 #include <stdio.h>
@@ -234,23 +234,23 @@ int main (void) {
   // Method call
   MYAPP_LIB_set_flag (myapp_lib, 5);
   int32_t myapp_lib_flag = MYAPP_LIB_get_flag (myapp_lib);
-  printf ("% d \ n", myapp_lib_flag);
+  printf("%d\n", myapp_lib_flag);
   
   // Release the object
   MYAPP_LIB_free (myapp_lib);
 }
-</ pre>
+</pre>
 
-<h4> Compile / Link / Execute </ h4>
+<h4> Compile / Link / Execute </h4>
 
 <pre>
 gcc -c myapp_lib.c
 gcc -c myapp.c
 gcc -o myapp myapp.o myapp_lib.o
 ./myapp
-</ pre>
+</pre>
 
-<h3> Is it possible to inherit? </ H3>
+<h3> Is it possible to inherit? </H3>
 
 In C, it's not easy to manually implement the inheritance feature, so let's use delegation.
 

@@ -2,31 +2,31 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> typedef statement-create a type alias </ h2>
+<h2> typedef statement-create a type alias </h2>
 
 You can use a typedef statement to create a type alias.
 
 <pre>
 typedef typename type alias
-</ pre>
+</pre>
 
-<h4> Create another name for the structure </ h4>
+<h4> Create another name for the structure </h4>
 
 Let's create an alias for the structure. Name the structure "struct spvm_field" "SPVM_FIELD".
 
@@ -42,11 +42,11 @@ struct spvm_field {
 // Create another name for the structure
 typedef struct spvm_field SPVM_FIELD;
 
-</ pre>
+</pre>
 
 A structure is a type. It can be specified as the type name of a typedef statement.
 
-<h4> Create alias for shared type </ h4>
+<h4> Create alias for shared type </h4>
 
 Let's create an alias for the union type. Name the shared type "union spvm_value" "SPVM_VALUE".
 
@@ -66,11 +66,11 @@ union spvm_value {
 
 // Create a union alias
 typedef union spvm_value SPVM_VALUE;
-</ pre>
+</pre>
 
 Unions are a type. It can be specified as the type name of a typedef statement.
 
-<h3> How to give a type alias before defining a structure or union </ h3>
+<h3> How to give a type alias before defining a structure or union </h3>
 
 The above method used a typedef statement to create a type alias after defining a structure or union.
 
@@ -107,17 +107,17 @@ union spvm_value {
   double dval;
   void * oval;
 };;
-</ pre>
+</pre>
 
 So what does this mean?
 
-This is useful if you want to create a <a href="/blog/20210202153503.html"> type declaration header </a> to reduce inter-header loading.
+This is useful if you want to create a <a href="/blog/20210202153503.html"> type declaration header</a> to reduce inter-header loading.
 
-<h3> When is the typedef statement used? </ H3>
+<h3> When is the typedef statement used? </H3>
 
 When is the typedef statement used?
 
-<h4> To abstract the type </ h4>
+<h4> To abstract the type </h4>
 
 Typedef statements are sometimes used to abstract types.
 
@@ -133,22 +133,22 @@ typedef unsigned int size_t;
 typedef unsigned long size_t;
 
 typedef unsigned long long size_t;
-</ pre>
+</pre>
 
 The actual definition differs depending on the processing system, but it can be abstracted as size_t in the source code.
 
-<h4> Because it is troublesome to write structs and unions </ h4>
+<h4> Because it is troublesome to write structs and unions </h4>
 
 If you want to treat it as a type name in a unified way, writing "struct honya" and "union honya" feels a little troublesome.
 
 If you use a typedef, you can treat it like a single type name.
 
-<h4> To eliminate cross-references and circular references in headers </ h4>
+<h4> To eliminate cross-references and circular references in headers </h4>
 
-You can avoid cross-references and circular references in headers by creating a <a href="/blog/20210202153503.html"> type declaration header </a>.
+You can avoid cross-references and circular references in headers by creating a <a href="/blog/20210202153503.html"> type declaration header</a>.
 
 I think this is very important for the practical use of the typdef statement.
 
-<h3> Where do you write the typedef statement? </ h3>
+<h3> Where do you write the typedef statement? </h3>
 
 Write the typedef statement in the header file.

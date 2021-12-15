@@ -2,48 +2,48 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/stddef.html">
-        <span itemprop = "name"> stddef.h </ span>
-      </a>
+        <span itemprop = "name"> stddef.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> NULL --Null pointer constant </ h2>
+<h2> NULL --Null pointer constant </h2>
 
-<b> NULL </ b> is called a null pointer constant and is defined in "stddef.h" as "integer 0" or "integer 0 cast to (void *)".
+<b> NULL </b> is called a null pointer constant and is defined in "stddef.h" as "integer 0" or "integer 0 cast to (void *)".
 
-Substituting NULL for <a href="/blog/20210211090234.html"> pointer </a> is called a null pointer. NULL can be assigned to any pointer type.
+Substituting NULL for <a href="/blog/20210211090234.html"> pointer</a> is called a null pointer. NULL can be assigned to any pointer type.
 
 <pre>
 // Null pointer
 void * ptr = NULL;
 int32_t * int32_ptr = NULL;
 float * float_ptr = NULL;
-</ pre>
+</pre>
 
-<h3> NULL sample </ h3>
+<h3> NULL sample </h3>
 
 This is a null sample.
 
-<h4> Check memory allocation </ h4>
+<h4> Check memory allocation </h4>
 
-In the sample below, NULL is returned if the memory allocation of the <a href="/blog/20210209082644.html"> calloc function </a> fails. Therefore, it can be used to check that memory is allocated.
+In the sample below, NULL is returned if the memory allocation of the <a href="/blog/20210209082644.html"> calloc function</a> fails. Therefore, it can be used to check that memory is allocated.
 
 <pre>
 #include <stddef.h>
@@ -57,22 +57,22 @@ int main (void) {
   
   // Pointer is not null
   if (nums! = NULL) {
-    printf ("Success \ n");
+    printf("Success\n");
   }
   else {
-    printf ("Fail \ n");
+    printf("Fail\n");
   }
   free (nums);
 }
-</ pre>
+</pre>
 
 Output result
 
 <pre>
 Success
-</ pre>
+</pre>
 
-<h4> Is there a child element in the node of the tree? </ H4>
+<h4> Is there a child element in the node of the tree? </H4>
 
 This is a sample of checking if a child element exists in a node of a tree.
 
@@ -96,23 +96,23 @@ int main (void) {
   struct myapp_node * first_child = calloc (sizeof (struct myapp_node), 1);
   
   // Assign to the first child of the parent node
-  parent-> first_child = first_child;
+  parent->first_child= first_child;
   
-  if (parent-> first_child! = NULL) {
-    printf ("Have First Child \ n");
+  if (parent->first_child! = NULL) {
+    printf("Have First Child\n");
   }
 
-  if (parent-> last_child == NULL) {
-    printf ("Don't Have Last Child \ n");
+  if (parent->last_child== NULL) {
+    printf("Don't Have Last Child\n");
   }
   
   free (parent);
   free (first_child);
 }
-</ pre>
+</pre>
 
 Output result
 
 <pre>
 Have First Child
-</ pre>
+</pre>

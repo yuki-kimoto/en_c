@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/syntax.html">
-        <span itemprop = "name"> Basic grammar </ span>
-      </a>
+        <span itemprop = "name"> Basic grammar </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> switch statement --fast conditional branching of integers </ h2>
+<h2> switch statement --fast conditional branching of integers </h2>
 
 You can use a switch statement to perform fast conditional branching of integers.
 
@@ -36,7 +36,7 @@ switch (value) {
   default: default:
     // Processing in cases other than the above
 }
-</ pre>
+</pre>
 
 The break statement is not required, but if there is no break, the statement below is executed without moving outside the switch statement.
 
@@ -52,7 +52,7 @@ switch (value) {
   default: default:
     // Processing in cases other than the above
 }
-</ pre>
+</pre>
 
 Forgetting to write a break statement occurs frequently, empirically speaking. It seems that I forgot to write the break statement when I thought, "Oh, it's strange, the behavior of the program is too mysterious."
 
@@ -76,9 +76,9 @@ switch (value) {
     // Processing in cases other than the above
   }
 }
-</ pre>
+</pre>
 
-This is a sample using a switch statement. It is used in combination with <a href="/blog/20210120133501.html"> enumeration type </a>.
+This is a sample using a switch statement. It is used in combination with <a href="/blog/20210120133501.html"> enumeration type</a>.
 
 <pre>
 #include <stdint.h>
@@ -98,37 +98,37 @@ int main (void) {
   
   switch (id) {
     case SPVM_OP_C_ID_IF: {
-      printf ("IF \ n");
+      printf("IF\n");
       break;
     }
     case SPVM_OP_C_ID_UNLESS: {
-      printf ("UNLESS \ n");
+      printf("UNLESS\n");
       break;
     }
     case SPVM_OP_C_ID_ELSIF: {
-      printf ("ELSIF \ n");
+      printf("ELSIF\n");
       break;
     }
     case SPVM_OP_C_ID_ELSE: {
-      printf ("ELSE \ n");
+      printf("ELSE\n");
       break;
     }
     case SPVM_OP_C_ID_FOR: {
-      printf ("FOR \ n");
+      printf("FOR\n");
       break;
     }
     default: {
-      printf ("No Match \ n");
+      printf("No Match\n");
     }
   }
 }
-</ pre>
+</pre>
 
-<h3> What is the internal implementation of the switch statement? </ h3>
+<h3> What is the internal implementation of the switch statement? </h3>
 
 Imagine that two types of jump tables are selectively used by the integer pattern.
 
-<h4> When the range of integers is small </ h4>
+<h4> When the range of integers is small </h4>
 
 The jump destination addresses are arranged at consecutive integer positions and can be jumped with the amount of calculation O (1).
 
@@ -138,9 +138,9 @@ The jump destination addresses are arranged at consecutive integer positions and
 7 NULL
 8 NULL
 9 0x3289
-</ pre>
+</pre>
 
-<h4> When the range of integers is large </ h4>
+<h4> When the range of integers is large </h4>
 
 The jump destination addresses are arranged in ascending order so that binary search is possible, and you can jump with the amount of calculation O (log n).
 
@@ -149,12 +149,12 @@ The jump destination addresses are arranged in ascending order so that binary se
 6 0x4563
 7000 0x8768
 10000 0x3284
-</ pre>
+</pre>
 
-<h3> How do you use if and switch statements properly? </ H3>
+<h3> How do you use if and switch statements properly? </H3>
 
-How do you use <a href="/blog/20201224090954.html"> if statement </a> and switch statement properly?
+How do you use <a href="/blog/20201224090954.html"> if statement</a> and switch statement properly?
 
-Use the switch statement only if it matches an integer. The switch statement works very well with <a href="/blog/20210120133501.html"> enums </a>.
+Use the switch statement only if it matches an integer. The switch statement works very well with <a href="/blog/20210120133501.html"> enums</a>.
 
 Also, if there are many matches, it is faster than the if statement. For example, if you want to branch with 255 IDs, the switch statement is fast and suitable.

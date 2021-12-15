@@ -1,48 +1,48 @@
-<h2> Building a C language development environment </ h2>
+<h2> Building a C language development environment </h2>
 
-I will explain how to build a C language development environment. Once you can use the <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc command </a>, you will be able to compile and run C language. The gcc command is a method of compiling C language on UNIX / Linux, but now (written on June 21, 2021), it can be ported to Mac and Windows. I've seen other sites for beginners say that building a C language development environment is difficult, but I think it's easy.
+I will explain how to build a C language development environment. Once you can use the <a href="https://en.linux.perlzemi.com/blog/20201216103956.html"> gcc command</a>, you will be able to compile and run C language. The gcc command is a method of compiling C language on UNIX / Linux, but now (written on June 21, 2021), it can be ported to Mac and Windows. I've seen other sites for beginners say that building a C language development environment is difficult, but I think it's easy.
 
-<h3> Building a development environment for C language development environment on Windows </ h3>
+<h3> Building a development environment for C language development environment on Windows </h3>
 
-For Windows, "How to use MinGW" "<a href="https://en.perlzemi.com/blog/20180806153350.html"> How to use msys2 </a>" "Use WSL2 to create a Linux environment" How to make it "and so on.
+For Windows, "How to use MinGW" "<a href="https://en.perlzemi.com/blog/20180806153350.html"> How to use msys2</a>" "Use WSL2 to create a Linux environment" How to make it "and so on.
 
-<h4> MinGW </ h4>
+<h4> MinGW </h4>
 
-MinGW can be downloaded and installed individually, but it comes with Strawberry Perl, so <a href="https://en.perlzemi.com/blog/20180808153368.html"> Strawberry One way is to try installing Perl </a>. This is the easiest.
+MinGW can be downloaded and installed individually, but it comes with Strawberry Perl, so <a href="https://en.perlzemi.com/blog/20180808153368.html"> Strawberry One way is to try installing Perl</a>. This is the easiest.
 
-<h4> msys2 </ h4>
+<h4> msys2 </h4>
 
-<a href="https://en.perlzemi.com/blog/20180806153350.html"> How to use msys2 </a>, once the procedure for building the Perl development environment is completed, C language development will occur naturally. The environmental procedure is complete.
+<a href="https://en.perlzemi.com/blog/20180806153350.html"> How to use msys2</a>, once the procedure for building the Perl development environment is completed, C language development will occur naturally. The environmental procedure is complete.
 
-<h4> WSL2 </ h4>
+<h4> WSL2 </h4>
 
-I think that installing Ubuntu is a natural way to use WSL2, so after installing WSL2, <a href="https://en.ubuntu.perlzemi.com/blog/20201123133738.html" Please refer to "> C language / C ++ development environment construction on Ubuntu </a>.
+I think that installing Ubuntu is a natural way to use WSL2, so after installing WSL2, <a href="https://en.ubuntu.perlzemi.com/blog/20201123133738.html" Please refer to "> C language / C ++ development environment construction on Ubuntu</a>.
 
-<h3> Construction of development environment for C language development environment on Mac </ h3>
+<h3> Construction of development environment for C language development environment on Mac </h3>
 
 On Mac, you can use the gcc command by installing the Command line tools for Xcode. The Mac gcc command is a wrapper for clang.
 
 <ul>
-  <li> <a href="https://www.embarcadero.com/starthere/xe5/mobdevsetup/ios/ja/installing_the_commandline_tools.html"> Installing Xcode command line tools on Mac </a> </ li>
-</ ul>
+  <li> <a href="https://www.embarcadero.com/starthere/xe5/mobdevsetup/ios/ja/installing_the_commandline_tools.html"> Installing Xcode command line tools on Mac</a> </li>
+</ul>
 
 
-<h3> Building a C language development environment on UNIX / Linux </ h3>
+<h3> Building a C language development environment on UNIX / Linux </h3>
 
-Let's build a C language development environment with <a href="https://en.linux.perlzemi.com/"> Unix / Linux </a>.
+Let's build a C language development environment with <a href="https://en.linux.perlzemi.com/"> Unix / Linux</a>.
 
 You can install gcc using the commands (yum and apt) that install the packages provided by your distribution.
 
 If you are in the C language development environment on Ubuntu, you can refer to the following contents.
 
 <ul>
-  <li> <a href="https://en.ubuntu.perlzemi.com/blog/20201123133738.html"> C language / C ++ development environment construction on Ubuntu </a> </ li>
-</ ul>
+  <li> <a href="https://en.ubuntu.perlzemi.com/blog/20201123133738.html"> C language / C ++ development environment construction on Ubuntu</a> </li>
+</ul>
 
 A sample installation of gcc on Ubuntu.
 
 <pre>
 sudo apt install -y gcc
-</ pre>
+</pre>
 
-Install packages provided by the distribution in other <a href="https://en.linux.perlzemi.com/"> Unix / Linux </a> environments such as Debian, CentOS, FreeBSD, etc. You can do the same with commands (yum and apt).
+Install packages provided by the distribution in other <a href="https://en.linux.perlzemi.com/"> Unix / Linux</a> environments such as Debian, CentOS, FreeBSD, etc. You can do the same with commands (yum and apt).

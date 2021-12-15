@@ -2,23 +2,23 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/compile.html">
-        <span itemprop = "name"> Compile </ span>
-      </a>
+        <span itemprop = "name"> Compile </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> Compile C language source code </ h2>
+<h2> Compile C language source code </h2>
 
 Let's compile the C language source code. This is a pure compilation that produces an object file from C source code.
 
@@ -31,7 +31,7 @@ Use the "-c" option to compile.
 <pre>
 #Compile C language source files
 gcc -c input source code file name
-</ pre>
+</pre>
 
 Let's create an object file called "test.o" from a file called "test.c".
 
@@ -41,23 +41,23 @@ Let's create an object file called "test.o" from a file called "test.c".
 #include <stdio.h>
 
 int main (void) {
-  printf ("Hello World! \ N");
+  printf("Hello World! \ N");
 }
-</ pre>
+</pre>
 
 Execute the gcc command. An object file called "test.o" will be generated.
 
 <pre>
 gcc -c test.c
-</ pre>
+</pre>
 
 If you want to specify the output file name yourself, you can use the "-o" option.
 
 <pre>
 gcc -o test2.o -c test.c
-</ pre>
+</pre>
 
-<h3> Link to generate an executable file from the object file </ h3>
+<h3> Link to generate an executable file from the object file </h3>
 
 Let's generate an executable file from one object file. This work is called a link, but it doesn't feel like a link because it creates one executable file from one object file.
 
@@ -66,25 +66,25 @@ Generate the executable file "test" from the object file "test.o" generated earl
 <pre>
 #Generate an executable file from an object file
 gcc -o test test.o
-</ pre>
+</pre>
 
 Let's check if "test" can be executed as an executable file.
 
 <pre>
 ./test
-</ pre>
+</pre>
 
-<h3> Can one executable file be generated from multiple object files? </ h3>
+<h3> Can one executable file be generated from multiple object files? </h3>
 
 Yes. You can generate one executable file from multiple object files.
 
 <pre>
 gcc -o test test.o foo.o bar.o
-</ pre>
+</pre>
 
 I'll do this in the discussion of split compilation.
 
-<h3> Is there a compiler other than gcc? </ H3>
+<h3> Is there a compiler other than gcc? </H3>
 
 Think of gcc as the default C language compiler for UNIX / Linux created by the GNU Project.
 

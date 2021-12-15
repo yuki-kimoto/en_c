@@ -2,47 +2,47 @@
   <ul itemscope itemtype = "http://schema.org/BreadcrumbList">
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/">
-        <span itemprop = "name"> C language </ span>
-      </a>
+        <span itemprop = "name"> C language </span>
+     </a>
       <meta itemprop = "position" content = "1" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library.html">
-        <span itemprop = "name"> C standard library </ span>
-      </a>
+        <span itemprop = "name"> C standard library </span>
+     </a>
       <meta itemprop = "position" content = "2" />
-    </ li>
+    </li>
     <li itemprop = "itemListElement" itemscope itemtype = "http://schema.org/ListItem">
       <a itemprop="item" href="/library/string.html">
-        <span itemprop = "name"> string.h </ span>
-      </a>
+        <span itemprop = "name"> string.h </span>
+     </a>
       <meta itemprop = "position" content = "3" />
-    </ li>
+    </li>
     <li>
       here
-    </ li>
-  </ ul>
-</ div>
+    </li>
+  </ul>
+</div>
 
-<h2> memmove function-copy memory area in bytes </ h2>
+<h2> memmove function-copy memory area in bytes </h2>
 
-The <b> memmove function </ b> is a function that copies the memory area in bytes. Include "<a href="/blog/20210303101711.html"> string.h </a>". The <a href="/blog/20210221132505.html"> memcpy function </a> is not guaranteed to work if the copy destination and copy source data areas overlap, but the memmove function is guaranteed. increase.
+The <b> memmove function </b> is a function that copies the memory area in bytes. Include "<a href="/blog/20210303101711.html"> string.h</a>". The <a href="/blog/20210221132505.html"> memcpy function</a> is not guaranteed to work if the copy destination and copy source data areas overlap, but the memmove function is guaranteed. increase.
 
 <pre>
 #include <string.h>
 
 void * memmove (void * buf1, const void * buf2, size_t n);
-</ pre>
+</pre>
 
-The first argument is the <a href="/blog/20210211090234.html"> address </a> of the copy destination. <a href="/blog/20210215090234.html"> General-purpose pointer type </a>, so any pointer type is fine.
+The first argument is the <a href="/blog/20210211090234.html"> address</a> of the copy destination. <a href="/blog/20210215090234.html"> General-purpose pointer type</a>, so any pointer type is fine.
 
-The second argument is the <a href="/blog/20210211090234.html"> address </a> of the copy source. <a href="/blog/20210215090234.html"> General-purpose pointer type </a>, so any pointer type is fine.
+The second argument is the <a href="/blog/20210211090234.html"> address</a> of the copy source. <a href="/blog/20210215090234.html"> General-purpose pointer type</a>, so any pointer type is fine.
 
-Specify the byte size in the third argument. It is size_t type. <a href="/blog/20201130082751.html"> int32_t </a> If the value is 0 or more in the range up to the type, it is safe first. Specifying 0 is a valid argument, in which case no copy will be done.
+Specify the byte size in the third argument. It is size_t type. <a href="/blog/20201130082751.html"> int32_t</a> If the value is 0 or more in the range up to the type, it is safe first. Specifying 0 is a valid argument, in which case no copy will be done.
 
-<h3> Delete the first character of the string </ h3>
+<h3> Delete the first character of the string </h3>
 
-This is a sample to delete the first character of <a href="/blog/20210331101342.html"> string </a> with the memmove function. Since the areas overlap, use the memmove function. I am getting the length of the string with the <a href="/blog/20210405101342.html"> strlen function </a>.
+This is a sample to delete the first character of <a href="/blog/20210331101342.html"> string</a> with the memmove function. Since the areas overlap, use the memmove function. I am getting the length of the string with the <a href="/blog/20210405101342.html"> strlen function</a>.
 
 <pre>
 #include <string.h>
@@ -52,7 +52,7 @@ This is a sample to delete the first character of <a href="/blog/20210331101342.
 
 int main (void) {
   // Variable name
-  const char * var_name = "$ foo";
+  const char * var_name = "$foo";
   
   // Variable name length
   int32_t var_name_length = strlen (var_name);
@@ -65,14 +65,14 @@ int main (void) {
   memmove (var_name_alphabet, var_name_alphabet + 1, var_name_length --1);
   var_name_alphabet [var_name_length --1] ='\ 0';
   
-  printf ("% s \ n", var_name_alphabet);
+  printf("%s\n", var_name_alphabet);
   
   free (var_name_alphabet);
 }
-</ pre>
+</pre>
 
 This is the output result.
 
 <pre>
 foo
-</ pre>
+</pre>
